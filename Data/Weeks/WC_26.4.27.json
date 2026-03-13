@@ -1,0 +1,304 @@
+{
+  "weekCommencing": "2026-04-27",
+  "days": [
+    {
+      "date": "2026-04-27",
+      "dow": "Monday",
+      "leave": {
+        "registrars": [
+          "BR",
+          "CW",
+          "SA"
+        ],
+        "shos": [
+          "KR",
+          "SK"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "TO",
+        "wardSho": "BA",
+        "oncallReg": "TO",
+        "oncallConsultant": null,
+        "daySHO": "DE",
+        "nightSHO": "SN"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "ZA",
+          "sho": "BA"
+        },
+        {
+          "type": "theatre",
+          "label": "DSU1",
+          "time": "all_day",
+          "reg": "OS",
+          "sho": "DE"
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "TO",
+          "sho": "DE"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-28",
+      "dow": "Tuesday",
+      "leave": {
+        "registrars": [
+          "BR",
+          "HS"
+        ],
+        "shos": [
+          "OG",
+          "SK"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "TO",
+        "wardSho": "BA",
+        "oncallReg": "OH",
+        "oncallConsultant": null,
+        "daySHO": "DS",
+        "nightSHO": "SN"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "ZA",
+          "sho": "BA"
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "OH",
+          "sho": "DS"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-29",
+      "dow": "Wednesday",
+      "leave": {
+        "registrars": [
+          "AE",
+          "BR",
+          "OH"
+        ],
+        "shos": [
+          "KR",
+          "SK"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "TO",
+        "wardSho": "BA",
+        "oncallReg": "OS",
+        "oncallConsultant": null,
+        "daySHO": "DE",
+        "nightSHO": "SN"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "ZA",
+          "sho": "BA"
+        },
+        {
+          "type": "theatre",
+          "label": "DSU1",
+          "time": "all_day",
+          "reg": "SA",
+          "sho": "DE"
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "OS",
+          "sho": "DE"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "dow": "Thursday",
+      "leave": {
+        "registrars": [
+          "LG",
+          "MHA",
+          "OS"
+        ],
+        "shos": [
+          "SK"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "TO",
+        "wardSho": "BA",
+        "oncallReg": "ZA",
+        "oncallConsultant": null,
+        "daySHO": "DS",
+        "nightSHO": "SN"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "SA",
+          "sho": "BA"
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "ZA",
+          "sho": "DS"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-01",
+      "dow": "Friday",
+      "leave": {
+        "registrars": [
+          "LA",
+          "SA",
+          "ZA"
+        ],
+        "shos": [
+          "LC",
+          "SK"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "OH",
+        "wardSho": "BA",
+        "oncallReg": "AE",
+        "oncallConsultant": null,
+        "daySHO": "KR",
+        "nightSHO": "SS"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "TO",
+          "sho": "BA"
+        },
+        {
+          "type": "theatre",
+          "label": "DSU1",
+          "time": "all_day",
+          "reg": "OS",
+          "sho": "DE"
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "AE",
+          "sho": "KR"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-02",
+      "dow": "Saturday",
+      "leave": {
+        "registrars": [
+          "AE",
+          "JC",
+          "TO"
+        ],
+        "shos": [
+          "OO",
+          "SK"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "OH",
+        "wardSho": "BA",
+        "oncallReg": "AL",
+        "oncallConsultant": null,
+        "daySHO": "KR",
+        "nightSHO": "SS"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "AL",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "OH",
+          "sho": "KR"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-03",
+      "dow": "Sunday",
+      "leave": {
+        "registrars": [
+          "AL",
+          "HS",
+          "TO"
+        ],
+        "shos": [
+          "DE",
+          "SK"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "OH",
+        "wardSho": "BA",
+        "oncallReg": "AZ",
+        "oncallConsultant": null,
+        "daySHO": "KR",
+        "nightSHO": "SS"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "AZ",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "OH",
+          "sho": "KR"
+        }
+      ]
+    }
+  ]
+}

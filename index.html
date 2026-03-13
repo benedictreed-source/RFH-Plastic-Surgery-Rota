@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rota Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface2: #f1f5f9;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --accent: #2563eb;
+      --reg: #0d9488;
+      --sho: #b45309;
+      --theatre-bg: #dbeafe;
+      --theatre-border: #93c5fd;
+      --clinic-bg: #dcfce7;
+      --clinic-border: #86efac;
+      --other-bg: #f8fafc;
+      --conflict-border: #fecaca;
+      --conflict-bg: #fee2e2;
+      --conflict-text: #b91c1c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 15px;
+    }
+    .app {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h1 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .week-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .week-nav button {
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .week-nav button:hover {
+      background: var(--surface2);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .week-nav span {
+      min-width: 160px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--text);
+    }
+    .view-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-left: 0.75rem;
+    }
+    .view-tab-button {
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .view-tab-button.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--surface2);
+    }
+    .legend {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+    .legend span { display: flex; align-items: center; gap: 0.35rem; }
+    .legend .reg { color: var(--reg); font-weight: 500; }
+    .legend .sho { color: var(--sho); font-weight: 500; }
+    .legend .swatch-theatre { background: var(--theatre-bg); border: 1px solid var(--theatre-border); padding: 0 0.35rem; font-size: 0.7rem; }
+    .legend .swatch-clinic { background: var(--clinic-bg); border: 1px solid var(--clinic-border); padding: 0 0.35rem; font-size: 0.7rem; }
+    .loading, .error {
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .error { color: #dc2626; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      background: var(--surface);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.65rem;
+      vertical-align: top;
+    }
+    th {
+      text-align: left;
+      font-weight: 600;
+      background: var(--surface2);
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+    }
+    th.col-activity { min-width: 100px; }
+    th.col-spr, th.col-sho { width: 52px; text-align: center; }
+    th.col-leave, th.col-oncall { min-width: 90px; }
+    td.day-cell {
+      font-weight: 600;
+      width: 72px;
+      min-width: 72px;
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      vertical-align: top;
+      padding-top: 0.65rem;
+      background: var(--surface2);
+    }
+    tr.row-theatre td { background: var(--theatre-bg); border-color: var(--theatre-border); }
+    tr.row-theatre td.day-cell { background: #c7d9f5; border-color: var(--theatre-border); }
+    tr.row-clinic td { background: var(--clinic-bg); border-color: var(--clinic-border); }
+    tr.row-clinic td.day-cell { background: #b8e6c8; border-color: var(--clinic-border); }
+    tr.row-other td { background: var(--other-bg); }
+    tr.row-other td.day-cell { background: var(--surface2); }
+    tr.row-theatre:hover td { background: #bfdbfe; }
+    tr.row-theatre:hover td.day-cell { background: #93c5fd; }
+    tr.row-clinic:hover td { background: #bbf7d0; }
+    tr.row-clinic:hover td.day-cell { background: #86efac; }
+    tr.row-other:hover td { background: #f1f5f9; }
+    td.day-cell .dow { text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.75rem; }
+    td.day-cell .date { font-size: 0.7rem; font-weight: 500; color: var(--text-muted); }
+    td.leave-cell, td.oncall-cell { font-size: 0.8125rem; vertical-align: top; color: var(--text); }
+    td .event-label-inline { color: var(--text-muted); font-size: 0.8125rem; }
+    td .reg { color: var(--reg); font-weight: 600; }
+    td .sho { color: var(--sho); font-weight: 600; }
+    td .na { color: var(--text-muted); font-style: italic; }
+    .conflict {
+      border-radius: 4px;
+      padding: 0.05rem 0.2rem;
+      border: 1px solid var(--conflict-border);
+      background: var(--conflict-bg);
+      color: var(--conflict-text);
+    }
+    .conflict-legend {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .conflict-legend-swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      border: 1px solid var(--conflict-border);
+      background: var(--conflict-bg);
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <h1>Rota Manager</h1>
+        <div class="legend">
+          <span class="reg">■ SpR</span>
+          <span class="sho">■ SHO</span>
+          <span class="swatch-theatre">Theatre</span>
+          <span class="swatch-clinic">Clinic</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <div class="week-nav" id="weekNav">
+          <button type="button" id="prevWeek">← Previous</button>
+          <span id="weekLabel">—</span>
+          <button type="button" id="nextWeek">Next →</button>
+        </div>
+        <div class="view-tabs">
+          <button type="button" id="tabWeek" class="view-tab-button active">Week</button>
+          <button type="button" id="tabMonth" class="view-tab-button">Month</button>
+        </div>
+      </div>
+    </header>
+    <div id="content">
+      <div id="weekView">
+        <div class="loading" id="loading">Loading rota data…</div>
+        <div class="error" id="error" style="display:none;"></div>
+        <div id="gridWrap" style="display:none;"></div>
+      </div>
+      <div id="monthView" style="display:none; margin-top:1rem;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:0.75rem;">
+          <div>
+            <div style="font-weight:600; font-size:0.95rem; letter-spacing:-0.02em;">On‑call &amp; leave – month view</div>
+            <div style="font-size:0.82rem; color:var(--text-muted); margin-top:0.1rem;">Snapshot of ward, on‑call and leave for the selected month.</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.75rem;">
+            <div class="week-nav" id="monthNav">
+              <button type="button" id="prevMonthBtn">← Previous</button>
+              <span class="week-label" id="monthLabel" style="min-width:150px; text-align:center; font-weight:600; font-size:0.9rem;">—</span>
+              <button type="button" id="nextMonthBtn">Next →</button>
+            </div>
+            <div class="select">
+              <select id="monthSelect"></select>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th class="col-dow">Mon</th>
+                <th class="col-dow">Tue</th>
+                <th class="col-dow">Wed</th>
+                <th class="col-dow">Thu</th>
+                <th class="col-dow">Fri</th>
+                <th class="col-dow">Sat</th>
+                <th class="col-dow">Sun</th>
+              </tr>
+            </thead>
+            <tbody id="monthBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const REF_MONDAY = new Date('2026-02-23');
+      const MONTH_NAMES = [
+        'January','February','March','April','May','June',
+        'July','August','September','October','November','December'
+      ];
+      let people = null;
+      let scheduleFromMd = null;
+      const DSU1_DAYS = ['Monday', 'Wednesday', 'Friday'];
+      const FALLBACK_SCHEDULE = { listsByDay: {}, clinicsByDay: {} };
+      let pairings = null;
+      let currentMonday = null;
+      let oncallCalendar = {};
+      let leaveCalendar = {};
+
+      function parseCSV(text) {
+        const rows = [];
+        let current = '';
+        let inQuotes = false;
+        for (let i = 0; i < text.length; i++) {
+          const ch = text[i];
+          if (inQuotes) {
+            if (ch === '"' && text[i + 1] === '"') { current += '"'; i++; }
+            else if (ch === '"') { inQuotes = false; }
+            else { current += ch; }
+          } else {
+            if (ch === '"') { inQuotes = true; }
+            else if (ch === ',') { rows.length ? rows[rows.length - 1].push(current) : rows.push([current]); current = ''; }
+            else if (ch === '\n' || ch === '\r') {
+              if (ch === '\r' && text[i + 1] === '\n') i++;
+              if (rows.length) rows[rows.length - 1].push(current);
+              else rows.push([current]);
+              current = '';
+              rows.push([]);
+            } else { current += ch; }
+          }
+        }
+        if (current || (rows.length && rows[rows.length - 1] !== undefined)) {
+          if (rows.length) rows[rows.length - 1].push(current);
+          else rows.push([current]);
+        }
+        while (rows.length && rows[rows.length - 1].join('') === '') rows.pop();
+        return rows;
+      }
+
+      function loadDataFromCSV(csvText) {
+        const rows = parseCSV(csvText);
+        if (rows.length < 2) throw new Error('CSV has no data rows');
+        const hdr = rows[0];
+        const col = {};
+        hdr.forEach((h, i) => { if (h) col[h] = i; });
+
+        const consultants = [];
+        const registrars = [];
+        const shos = [];
+        const pairingsMap = {};
+        const scheduleWeeks = {};
+        const dayNames = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+        const oncall = {};
+        const leave = {};
+        const regsSeen = new Set();
+
+        for (let r = 1; r < rows.length; r++) {
+          const c = rows[r];
+          const val = idx => (c[idx] || '').trim();
+
+          const pType = val(col['Type']);
+          if (pType) {
+            const id = val(col['Consultant ID']);
+            const name = val(col['Consultant']);
+            if (pType === 'Consultant') {
+              consultants.push({ id, name });
+              const regIds = [];
+              const r1Init = val(col['Reg1Init']);
+              if (r1Init) {
+                const r1Name = val(col['Reg1']);
+                const r1Phone = val(col['Reg1No']);
+                const r1Level = val(col['Reg1Level']);
+                if (!regsSeen.has(r1Init)) {
+                  const item = { id: r1Init, name: r1Name };
+                  if (r1Phone) item.phone = r1Phone;
+                  if (r1Level) item.level = r1Level;
+                  registrars.push(item);
+                  regsSeen.add(r1Init);
+                }
+                regIds.push(r1Init);
+              }
+              const r2Init = val(col['Reg2Init']);
+              if (r2Init) {
+                const r2Name = val(col['Reg2']);
+                const r2Phone = val(col['Reg2No']);
+                const r2Level = val(col['Reg2Level']);
+                if (!regsSeen.has(r2Init)) {
+                  const item = { id: r2Init, name: r2Name };
+                  if (r2Phone) item.phone = r2Phone;
+                  if (r2Level) item.level = r2Level;
+                  registrars.push(item);
+                  regsSeen.add(r2Init);
+                }
+                regIds.push(r2Init);
+              }
+              pairingsMap[id] = regIds;
+            }
+            else if (pType === 'SHO') shos.push({ id, name });
+          }
+
+          const sWeek = val(col['s_week']);
+          if (sWeek) {
+            const key = 'week' + sWeek;
+            if (!scheduleWeeks[key]) {
+              const lb = {}, cb = {};
+              dayNames.forEach(d => { lb[d] = []; cb[d] = []; });
+              scheduleWeeks[key] = { listsByDay: lb, clinicsByDay: cb };
+            }
+            const sw = scheduleWeeks[key];
+            const day = val(col['s_day']);
+            const listsStr = val(col['s_lists']);
+            const clinicsStr = val(col['s_clinics']);
+            if (day && dayNames.includes(day)) {
+              sw.listsByDay[day] = listsStr
+                ? listsStr.split(',').map(s => s.trim()).filter(Boolean).map(id => ({ consultantId: id }))
+                : [];
+              sw.clinicsByDay[day] = clinicsStr
+                ? clinicsStr.split(',').map(s => s.trim()).filter(Boolean).map(entry => {
+                    const parts = entry.split(/\s+/);
+                    return { consultantId: parts[0], half: parts[1] || 'am' };
+                  })
+                : [];
+            }
+          }
+
+          const dt = val(col['date']);
+          if (dt) {
+            oncall[dt] = {
+              wardReg: val(col['wardReg']) || null,
+              wardSho: val(col['wardSHO']) || null,
+              oncallRegId: val(col['oncallReg']) || null,
+              oncallConsultant: val(col['oncallConsultant']) || null,
+              daySho: val(col['daySHO']) || null,
+              nightSho: val(col['nightSHO']) || null
+            };
+            const lRegsStr = col['leaveRegs'] !== undefined ? val(col['leaveRegs']) : '';
+            const lShosStr = col['leaveSHOs'] !== undefined ? val(col['leaveSHOs']) : '';
+            const ln = val(col['leaveNotes']);
+            const regsArr = lRegsStr ? lRegsStr.split(',').map(s => s.trim()).filter(Boolean) : [];
+            const shosArr = lShosStr ? lShosStr.split(',').map(s => s.trim()).filter(Boolean) : [];
+            const ids = [...new Set([...regsArr, ...shosArr])];
+            leave[dt] = {
+              ids,
+              regs: regsArr,
+              shos: shosArr,
+              notes: ln
+            };
+          }
+        }
+
+        return {
+          people: { consultants, registrars, shos },
+          pairingsData: { description: 'From data.csv', pairings: pairingsMap },
+          schedule: scheduleWeeks,
+          oncall,
+          leave
+        };
+      }
+
+      function getScheduleForDate(date) {
+        if (!scheduleFromMd) return FALLBACK_SCHEDULE;
+        const days = Math.round((date - REF_MONDAY) / 86400000);
+        const weekIndex = Math.floor(days / 7);
+        const parity = ((weekIndex % 2) + 2) % 2;
+        const key = parity === 0 ? 'week1' : 'week2';
+        const s = scheduleFromMd[key];
+        if (s) return s;
+        return scheduleFromMd.week1 || FALLBACK_SCHEDULE;
+      }
+
+      function parseDate(s) {
+        const d = new Date(s);
+        d.setHours(0, 0, 0, 0);
+        return d;
+      }
+
+      function getMonday(d) {
+        const date = new Date(d);
+        date.setHours(0, 0, 0, 0);
+        const day = date.getDay();
+        const diff = day === 0 ? -6 : 1 - day;
+        date.setDate(date.getDate() + diff);
+        return date;
+      }
+
+      function dateKey(d) {
+        return d.toISOString().slice(0, 10);
+      }
+
+      function getRegsForConsultant(consultantId) {
+        if (!pairings || !pairings.pairings) return [];
+        return pairings.pairings[consultantId] || [];
+      }
+      function getRegForConsultant(consultantId) {
+        const regs = getRegsForConsultant(consultantId);
+        return regs.length ? regs[0] : null;
+      }
+      function getRegForConsultantNotUsed(consultantId, usedSet) {
+        const regs = getRegsForConsultant(consultantId);
+        for (let i = 0; i < regs.length; i++) if (!usedSet.has(regs[i])) return regs[i];
+        return null;
+      }
+      function getRegForConsultantListOrClinic(consultantId, wardReg, usedSet, leaveSet) {
+        const regs = getRegsForConsultant(consultantId);
+        for (let i = 0; i < regs.length; i++) {
+          const r = regs[i];
+          if (r !== wardReg && !usedSet.has(r) && !(leaveSet && leaveSet.has(r))) return r;
+        }
+        return null;
+      }
+      function getRegForConsultantListOrClinicWithFallback(consultantId, wardReg, oncallRegId, usedSet, leaveSet) {
+        const preferred = getRegForConsultantListOrClinic(consultantId, wardReg, usedSet, leaveSet);
+        if (preferred) return preferred;
+        for (let i = 0; i < people.registrars.length; i++) {
+          const r = people.registrars[i].id;
+          if (r !== wardReg && r !== oncallRegId && !usedSet.has(r) && !(leaveSet && leaveSet.has(r))) return r;
+        }
+        return null;
+      }
+
+      function getDayContext(date) {
+        const key = dateKey(date);
+        const cal = oncallCalendar[key] || {};
+        const wardReg = cal.wardReg || null;
+        const wardSho = cal.wardSho || null;
+        const oncallRegId = cal.oncallRegId || null;
+        const daySho = cal.daySho || null;
+        const nightSho = cal.nightSho || null;
+        const oncallConsultant = cal.oncallConsultant || null;
+        return { wardReg, wardSho, oncallRegId, daySho, nightSho, oncallConsultant };
+      }
+
+      function getLeaveSetForDate(date) {
+        const key = dateKey(date);
+        const fromMd = leaveCalendar[key];
+        if (fromMd) {
+          if (Array.isArray(fromMd.ids) && fromMd.ids.length) {
+            return new Set(fromMd.ids);
+          }
+          const all = [];
+          if (Array.isArray(fromMd.regs)) all.push(...fromMd.regs);
+          if (Array.isArray(fromMd.shos)) all.push(...fromMd.shos);
+          if (all.length) return new Set(all);
+        }
+        return new Set();
+      }
+
+      function buildDayAssignments(date) {
+        const dow = date.getDay();
+        const isWeekend = dow === 0 || dow === 6;
+        const dayName = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][dow];
+        const leaveSet = getLeaveSetForDate(date);
+        const context = getDayContext(date);
+        let wardReg = context.wardReg;
+        let wardSho = context.wardSho;
+        let oncallRegId = context.oncallRegId;
+        let oncallShoId = context.daySho;
+        let nightSho = context.nightSho;
+
+        if (leaveSet.has(wardReg)) wardReg = null;
+        if (leaveSet.has(wardSho)) wardSho = null;
+        if (leaveSet.has(oncallRegId)) oncallRegId = null;
+        if (leaveSet.has(oncallShoId)) oncallShoId = null;
+        if (leaveSet.has(nightSho)) nightSho = null;
+        const isDsu1Day = DSU1_DAYS.includes(dayName);
+
+        // Start from all SHOs; filter out anyone on leave for this date.
+        var extraShos = (people.shos || []).map(s => s.id).filter(id => !leaveSet.has(id));
+        var nextShoIndex = 0;
+        function takeExtraSho() {
+          if (nextShoIndex >= extraShos.length) return null;
+          return extraShos[nextShoIndex++];
+        }
+
+        var regsUsedByListClinic = new Set([oncallRegId].filter(Boolean));
+        const schedule = getScheduleForDate(date);
+        const dayLists = (schedule && schedule.listsByDay && schedule.listsByDay[dayName]) || [];
+        const listEntries = dayLists.map(entry => {
+          const reg = getRegForConsultantListOrClinicWithFallback(entry.consultantId, wardReg, oncallRegId, regsUsedByListClinic, leaveSet);
+          if (reg) regsUsedByListClinic.add(reg);
+          return { consultantId: entry.consultantId, reg, wantsSho: true, sho: null };
+        });
+        const dayClinics = (schedule && schedule.clinicsByDay && schedule.clinicsByDay[dayName]) || [];
+        const clinicEntries = Array.isArray(dayClinics)
+          ? dayClinics.map(c => {
+              const consultantId = typeof c === 'object' && c && 'consultantId' in c ? c.consultantId : c;
+              const half = (c && c.half) ? c.half : 'am';
+              const reg = getRegForConsultantListOrClinicWithFallback(consultantId, wardReg, oncallRegId, regsUsedByListClinic, leaveSet);
+              if (reg) regsUsedByListClinic.add(reg);
+              return { consultantId, reg: reg || null, half };
+            })
+          : [];
+        var dsu2Reg, dsu2Sho;
+        if (isWeekend) {
+          dsu2Reg = oncallRegId;
+          dsu2Sho = null;
+        } else {
+          dsu2Reg = null;
+          for (let i = 0; i < people.registrars.length; i++) {
+            const r = people.registrars[i].id;
+            if (r !== wardReg && r !== oncallRegId && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
+              dsu2Reg = r;
+              break;
+            }
+          }
+          dsu2Sho = takeExtraSho();
+        }
+        var dsu1Reg = null, dsu1Sho = null;
+        if (isDsu1Day) {
+          for (let i = 0; i < people.registrars.length; i++) {
+            const r = people.registrars[i].id;
+            if (r !== wardReg && r !== oncallRegId && r !== dsu2Reg && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
+              dsu1Reg = r;
+              break;
+            }
+          }
+          if (!dsu1Reg) {
+            let idx = people.registrars.findIndex(r => r.id === wardReg);
+            for (let k = 0; k < 20; k++) {
+              const r = people.registrars[(idx + 5 + k) % 20].id;
+              if (r !== oncallRegId && r !== dsu2Reg && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
+                dsu1Reg = r;
+                break;
+              }
+            }
+          }
+          dsu1Sho = takeExtraSho();
+        }
+        listEntries.forEach(e => {
+          if (e.wantsSho) e.sho = takeExtraSho();
+        });
+        const list = [];
+        list.push({ name: 'Ward', reg: wardReg, sho: wardSho });
+        list.push({ name: 'DSU2', reg: dsu2Reg, sho: dsu2Sho });
+        if (isWeekend) {
+          list.push({ name: 'Trauma clinic', reg: wardReg, sho: oncallShoId });
+        } else {
+          list.push({ name: 'Trauma clinic', reg: oncallRegId, sho: oncallShoId });
+        }
+        if (dsu1Reg) list.push({ name: 'DSU1', reg: dsu1Reg, sho: dsu1Sho });
+        list.push({ name: 'Consultant lists', lists: listEntries });
+        list.push({ name: 'Consultant clinics', clinics: clinicEntries });
+        list.push({ name: 'On-call Reg', reg: oncallRegId, sho: null });
+        list.push({ name: 'Night SHO', reg: null, sho: nightSho });
+        return list;
+      }
+
+      function buildDayEvents(date) {
+        const assignments = buildDayAssignments(date);
+        const theatreEvents = [];
+        const clinicEvents = [];
+        const otherEvents = [];
+        const dsu2 = assignments.find(a => a.name === 'DSU2');
+        const trauma = assignments.find(a => a.name === 'Trauma clinic');
+        const dsu1 = assignments.find(a => a.name === 'DSU1');
+        const listBlock = assignments.find(a => a.name === 'Consultant lists');
+        const clinicBlock = assignments.find(a => a.name === 'Consultant clinics');
+
+        const add = (arr, label, amReg, amSho, pmReg, pmSho, type) =>
+          arr.push({ label, amReg: amReg || null, amSho: amSho || null, pmReg: pmReg || null, pmSho: pmSho || null, type: type || 'other' });
+
+        add(theatreEvents, 'DSU2', dsu2?.reg, dsu2?.sho, dsu2?.reg, dsu2?.sho, 'theatre');
+        if (dsu1) add(theatreEvents, 'DSU1', dsu1.reg, dsu1.sho, dsu1.reg, dsu1.sho, 'theatre');
+        if (listBlock?.lists?.length) {
+          listBlock.lists.forEach(e => add(theatreEvents, e.consultantId + ' Theatre', e.reg, e.sho || null, e.reg, e.sho || null, 'theatre'));
+        }
+        add(clinicEvents, 'Trauma clinic', trauma?.reg, trauma?.sho, trauma?.reg, trauma?.sho, 'clinic');
+        if (clinicBlock?.clinics?.length) {
+          clinicBlock.clinics.forEach(c => {
+            const half = c.half || 'am';
+            add(clinicEvents, c.consultantId + ' Clinic', half === 'am' ? c.reg : null, null, half === 'pm' ? c.reg : null, null, 'clinic');
+          });
+        }
+        return [...theatreEvents, ...clinicEvents];
+      }
+
+      function getLeaveAndOncall(date) {
+        const key = dateKey(date);
+        const fromMd = leaveCalendar[key];
+        let leaveReg = '—';
+        let leaveSho = '—';
+        if (fromMd) {
+          if (Array.isArray(fromMd.regs) && fromMd.regs.length) {
+            leaveReg = fromMd.regs.join(', ');
+          }
+          if (Array.isArray(fromMd.shos) && fromMd.shos.length) {
+            leaveSho = fromMd.shos.join(', ');
+          }
+        }
+        const ctx = getDayContext(date);
+        const leaveSet = getLeaveSetForDate(date);
+        const safeWardReg = ctx.wardReg && !leaveSet.has(ctx.wardReg) ? ctx.wardReg : '—';
+        const safeWardSho = ctx.wardSho && !leaveSet.has(ctx.wardSho) ? ctx.wardSho : '—';
+        const safeOncallReg = ctx.oncallRegId && !leaveSet.has(ctx.oncallRegId) ? ctx.oncallRegId : '—';
+        const safeDaySho = ctx.daySho && !leaveSet.has(ctx.daySho) ? ctx.daySho : '—';
+        const safeNightSho = ctx.nightSho && !leaveSet.has(ctx.nightSho) ? ctx.nightSho : '—';
+        return {
+          leave: { reg: leaveReg, sho: leaveSho },
+          oncall: {
+            wardReg: safeWardReg,
+            wardSho: safeWardSho,
+            reg: safeOncallReg,
+            shoDay: safeDaySho,
+            shoNightMonThu: safeNightSho,
+            shoNightFriSun: safeNightSho
+          }
+        };
+      }
+
+      function renderMonth(year, monthIndex) {
+        const monthBody = document.getElementById('monthBody');
+        const monthLabel = document.getElementById('monthLabel');
+        if (!monthBody || !oncallCalendar) return;
+        const first = new Date(year, monthIndex, 1);
+        const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+        const firstDow = (first.getDay() + 6) % 7; // Monday=0
+        monthLabel.textContent = MONTH_NAMES[monthIndex] + ' ' + year;
+        const rows = [];
+        let day = 1;
+        while (day <= daysInMonth) {
+          const cells = [];
+          for (let dow = 0; dow < 7; dow++) {
+            if (rows.length === 0 && dow < firstDow || day > daysInMonth) {
+              cells.push('<td></td>');
+              continue;
+            }
+            const d = new Date(year, monthIndex, day);
+            d.setHours(0, 0, 0, 0);
+            const key = dateKey(d);
+            const ctx = getDayContext(d);
+            const fromMd = leaveCalendar[key] || { ids: [], notes: '' };
+            const leaveIds = fromMd.ids || [];
+            const notes = fromMd.notes || '';
+            const oncallInfo = getLeaveAndOncall(d).oncall;
+            const oncallLines = [];
+            oncallLines.push('<span class="cell-muted">Ward</span> <span class="reg">' + (oncallInfo.wardReg || '—') + '</span> / <span class="sho">' + (oncallInfo.wardSho || '—') + '</span>');
+            oncallLines.push('<span class="cell-muted">On‑call</span> <span class="reg">' + (oncallInfo.reg || '—') + '</span>');
+            oncallLines.push('<span class="cell-muted">Day SHO</span> <span class="sho">' + (oncallInfo.shoDay || '—') + '</span>');
+            oncallLines.push('<span class="cell-muted">Night SHO</span> <span class="sho">' + (oncallInfo.shoNightMonThu || oncallInfo.shoNightFriSun || '—') + '</span>');
+            const leaveStr = leaveIds.length
+              ? leaveIds.map(id => '<span class="leave-id">' + id + '</span>').join(', ')
+              : '<span class="cell-muted">None</span>';
+            const notesStr = notes ? '<span class="note">' + notes + '</span>' : '';
+            cells.push(
+              '<td>' +
+                '<div class="day-label"><span>' + day + '</span><small>' + key + '</small></div>' +
+                '<div>' + oncallLines.join('<br>') + '</div>' +
+                '<div style="margin-top:0.25rem;"><span class="cell-muted">Leave</span>: ' + leaveStr + '</div>' +
+                (notesStr ? '<div>' + notesStr + '</div>' : '') +
+              '</td>'
+            );
+            day++;
+          }
+          rows.push('<tr>' + cells.join('') + '</tr>');
+        }
+        monthBody.innerHTML = rows.join('');
+      }
+
+      function setActiveView(view) {
+        const weekView = document.getElementById('weekView');
+        const monthView = document.getElementById('monthView');
+        const tabWeek = document.getElementById('tabWeek');
+        const tabMonth = document.getElementById('tabMonth');
+        const weekNav = document.getElementById('weekNav');
+        const monthNav = document.getElementById('monthNav');
+        if (!weekView || !monthView) return;
+        if (view === 'month') {
+          weekView.style.display = 'none';
+          monthView.style.display = 'block';
+          if (weekNav) weekNav.style.visibility = 'hidden';
+          if (monthNav) monthNav.style.display = 'flex';
+          if (tabWeek) tabWeek.classList.remove('active');
+          if (tabMonth) tabMonth.classList.add('active');
+        } else {
+          weekView.style.display = 'block';
+          monthView.style.display = 'none';
+          if (weekNav) weekNav.style.visibility = 'visible';
+          if (monthNav) monthNav.style.display = 'none';
+          if (tabWeek) tabWeek.classList.add('active');
+          if (tabMonth) tabMonth.classList.remove('active');
+        }
+      }
+
+      function renderWeek(monday) {
+        currentMonday = monday;
+        const weekLabel = document.getElementById('weekLabel');
+        weekLabel.textContent = `Week commencing ${monday.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}`;
+
+        const weekDates = [];
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(monday);
+          d.setDate(monday.getDate() + i);
+          weekDates.push(d);
+        }
+
+        const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        const dayEventsList = weekDates.map(date => buildDayEvents(date));
+
+        let html = '<table><thead><tr>';
+        html += '<th>Day</th>';
+        html += '<th colspan="3">Morning</th>';
+        html += '<th colspan="3">Afternoon</th>';
+        html += '<th>Leave</th><th>On call</th>';
+        html += '</tr><tr>';
+        html += '<th></th><th class="col-activity">Activity</th><th class="col-spr">SpR</th><th class="col-sho">SHO</th>';
+        html += '<th class="col-activity">Activity</th><th class="col-spr">SpR</th><th class="col-sho">SHO</th>';
+        html += '<th class="col-leave"></th><th class="col-oncall"></th>';
+        html += '</tr></thead><tbody>';
+
+        weekDates.forEach((date, dayIndex) => {
+          const events = dayEventsList[dayIndex];
+          const leaveOncall = getLeaveAndOncall(date);
+          const leaveSet = getLeaveSetForDate(date);
+          const usedRegs = new Set();
+          const usedShos = new Set();
+          events.forEach(ev => {
+            if (ev.amReg) usedRegs.add(ev.amReg);
+            if (ev.pmReg) usedRegs.add(ev.pmReg);
+            if (ev.amSho) usedShos.add(ev.amSho);
+            if (ev.pmSho) usedShos.add(ev.pmSho);
+          });
+          const dow = date.getDay(); // 0 = Sunday, 6 = Saturday
+          const isWeekend = dow === 0 || dow === 6;
+          const availableRegs = !isWeekend && people && people.registrars
+            ? people.registrars.map(r => r.id).filter(id => !leaveSet.has(id) && !usedRegs.has(id))
+            : [];
+          const availableShos = !isWeekend && people && people.shos
+            ? people.shos.map(s => s.id).filter(id => !leaveSet.has(id) && !usedShos.has(id))
+            : [];
+          const n = events.length;
+          events.forEach((ev, rowIndex) => {
+            const rowClass = 'row-' + (ev.type || 'other');
+            const dayCell = rowIndex === 0
+              ? '<td class="day-cell" rowspan="' + n + '"><span class="dow">' + dayNames[dayIndex] + ' ' + date.getDate() + '</span></td>'
+              : '';
+            const na = '<span class="na">—</span>';
+            const amActivity = (ev.amReg || ev.amSho) ? ev.label : (ev.pmReg || ev.pmSho) ? na : ev.label;
+            const pmActivity = (ev.pmReg || ev.pmSho) ? ev.label : (ev.amReg || ev.amSho) ? na : ev.label;
+            const amSpR = ev.amReg
+              ? '<span class="reg' + (leaveSet.has(ev.amReg) ? ' conflict" title="On annual leave">' : '">') + ev.amReg + '</span>'
+              : na;
+            const amSHO = ev.amSho
+              ? '<span class="sho' + (leaveSet.has(ev.amSho) ? ' conflict" title="On annual leave">' : '">') + ev.amSho + '</span>'
+              : na;
+            const pmSpR = ev.pmReg
+              ? '<span class="reg' + (leaveSet.has(ev.pmReg) ? ' conflict" title="On annual leave">' : '">') + ev.pmReg + '</span>'
+              : na;
+            const pmSHO = ev.pmSho
+              ? '<span class="sho' + (leaveSet.has(ev.pmSho) ? ' conflict" title="On annual leave">' : '">') + ev.pmSho + '</span>'
+              : na;
+            let leaveCell = '';
+            let oncallCell = '';
+            if (rowIndex === 0) {
+              const leaveRegs = [leaveOncall.leave.reg].filter(Boolean);
+              const leaveSpRText = leaveRegs.length ? leaveRegs.map(r => '<span class="reg">' + r + '</span>').join(', ') : '—';
+              const leaveShoText = '<span class="sho">' + (leaveOncall.leave.sho || '—') + '</span>';
+              let extraLines = '';
+              if (availableRegs.length || availableShos.length) {
+                const availRegText = availableRegs.length
+                  ? availableRegs.map(r => '<span class="reg">' + r + '</span>').join(', ')
+                  : '—';
+                const availShoText = availableShos.length
+                  ? availableShos.map(s => '<span class="sho">' + s + '</span>').join(', ')
+                  : '—';
+                extraLines =
+                  '<br><span class="event-label-inline">Available SpR:</span> ' + availRegText +
+                  '<br><span class="event-label-inline">Available SHO:</span> ' + availShoText;
+              }
+              leaveCell =
+                '<td class="leave-cell" rowspan="' + n + '">' +
+                  'SpR: ' + leaveSpRText +
+                  '<br>SHO: ' + leaveShoText +
+                  extraLines +
+                '</td>';
+              const o = leaveOncall.oncall;
+              oncallCell = '<td class="oncall-cell" rowspan="' + n + '">Ward SpR: <span class="reg">' + (o.wardReg || '—') + '</span><br>Ward SHO: <span class="sho">' + (o.wardSho || '—') + '</span><br>On-call SpR: <span class="reg">' + (o.reg || '—') + '</span><br>SHO day: <span class="sho">' + (o.shoDay || '—') + '</span><br>SHO night: <span class="sho">' + (o.shoNightMonThu || o.shoNightFriSun || '—') + '</span></td>';
+            }
+            html += '<tr class="' + rowClass + '">' + dayCell;
+            html += '<td>' + amActivity + '</td><td>' + amSpR + '</td><td>' + amSHO + '</td>';
+            html += '<td>' + pmActivity + '</td><td>' + pmSpR + '</td><td>' + pmSHO + '</td>';
+            html += leaveCell + oncallCell + '</tr>';
+          });
+        });
+
+        html += '</tbody></table>';
+        document.getElementById('gridWrap').innerHTML = html;
+        document.getElementById('gridWrap').style.display = 'block';
+      }
+
+      async function load() {
+        try {
+          const base = window.location.pathname.replace(/\/[^/]*$/, '') || '';
+          const csvRes = await fetch((base || '/') + 'Data/data.csv');
+          if (!csvRes.ok) throw new Error('Could not load Data/data.csv');
+          const csvText = await csvRes.text();
+          const data = loadDataFromCSV(csvText);
+          people = data.people;
+          pairings = data.pairingsData;
+          scheduleFromMd = data.schedule;
+          oncallCalendar = data.oncall;
+          leaveCalendar = data.leave;
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('error').style.display = 'none';
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          renderWeek(getMonday(today));
+          // init month controls
+          const monthSelect = document.getElementById('monthSelect');
+          if (monthSelect) {
+            for (let i = 0; i < 12; i++) {
+              const opt = document.createElement('option');
+              opt.value = String(i);
+              opt.textContent = MONTH_NAMES[i] + ' 2026';
+              monthSelect.appendChild(opt);
+            }
+            const initialMonth = today.getFullYear() === 2026 ? today.getMonth() : 0;
+            monthSelect.value = String(initialMonth);
+            renderMonth(2026, initialMonth);
+            monthSelect.addEventListener('change', () => {
+              const m = parseInt(monthSelect.value, 10) || 0;
+              renderMonth(2026, m);
+            });
+            const prevMonthBtn = document.getElementById('prevMonthBtn');
+            const nextMonthBtn = document.getElementById('nextMonthBtn');
+            if (prevMonthBtn) {
+              prevMonthBtn.addEventListener('click', () => {
+                let m = parseInt(monthSelect.value, 10) || 0;
+                m = (m + 11) % 12;
+                monthSelect.value = String(m);
+                renderMonth(2026, m);
+              });
+            }
+            if (nextMonthBtn) {
+              nextMonthBtn.addEventListener('click', () => {
+                let m = parseInt(monthSelect.value, 10) || 0;
+                m = (m + 1) % 12;
+                monthSelect.value = String(m);
+                renderMonth(2026, m);
+              });
+            }
+          }
+          const tabWeek = document.getElementById('tabWeek');
+          const tabMonth = document.getElementById('tabMonth');
+          if (tabWeek) tabWeek.addEventListener('click', () => setActiveView('week'));
+          if (tabMonth) tabMonth.addEventListener('click', () => setActiveView('month'));
+          setActiveView('week');
+        } catch (e) {
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('error').style.display = 'block';
+          document.getElementById('error').textContent = 'Failed to load data: ' + e.message;
+        }
+      }
+
+      document.getElementById('prevWeek').addEventListener('click', () => {
+        if (!currentMonday) return;
+        const prev = new Date(currentMonday);
+        prev.setDate(prev.getDate() - 7);
+        renderWeek(prev);
+      });
+      document.getElementById('nextWeek').addEventListener('click', () => {
+        if (!currentMonday) return;
+        const next = new Date(currentMonday);
+        next.setDate(next.getDate() + 7);
+        renderWeek(next);
+      });
+
+      load();
+    })();
+  </script>
+</body>
+</html>

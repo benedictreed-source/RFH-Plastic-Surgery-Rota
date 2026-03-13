@@ -1,0 +1,131 @@
+{
+  "weekCommencing": "2027-01-11",
+  "days": [
+    {
+      "date": "2027-01-11",
+      "dow": "Monday",
+      "leave": {
+        "registrars": [],
+        "shos": [],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": null,
+        "wardSho": null,
+        "oncallReg": null,
+        "oncallConsultant": null,
+        "daySHO": null,
+        "nightSHO": null
+      },
+      "sessions": []
+    },
+    {
+      "date": "2027-01-12",
+      "dow": "Tuesday",
+      "leave": {
+        "registrars": [],
+        "shos": [],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": null,
+        "wardSho": null,
+        "oncallReg": null,
+        "oncallConsultant": null,
+        "daySHO": null,
+        "nightSHO": null
+      },
+      "sessions": []
+    },
+    {
+      "date": "2027-01-13",
+      "dow": "Wednesday",
+      "leave": {
+        "registrars": [],
+        "shos": [],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": null,
+        "wardSho": null,
+        "oncallReg": null,
+        "oncallConsultant": null,
+        "daySHO": null,
+        "nightSHO": null
+      },
+      "sessions": []
+    },
+    {
+      "date": "2027-01-14",
+      "dow": "Thursday",
+      "leave": {
+        "registrars": [],
+        "shos": [],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": null,
+        "wardSho": null,
+        "oncallReg": null,
+        "oncallConsultant": null,
+        "daySHO": null,
+        "nightSHO": null
+      },
+      "sessions": []
+    },
+    {
+      "date": "2027-01-15",
+      "dow": "Friday",
+      "leave": {
+        "registrars": [],
+        "shos": [],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": null,
+        "wardSho": null,
+        "oncallReg": null,
+        "oncallConsultant": null,
+        "daySHO": null,
+        "nightSHO": null
+      },
+      "sessions": []
+    },
+    {
+      "date": "2027-01-16",
+      "dow": "Saturday",
+      "leave": {
+        "registrars": [],
+        "shos": [],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": null,
+        "wardSho": null,
+        "oncallReg": null,
+        "oncallConsultant": null,
+        "daySHO": null,
+        "nightSHO": null
+      },
+      "sessions": []
+    },
+    {
+      "date": "2027-01-17",
+      "dow": "Sunday",
+      "leave": {
+        "registrars": [],
+        "shos": [],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": null,
+        "wardSho": null,
+        "oncallReg": null,
+        "oncallConsultant": null,
+        "daySHO": null,
+        "nightSHO": null
+      },
+      "sessions": []
+    }
+  ]
+}
