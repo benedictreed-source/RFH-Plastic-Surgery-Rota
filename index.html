@@ -873,8 +873,9 @@
 
       async function load() {
         try {
-          const base = window.location.pathname.replace(/\/[^/]*$/, '') || '';
-          const csvRes = await fetch((base || '/') + 'Data/data.csv');
+          // On GitHub Pages and locally, index.html sits next to the Data folder,
+          // so a simple relative fetch works reliably.
+          const csvRes = await fetch('Data/data.csv');
           if (!csvRes.ok) throw new Error('Could not load Data/data.csv');
           const csvText = await csvRes.text();
           const data = loadDataFromCSV(csvText);
