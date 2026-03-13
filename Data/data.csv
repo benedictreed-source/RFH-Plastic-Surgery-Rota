@@ -1,5 +1,5 @@
 Type,Consultant,Consultant ID,Reg1,Reg1Init,Reg1No,Reg1Level,Reg2,Reg2No,Reg2Init,Reg2Level,,s_week,s_day,s_lists,s_clinics,date,wardReg,wardSHO,oncallReg,oncallConsultant,daySHO,nightSHO,leaveRegs,leaveSHOs,leaveNotes
-Consultant,MR M. Akhavani,MA,Tiffany Oliver,TO,7979971598,,,7979971598,,,,1,Monday,"MA, PB, NS",SG am,2026-01-01,ZA,KR,AE,,OG,DE,"HS, OS",BA,
+Consultant,MR M. Akhavani,MA,Tiffany Oliver,TO,7979971598,,,7979971598,,,,1,Monday,"MA, PB, NS, WS",SG am,2026-01-01,ZA,KR,AE,,OG,DE,"HS, OS",BA,
 Consultant,PROF P. Butler,PB,Zab Abdul,ZA,7979971599,,,7979971599,,,,1,Tuesday,"SH, NK",AM pm,2026-01-02,AE,KR,AL,,OO,DS,"HP, HS","BA, SK",
 Consultant,MR S. Ghali,SG,Abdelkhalek Sallam,SA,7979971600,,Odai Sayegh,7979971600,OS,,,1,Wednesday,"DN, GOT","AP am, AM pm",2026-01-03,AE,KR,AZ,,OO,DS,"AL, HB, LA","BA, SS",
 Consultant,MR S. Hamilton,SH,Alice Lee,AL,7979971601,,,7979971601,,,,1,Thursday,"WS, NS","NT pm, AP pm",2026-01-04,AE,KR,BR,,OO,DS,"AL, AZ, OH",BA,
