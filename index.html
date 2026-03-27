@@ -962,8 +962,11 @@
           return fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
         }
         try {
-          let res = await putFile(await getSha());
-          if (res.status === 409) res = await putFile(await getSha());
+          let res, attempts = 0;
+          do {
+            res = await putFile(await getSha());
+            attempts++;
+          } while (res.status === 409 && attempts < 5);
           if (res.ok) console.log('Cloud save ok:', weekCommencing);
           else res.text().then(t => console.warn('Cloud save error ' + res.status + ':', t));
         } catch (e) { console.warn('Cloud save failed:', e); }
