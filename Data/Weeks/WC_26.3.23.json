@@ -29,35 +29,35 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "BR",
+          "reg": "ZA",
           "sho": "BA"
         },
         {
           "type": "theatre",
           "label": "DSU1",
           "time": "all_day",
-          "reg": "HP",
+          "reg": "MHA",
           "sho": "DE"
         },
         {
           "type": "theatre",
           "label": "MA Theatre",
           "time": "all_day",
-          "reg": "TO",
+          "reg": "HB",
           "sho": "LC"
         },
         {
           "type": "theatre",
           "label": "PB Theatre",
           "time": "all_day",
-          "reg": "HB",
+          "reg": "TO",
           "sho": "SN"
         },
         {
           "type": "theatre",
           "label": "NS Theatre",
           "time": "all_day",
-          "reg": "ZA",
+          "reg": "HP",
           "sho": "SS"
         },
         {
@@ -71,7 +71,7 @@
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "MHA",
+          "reg": "BR",
           "sho": "OO"
         },
         {
@@ -80,26 +80,6 @@
           "time": "all_day",
           "reg": "HC",
           "sho": null
-        },
-        {
-          "type": "theatre",
-          "label": "GA Skin",
-          "time": "all_day",
-          "reg": "ZA",
-          "reg2": "TO",
-          "sho": null,
-          "manual": true,
-          "locked": true
-        },
-        {
-          "type": "theatre",
-          "label": "Luton",
-          "time": "all_day",
-          "reg": "CW",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": true
         }
       ]
     },
@@ -455,7 +435,7 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "LG",
+          "reg": "HP",
           "sho": null
         },
         {
@@ -470,53 +450,19 @@
   ],
   "manualEdits": {
     "2026-03-23": {
-      "addedSessions": [
-        {
-          "label": "GA Skin",
-          "type": "theatre",
-          "half": "all_day",
-          "manual": true,
-          "locked": true,
-          "amReg": "ZA",
-          "pmReg": "ZA",
-          "amReg2": "TO",
-          "pmReg2": "TO",
-          "amSho": null,
-          "pmSho": null
-        },
-        {
-          "label": "Luton",
-          "type": "theatre",
-          "half": "all_day",
-          "manual": true,
-          "locked": true,
-          "amReg": "CW",
-          "pmReg": "CW",
-          "amSho": null,
-          "pmSho": null
-        }
-      ],
       "regOverrides": {
-        "Trauma clinic.amReg": "MHA",
-        "DSU2.amReg": "BR",
-        "Trauma clinic.pmReg": "MHA",
-        "DSU2.pmReg": "BR",
-        "DSU1.amReg": "HP",
-        "MA Theatre.amReg": "TO",
-        "DSU1.pmReg": "HP",
-        "MA Theatre.pmReg": "TO",
-        "NS Theatre.amReg": "ZA",
-        "NS Theatre.pmReg": "ZA",
-        "PB Theatre.amReg": "HB",
-        "PB Theatre.pmReg": "HB"
-      }
-    },
-    "2026-03-29": {
-      "regOverrides": {
-        "DSU2.amReg": "LG",
-        "DSU1.amReg": "AZ",
-        "DSU2.pmReg": "LG",
-        "DSU1.pmReg": "AZ"
+        "Trauma clinic.amReg": "BR",
+        "DSU2.amReg": "ZA",
+        "Trauma clinic.pmReg": "BR",
+        "DSU2.pmReg": "ZA",
+        "DSU1.amReg": "MHA",
+        "MA Theatre.amReg": "HB",
+        "DSU1.pmReg": "MHA",
+        "MA Theatre.pmReg": "HB",
+        "NS Theatre.amReg": "HP",
+        "NS Theatre.pmReg": "HP",
+        "PB Theatre.amReg": "TO",
+        "PB Theatre.pmReg": "TO"
       }
     }
   }
