@@ -1001,13 +1001,17 @@
             manEdits[dk] = dayEdits;
           }
 
+          var regOvr = manualEdits.regOverrides[dk] || {};
           var sessions = baseEvents.map(function (ev) {
+            var lbl = ev.label;
+            var reg = regOvr[lbl + '.amReg'] !== undefined ? regOvr[lbl + '.amReg'] : (regOvr[lbl + '.pmReg'] !== undefined ? regOvr[lbl + '.pmReg'] : (ev.amReg || ev.pmReg || null));
+            var sho = regOvr[lbl + '.amSho'] !== undefined ? regOvr[lbl + '.amSho'] : (regOvr[lbl + '.pmSho'] !== undefined ? regOvr[lbl + '.pmSho'] : (ev.amSho || ev.pmSho || null));
             return {
               type: ev.type || 'other',
-              label: ev.label,
+              label: lbl,
               time: 'all_day',
-              reg: ev.amReg || ev.pmReg || null,
-              sho: ev.amSho || ev.pmSho || null
+              reg: reg,
+              sho: sho
             };
           });
           (manualEdits.addedSessions[dk] || []).forEach(function (ev) {
