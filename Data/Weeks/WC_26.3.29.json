@@ -572,10 +572,10 @@
   "manualEdits": {
     "2026-03-29": {
       "regOverrides": {
-        "DSU2.amReg": "AZ",
-        "DSU1.amReg": "LG",
-        "DSU2.pmReg": "AZ",
-        "DSU1.pmReg": "LG"
+        "DSU2.amReg": "LG",
+        "DSU1.amReg": "AZ",
+        "DSU2.pmReg": "LG",
+        "DSU1.pmReg": "AZ"
       }
     }
   }
