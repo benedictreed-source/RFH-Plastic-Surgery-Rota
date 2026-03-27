@@ -367,6 +367,11 @@
   </div>
   <div id="contextMenu" class="context-menu"></div>
   <script>
+    const GITHUB_CONFIG = {
+      token: 'PASTE_YOUR_TOKEN_HERE',
+      repo: 'benedictreed-source/RFH-Plastic-Surgery-Rota',
+      branch: 'main'
+    };
     (function () {
       const REF_MONDAY = new Date('2026-02-23');
       const MONTH_NAMES = [
@@ -935,6 +940,35 @@
         } catch (e) { /* no saved file */ }
       }
 
+      async function saveToGitHub(weekCommencing, content) {
+        if (!GITHUB_CONFIG.token || GITHUB_CONFIG.token === 'PASTE_YOUR_TOKEN_HERE') return;
+        const [year, month, day] = weekCommencing.split('-').map(Number);
+        const y = year % 100;
+        const filePath = `Data/Weeks/WC_${y}.${month}.${day}.json`;
+        const apiUrl = `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${filePath}`;
+        const headers = {
+          'Authorization': `token ${GITHUB_CONFIG.token}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        };
+        const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
+        async function getSha() {
+          const r = await fetch(`${apiUrl}?ref=${GITHUB_CONFIG.branch}`, { headers });
+          return r.ok ? (await r.json()).sha : null;
+        }
+        async function putFile(sha) {
+          const body = { message: `Rota update: ${weekCommencing} [skip ci]`, content: encoded, branch: GITHUB_CONFIG.branch };
+          if (sha) body.sha = sha;
+          return fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+        }
+        try {
+          let res = await putFile(await getSha());
+          if (res.status === 409) res = await putFile(await getSha());
+          if (res.ok) console.log('Cloud save ok:', weekCommencing);
+          else res.text().then(t => console.warn('Cloud save error ' + res.status + ':', t));
+        } catch (e) { console.warn('Cloud save failed:', e); }
+      }
+
       function saveWeekJSON(monday) {
         var weekDates = [];
         for (var i = 0; i < 7; i++) {
@@ -1011,15 +1045,8 @@
         try {
           localStorage.setItem(weekStorageKey(monday), JSON.stringify(data));
         } catch (e) { console.error('Failed to save week:', e); }
-        // Also persist to GitHub via Netlify function
-        fetch('/.netlify/functions/save-week', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ weekCommencing: data.weekCommencing, content: data })
-        }).then(function(res) {
-          if (!res.ok) res.text().then(function(t) { console.warn('Cloud save error ' + res.status + ':', t); });
-          else console.log('Cloud save ok:', data.weekCommencing);
-        }).catch(function(e) { console.warn('Cloud save failed:', e); });
+        // Also persist to GitHub directly via API
+        saveToGitHub(data.weekCommencing, data);
       }
 
       function renderWeek(monday) {
