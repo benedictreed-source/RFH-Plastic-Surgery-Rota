@@ -452,12 +452,12 @@
     "2026-03-23": {
       "regOverrides": {
         "Trauma clinic.amReg": "MHA",
-        "DSU2.amReg": "HP",
+        "DSU2.amReg": "BR",
         "Trauma clinic.pmReg": "MHA",
-        "DSU2.pmReg": "HP",
-        "DSU1.amReg": "BR",
+        "DSU2.pmReg": "BR",
+        "DSU1.amReg": "HP",
         "MA Theatre.amReg": "TO",
-        "DSU1.pmReg": "BR",
+        "DSU1.pmReg": "HP",
         "MA Theatre.pmReg": "TO",
         "NS Theatre.amReg": "ZA",
         "NS Theatre.pmReg": "ZA",
