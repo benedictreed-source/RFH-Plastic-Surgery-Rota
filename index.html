@@ -1011,12 +1011,15 @@
         try {
           localStorage.setItem(weekStorageKey(monday), JSON.stringify(data));
         } catch (e) { console.error('Failed to save week:', e); }
-        // Also persist to GitHub via Netlify function (fire and forget)
+        // Also persist to GitHub via Netlify function
         fetch('/.netlify/functions/save-week', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ weekCommencing: data.weekCommencing, content: data })
-        }).catch(e => console.warn('Cloud save failed:', e));
+        }).then(function(res) {
+          if (!res.ok) res.text().then(function(t) { console.warn('Cloud save error ' + res.status + ':', t); });
+          else console.log('Cloud save ok:', data.weekCommencing);
+        }).catch(function(e) { console.warn('Cloud save failed:', e); });
       }
 
       function renderWeek(monday) {
