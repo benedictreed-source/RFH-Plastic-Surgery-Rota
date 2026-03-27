@@ -29,14 +29,14 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "BR",
+          "reg": "HP",
           "sho": "BA"
         },
         {
           "type": "theatre",
           "label": "DSU1",
           "time": "all_day",
-          "reg": "HP",
+          "reg": "BR",
           "sho": "DE"
         },
         {
@@ -452,12 +452,12 @@
     "2026-03-23": {
       "regOverrides": {
         "Trauma clinic.amReg": "MHA",
-        "DSU2.amReg": "BR",
+        "DSU2.amReg": "HP",
         "Trauma clinic.pmReg": "MHA",
-        "DSU2.pmReg": "BR",
-        "DSU1.amReg": "HP",
+        "DSU2.pmReg": "HP",
+        "DSU1.amReg": "BR",
         "MA Theatre.amReg": "TO",
-        "DSU1.pmReg": "HP",
+        "DSU1.pmReg": "BR",
         "MA Theatre.pmReg": "TO",
         "NS Theatre.amReg": "ZA",
         "NS Theatre.pmReg": "ZA",
