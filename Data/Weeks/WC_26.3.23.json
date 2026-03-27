@@ -447,5 +447,21 @@
         }
       ]
     }
-  ]
+  ],
+  "manualEdits": {
+    "2026-03-23": {
+      "regOverrides": {
+        "Trauma clinic.amReg": "BR",
+        "DSU2.amReg": "TO",
+        "Trauma clinic.pmReg": "BR",
+        "DSU2.pmReg": "TO",
+        "DSU1.amReg": "MHA",
+        "MA Theatre.amReg": "HB",
+        "DSU1.pmReg": "MHA",
+        "MA Theatre.pmReg": "HB",
+        "NS Theatre.amReg": "HP",
+        "NS Theatre.pmReg": "HP"
+      }
+    }
+  }
 }
