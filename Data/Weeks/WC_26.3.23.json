@@ -455,10 +455,10 @@
         "DSU2.amReg": "MHA",
         "Trauma clinic.pmReg": "BR",
         "DSU2.pmReg": "MHA",
-        "DSU1.amReg": "TO",
-        "MA Theatre.amReg": "HB",
-        "DSU1.pmReg": "TO",
-        "MA Theatre.pmReg": "HB",
+        "DSU1.amReg": "HB",
+        "MA Theatre.amReg": "TO",
+        "DSU1.pmReg": "HB",
+        "MA Theatre.pmReg": "TO",
         "NS Theatre.amReg": "HP",
         "NS Theatre.pmReg": "HP"
       }
