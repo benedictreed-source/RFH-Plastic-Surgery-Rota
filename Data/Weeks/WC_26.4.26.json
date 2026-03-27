@@ -573,5 +573,15 @@
         }
       ]
     }
-  ]
+  ],
+  "manualEdits": {
+    "2026-04-26": {
+      "regOverrides": {
+        "DSU1.amReg": "HB",
+        "NS Theatre.amReg": "LG",
+        "DSU1.pmReg": "HB",
+        "NS Theatre.pmReg": "LG"
+      }
+    }
+  }
 }
