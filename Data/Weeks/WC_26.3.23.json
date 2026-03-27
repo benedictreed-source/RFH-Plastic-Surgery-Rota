@@ -29,7 +29,7 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "MHA",
+          "reg": "BR",
           "sho": "BA"
         },
         {
@@ -50,14 +50,14 @@
           "type": "theatre",
           "label": "PB Theatre",
           "time": "all_day",
-          "reg": "ZA",
+          "reg": "HB",
           "sho": "SN"
         },
         {
           "type": "theatre",
           "label": "NS Theatre",
           "time": "all_day",
-          "reg": "HB",
+          "reg": "ZA",
           "sho": "SS"
         },
         {
@@ -71,7 +71,7 @@
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "AL",
+          "reg": "MHA",
           "sho": "OO"
         },
         {
@@ -435,7 +435,7 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "HP",
+          "reg": "LG",
           "sho": null
         },
         {
