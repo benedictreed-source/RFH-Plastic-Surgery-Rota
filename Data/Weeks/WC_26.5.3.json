@@ -449,5 +449,15 @@
         }
       ]
     }
-  ]
+  ],
+  "manualEdits": {
+    "2026-05-03": {
+      "regOverrides": {
+        "DSU1.amReg": "ZA",
+        "MA Theatre.amReg": "HC",
+        "DSU1.pmReg": "ZA",
+        "MA Theatre.pmReg": "HC"
+      }
+    }
+  }
 }
