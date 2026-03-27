@@ -154,8 +154,10 @@
       font-size: 0.8125rem;
     }
     th.col-activity { min-width: 100px; }
-    th.col-spr, th.col-sho { width: 52px; text-align: center; }
-    th.col-leave, th.col-oncall { min-width: 90px; }
+    th.col-spr { width: 72px; text-align: center; }
+    th.col-sho { width: 52px; text-align: center; }
+    th.col-leave, th.col-oncall { min-width: 120px; }
+    th.col-leave { width: 180px; }
     td.day-cell {
       font-weight: 600;
       width: 72px;
@@ -180,10 +182,73 @@
     tr.row-other:hover td { background: #f1f5f9; }
     td.day-cell .dow { text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.75rem; }
     td.day-cell .date { font-size: 0.7rem; font-weight: 500; color: var(--text-muted); }
-    td.leave-cell, td.oncall-cell { font-size: 0.8125rem; vertical-align: top; color: var(--text); }
+    td.leave-cell, td.oncall-cell {
+      font-size: 0.8125rem;
+      vertical-align: top;
+      color: var(--text);
+      max-width: 180px;
+      word-wrap: break-word;
+      white-space: normal;
+    }
+    table.inner-activities {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      overflow: visible;
+    }
+    table.inner-activities th {
+      text-align: left;
+      font-weight: 600;
+      background: var(--surface2);
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid var(--border);
+    }
+    table.inner-activities td {
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.65rem;
+      vertical-align: top;
+    }
+    table.inner-activities th.col-activity { min-width: 100px; }
+    table.inner-activities th.col-spr { width: 72px; text-align: center; }
+    table.inner-activities th.col-sho { width: 52px; text-align: center; }
+    td.activities-cell { vertical-align: top; }
+    .editable-activity {
+      outline: none;
+      border-bottom: 1px dashed var(--accent);
+      cursor: text;
+      min-width: 60px;
+      display: inline-block;
+    }
+    .editable-activity:focus {
+      border-bottom-color: var(--accent);
+      background: rgba(37, 99, 235, 0.05);
+    }
+    .editable-activity:empty::before {
+      content: 'Initials\2026';
+      color: var(--text-muted);
+      font-style: italic;
+      font-weight: 400;
+      pointer-events: none;
+    }
     td .event-label-inline { color: var(--text-muted); font-size: 0.8125rem; }
     td .reg { color: var(--reg); font-weight: 600; }
     td .sho { color: var(--sho); font-weight: 600; }
+    [draggable="true"] { cursor: grab; user-select: none; }
+    [draggable="true"]:active { cursor: grabbing; }
+    .dragging { opacity: 0.35; }
+    .drag-cell { transition: background 0.15s, outline-color 0.15s; }
+    .drag-cell.drag-over {
+      background: rgba(37, 99, 235, 0.12);
+      outline: 2px dashed var(--accent);
+      outline-offset: -2px;
+      border-radius: 3px;
+    }
     td .na { color: var(--text-muted); font-style: italic; }
     .conflict {
       border-radius: 4px;
@@ -206,6 +271,31 @@
       border-radius: 3px;
       border: 1px solid var(--conflict-border);
       background: var(--conflict-bg);
+    }
+    .context-menu {
+      position: fixed;
+      z-index: 1000;
+      min-width: 140px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+      border-radius: 8px;
+      padding: 0.25rem 0;
+      font-size: 0.82rem;
+      color: var(--text);
+      display: none;
+    }
+    .context-menu button {
+      all: unset;
+      display: block;
+      width: 100%;
+      padding: 0.3rem 0.75rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+    .context-menu button:hover {
+      background: var(--surface2);
+      color: var(--accent);
     }
   </style>
 </head>
@@ -275,6 +365,7 @@
       </div>
     </div>
   </div>
+  <div id="contextMenu" class="context-menu"></div>
   <script>
     (function () {
       const REF_MONDAY = new Date('2026-02-23');
@@ -502,6 +593,13 @@
         return null;
       }
 
+      function getRegCapabilities(regId) {
+        if (!people || !people.registrars) return [];
+        const reg = people.registrars.find(r => r.id === regId);
+        if (!reg || !reg.level) return [];
+        return reg.level.split(',').map(s => s.trim().toLowerCase());
+      }
+
       function getDayContext(date) {
         const key = dateKey(date);
         const cal = oncallCalendar[key] || {};
@@ -548,8 +646,9 @@
         if (leaveSet.has(nightSho)) nightSho = null;
         const isDsu1Day = DSU1_DAYS.includes(dayName);
 
-        // Start from all SHOs; filter out anyone on leave for this date.
-        var extraShos = (people.shos || []).map(s => s.id).filter(id => !leaveSet.has(id));
+        var extraShos = (people.shos || []).map(s => s.id).filter(id =>
+          !leaveSet.has(id) && id !== wardSho && id !== oncallShoId && id !== nightSho
+        );
         var nextShoIndex = 0;
         function takeExtraSho() {
           if (nextShoIndex >= extraShos.length) return null;
@@ -565,15 +664,20 @@
           return { consultantId: entry.consultantId, reg, wantsSho: true, sho: null };
         });
         const dayClinics = (schedule && schedule.clinicsByDay && schedule.clinicsByDay[dayName]) || [];
-        const clinicEntries = Array.isArray(dayClinics)
-          ? dayClinics.map(c => {
-              const consultantId = typeof c === 'object' && c && 'consultantId' in c ? c.consultantId : c;
-              const half = (c && c.half) ? c.half : 'am';
+        const clinicEntries = [];
+        if (Array.isArray(dayClinics) && dayClinics.length) {
+          const clinicRegByConsultant = {};
+          dayClinics.forEach(c => {
+            const consultantId = typeof c === 'object' && c && 'consultantId' in c ? c.consultantId : c;
+            const half = (c && c.half) ? c.half : 'am';
+            if (!clinicRegByConsultant[consultantId]) {
               const reg = getRegForConsultantListOrClinicWithFallback(consultantId, wardReg, oncallRegId, regsUsedByListClinic, leaveSet);
               if (reg) regsUsedByListClinic.add(reg);
-              return { consultantId, reg: reg || null, half };
-            })
-          : [];
+              clinicRegByConsultant[consultantId] = reg || null;
+            }
+            clinicEntries.push({ consultantId, reg: clinicRegByConsultant[consultantId], half });
+          });
+        }
         var dsu2Reg, dsu2Sho;
         if (isWeekend) {
           dsu2Reg = oncallRegId;
@@ -650,9 +754,22 @@
         }
         add(clinicEvents, 'Trauma clinic', trauma?.reg, trauma?.sho, trauma?.reg, trauma?.sho, 'clinic');
         if (clinicBlock?.clinics?.length) {
+          const clinicMerge = {};
+          const clinicOrder = [];
           clinicBlock.clinics.forEach(c => {
+            const cid = c.consultantId;
             const half = c.half || 'am';
-            add(clinicEvents, c.consultantId + ' Clinic', half === 'am' ? c.reg : null, null, half === 'pm' ? c.reg : null, null, 'clinic');
+            if (!clinicMerge[cid]) {
+              clinicMerge[cid] = { amReg: null, pmReg: null };
+              clinicOrder.push(cid);
+            }
+            if (half === 'am') clinicMerge[cid].amReg = c.reg;
+            else clinicMerge[cid].pmReg = c.reg;
+          });
+          clinicOrder.forEach(cid => {
+            const m = clinicMerge[cid];
+            const label = cid + ' Clinic';
+            add(clinicEvents, label, m.amReg, null, m.pmReg, null, 'clinic');
           });
         }
         return [...theatreEvents, ...clinicEvents];
@@ -765,6 +882,143 @@
         }
       }
 
+      const manualEdits = {
+        addedSessions: {},   // dateKey -> array of event objects
+        removedIndices: {},  // dateKey -> Set of indices
+        regOverrides: {}     // dateKey -> { "label.field": regId }
+      };
+
+      function weekStorageKey(monday) {
+        const y = monday.getFullYear() % 100;
+        const m = monday.getMonth() + 1;
+        const d = monday.getDate();
+        return 'rota_WC_' + y + '.' + m + '.' + d;
+      }
+
+      const loadedWeeks = new Set();
+
+      function applyEditsFromData(data) {
+        if (!data.manualEdits) return;
+        Object.entries(data.manualEdits).forEach(function (pair) {
+          const dk = pair[0], edits = pair[1];
+          if (edits.addedSessions && edits.addedSessions.length && !manualEdits.addedSessions[dk]) {
+            manualEdits.addedSessions[dk] = edits.addedSessions;
+          }
+          if (edits.removedIndices && edits.removedIndices.length && !manualEdits.removedIndices[dk]) {
+            manualEdits.removedIndices[dk] = new Set(edits.removedIndices);
+          }
+          if (edits.regOverrides && !manualEdits.regOverrides[dk]) {
+            manualEdits.regOverrides[dk] = edits.regOverrides;
+          }
+        });
+      }
+
+      async function loadWeekEdits(monday) {
+        const sk = weekStorageKey(monday);
+        if (loadedWeeks.has(sk)) return;
+        loadedWeeks.add(sk);
+        // Try localStorage first (most recent, current device)
+        try {
+          const raw = localStorage.getItem(sk);
+          if (raw) {
+            applyEditsFromData(JSON.parse(raw));
+            return;
+          }
+        } catch (e) { /* ignore */ }
+        // Fall back to saved JSON file (persisted to GitHub via Netlify function)
+        try {
+          const y = monday.getFullYear() % 100;
+          const m = monday.getMonth() + 1;
+          const d = monday.getDate();
+          const res = await fetch(`Data/Weeks/WC_${y}.${m}.${d}.json`);
+          if (res.ok) applyEditsFromData(await res.json());
+        } catch (e) { /* no saved file */ }
+      }
+
+      function saveWeekJSON(monday) {
+        var weekDates = [];
+        for (var i = 0; i < 7; i++) {
+          var d = new Date(monday);
+          d.setDate(monday.getDate() + i);
+          weekDates.push(d);
+        }
+        var manEdits = {};
+        var days = weekDates.map(function (date) {
+          var dk = dateKey(date);
+          var ctx = getDayContext(date);
+          var leaveData = leaveCalendar[dk] || {};
+          var baseEvents = buildDayEvents(date);
+
+          var dayEdits = {};
+          if (manualEdits.addedSessions[dk] && manualEdits.addedSessions[dk].length) {
+            dayEdits.addedSessions = manualEdits.addedSessions[dk];
+          }
+          var removed = manualEdits.removedIndices[dk];
+          if (removed && removed.size > 0) {
+            dayEdits.removedIndices = Array.from(removed);
+          }
+          if (manualEdits.regOverrides[dk] && Object.keys(manualEdits.regOverrides[dk]).length) {
+            dayEdits.regOverrides = manualEdits.regOverrides[dk];
+          }
+          if (Object.keys(dayEdits).length) {
+            manEdits[dk] = dayEdits;
+          }
+
+          var sessions = baseEvents.map(function (ev) {
+            return {
+              type: ev.type || 'other',
+              label: ev.label,
+              time: 'all_day',
+              reg: ev.amReg || ev.pmReg || null,
+              sho: ev.amSho || ev.pmSho || null
+            };
+          });
+          (manualEdits.addedSessions[dk] || []).forEach(function (ev) {
+            sessions.push({
+              type: ev.type || 'theatre',
+              label: ev.label || '',
+              time: ev.half || 'all_day',
+              reg: ev.amReg || ev.pmReg || null,
+              reg2: ev.amReg2 || ev.pmReg2 || null,
+              sho: ev.amSho || ev.pmSho || null,
+              manual: true,
+              locked: ev.locked || false
+            });
+          });
+
+          return {
+            date: dk,
+            dow: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][date.getDay()],
+            leave: {
+              registrars: leaveData.regs || [],
+              shos: leaveData.shos || [],
+              notes: leaveData.notes || ''
+            },
+            oncall: {
+              wardReg: ctx.wardReg,
+              wardSho: ctx.wardSho,
+              oncallReg: ctx.oncallRegId,
+              oncallConsultant: ctx.oncallConsultant,
+              daySHO: ctx.daySho,
+              nightSHO: ctx.nightSho
+            },
+            sessions: sessions
+          };
+        });
+
+        var data = { weekCommencing: dateKey(monday), days: days };
+        if (Object.keys(manEdits).length) data.manualEdits = manEdits;
+        try {
+          localStorage.setItem(weekStorageKey(monday), JSON.stringify(data));
+        } catch (e) { console.error('Failed to save week:', e); }
+        // Also persist to GitHub via Netlify function (fire and forget)
+        fetch('/.netlify/functions/save-week', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ weekCommencing: data.weekCommencing, content: data })
+        }).catch(e => console.warn('Cloud save failed:', e));
+      }
+
       function renderWeek(monday) {
         currentMonday = monday;
         const weekLabel = document.getElementById('weekLabel');
@@ -782,93 +1036,397 @@
 
         let html = '<table><thead><tr>';
         html += '<th>Day</th>';
-        html += '<th colspan="3">Morning</th>';
-        html += '<th colspan="3">Afternoon</th>';
+        html += '<th>Activities</th>';
         html += '<th>Leave</th><th>On call</th>';
-        html += '</tr><tr>';
-        html += '<th></th><th class="col-activity">Activity</th><th class="col-spr">SpR</th><th class="col-sho">SHO</th>';
-        html += '<th class="col-activity">Activity</th><th class="col-spr">SpR</th><th class="col-sho">SHO</th>';
-        html += '<th class="col-leave"></th><th class="col-oncall"></th>';
         html += '</tr></thead><tbody>';
 
         weekDates.forEach((date, dayIndex) => {
-          const events = dayEventsList[dayIndex];
+          const dk = dateKey(date);
+          const baseEvents = dayEventsList[dayIndex];
+          const removed = manualEdits.removedIndices[dk] || new Set();
+          const added = manualEdits.addedSessions[dk] || [];
+
+          const dayLeaveSet = getLeaveSetForDate(date);
+          const dayCtx = getDayContext(date);
+          function regUnavailable(id) {
+            return dayLeaveSet.has(id) || id === dayCtx.wardReg || id === dayCtx.oncallRegId;
+          }
+          function shoUnavailable(id) {
+            return dayLeaveSet.has(id) || id === dayCtx.wardSho || id === dayCtx.daySho || id === dayCtx.nightSho;
+          }
+          if (added.length && people && people.registrars) {
+            const fixUsed = new Set();
+            if (dayCtx.wardReg) fixUsed.add(dayCtx.wardReg);
+            if (dayCtx.oncallRegId) fixUsed.add(dayCtx.oncallRegId);
+            baseEvents.forEach(ev => {
+              if (ev.amReg) fixUsed.add(ev.amReg);
+              if (ev.pmReg) fixUsed.add(ev.pmReg);
+            });
+            added.forEach(sess => {
+              ['amReg', 'pmReg', 'amReg2', 'pmReg2'].forEach(f => {
+                if (sess[f] && !regUnavailable(sess[f])) fixUsed.add(sess[f]);
+              });
+            });
+            added.forEach(sess => {
+              const regRep = {};
+              ['amReg', 'pmReg', 'amReg2', 'pmReg2'].forEach(f => {
+                if (sess[f] && regUnavailable(sess[f])) {
+                  const orig = sess[f];
+                  if (orig in regRep) {
+                    sess[f] = regRep[orig];
+                  } else {
+                    const rep = people.registrars.find(r =>
+                      !regUnavailable(r.id) && !fixUsed.has(r.id)
+                    );
+                    regRep[orig] = rep ? rep.id : null;
+                    sess[f] = regRep[orig];
+                    if (rep) fixUsed.add(rep.id);
+                  }
+                }
+              });
+              const shoRep = {};
+              ['amSho', 'pmSho'].forEach(f => {
+                if (sess[f] && shoUnavailable(sess[f])) {
+                  const orig = sess[f];
+                  if (orig in shoRep) {
+                    sess[f] = shoRep[orig];
+                  } else {
+                    const rep = (people.shos || []).find(s =>
+                      !shoUnavailable(s.id) && !fixUsed.has(s.id)
+                    );
+                    shoRep[orig] = rep ? rep.id : null;
+                    sess[f] = shoRep[orig];
+                    if (rep) fixUsed.add(rep.id);
+                  }
+                }
+              });
+            });
+          }
+
+          const baseFiltered = baseEvents
+            .map((ev, idx) => ({ ...ev, manual: false, baseIndex: idx }))
+            .filter(ev => !removed.has(ev.baseIndex));
+
+          const manualRegSet = new Set();
+          added.forEach(sess => {
+            if (sess.amReg) manualRegSet.add(sess.amReg);
+            if (sess.pmReg) manualRegSet.add(sess.pmReg);
+            if (sess.amReg2) manualRegSet.add(sess.amReg2);
+            if (sess.pmReg2) manualRegSet.add(sess.pmReg2);
+          });
+          if (manualRegSet.size > 0) {
+            const swapCtx = getDayContext(date);
+            const swapLeave = getLeaveSetForDate(date);
+            const allUsed = new Set();
+            baseFiltered.concat(added).forEach(ev => {
+              if (ev.amReg) allUsed.add(ev.amReg);
+              if (ev.pmReg) allUsed.add(ev.pmReg);
+              if (ev.amReg2) allUsed.add(ev.amReg2);
+              if (ev.pmReg2) allUsed.add(ev.pmReg2);
+            });
+            function findSwapReg() {
+              for (let ri = 0; ri < people.registrars.length; ri++) {
+                const r = people.registrars[ri].id;
+                if (!allUsed.has(r) && r !== swapCtx.wardReg && r !== swapCtx.oncallRegId && !swapLeave.has(r))
+                  return r;
+              }
+              return null;
+            }
+            baseFiltered.forEach(ev => {
+              const swapAm = ev.amReg && manualRegSet.has(ev.amReg);
+              const swapPm = ev.pmReg && manualRegSet.has(ev.pmReg);
+              if (!swapAm && !swapPm) return;
+              if (swapAm && swapPm && ev.amReg === ev.pmReg) {
+                const rep = findSwapReg();
+                if (rep) allUsed.add(rep);
+                ev.amReg = rep;
+                ev.pmReg = rep;
+              } else {
+                if (swapAm) { const rep = findSwapReg(); if (rep) allUsed.add(rep); ev.amReg = rep; }
+                if (swapPm) { const rep = findSwapReg(); if (rep) allUsed.add(rep); ev.pmReg = rep; }
+              }
+            });
+          }
+
+          const theatreBase = baseFiltered.filter(ev => ev.type === 'theatre');
+          const otherBase = baseFiltered.filter(ev => ev.type !== 'theatre' && ev.type !== 'clinic');
+          const theatreAdded = added
+            .map((ev, i) => ({ ...ev, manual: true, manualIndex: i }))
+            .filter(ev => ev.type === 'theatre');
+
+          const allClinicRaw = [];
+          baseFiltered.filter(ev => ev.type === 'clinic').forEach(ev => {
+            allClinicRaw.push({ ...ev, _origin: { manual: false, baseIndex: ev.baseIndex } });
+          });
+          const clinicAddedRaw = added
+            .map((ev, i) => ({ ...ev, manual: true, manualIndex: i }))
+            .filter(ev => ev.type === 'clinic');
+          const manualClinicMap = {};
+          clinicAddedRaw.forEach(ev => {
+            const label = ev.label;
+            if (label && manualClinicMap[label]) {
+              const existing = manualClinicMap[label];
+              if (ev.amReg && !existing.amReg) existing.amReg = ev.amReg;
+              if (ev.pmReg && !existing.pmReg) existing.pmReg = ev.pmReg;
+              existing.half = 'all_day';
+            } else {
+              const entry = { ...ev, _origin: { manual: true, manualIndex: ev.manualIndex } };
+              manualClinicMap[label || ('_empty_' + ev.manualIndex)] = entry;
+              allClinicRaw.push(entry);
+            }
+          });
+
+          const clinicFull = [], clinicAm = [], clinicPm = [];
+          allClinicRaw.forEach(ev => {
+            const hasAm = !!(ev.amReg || ev.amSho);
+            const hasPm = !!(ev.pmReg || ev.pmSho);
+            if (hasAm && hasPm) clinicFull.push(ev);
+            else if (hasPm) clinicPm.push(ev);
+            else if (hasAm) clinicAm.push(ev);
+            else if (ev.half === 'pm') clinicPm.push(ev);
+            else if (ev.half === 'am') clinicAm.push(ev);
+            else clinicFull.push(ev);
+          });
+          const clinicPairCount = Math.min(clinicAm.length, clinicPm.length);
+          const allClinics = [...clinicFull];
+          for (let pi = 0; pi < clinicPairCount; pi++) {
+            const amEv = clinicAm[pi];
+            const pmEv = clinicPm[pi];
+            allClinics.push({
+              ...amEv,
+              pmReg: pmEv.pmReg, pmSho: pmEv.pmSho,
+              amLabel: amEv.label, pmLabel: pmEv.label,
+              paired: true, half: 'all_day',
+              _amOrigin: amEv._origin,
+              _pmOrigin: pmEv._origin
+            });
+          }
+          for (let pi = clinicPairCount; pi < clinicAm.length; pi++) allClinics.push(clinicAm[pi]);
+          for (let pi = clinicPairCount; pi < clinicPm.length; pi++) allClinics.push(clinicPm[pi]);
+
+          const events = [...theatreBase, ...theatreAdded, ...allClinics, ...otherBase];
+
+          const dayOverrides = manualEdits.regOverrides[dk] || {};
+          if (Object.keys(dayOverrides).length) {
+            events.forEach(ev => {
+              const amLbl = ev.amLabel || ev.label;
+              const pmLbl = ev.pmLabel || ev.label;
+              ['amReg', 'amSho', 'amReg2'].forEach(f => {
+                const key = amLbl + '.' + f;
+                if (key in dayOverrides) ev[f] = dayOverrides[key] || null;
+              });
+              ['pmReg', 'pmSho', 'pmReg2'].forEach(f => {
+                const key = pmLbl + '.' + f;
+                if (key in dayOverrides) ev[f] = dayOverrides[key] || null;
+              });
+            });
+          }
+
+          if (people && people.registrars) {
+            const postFixUsed = new Set();
+            if (dayCtx.wardReg) postFixUsed.add(dayCtx.wardReg);
+            if (dayCtx.oncallRegId) postFixUsed.add(dayCtx.oncallRegId);
+            events.forEach(ev => {
+              ['amReg', 'pmReg', 'amReg2', 'pmReg2'].forEach(f => {
+                if (ev[f] && !regUnavailable(ev[f])) postFixUsed.add(ev[f]);
+              });
+            });
+            events.forEach(ev => {
+              const regRep = {};
+              ['amReg', 'pmReg', 'amReg2', 'pmReg2'].forEach(f => {
+                if (ev[f] && regUnavailable(ev[f])) {
+                  const orig = ev[f];
+                  if (orig in regRep) {
+                    ev[f] = regRep[orig];
+                  } else {
+                    const rep = people.registrars.find(r =>
+                      !regUnavailable(r.id) && !postFixUsed.has(r.id)
+                    );
+                    regRep[orig] = rep ? rep.id : null;
+                    ev[f] = regRep[orig];
+                    if (rep) postFixUsed.add(rep.id);
+                  }
+                }
+              });
+              const shoRep = {};
+              ['amSho', 'pmSho'].forEach(f => {
+                if (ev[f] && shoUnavailable(ev[f])) {
+                  const orig = ev[f];
+                  if (orig in shoRep) {
+                    ev[f] = shoRep[orig];
+                  } else {
+                    const rep = (people.shos || []).find(s =>
+                      !shoUnavailable(s.id) && !postFixUsed.has(s.id)
+                    );
+                    shoRep[orig] = rep ? rep.id : null;
+                    ev[f] = shoRep[orig];
+                    if (rep) postFixUsed.add(rep.id);
+                  }
+                }
+              });
+            });
+          }
+
+          events.forEach(ev => {
+            if (ev.type !== 'theatre') return;
+            if (ev.amReg && !ev.pmReg) ev.pmReg = ev.amReg;
+            else if (!ev.amReg && ev.pmReg) ev.amReg = ev.pmReg;
+            else if (ev.amReg && ev.pmReg && ev.amReg !== ev.pmReg) ev.pmReg = ev.amReg;
+            if (ev.amReg2 && !ev.pmReg2) ev.pmReg2 = ev.amReg2;
+            else if (!ev.amReg2 && ev.pmReg2) ev.amReg2 = ev.pmReg2;
+            else if (ev.amReg2 && ev.pmReg2 && ev.amReg2 !== ev.pmReg2) ev.pmReg2 = ev.amReg2;
+            if (ev.amSho && !ev.pmSho) ev.pmSho = ev.amSho;
+            else if (!ev.amSho && ev.pmSho) ev.amSho = ev.pmSho;
+            else if (ev.amSho && ev.pmSho && ev.amSho !== ev.pmSho) ev.pmSho = ev.amSho;
+          });
+
           const leaveOncall = getLeaveAndOncall(date);
-          const leaveSet = getLeaveSetForDate(date);
+          const leaveSet = dayLeaveSet;
           const usedRegs = new Set();
           const usedShos = new Set();
           events.forEach(ev => {
             if (ev.amReg) usedRegs.add(ev.amReg);
             if (ev.pmReg) usedRegs.add(ev.pmReg);
+            if (ev.amReg2) usedRegs.add(ev.amReg2);
+            if (ev.pmReg2) usedRegs.add(ev.pmReg2);
             if (ev.amSho) usedShos.add(ev.amSho);
             if (ev.pmSho) usedShos.add(ev.pmSho);
           });
-          const dow = date.getDay(); // 0 = Sunday, 6 = Saturday
+          const dow = date.getDay();
           const isWeekend = dow === 0 || dow === 6;
           const availableRegs = !isWeekend && people && people.registrars
-            ? people.registrars.map(r => r.id).filter(id => !leaveSet.has(id) && !usedRegs.has(id))
+            ? people.registrars.map(r => r.id).filter(id => !leaveSet.has(id) && !usedRegs.has(id) && id !== dayCtx.wardReg && id !== dayCtx.oncallRegId)
             : [];
           const availableShos = !isWeekend && people && people.shos
-            ? people.shos.map(s => s.id).filter(id => !leaveSet.has(id) && !usedShos.has(id))
+            ? people.shos.map(s => s.id).filter(id => !leaveSet.has(id) && !usedShos.has(id) && id !== dayCtx.wardSho && id !== dayCtx.daySho && id !== dayCtx.nightSho)
             : [];
-          const n = events.length;
+
+          let activityHtml = '<table class="inner-activities"><thead><tr>';
+          activityHtml += '<th class="col-activity">Activity</th><th class="col-spr">SpR</th><th class="col-sho">SHO</th>';
+          activityHtml += '<th class="col-activity">Activity</th><th class="col-spr">SpR</th><th class="col-sho">SHO</th>';
+          activityHtml += '</tr></thead><tbody>';
+
           events.forEach((ev, rowIndex) => {
             const rowClass = 'row-' + (ev.type || 'other');
-            const dayCell = rowIndex === 0
-              ? '<td class="day-cell" rowspan="' + n + '"><span class="dow">' + dayNames[dayIndex] + ' ' + date.getDate() + '</span></td>'
-              : '';
             const na = '<span class="na">—</span>';
-            const amActivity = (ev.amReg || ev.amSho) ? ev.label : (ev.pmReg || ev.pmSho) ? na : ev.label;
-            const pmActivity = (ev.pmReg || ev.pmSho) ? ev.label : (ev.amReg || ev.amSho) ? na : ev.label;
-            const amSpR = ev.amReg
-              ? '<span class="reg' + (leaveSet.has(ev.amReg) ? ' conflict" title="On annual leave">' : '">') + ev.amReg + '</span>'
-              : na;
-            const amSHO = ev.amSho
-              ? '<span class="sho' + (leaveSet.has(ev.amSho) ? ' conflict" title="On annual leave">' : '">') + ev.amSho + '</span>'
-              : na;
-            const pmSpR = ev.pmReg
-              ? '<span class="reg' + (leaveSet.has(ev.pmReg) ? ' conflict" title="On annual leave">' : '">') + ev.pmReg + '</span>'
-              : na;
-            const pmSHO = ev.pmSho
-              ? '<span class="sho' + (leaveSet.has(ev.pmSho) ? ' conflict" title="On annual leave">' : '">') + ev.pmSho + '</span>'
-              : na;
-            let leaveCell = '';
-            let oncallCell = '';
-            if (rowIndex === 0) {
-              const leaveRegs = [leaveOncall.leave.reg].filter(Boolean);
-              const leaveSpRText = leaveRegs.length ? leaveRegs.map(r => '<span class="reg">' + r + '</span>').join(', ') : '—';
-              const leaveShoText = '<span class="sho">' + (leaveOncall.leave.sho || '—') + '</span>';
-              let extraLines = '';
-              if (availableRegs.length || availableShos.length) {
-                const availRegText = availableRegs.length
-                  ? availableRegs.map(r => '<span class="reg">' + r + '</span>').join(', ')
-                  : '—';
-                const availShoText = availableShos.length
-                  ? availableShos.map(s => '<span class="sho">' + s + '</span>').join(', ')
-                  : '—';
-                extraLines =
-                  '<br><span class="event-label-inline">Available SpR:</span> ' + availRegText +
-                  '<br><span class="event-label-inline">Available SHO:</span> ' + availShoText;
+            let amActivity;
+            let pmActivity;
+            if (ev.paired) {
+              const ao = ev._amOrigin || ev._origin || {};
+              const po = ev._pmOrigin || ev._origin || {};
+              if (ao.manual && !ev.locked) {
+                amActivity = '<span class="editable-activity" contenteditable="true" data-date="' + dk + '" data-manual-index="' + ao.manualIndex + '" data-half="am" data-type="clinic">' + (ev.amLabel || '') + '</span>';
+              } else {
+                amActivity = ev.amLabel || ev.label;
               }
-              leaveCell =
-                '<td class="leave-cell" rowspan="' + n + '">' +
-                  'SpR: ' + leaveSpRText +
-                  '<br>SHO: ' + leaveShoText +
-                  extraLines +
-                '</td>';
-              const o = leaveOncall.oncall;
-              oncallCell = '<td class="oncall-cell" rowspan="' + n + '">Ward SpR: <span class="reg">' + (o.wardReg || '—') + '</span><br>Ward SHO: <span class="sho">' + (o.wardSho || '—') + '</span><br>On-call SpR: <span class="reg">' + (o.reg || '—') + '</span><br>SHO day: <span class="sho">' + (o.shoDay || '—') + '</span><br>SHO night: <span class="sho">' + (o.shoNightMonThu || o.shoNightFriSun || '—') + '</span></td>';
+              if (po.manual && !ev.locked) {
+                pmActivity = '<span class="editable-activity" contenteditable="true" data-date="' + dk + '" data-manual-index="' + po.manualIndex + '" data-half="pm" data-type="clinic">' + (ev.pmLabel || '') + '</span>';
+              } else {
+                pmActivity = ev.pmLabel || ev.label;
+              }
+            } else if (ev.manual && !ev.locked) {
+              const safeLabel = ev.label || '';
+              const mi = ev.manualIndex != null ? ev.manualIndex : '';
+              const editable = '<span class="editable-activity" contenteditable="true" data-date="' + dk + '" data-manual-index="' + mi + '" data-half="' + (ev.half || 'all_day') + '" data-type="' + (ev.type || 'theatre') + '">' + safeLabel + '</span>';
+              if (ev.half === 'pm') {
+                amActivity = na;
+                pmActivity = editable;
+              } else if (ev.half === 'am') {
+                amActivity = editable;
+                pmActivity = na;
+              } else {
+                amActivity = editable;
+                pmActivity = (ev.pmReg || ev.pmSho) ? editable : na;
+              }
+            } else {
+              const amLbl = ev.amLabel || ev.label;
+              const pmLbl = ev.pmLabel || ev.label;
+              amActivity = (ev.amReg || ev.amSho) ? amLbl : (ev.pmReg || ev.pmSho) ? na : amLbl;
+              pmActivity = (ev.pmReg || ev.pmSho) ? pmLbl : (ev.amReg || ev.amSho) ? na : pmLbl;
             }
-            html += '<tr class="' + rowClass + '">' + dayCell;
-            html += '<td>' + amActivity + '</td><td>' + amSpR + '</td><td>' + amSHO + '</td>';
-            html += '<td>' + pmActivity + '</td><td>' + pmSpR + '</td><td>' + pmSHO + '</td>';
-            html += leaveCell + oncallCell + '</tr>';
+            const evAmLabel = ev.amLabel || ev.label;
+            const evPmLabel = ev.pmLabel || ev.label;
+            function dragSpan(id, cls, label, field) {
+              var conflict = leaveSet.has(id);
+              return '<span class="' + cls + (conflict ? ' conflict" title="On annual leave"' : '"') +
+                ' draggable="true" data-date="' + dk + '" data-label="' + label + '" data-field="' + field + '">' + id + '</span>';
+            }
+            let amSpR = na;
+            if (ev.amReg) {
+              amSpR = dragSpan(ev.amReg, 'reg', evAmLabel, 'amReg');
+              if (ev.amReg2) amSpR += ', ' + dragSpan(ev.amReg2, 'reg', evAmLabel, 'amReg2');
+            }
+            const amSHO = ev.amSho ? dragSpan(ev.amSho, 'sho', evAmLabel, 'amSho') : na;
+            let pmSpR = na;
+            if (ev.pmReg) {
+              pmSpR = dragSpan(ev.pmReg, 'reg', evPmLabel, 'pmReg');
+              if (ev.pmReg2) pmSpR += ', ' + dragSpan(ev.pmReg2, 'reg', evPmLabel, 'pmReg2');
+            }
+            const pmSHO = ev.pmSho ? dragSpan(ev.pmSho, 'sho', evPmLabel, 'pmSho') : na;
+            let originAttr;
+            if (ev.paired) {
+              const ao = ev._amOrigin || ev._origin || {};
+              const po = ev._pmOrigin || ev._origin || {};
+              originAttr = ' data-paired="1"' +
+                ' data-am-label="' + (ev.amLabel || '') + '"' +
+                ' data-pm-label="' + (ev.pmLabel || '') + '"' +
+                (ao.manual
+                  ? ' data-am-manual="1" data-am-manual-idx="' + ao.manualIndex + '"'
+                  : ' data-am-base-idx="' + ao.baseIndex + '"') +
+                (po.manual
+                  ? ' data-pm-manual="1" data-pm-manual-idx="' + po.manualIndex + '"'
+                  : ' data-pm-base-idx="' + po.baseIndex + '"');
+            } else if (ev.manual) {
+              originAttr = ' data-manual="1" data-manual-idx="' + (ev.manualIndex != null ? ev.manualIndex : '') + '"';
+            } else {
+              originAttr = ' data-base-idx="' + ev.baseIndex + '"';
+            }
+            activityHtml += '<tr class="' + rowClass + '"' + originAttr + ' data-date="' + dk + '" data-session-index="' + rowIndex + '">';
+            activityHtml += '<td>' + amActivity + '</td>';
+            activityHtml += '<td class="drag-cell" data-date="' + dk + '" data-label="' + evAmLabel + '" data-field="amReg">' + amSpR + '</td>';
+            activityHtml += '<td class="drag-cell" data-date="' + dk + '" data-label="' + evAmLabel + '" data-field="amSho">' + amSHO + '</td>';
+            activityHtml += '<td>' + pmActivity + '</td>';
+            activityHtml += '<td class="drag-cell" data-date="' + dk + '" data-label="' + evPmLabel + '" data-field="pmReg">' + pmSpR + '</td>';
+            activityHtml += '<td class="drag-cell" data-date="' + dk + '" data-label="' + evPmLabel + '" data-field="pmSho">' + pmSHO + '</td>';
+            activityHtml += '</tr>';
           });
+          activityHtml += '</tbody></table>';
+
+          const leaveRegs = [leaveOncall.leave.reg].filter(Boolean);
+          const leaveSpRText = leaveRegs.length ? leaveRegs.map(r => '<span class="reg">' + r + '</span>').join(', ') : '—';
+          const leaveShoText = '<span class="sho">' + (leaveOncall.leave.sho || '—') + '</span>';
+          let extraLines = '';
+          if (availableRegs.length || availableShos.length) {
+            const availRegText = availableRegs.length
+              ? availableRegs.map(r => '<span class="reg">' + r + '</span>').join(', ')
+              : '—';
+            const availShoText = availableShos.length
+              ? availableShos.map(s => '<span class="sho">' + s + '</span>').join(', ')
+              : '—';
+            extraLines =
+              '<br><span class="event-label-inline">Available SpR:</span> ' + availRegText +
+              '<br><span class="event-label-inline">Available SHO:</span> ' + availShoText;
+          }
+          const leaveContent =
+            'SpR: ' + leaveSpRText +
+            '<br>SHO: ' + leaveShoText +
+            extraLines;
+          const o = leaveOncall.oncall;
+          const oncallContent = 'Ward SpR: <span class="reg">' + (o.wardReg || '—') + '</span><br>Ward SHO: <span class="sho">' + (o.wardSho || '—') + '</span><br>On-call SpR: <span class="reg">' + (o.reg || '—') + '</span><br>SHO day: <span class="sho">' + (o.shoDay || '—') + '</span><br>SHO night: <span class="sho">' + (o.shoNightMonThu || o.shoNightFriSun || '—') + '</span>';
+
+          html += '<tr>';
+          html += '<td class="day-cell" data-cell-type="day" data-date="' + dk + '"><span class="dow">' + dayNames[dayIndex] + ' ' + date.getDate() + '</span></td>';
+          html += '<td class="activities-cell" style="padding:0;">' + activityHtml + '</td>';
+          html += '<td class="leave-cell">' + leaveContent + '</td>';
+          html += '<td class="oncall-cell">' + oncallContent + '</td>';
+          html += '</tr>';
         });
 
         html += '</tbody></table>';
         document.getElementById('gridWrap').innerHTML = html;
         document.getElementById('gridWrap').style.display = 'block';
+        attachManualActivityHandlers();
+        saveWeekJSON(monday);
       }
 
       async function load() {
@@ -888,6 +1446,7 @@
           document.getElementById('error').style.display = 'none';
           const today = new Date();
           today.setHours(0, 0, 0, 0);
+          await loadWeekEdits(getMonday(today));
           renderWeek(getMonday(today));
           // init month controls
           const monthSelect = document.getElementById('monthSelect');
@@ -929,6 +1488,8 @@
           if (tabWeek) tabWeek.addEventListener('click', () => setActiveView('week'));
           if (tabMonth) tabMonth.addEventListener('click', () => setActiveView('month'));
           setActiveView('week');
+          setupContextMenu();
+          setupDragAndDrop();
         } catch (e) {
           document.getElementById('loading').style.display = 'none';
           document.getElementById('error').style.display = 'block';
@@ -936,20 +1497,488 @@
         }
       }
 
-      document.getElementById('prevWeek').addEventListener('click', () => {
+      document.getElementById('prevWeek').addEventListener('click', async () => {
         if (!currentMonday) return;
         const prev = new Date(currentMonday);
         prev.setDate(prev.getDate() - 7);
+        await loadWeekEdits(prev);
         renderWeek(prev);
       });
-      document.getElementById('nextWeek').addEventListener('click', () => {
+      document.getElementById('nextWeek').addEventListener('click', async () => {
         if (!currentMonday) return;
         const next = new Date(currentMonday);
         next.setDate(next.getDate() + 7);
+        await loadWeekEdits(next);
         renderWeek(next);
       });
 
       load();
+
+      function attachManualActivityHandlers() {
+        const grid = document.getElementById('gridWrap');
+        if (!grid) return;
+        const nodes = grid.querySelectorAll('.editable-activity');
+        nodes.forEach(node => {
+          node.removeEventListener('blur', handleManualActivityBlur);
+          node.addEventListener('blur', handleManualActivityBlur);
+          node.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Enter') {
+              ev.preventDefault();
+              node.blur();
+            }
+          });
+        });
+      }
+
+      function handleManualActivityBlur(ev) {
+        const el = ev.target;
+        const dk = el.getAttribute('data-date');
+        const miStr = el.getAttribute('data-manual-index');
+        if (!dk || miStr === '' || miStr == null) return;
+        const mi = Number(miStr);
+        const text = (el.textContent || '').trim();
+
+        if (!text) { el.innerHTML = ''; return; }
+
+        if (!manualEdits.addedSessions[dk]) return;
+        const arr = manualEdits.addedSessions[dk];
+        if (!arr[mi]) return;
+        const sess = arr[mi];
+
+        let consultantId, kind;
+        const fullMatch = text.match(/^([A-Za-z]{1,4})\s+(Theatre|Clinic)$/i);
+        const initialsOnly = text.match(/^[A-Za-z]{1,4}$/);
+        if (fullMatch) {
+          consultantId = fullMatch[1].toUpperCase();
+          kind = fullMatch[2].toLowerCase();
+        } else if (initialsOnly) {
+          consultantId = text.toUpperCase();
+          kind = sess.type === 'clinic' ? 'clinic' : 'theatre';
+        } else {
+          return;
+        }
+
+        const dateObj = parseDate(dk);
+        const baseEvents = buildDayEvents(dateObj);
+        const leaveSet = getLeaveSetForDate(dateObj);
+        const ctx = getDayContext(dateObj);
+
+        const regsUsed = new Set();
+        const shosUsed = new Set();
+        baseEvents.forEach(ev2 => {
+          if (ev2.amReg) regsUsed.add(ev2.amReg);
+          if (ev2.pmReg) regsUsed.add(ev2.pmReg);
+          if (ev2.amSho) shosUsed.add(ev2.amSho);
+          if (ev2.pmSho) shosUsed.add(ev2.pmSho);
+        });
+        (manualEdits.addedSessions[dk] || []).forEach((ev2, idx) => {
+          if (idx === mi) return;
+          if (ev2.amReg) regsUsed.add(ev2.amReg);
+          if (ev2.pmReg) regsUsed.add(ev2.pmReg);
+          if (ev2.amReg2) regsUsed.add(ev2.amReg2);
+          if (ev2.pmReg2) regsUsed.add(ev2.pmReg2);
+          if (ev2.amSho) shosUsed.add(ev2.amSho);
+          if (ev2.pmSho) shosUsed.add(ev2.pmSho);
+        });
+
+        const pairedRegs = getRegsForConsultant(consultantId);
+        let reg = null;
+        for (let pi = 0; pi < pairedRegs.length; pi++) {
+          const r = pairedRegs[pi];
+          if (r !== ctx.wardReg && r !== ctx.oncallRegId && !leaveSet.has(r) && !regsUsed.has(r)) {
+            reg = r;
+            break;
+          }
+        }
+        if (!reg) {
+          reg = getRegForConsultantListOrClinicWithFallback(
+            consultantId, ctx.wardReg, ctx.oncallRegId, regsUsed, leaveSet
+          );
+        }
+
+        let sho = null;
+        if (kind === 'theatre' && people && Array.isArray(people.shos)) {
+          const allShoIds = people.shos.map(s => s.id);
+          const availableSho = allShoIds.filter(id =>
+            !leaveSet.has(id) && !shosUsed.has(id) &&
+            id !== ctx.wardSho && id !== ctx.daySho && id !== ctx.nightSho
+          );
+          sho = availableSho.length ? availableSho[0] : null;
+        }
+
+        sess.label = consultantId + ' ' + (kind === 'theatre' ? 'Theatre' : 'Clinic');
+        sess.type = kind === 'theatre' ? 'theatre' : 'clinic';
+        if (kind === 'theatre') {
+          sess.amReg = reg || null;
+          sess.pmReg = reg || null;
+          sess.amSho = sho || null;
+          sess.pmSho = sho || null;
+        } else {
+          const half = sess.half || 'am';
+          if (half === 'pm') {
+            sess.amReg = null;
+            sess.pmReg = reg || null;
+          } else {
+            sess.amReg = reg || null;
+            sess.pmReg = null;
+          }
+          sess.amSho = null;
+          sess.pmSho = null;
+        }
+
+        if (currentMonday) renderWeek(currentMonday);
+      }
+
+      function setupContextMenu() {
+        const menu = document.getElementById('contextMenu');
+        const grid = document.getElementById('gridWrap');
+        if (!menu || !grid) return;
+
+        let ctxState = null;
+
+        function hideMenu() {
+          menu.style.display = 'none';
+          ctxState = null;
+        }
+
+        document.addEventListener('click', hideMenu);
+        window.addEventListener('scroll', hideMenu, true);
+
+        grid.addEventListener('contextmenu', (event) => {
+          const target = event.target;
+          const tr = target.closest('tr');
+          const dayCell = target.closest('td.day-cell');
+          if (!tr && !dayCell) return;
+          event.preventDefault();
+
+          menu.innerHTML = '';
+
+          if (dayCell) {
+            const dk = dayCell.getAttribute('data-date');
+            if (!dk) return;
+            ctxState = { kind: 'day', dateKey: dk };
+            const addListBtn = document.createElement('button');
+            addListBtn.textContent = 'Add list';
+            addListBtn.dataset.action = 'add-list';
+            const addClinicAM = document.createElement('button');
+            addClinicAM.textContent = 'Add clinic (AM)';
+            addClinicAM.dataset.action = 'add-clinic-am';
+            const addClinicPM = document.createElement('button');
+            addClinicPM.textContent = 'Add clinic (PM)';
+            addClinicPM.dataset.action = 'add-clinic-pm';
+            const addGASkin = document.createElement('button');
+            addGASkin.textContent = 'Add GA Skin';
+            addGASkin.dataset.action = 'add-ga-skin';
+            const addLuton = document.createElement('button');
+            addLuton.textContent = 'Add Luton';
+            addLuton.dataset.action = 'add-luton';
+            const addMVH = document.createElement('button');
+            addMVH.textContent = 'Add MVH/WGH';
+            addMVH.dataset.action = 'add-mvh';
+            menu.appendChild(addListBtn);
+            menu.appendChild(addClinicAM);
+            menu.appendChild(addClinicPM);
+            menu.appendChild(addGASkin);
+            menu.appendChild(addLuton);
+            menu.appendChild(addMVH);
+          } else if (tr) {
+            const dk = tr.getAttribute('data-date');
+            if (!dk) return;
+            const rowClass = tr.className || '';
+            let sessionType = null;
+            if (rowClass.indexOf('row-theatre') !== -1) sessionType = 'list';
+            else if (rowClass.indexOf('row-clinic') !== -1) sessionType = 'clinic';
+            if (!sessionType) return;
+            const isManual = tr.hasAttribute('data-manual');
+            const isPaired = tr.hasAttribute('data-paired');
+            if (isManual) {
+              ctxState = { kind: 'session', dateKey: dk, isManual: true, manualIdx: Number(tr.getAttribute('data-manual-idx')), sessionType };
+              const removeBtn = document.createElement('button');
+              removeBtn.textContent = sessionType === 'list' ? 'Remove list' : 'Remove clinic';
+              removeBtn.dataset.action = 'remove-session';
+              menu.appendChild(removeBtn);
+            } else if (isPaired) {
+              const amLabel = tr.getAttribute('data-am-label') || 'AM clinic';
+              const pmLabel = tr.getAttribute('data-pm-label') || 'PM clinic';
+              const amIsManual = tr.hasAttribute('data-am-manual');
+              const pmIsManual = tr.hasAttribute('data-pm-manual');
+              ctxState = {
+                kind: 'paired-session', dateKey: dk,
+                amIsManual: amIsManual,
+                amManualIdx: amIsManual ? Number(tr.getAttribute('data-am-manual-idx')) : null,
+                amBaseIndex: !amIsManual ? Number(tr.getAttribute('data-am-base-idx')) : null,
+                pmIsManual: pmIsManual,
+                pmManualIdx: pmIsManual ? Number(tr.getAttribute('data-pm-manual-idx')) : null,
+                pmBaseIndex: !pmIsManual ? Number(tr.getAttribute('data-pm-base-idx')) : null,
+                sessionType
+              };
+              const removeAmBtn = document.createElement('button');
+              removeAmBtn.textContent = 'Remove ' + amLabel;
+              removeAmBtn.dataset.action = 'remove-am';
+              const removePmBtn = document.createElement('button');
+              removePmBtn.textContent = 'Remove ' + pmLabel;
+              removePmBtn.dataset.action = 'remove-pm';
+              menu.appendChild(removeAmBtn);
+              menu.appendChild(removePmBtn);
+            } else {
+              ctxState = { kind: 'session', dateKey: dk, isManual: false, baseIndex: Number(tr.getAttribute('data-base-idx')), sessionType };
+              const removeBtn = document.createElement('button');
+              removeBtn.textContent = sessionType === 'list' ? 'Remove list' : 'Remove clinic';
+              removeBtn.dataset.action = 'remove-session';
+              menu.appendChild(removeBtn);
+            }
+          } else {
+            return;
+          }
+
+          const x = event.clientX;
+          const y = event.clientY;
+          menu.style.left = x + 'px';
+          menu.style.top = y + 'px';
+          menu.style.display = 'block';
+        });
+
+        menu.addEventListener('click', (event) => {
+          const btn = event.target.closest('button');
+          if (!btn || !ctxState) return;
+          const action = btn.dataset.action;
+
+          if (ctxState.kind === 'day') {
+            const dk = ctxState.dateKey;
+            if (!manualEdits.addedSessions[dk]) manualEdits.addedSessions[dk] = [];
+            if (action === 'add-list') {
+              manualEdits.addedSessions[dk].push({
+                label: '',
+                amReg: null, amSho: null, pmReg: null, pmSho: null,
+                type: 'theatre', half: 'all_day', manual: true
+              });
+            } else if (action === 'add-clinic-am') {
+              manualEdits.addedSessions[dk].push({
+                label: '',
+                amReg: null, amSho: null, pmReg: null, pmSho: null,
+                type: 'clinic', half: 'am', manual: true
+              });
+            } else if (action === 'add-clinic-pm') {
+              manualEdits.addedSessions[dk].push({
+                label: '',
+                amReg: null, amSho: null, pmReg: null, pmSho: null,
+                type: 'clinic', half: 'pm', manual: true
+              });
+            } else if (action === 'add-ga-skin' || action === 'add-luton' || action === 'add-mvh') {
+              const dateObj = parseDate(dk);
+              const ctx = getDayContext(dateObj);
+              const leaveSet = getLeaveSetForDate(dateObj);
+              const baseEvents = buildDayEvents(dateObj);
+              const existingAdded = manualEdits.addedSessions[dk] || [];
+              const manualUsedR = new Set();
+              const usedS = new Set();
+              baseEvents.forEach(ev => {
+                if (ev.amSho) usedS.add(ev.amSho);
+                if (ev.pmSho) usedS.add(ev.pmSho);
+              });
+              existingAdded.forEach(ev => {
+                if (ev.amReg) manualUsedR.add(ev.amReg);
+                if (ev.pmReg) manualUsedR.add(ev.pmReg);
+                if (ev.amReg2) manualUsedR.add(ev.amReg2);
+                if (ev.pmReg2) manualUsedR.add(ev.pmReg2);
+                if (ev.amSho) usedS.add(ev.amSho);
+                if (ev.pmSho) usedS.add(ev.pmSho);
+              });
+              const avail = people.registrars.filter(r =>
+                r.id !== ctx.wardReg && r.id !== ctx.oncallRegId &&
+                !leaveSet.has(r.id) && !manualUsedR.has(r.id)
+              );
+
+              if (action === 'add-ga-skin') {
+                const ga1 = avail.filter(r => getRegCapabilities(r.id).includes('ga1'));
+                const gaAll = avail.filter(r => { const c = getRegCapabilities(r.id); return c.includes('ga1') || c.includes('ga2'); });
+                let reg1 = ga1.length > 0 ? ga1[0].id : null;
+                let reg2 = null;
+                if (reg1) {
+                  const rest = gaAll.filter(r => r.id !== reg1);
+                  if (rest.length > 0) reg2 = rest[0].id;
+                }
+                const availSho = people.shos.find(s =>
+                  !leaveSet.has(s.id) && !usedS.has(s.id) &&
+                  s.id !== ctx.wardSho && s.id !== ctx.daySho && s.id !== ctx.nightSho
+                );
+                manualEdits.addedSessions[dk].push({
+                  label: 'GA Skin', type: 'theatre', half: 'all_day', manual: true, locked: true,
+                  amReg: reg1, pmReg: reg1, amReg2: reg2, pmReg2: reg2,
+                  amSho: availSho ? availSho.id : null, pmSho: availSho ? availSho.id : null
+                });
+              } else if (action === 'add-luton') {
+                const lutonRegs = avail.filter(r => getRegCapabilities(r.id).includes('luton'));
+                const reg = lutonRegs.length > 0 ? lutonRegs[0].id : null;
+                manualEdits.addedSessions[dk].push({
+                  label: 'Luton', type: 'theatre', half: 'all_day', manual: true, locked: true,
+                  amReg: reg, pmReg: reg, amSho: null, pmSho: null
+                });
+              } else if (action === 'add-mvh') {
+                const mvhRegs = avail.filter(r => getRegCapabilities(r.id).includes('mvh'));
+                const reg = mvhRegs.length > 0 ? mvhRegs[0].id : null;
+                manualEdits.addedSessions[dk].push({
+                  label: 'MVH/WGH', type: 'theatre', half: 'all_day', manual: true, locked: true,
+                  amReg: reg, pmReg: reg, amSho: null, pmSho: null
+                });
+              }
+            }
+          } else if (ctxState.kind === 'session' && action === 'remove-session') {
+            const dk = ctxState.dateKey;
+            if (ctxState.isManual) {
+              const arr = manualEdits.addedSessions[dk];
+              if (arr) {
+                arr.splice(ctxState.manualIdx, 1);
+                if (!arr.length) delete manualEdits.addedSessions[dk];
+              }
+            } else {
+              if (!manualEdits.removedIndices[dk]) manualEdits.removedIndices[dk] = new Set();
+              manualEdits.removedIndices[dk].add(ctxState.baseIndex);
+            }
+          } else if (ctxState.kind === 'paired-session' && (action === 'remove-am' || action === 'remove-pm')) {
+            const dk = ctxState.dateKey;
+            if (action === 'remove-am') {
+              if (ctxState.amIsManual) {
+                const arr = manualEdits.addedSessions[dk];
+                if (arr) { arr.splice(ctxState.amManualIdx, 1); if (!arr.length) delete manualEdits.addedSessions[dk]; }
+              } else {
+                if (!manualEdits.removedIndices[dk]) manualEdits.removedIndices[dk] = new Set();
+                manualEdits.removedIndices[dk].add(ctxState.amBaseIndex);
+              }
+            } else {
+              if (ctxState.pmIsManual) {
+                const arr = manualEdits.addedSessions[dk];
+                if (arr) { arr.splice(ctxState.pmManualIdx, 1); if (!arr.length) delete manualEdits.addedSessions[dk]; }
+              } else {
+                if (!manualEdits.removedIndices[dk]) manualEdits.removedIndices[dk] = new Set();
+                manualEdits.removedIndices[dk].add(ctxState.pmBaseIndex);
+              }
+            }
+          }
+
+          hideMenu();
+          if (currentMonday) renderWeek(currentMonday);
+          requestAnimationFrame(() => {
+            const empties = document.querySelectorAll('.editable-activity');
+            for (let i = empties.length - 1; i >= 0; i--) {
+              if (!empties[i].textContent.trim()) { empties[i].focus(); break; }
+            }
+          });
+        });
+      }
+      function setupDragAndDrop() {
+        const grid = document.getElementById('gridWrap');
+        if (!grid) return;
+
+        let dragSource = null;
+        let dragSourceEl = null;
+
+        grid.addEventListener('dragstart', (e) => {
+          const span = e.target.closest('[draggable="true"]');
+          if (!span) return;
+          dragSourceEl = span;
+          dragSource = {
+            date: span.dataset.date,
+            label: span.dataset.label,
+            field: span.dataset.field,
+            value: span.textContent.trim()
+          };
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('text/plain', dragSource.value);
+          requestAnimationFrame(() => span.classList.add('dragging'));
+        });
+
+        grid.addEventListener('dragend', () => {
+          grid.querySelectorAll('.dragging').forEach(el => el.classList.remove('dragging'));
+          grid.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+          dragSource = null;
+          dragSourceEl = null;
+        });
+
+        grid.addEventListener('dragover', (e) => {
+          if (!dragSource) return;
+          const cell = e.target.closest('.drag-cell');
+          if (!cell) return;
+          if (cell.dataset.date !== dragSource.date) return;
+          const srcIsReg = dragSource.field.indexOf('Reg') !== -1;
+          const tgtIsReg = cell.dataset.field.indexOf('Reg') !== -1;
+          if (srcIsReg !== tgtIsReg) return;
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'move';
+          grid.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+          cell.classList.add('drag-over');
+        });
+
+        grid.addEventListener('dragleave', (e) => {
+          const cell = e.target.closest('.drag-cell');
+          if (cell && !cell.contains(e.relatedTarget)) cell.classList.remove('drag-over');
+        });
+
+        grid.addEventListener('drop', (e) => {
+          e.preventDefault();
+          grid.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+          if (!dragSource) return;
+
+          const cell = e.target.closest('.drag-cell');
+          if (!cell) return;
+          if (cell.dataset.date !== dragSource.date) return;
+
+          var targetLabel = cell.dataset.label;
+          var targetField = cell.dataset.field;
+          var targetValue = null;
+
+          var droppedOnSpan = e.target.closest('[draggable="true"]');
+          if (droppedOnSpan && cell.contains(droppedOnSpan)) {
+            targetLabel = droppedOnSpan.dataset.label;
+            targetField = droppedOnSpan.dataset.field;
+            targetValue = droppedOnSpan.textContent.trim();
+          } else {
+            var firstSpan = cell.querySelector('.reg, .sho');
+            targetValue = firstSpan ? firstSpan.textContent.trim() : null;
+          }
+
+          if (dragSource.label === targetLabel && dragSource.field === targetField) return;
+          var srcIsReg = dragSource.field.indexOf('Reg') !== -1;
+          var tgtIsReg = targetField.indexOf('Reg') !== -1;
+          if (srcIsReg !== tgtIsReg) return;
+
+          var dk = dragSource.date;
+          if (!manualEdits.regOverrides[dk]) manualEdits.regOverrides[dk] = {};
+          manualEdits.regOverrides[dk][dragSource.label + '.' + dragSource.field] = targetValue || null;
+          manualEdits.regOverrides[dk][targetLabel + '.' + targetField] = dragSource.value;
+
+          function otherHalf(field) {
+            if (field.indexOf('am') === 0) return 'pm' + field.slice(2);
+            if (field.indexOf('pm') === 0) return 'am' + field.slice(2);
+            return null;
+          }
+          var srcOtherField = otherHalf(dragSource.field);
+          var tgtOtherField = otherHalf(targetField);
+          if (srcOtherField && tgtOtherField && dragSourceEl) {
+            var srcRow = dragSourceEl.closest('tr');
+            var tgtRow = cell.closest('tr');
+            if (srcRow && tgtRow) {
+              var srcOtherCell = srcRow.querySelector('.drag-cell[data-field="' + srcOtherField + '"]');
+              var tgtOtherCell = tgtRow.querySelector('.drag-cell[data-field="' + tgtOtherField + '"]');
+              var srcOtherSpan = srcOtherCell ? srcOtherCell.querySelector('.reg, .sho') : null;
+              var tgtOtherSpan = tgtOtherCell ? tgtOtherCell.querySelector('.reg, .sho') : null;
+              var srcOtherVal = srcOtherSpan ? srcOtherSpan.textContent.trim() : null;
+              var tgtOtherVal = tgtOtherSpan ? tgtOtherSpan.textContent.trim() : null;
+              if (srcOtherVal === dragSource.value && tgtOtherVal === targetValue) {
+                var srcOtherLabel = srcOtherCell ? srcOtherCell.dataset.label : dragSource.label;
+                var tgtOtherLabel = tgtOtherCell ? tgtOtherCell.dataset.label : targetLabel;
+                manualEdits.regOverrides[dk][srcOtherLabel + '.' + srcOtherField] = tgtOtherVal || null;
+                manualEdits.regOverrides[dk][tgtOtherLabel + '.' + tgtOtherField] = srcOtherVal;
+              }
+            }
+          }
+
+          dragSource = null;
+          dragSourceEl = null;
+          if (currentMonday) renderWeek(currentMonday);
+        });
+      }
+
     })();
   </script>
 </body>
