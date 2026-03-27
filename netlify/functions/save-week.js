@@ -35,20 +35,27 @@ exports.handler = async function (event) {
     'Content-Type': 'application/json'
   };
 
-  // Get current file SHA if it exists (required for updates)
-  let sha;
-  const getRes = await fetch(`${apiUrl}?ref=${branch}`, { headers });
-  if (getRes.ok) {
-    const fileData = await getRes.json();
-    sha = fileData.sha;
-  }
-
   const fileContent = Buffer.from(JSON.stringify(content, null, 2)).toString('base64');
 
-  const putBody = { message: `Rota update: ${weekCommencing}`, content: fileContent, branch };
-  if (sha) putBody.sha = sha;
+  async function getSha() {
+    const res = await fetch(`${apiUrl}?ref=${branch}`, { headers });
+    if (res.ok) return (await res.json()).sha;
+    return null;
+  }
 
-  const putRes = await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(putBody) });
+  async function tryPut(sha) {
+    const putBody = { message: `Rota update: ${weekCommencing}`, content: fileContent, branch };
+    if (sha) putBody.sha = sha;
+    return fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(putBody) });
+  }
+
+  // Retry once on 409 with a fresh SHA
+  let sha = await getSha();
+  let putRes = await tryPut(sha);
+  if (putRes.status === 409) {
+    sha = await getSha();
+    putRes = await tryPut(sha);
+  }
 
   if (putRes.ok) {
     return {
