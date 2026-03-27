@@ -1045,8 +1045,9 @@
         try {
           localStorage.setItem(weekStorageKey(monday), JSON.stringify(data));
         } catch (e) { console.error('Failed to save week:', e); }
-        // Also persist to GitHub directly via API
-        saveToGitHub(data.weekCommencing, data);
+        // Also persist to GitHub directly via API (debounced to avoid SHA conflicts on rapid saves)
+        clearTimeout(saveToGitHub._timer);
+        saveToGitHub._timer = setTimeout(() => saveToGitHub(data.weekCommencing, data), 1500);
       }
 
       function renderWeek(monday) {
