@@ -953,7 +953,7 @@
         };
         const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
         async function getSha() {
-          const r = await fetch(`${apiUrl}?ref=${GITHUB_CONFIG.branch}`, { headers });
+          const r = await fetch(`${apiUrl}?ref=${GITHUB_CONFIG.branch}&t=${Date.now()}`, { headers, cache: 'no-store' });
           return r.ok ? (await r.json()).sha : null;
         }
         async function putFile(sha) {
