@@ -80,6 +80,16 @@
           "time": "all_day",
           "reg": "HC",
           "sho": null
+        },
+        {
+          "type": "theatre",
+          "label": "GA Skin",
+          "time": "all_day",
+          "reg": "ZA",
+          "reg2": "TO",
+          "sho": null,
+          "manual": true,
+          "locked": true
         }
       ]
     },
@@ -450,6 +460,21 @@
   ],
   "manualEdits": {
     "2026-03-23": {
+      "addedSessions": [
+        {
+          "label": "GA Skin",
+          "type": "theatre",
+          "half": "all_day",
+          "manual": true,
+          "locked": true,
+          "amReg": "ZA",
+          "pmReg": "ZA",
+          "amReg2": "TO",
+          "pmReg2": "TO",
+          "amSho": null,
+          "pmSho": null
+        }
+      ],
       "regOverrides": {
         "Trauma clinic.amReg": "MHA",
         "DSU2.amReg": "BR",
