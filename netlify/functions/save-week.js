@@ -44,7 +44,7 @@ exports.handler = async function (event) {
   }
 
   async function tryPut(sha) {
-    const putBody = { message: `Rota update: ${weekCommencing}`, content: fileContent, branch };
+    const putBody = { message: `Rota update: ${weekCommencing} [skip cd]`, content: fileContent, branch };
     if (sha) putBody.sha = sha;
     return fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(putBody) });
   }
