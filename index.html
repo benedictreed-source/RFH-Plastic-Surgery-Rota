@@ -1052,9 +1052,13 @@
         try {
           localStorage.setItem(weekStorageKey(monday), JSON.stringify(data));
         } catch (e) { console.error('Failed to save week:', e); }
-        // Also persist to GitHub directly via API (debounced to avoid SHA conflicts on rapid saves)
-        clearTimeout(saveToGitHub._timer);
-        saveToGitHub._timer = setTimeout(() => saveToGitHub(data.weekCommencing, data), 1500);
+        return data;
+      }
+
+      function saveWeekToGitHub(monday) {
+        const data = saveWeekJSON(monday);
+        clearTimeout(saveWeekToGitHub._timer);
+        saveWeekToGitHub._timer = setTimeout(() => saveToGitHub(data.weekCommencing, data), 1500);
       }
 
       function renderWeek(monday) {
@@ -1464,7 +1468,7 @@
         document.getElementById('gridWrap').innerHTML = html;
         document.getElementById('gridWrap').style.display = 'block';
         attachManualActivityHandlers();
-        saveWeekJSON(monday);
+        saveWeekJSON(monday); // localStorage only
       }
 
       async function load() {
@@ -1664,7 +1668,7 @@
           sess.pmSho = null;
         }
 
-        if (currentMonday) renderWeek(currentMonday);
+        if (currentMonday) { renderWeek(currentMonday); saveWeekToGitHub(currentMonday); }
       }
 
       function setupContextMenu() {
@@ -1895,7 +1899,7 @@
           }
 
           hideMenu();
-          if (currentMonday) renderWeek(currentMonday);
+          if (currentMonday) { renderWeek(currentMonday); saveWeekToGitHub(currentMonday); }
           requestAnimationFrame(() => {
             const empties = document.querySelectorAll('.editable-activity');
             for (let i = empties.length - 1; i >= 0; i--) {
@@ -2013,7 +2017,7 @@
 
           dragSource = null;
           dragSourceEl = null;
-          if (currentMonday) renderWeek(currentMonday);
+          if (currentMonday) { renderWeek(currentMonday); saveWeekToGitHub(currentMonday); }
         });
       }
 
