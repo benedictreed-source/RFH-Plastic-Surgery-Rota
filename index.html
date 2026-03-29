@@ -312,6 +312,7 @@
         </div>
       </div>
       <div style="display:flex; align-items:center; gap:0.75rem;">
+        <button type="button" id="migrateBtn" style="display:none; font-size:0.75rem; padding:0.25rem 0.6rem; background:var(--surface2); border:1px solid var(--accent); color:var(--accent); border-radius:4px; cursor:pointer;" onclick="window._migrateCSVtoJSON && window._migrateCSVtoJSON()">Migrate CSV → JSON</button>
         <div class="week-nav" id="weekNav">
           <button type="button" id="prevWeek">← Previous</button>
           <span id="weekLabel">—</span>
@@ -535,6 +536,70 @@
           oncall,
           leave
         };
+      }
+
+      async function loadDataFromJSON() {
+        const [rosterRes, scheduleRes, oncallRes, leaveRes] = await Promise.all([
+          fetch('Data/roster.json'),
+          fetch('Data/schedule.json'),
+          fetch('Data/oncall.json'),
+          fetch('Data/leave.json')
+        ]);
+        if (!rosterRes.ok)   throw new Error('Could not load Data/roster.json');
+        if (!scheduleRes.ok) throw new Error('Could not load Data/schedule.json');
+        if (!oncallRes.ok)   throw new Error('Could not load Data/oncall.json');
+        if (!leaveRes.ok)    throw new Error('Could not load Data/leave.json');
+
+        const [roster, schedule, oncall, leave] = await Promise.all([
+          rosterRes.json(), scheduleRes.json(), oncallRes.json(), leaveRes.json()
+        ]);
+
+        // Build inverse pairingsMap: consultantId → [regIds]
+        const pairingsMap = {};
+        roster.consultants.forEach(c => { pairingsMap[c.id] = []; });
+        roster.registrars.forEach(reg => {
+          (reg.pairedConsultantIds || []).forEach(cId => {
+            if (!pairingsMap[cId]) pairingsMap[cId] = [];
+            pairingsMap[cId].push(reg.id);
+          });
+        });
+
+        // Strip pairedConsultantIds before exposing registrars to the rest of the app
+        const registrars = roster.registrars.map(({ pairedConsultantIds, ...rest }) => rest);
+
+        return {
+          people: { consultants: roster.consultants, registrars, shos: roster.shos },
+          pairingsData: { description: 'From roster.json', pairings: pairingsMap },
+          schedule,
+          oncall,
+          leave
+        };
+      }
+
+      async function migrateCSVtoJSON() {
+        // Requires load() to have already populated globals via CSV
+        if (!people || !pairings || !scheduleFromMd) {
+          console.warn('migrateCSVtoJSON: data not loaded yet');
+          return;
+        }
+        const rosterData = {
+          consultants: people.consultants,
+          registrars: people.registrars.map(r => ({
+            ...r,
+            pairedConsultantIds: Object.entries(pairings.pairings)
+              .filter(([, regs]) => regs.includes(r.id))
+              .map(([cId]) => cId)
+          })),
+          shos: people.shos
+        };
+        console.log('Migrating CSV → JSON...');
+        await Promise.all([
+          saveFileToGitHub('Data/roster.json',   rosterData,       'Migrate: roster from CSV'),
+          saveFileToGitHub('Data/schedule.json', scheduleFromMd,   'Migrate: schedule from CSV'),
+          saveFileToGitHub('Data/oncall.json',   oncallCalendar,   'Migrate: oncall from CSV'),
+          saveFileToGitHub('Data/leave.json',    leaveCalendar,    'Migrate: leave from CSV')
+        ]);
+        console.log('Migration complete. Reload without ?migrate to use JSON.');
       }
 
       function getScheduleForDate(date) {
@@ -970,6 +1035,73 @@
           if (res.ok) console.log('Cloud save ok:', weekCommencing);
           else res.text().then(t => console.warn('Cloud save error ' + res.status + ':', t));
         } catch (e) { console.warn('Cloud save failed:', e); }
+      }
+
+      async function saveFileToGitHub(filePath, content, commitMessage) {
+        if (!GITHUB_CONFIG.token || GITHUB_CONFIG.token === 'PASTE_YOUR_TOKEN_HERE') return;
+        const apiUrl = `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${filePath}`;
+        const headers = {
+          'Authorization': `token ${GITHUB_CONFIG.token}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        };
+        const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
+        async function getSha() {
+          const r = await fetch(`${apiUrl}?ref=${GITHUB_CONFIG.branch}&t=${Date.now()}`, { headers, cache: 'no-store' });
+          return r.ok ? (await r.json()).sha : null;
+        }
+        async function putFile(sha) {
+          const body = { message: commitMessage + ' [skip ci]', content: encoded, branch: GITHUB_CONFIG.branch };
+          if (sha) body.sha = sha;
+          return fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+        }
+        try {
+          let res, attempts = 0;
+          do {
+            res = await putFile(await getSha());
+            attempts++;
+          } while (res.status === 409 && attempts < 5);
+          if (res.ok) console.log('Cloud save ok:', filePath);
+          else res.text().then(t => console.warn('Cloud save error ' + res.status + ':', t));
+        } catch (e) { console.warn('Cloud save failed:', e); }
+      }
+
+      function saveRosterToGitHub() {
+        clearTimeout(saveRosterToGitHub._timer);
+        saveRosterToGitHub._timer = setTimeout(() => {
+          const rosterData = {
+            consultants: people.consultants,
+            registrars: people.registrars.map(r => ({
+              ...r,
+              pairedConsultantIds: Object.entries(pairings.pairings)
+                .filter(([, regs]) => regs.includes(r.id))
+                .map(([cId]) => cId)
+            })),
+            shos: people.shos
+          };
+          saveFileToGitHub('Data/roster.json', rosterData, 'Update roster');
+        }, 1500);
+      }
+
+      function saveScheduleToGitHub() {
+        clearTimeout(saveScheduleToGitHub._timer);
+        saveScheduleToGitHub._timer = setTimeout(() => {
+          saveFileToGitHub('Data/schedule.json', scheduleFromMd, 'Update schedule template');
+        }, 1500);
+      }
+
+      function saveOncallToGitHub() {
+        clearTimeout(saveOncallToGitHub._timer);
+        saveOncallToGitHub._timer = setTimeout(() => {
+          saveFileToGitHub('Data/oncall.json', oncallCalendar, 'Update oncall calendar');
+        }, 1500);
+      }
+
+      function saveLeaveToGitHub() {
+        clearTimeout(saveLeaveToGitHub._timer);
+        saveLeaveToGitHub._timer = setTimeout(() => {
+          saveFileToGitHub('Data/leave.json', leaveCalendar, 'Update leave calendar');
+        }, 1500);
       }
 
       function saveWeekJSON(monday) {
@@ -1473,17 +1605,26 @@
 
       async function load() {
         try {
-          // On GitHub Pages and locally, index.html sits next to the Data folder,
-          // so a simple relative fetch works reliably.
-          const csvRes = await fetch('Data/data.csv');
-          if (!csvRes.ok) throw new Error('Could not load Data/data.csv');
-          const csvText = await csvRes.text();
-          const data = loadDataFromCSV(csvText);
+          // Prefer JSON data files; fall back to CSV if they don't exist yet
+          const probe = await fetch('Data/roster.json', { method: 'HEAD' });
+          let data;
+          if (probe.ok) {
+            data = await loadDataFromJSON();
+          } else {
+            const csvRes = await fetch('Data/data.csv');
+            if (!csvRes.ok) throw new Error('Could not load Data/data.csv');
+            data = loadDataFromCSV(await csvRes.text());
+          }
           people = data.people;
           pairings = data.pairingsData;
           scheduleFromMd = data.schedule;
           oncallCalendar = data.oncall;
           leaveCalendar = data.leave;
+          // Expose migration helper to browser console
+          window._migrateCSVtoJSON = migrateCSVtoJSON;
+          if (new URLSearchParams(location.search).has('migrate')) {
+            document.getElementById('migrateBtn').style.display = '';
+          }
           document.getElementById('loading').style.display = 'none';
           document.getElementById('error').style.display = 'none';
           const today = new Date();

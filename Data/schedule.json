@@ -1,0 +1,296 @@
+{
+  "week1": {
+    "listsByDay": {
+      "Monday": [
+        {
+          "consultantId": "MA"
+        },
+        {
+          "consultantId": "PB"
+        },
+        {
+          "consultantId": "NS"
+        },
+        {
+          "consultantId": "WS"
+        }
+      ],
+      "Tuesday": [
+        {
+          "consultantId": "SH"
+        },
+        {
+          "consultantId": "NK"
+        }
+      ],
+      "Wednesday": [
+        {
+          "consultantId": "DN"
+        },
+        {
+          "consultantId": "GOT"
+        }
+      ],
+      "Thursday": [
+        {
+          "consultantId": "WS"
+        },
+        {
+          "consultantId": "NS"
+        }
+      ],
+      "Friday": [
+        {
+          "consultantId": "SW"
+        },
+        {
+          "consultantId": "AW"
+        }
+      ],
+      "Saturday": [],
+      "Sunday": []
+    },
+    "clinicsByDay": {
+      "Monday": [
+        {
+          "consultantId": "SG",
+          "half": "am"
+        }
+      ],
+      "Tuesday": [
+        {
+          "consultantId": "AM",
+          "half": "pm"
+        }
+      ],
+      "Wednesday": [
+        {
+          "consultantId": "AP",
+          "half": "am"
+        },
+        {
+          "consultantId": "AM",
+          "half": "pm"
+        }
+      ],
+      "Thursday": [
+        {
+          "consultantId": "NT",
+          "half": "pm"
+        },
+        {
+          "consultantId": "AP",
+          "half": "pm"
+        }
+      ],
+      "Friday": [
+        {
+          "consultantId": "IY",
+          "half": "pm"
+        },
+        {
+          "consultantId": "NS",
+          "half": "am"
+        },
+        {
+          "consultantId": "NT",
+          "half": "pm"
+        }
+      ],
+      "Saturday": [],
+      "Sunday": []
+    }
+  },
+  "week2": {
+    "listsByDay": {
+      "Monday": [
+        {
+          "consultantId": "NS"
+        },
+        {
+          "consultantId": "CK"
+        },
+        {
+          "consultantId": "MA"
+        }
+      ],
+      "Tuesday": [
+        {
+          "consultantId": "WS"
+        },
+        {
+          "consultantId": "GOT"
+        }
+      ],
+      "Wednesday": [
+        {
+          "consultantId": "NJ"
+        },
+        {
+          "consultantId": "SH"
+        },
+        {
+          "consultantId": "PB"
+        }
+      ],
+      "Thursday": [
+        {
+          "consultantId": "AW"
+        },
+        {
+          "consultantId": "SG"
+        },
+        {
+          "consultantId": "NT"
+        }
+      ],
+      "Friday": [
+        {
+          "consultantId": "AM"
+        },
+        {
+          "consultantId": "DN"
+        },
+        {
+          "consultantId": "AP"
+        }
+      ],
+      "Saturday": [],
+      "Sunday": []
+    },
+    "clinicsByDay": {
+      "Monday": [
+        {
+          "consultantId": "SW",
+          "half": "am"
+        },
+        {
+          "consultantId": "SW",
+          "half": "pm"
+        },
+        {
+          "consultantId": "AP",
+          "half": "am"
+        },
+        {
+          "consultantId": "SG",
+          "half": "am"
+        },
+        {
+          "consultantId": "YA",
+          "half": "am"
+        },
+        {
+          "consultantId": "NT",
+          "half": "pm"
+        },
+        {
+          "consultantId": "SAH",
+          "half": "pm"
+        },
+        {
+          "consultantId": "WS",
+          "half": "pm"
+        }
+      ],
+      "Tuesday": [
+        {
+          "consultantId": "AW",
+          "half": "am"
+        },
+        {
+          "consultantId": "IY",
+          "half": "am"
+        },
+        {
+          "consultantId": "IY",
+          "half": "pm"
+        },
+        {
+          "consultantId": "DN",
+          "half": "am"
+        },
+        {
+          "consultantId": "NN",
+          "half": "pm"
+        },
+        {
+          "consultantId": "IY",
+          "half": "pm"
+        },
+        {
+          "consultantId": "DN",
+          "half": "pm"
+        }
+      ],
+      "Wednesday": [
+        {
+          "consultantId": "GOT",
+          "half": "am"
+        },
+        {
+          "consultantId": "SAH",
+          "half": "am"
+        },
+        {
+          "consultantId": "AM",
+          "half": "pm"
+        },
+        {
+          "consultantId": "SAH",
+          "half": "pm"
+        },
+        {
+          "consultantId": "MA",
+          "half": "pm"
+        },
+        {
+          "consultantId": "CK",
+          "half": "pm"
+        }
+      ],
+      "Thursday": [
+        {
+          "consultantId": "AM",
+          "half": "am"
+        },
+        {
+          "consultantId": "YA",
+          "half": "am"
+        },
+        {
+          "consultantId": "SH",
+          "half": "pm"
+        },
+        {
+          "consultantId": "AP",
+          "half": "pm"
+        }
+      ],
+      "Friday": [
+        {
+          "consultantId": "NJ",
+          "half": "am"
+        },
+        {
+          "consultantId": "AW",
+          "half": "am"
+        },
+        {
+          "consultantId": "NS",
+          "half": "am"
+        },
+        {
+          "consultantId": "NT",
+          "half": "am"
+        },
+        {
+          "consultantId": "SH",
+          "half": "pm"
+        }
+      ],
+      "Saturday": [],
+      "Sunday": []
+    }
+  }
+}
