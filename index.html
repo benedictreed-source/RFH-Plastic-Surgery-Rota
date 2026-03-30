@@ -2106,8 +2106,12 @@
         const regsUsed = new Set();
         const shosUsed = new Set();
         baseEvents.forEach(ev2 => {
-          if (ev2.amReg) regsUsed.add(ev2.amReg);
-          if (ev2.pmReg) regsUsed.add(ev2.pmReg);
+          // Exclude Trauma clinic from regsUsed — it's a pool-based flexible assignment,
+          // so a paired reg can move out of it when their consultant gets a session.
+          if (ev2.label !== 'Trauma clinic') {
+            if (ev2.amReg) regsUsed.add(ev2.amReg);
+            if (ev2.pmReg) regsUsed.add(ev2.pmReg);
+          }
           if (ev2.amSho) shosUsed.add(ev2.amSho);
           if (ev2.pmSho) shosUsed.add(ev2.pmSho);
         });
