@@ -96,7 +96,9 @@
       "name": "Zab Abdul",
       "phone": "7979971599",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "AP"
+      ]
     },
     {
       "id": "SA",
