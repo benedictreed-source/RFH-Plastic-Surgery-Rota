@@ -43,14 +43,14 @@
           "type": "theatre",
           "label": "NS Theatre",
           "time": "all_day",
-          "reg": "LG",
+          "reg": "JC",
           "sho": "KR"
         },
         {
           "type": "theatre",
           "label": "CK Theatre",
           "time": "all_day",
-          "reg": "JC",
+          "reg": "LG",
           "sho": "OO"
         },
         {
@@ -576,8 +576,10 @@
         "DSU1.amReg": "AZ",
         "DSU2.pmReg": "HB",
         "DSU1.pmReg": "AZ",
-        "NS Theatre.amReg": "LG",
-        "NS Theatre.pmReg": "LG"
+        "NS Theatre.amReg": "JC",
+        "NS Theatre.pmReg": "JC",
+        "CK Theatre.amReg": "LG",
+        "CK Theatre.pmReg": "LG"
       }
     }
   }
