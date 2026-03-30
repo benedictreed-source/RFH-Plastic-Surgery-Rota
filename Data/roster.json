@@ -265,11 +265,15 @@
   "shos": [
     {
       "id": "DH",
-      "name": "Sebastian Nadal"
+      "name": "Declan Hughes"
     },
     {
       "id": "SS",
       "name": "Sila Soltanipari"
+    },
+    {
+      "id": "",
+      "name": ""
     }
   ]
 }
