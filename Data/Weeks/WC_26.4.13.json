@@ -1,0 +1,585 @@
+{
+  "weekCommencing": "2026-04-13",
+  "days": [
+    {
+      "date": "2026-04-13",
+      "dow": "Monday",
+      "leave": {
+        "registrars": [
+          "AL",
+          "BR",
+          "LG"
+        ],
+        "shos": [
+          "OG"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "RF",
+        "wardSho": "SN",
+        "oncallReg": "AZ",
+        "oncallConsultant": null,
+        "daySHO": "SS",
+        "nightSHO": "OO"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "HC",
+          "sho": "BA"
+        },
+        {
+          "type": "theatre",
+          "label": "DSU1",
+          "time": "all_day",
+          "reg": "CW",
+          "sho": "DE"
+        },
+        {
+          "type": "theatre",
+          "label": "NS Theatre",
+          "time": "all_day",
+          "reg": "HB",
+          "sho": "DS"
+        },
+        {
+          "type": "theatre",
+          "label": "CK Theatre",
+          "time": "all_day",
+          "reg": "JC",
+          "sho": "KR"
+        },
+        {
+          "type": "theatre",
+          "label": "MA Theatre",
+          "time": "all_day",
+          "reg": "TO",
+          "sho": "LC"
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "AZ",
+          "sho": "SS"
+        },
+        {
+          "type": "clinic",
+          "label": "SW Clinic",
+          "time": "all_day",
+          "reg": "AE",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "AP Clinic",
+          "time": "all_day",
+          "reg": "HP",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "SG Clinic",
+          "time": "all_day",
+          "reg": "SA",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "YA Clinic",
+          "time": "all_day",
+          "reg": "MT",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "NT Clinic",
+          "time": "all_day",
+          "reg": "ZA",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "SAH Clinic",
+          "time": "all_day",
+          "reg": "HS",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "WS Clinic",
+          "time": "all_day",
+          "reg": "OS",
+          "sho": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-14",
+      "dow": "Tuesday",
+      "leave": {
+        "registrars": [
+          "AZ",
+          "HP"
+        ],
+        "shos": [
+          "DS",
+          "OG"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "RF",
+        "wardSho": "SN",
+        "oncallReg": "BR",
+        "oncallConsultant": null,
+        "daySHO": "BA",
+        "nightSHO": "OO"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "AL",
+          "sho": "DE"
+        },
+        {
+          "type": "theatre",
+          "label": "WS Theatre",
+          "time": "all_day",
+          "reg": "OS",
+          "sho": "KR"
+        },
+        {
+          "type": "theatre",
+          "label": "GOT Theatre",
+          "time": "all_day",
+          "reg": "TO",
+          "sho": "LC"
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "BR",
+          "sho": "BA"
+        },
+        {
+          "type": "clinic",
+          "label": "AW Clinic",
+          "time": "all_day",
+          "reg": "ZA",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "IY Clinic",
+          "time": "all_day",
+          "reg": "LA",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "DN Clinic",
+          "time": "all_day",
+          "reg": "MHA",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "NN Clinic",
+          "time": "all_day",
+          "reg": "SA",
+          "sho": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-15",
+      "dow": "Wednesday",
+      "leave": {
+        "registrars": [
+          "BR",
+          "JC",
+          "LA"
+        ],
+        "shos": [
+          "OG"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "RF",
+        "wardSho": "SN",
+        "oncallReg": "CW",
+        "oncallConsultant": null,
+        "daySHO": "SS",
+        "nightSHO": "OO"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "HC",
+          "sho": "BA"
+        },
+        {
+          "type": "theatre",
+          "label": "DSU1",
+          "time": "all_day",
+          "reg": "MHA",
+          "sho": "DE"
+        },
+        {
+          "type": "theatre",
+          "label": "NJ Theatre",
+          "time": "all_day",
+          "reg": "OH",
+          "sho": "DS"
+        },
+        {
+          "type": "theatre",
+          "label": "SH Theatre",
+          "time": "all_day",
+          "reg": "AL",
+          "sho": "KR"
+        },
+        {
+          "type": "theatre",
+          "label": "PB Theatre",
+          "time": "all_day",
+          "reg": "ZA",
+          "sho": "LC"
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "CW",
+          "sho": "SS"
+        },
+        {
+          "type": "clinic",
+          "label": "GOT Clinic",
+          "time": "all_day",
+          "reg": "OS",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "SAH Clinic",
+          "time": "all_day",
+          "reg": "HS",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "AM Clinic",
+          "time": "all_day",
+          "reg": "LG",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "MA Clinic",
+          "time": "all_day",
+          "reg": "TO",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "CK Clinic",
+          "time": "all_day",
+          "reg": "SA",
+          "sho": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-16",
+      "dow": "Thursday",
+      "leave": {
+        "registrars": [
+          "CW",
+          "HP",
+          "JC"
+        ],
+        "shos": [
+          "OG"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "RF",
+        "wardSho": "SN",
+        "oncallReg": "HB",
+        "oncallConsultant": null,
+        "daySHO": "BA",
+        "nightSHO": "OO"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "ZA",
+          "sho": "DE"
+        },
+        {
+          "type": "theatre",
+          "label": "AW Theatre",
+          "time": "all_day",
+          "reg": "AZ",
+          "sho": "DS"
+        },
+        {
+          "type": "theatre",
+          "label": "SG Theatre",
+          "time": "all_day",
+          "reg": "SA",
+          "sho": "KR"
+        },
+        {
+          "type": "theatre",
+          "label": "NT Theatre",
+          "time": "all_day",
+          "reg": "BR",
+          "sho": "LC"
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "HB",
+          "sho": "BA"
+        },
+        {
+          "type": "clinic",
+          "label": "AM Clinic",
+          "time": "all_day",
+          "reg": "LG",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "YA Clinic",
+          "time": "all_day",
+          "reg": "MT",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "SH Clinic",
+          "time": "all_day",
+          "reg": "AL",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "AP Clinic",
+          "time": "all_day",
+          "reg": "TO",
+          "sho": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "dow": "Friday",
+      "leave": {
+        "registrars": [
+          "HB",
+          "HS",
+          "ZA"
+        ],
+        "shos": [
+          "KR",
+          "OG"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "SA",
+        "wardSho": "SN",
+        "oncallReg": "HC",
+        "oncallConsultant": null,
+        "daySHO": "DE",
+        "nightSHO": "SK"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "OS",
+          "sho": "BA"
+        },
+        {
+          "type": "theatre",
+          "label": "DSU1",
+          "time": "all_day",
+          "reg": "CW",
+          "sho": "DS"
+        },
+        {
+          "type": "theatre",
+          "label": "AM Theatre",
+          "time": "all_day",
+          "reg": "LG",
+          "sho": "LC"
+        },
+        {
+          "type": "theatre",
+          "label": "DN Theatre",
+          "time": "all_day",
+          "reg": "MHA",
+          "sho": "OO"
+        },
+        {
+          "type": "theatre",
+          "label": "AP Theatre",
+          "time": "all_day",
+          "reg": "HP",
+          "sho": "SS"
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "HC",
+          "sho": "DE"
+        },
+        {
+          "type": "clinic",
+          "label": "NJ Clinic",
+          "time": "all_day",
+          "reg": "OH",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "AW Clinic",
+          "time": "all_day",
+          "reg": "AZ",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "NS Clinic",
+          "time": "all_day",
+          "reg": "TO",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "NT Clinic",
+          "time": "all_day",
+          "reg": "BR",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "SH Clinic",
+          "time": "all_day",
+          "reg": "AL",
+          "sho": null
+        }
+      ]
+    },
+    {
+      "date": "2026-04-18",
+      "dow": "Saturday",
+      "leave": {
+        "registrars": [
+          "HC",
+          "MT",
+          "TO"
+        ],
+        "shos": [
+          "KR",
+          "OG"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "SA",
+        "wardSho": "SN",
+        "oncallReg": "HP",
+        "oncallConsultant": null,
+        "daySHO": "DE",
+        "nightSHO": "SK"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "HP",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "SA",
+          "sho": "DE"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-19",
+      "dow": "Sunday",
+      "leave": {
+        "registrars": [
+          "HP",
+          "OS",
+          "RF"
+        ],
+        "shos": [
+          "OG",
+          "SS"
+        ],
+        "notes": ""
+      },
+      "oncall": {
+        "wardReg": "SA",
+        "wardSho": "SN",
+        "oncallReg": "HS",
+        "oncallConsultant": null,
+        "daySHO": "DE",
+        "nightSHO": "SK"
+      },
+      "sessions": [
+        {
+          "type": "theatre",
+          "label": "DSU2",
+          "time": "all_day",
+          "reg": "HS",
+          "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "Trauma clinic",
+          "time": "all_day",
+          "reg": "SA",
+          "sho": "DE"
+        }
+      ]
+    }
+  ],
+  "manualEdits": {
+    "2026-04-13": {
+      "regOverrides": {
+        "DSU1.amReg": "CW",
+        "DSU2.amReg": "HC",
+        "DSU1.pmReg": "CW",
+        "DSU2.pmReg": "HC"
+      }
+    }
+  }
+}
