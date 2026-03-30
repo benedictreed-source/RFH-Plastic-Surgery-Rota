@@ -40,21 +40,21 @@
         },
         {
           "type": "theatre",
-          "label": "NS Theatre",
+          "label": "NS Theatre RFH",
           "time": "all_day",
           "reg": "HB",
           "sho": "DS"
         },
         {
           "type": "theatre",
-          "label": "CK Theatre",
+          "label": "CK Theatre RFH",
           "time": "all_day",
           "reg": "JC",
           "sho": "OG"
         },
         {
           "type": "theatre",
-          "label": "MA Theatre",
+          "label": "MA Theatre RFH",
           "time": "all_day",
           "reg": "TO",
           "sho": "SS"
@@ -68,62 +68,52 @@
         },
         {
           "type": "clinic",
-          "label": "SW Clinic",
+          "label": "SW Clinic RFH",
           "time": "all_day",
-          "reg": "BR",
+          "reg": "AE",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "AP Clinic",
+          "label": "AP Clinic RFH",
           "time": "all_day",
           "reg": "ZA",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "SG Clinic",
+          "label": "SG Clinic RFH",
           "time": "all_day",
           "reg": "SA",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "YA Clinic",
+          "label": "YA Clinic RFH",
           "time": "all_day",
           "reg": "MT",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "NT Clinic",
+          "label": "NT Clinic RFH",
           "time": "all_day",
-          "reg": "AE",
+          "reg": "BR",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "SAH Clinic",
+          "label": "SAH Clinic RFH",
           "time": "all_day",
           "reg": "HS",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "WS Clinic",
+          "label": "WS Clinic RFH",
           "time": "all_day",
           "reg": "OS",
           "sho": null
-        },
-        {
-          "type": "clinic",
-          "label": "NT Clinic",
-          "time": "pm",
-          "reg": "AE",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": false
         }
       ]
     },
@@ -159,14 +149,14 @@
         },
         {
           "type": "theatre",
-          "label": "WS Theatre",
+          "label": "WS Theatre RFH",
           "time": "all_day",
           "reg": "TO",
           "sho": "DS"
         },
         {
           "type": "theatre",
-          "label": "GOT Theatre",
+          "label": "GOT Theatre RFH",
           "time": "all_day",
           "reg": "ZA",
           "sho": "OG"
@@ -180,28 +170,28 @@
         },
         {
           "type": "clinic",
-          "label": "AW Clinic",
+          "label": "AW Clinic RFH",
           "time": "all_day",
           "reg": "AZ",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "IY Clinic",
+          "label": "IY Clinic RFH",
           "time": "all_day",
           "reg": "LA",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "DN Clinic",
+          "label": "DN Clinic RFH",
           "time": "all_day",
           "reg": "SA",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "NN Clinic",
+          "label": "NN Clinic RFH",
           "time": "all_day",
           "reg": "RF",
           "sho": null
@@ -257,21 +247,21 @@
         },
         {
           "type": "theatre",
-          "label": "NJ Theatre",
+          "label": "NJ Theatre RFH",
           "time": "all_day",
           "reg": "OH",
           "sho": "OG"
         },
         {
           "type": "theatre",
-          "label": "SH Theatre",
+          "label": "SH Theatre RFH",
           "time": "all_day",
           "reg": "AL",
           "sho": "SN"
         },
         {
           "type": "theatre",
-          "label": "PB Theatre",
+          "label": "PB Theatre RFH",
           "time": "all_day",
           "reg": "ZA",
           "sho": "SS"
@@ -285,35 +275,35 @@
         },
         {
           "type": "clinic",
-          "label": "GOT Clinic",
+          "label": "GOT Clinic RFH",
           "time": "all_day",
           "reg": "OS",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "SAH Clinic",
+          "label": "SAH Clinic RFH",
           "time": "all_day",
           "reg": "HS",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "AM Clinic",
+          "label": "AM Clinic RFH",
           "time": "all_day",
           "reg": "LG",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "MA Clinic",
+          "label": "MA Clinic RFH",
           "time": "all_day",
           "reg": "TO",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "CK Clinic",
+          "label": "CK Clinic RFH",
           "time": "all_day",
           "reg": "SA",
           "sho": null
@@ -351,23 +341,23 @@
         },
         {
           "type": "theatre",
-          "label": "AW Theatre",
+          "label": "AW Theatre RFH",
           "time": "all_day",
           "reg": "AZ",
           "sho": "DE"
         },
         {
           "type": "theatre",
-          "label": "SG Theatre",
+          "label": "SG Theatre RFH",
           "time": "all_day",
           "reg": "SA",
           "sho": "DS"
         },
         {
           "type": "theatre",
-          "label": "NT Theatre",
+          "label": "NT Theatre RFH",
           "time": "all_day",
-          "reg": "AE",
+          "reg": "BR",
           "sho": "OG"
         },
         {
@@ -379,28 +369,28 @@
         },
         {
           "type": "clinic",
-          "label": "AM Clinic",
+          "label": "AM Clinic RFH",
           "time": "all_day",
           "reg": "LG",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "YA Clinic",
+          "label": "YA Clinic RFH",
           "time": "all_day",
           "reg": "MT",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "SH Clinic",
+          "label": "SH Clinic RFH",
           "time": "all_day",
           "reg": "AL",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "AP Clinic",
+          "label": "AP Clinic RFH",
           "time": "all_day",
           "reg": "HP",
           "sho": null
@@ -446,21 +436,21 @@
         },
         {
           "type": "theatre",
-          "label": "AM Theatre",
+          "label": "AM Theatre RFH",
           "time": "all_day",
           "reg": "HC",
           "sho": "DS"
         },
         {
           "type": "theatre",
-          "label": "DN Theatre",
+          "label": "DN Theatre RFH",
           "time": "all_day",
           "reg": "MHA",
           "sho": "SK"
         },
         {
           "type": "theatre",
-          "label": "AP Theatre",
+          "label": "AP Theatre RFH",
           "time": "all_day",
           "reg": "HP",
           "sho": "SN"
@@ -474,35 +464,35 @@
         },
         {
           "type": "clinic",
-          "label": "NJ Clinic",
+          "label": "NJ Clinic RFH",
           "time": "all_day",
           "reg": "OH",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "AW Clinic",
+          "label": "AW Clinic RFH",
           "time": "all_day",
           "reg": "AZ",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "NS Clinic",
+          "label": "NS Clinic RFH",
           "time": "all_day",
           "reg": "HB",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "NT Clinic",
+          "label": "NT Clinic RFH",
           "time": "all_day",
-          "reg": "AE",
+          "reg": "BR",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "SH Clinic",
+          "label": "SH Clinic RFH",
           "time": "all_day",
           "reg": "AL",
           "sho": null
@@ -590,18 +580,6 @@
   ],
   "manualEdits": {
     "2026-03-30": {
-      "addedSessions": [
-        {
-          "label": "NT Clinic",
-          "amReg": null,
-          "amSho": null,
-          "pmReg": "AE",
-          "pmSho": null,
-          "type": "clinic",
-          "half": "pm",
-          "manual": true
-        }
-      ],
       "removedIndices": [
         10,
         9
