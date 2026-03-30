@@ -781,7 +781,7 @@
         if (preferred) return preferred;
         for (let i = 0; i < people.registrars.length; i++) {
           const r = people.registrars[i].id;
-          if (r !== wardReg && r !== oncallRegId && !usedSet.has(r) && !(leaveSet && leaveSet.has(r))) return r;
+          if (r !== wardReg && !usedSet.has(r) && !(leaveSet && leaveSet.has(r))) return r;
         }
         return null;
       }
@@ -865,8 +865,15 @@
             const consultantId = typeof c === 'object' && c && 'consultantId' in c ? c.consultantId : c;
             const half = (c && c.half) ? c.half : 'am';
             if (!clinicRegByConsultant[consultantId]) {
-              const reg = getRegForConsultantListOrClinicWithFallback(consultantId, wardReg, oncallRegId, regsUsedByListClinic, leaveSet);
-              if (reg) regsUsedByListClinic.add(reg);
+              // Reuse the list reg for this consultant if already assigned today
+              const listEntry = listEntries.find(e => e.consultantId === consultantId);
+              let reg;
+              if (listEntry && listEntry.reg) {
+                reg = listEntry.reg;
+              } else {
+                reg = getRegForConsultantListOrClinicWithFallback(consultantId, wardReg, oncallRegId, regsUsedByListClinic, leaveSet);
+                if (reg) regsUsedByListClinic.add(reg);
+              }
               clinicRegByConsultant[consultantId] = reg || null;
             }
             clinicEntries.push({ consultantId, reg: clinicRegByConsultant[consultantId], half });
