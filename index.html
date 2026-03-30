@@ -1566,8 +1566,11 @@
 
           const dayLeaveSet = getLeaveSetForDate(date);
           const dayCtx = getDayContext(date);
+          // Ward reg is excluded from normal theatre/clinic duties. On-call reg is not —
+          // they appear on Trauma clinic PM, paired lists, etc.; marking them "unavailable"
+          // here incorrectly stripped them from the grid during post-fix (see fixUsed below).
           function regUnavailable(id) {
-            return dayLeaveSet.has(id) || id === dayCtx.wardReg || id === dayCtx.oncallRegId;
+            return dayLeaveSet.has(id) || id === dayCtx.wardReg;
           }
           function shoUnavailable(id) {
             return dayLeaveSet.has(id) || id === dayCtx.wardSho || id === dayCtx.daySho || id === dayCtx.nightSho;
