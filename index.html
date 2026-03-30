@@ -2125,7 +2125,7 @@
         let reg = null;
         for (let pi = 0; pi < pairedRegs.length; pi++) {
           const r = pairedRegs[pi];
-          if (r !== ctx.wardReg && r !== ctx.oncallRegId && !leaveSet.has(r) && !regsUsed.has(r)) {
+          if (r !== ctx.wardReg && !leaveSet.has(r) && !regsUsed.has(r)) {
             reg = r;
             break;
           }
