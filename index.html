@@ -315,12 +315,16 @@
     .cal-weekend td { background: #fef2f2 !important; }
     .cal-cell {
       cursor: pointer;
-      min-height: 1.5rem;
+      min-width: 58px;
+      padding: 0 !important;
+    }
+    .cal-cell-wrap {
       display: flex;
       flex-wrap: wrap;
       gap: 3px;
       align-items: center;
-      min-width: 58px;
+      min-height: 1.5rem;
+      padding: 0.2rem 0.4rem;
     }
     .cal-chip {
       display: inline-flex;
@@ -1037,31 +1041,35 @@
       }
 
       function refreshCalCell(cell, colIdx, colDef) {
+        const wrap = cell.querySelector('.cal-cell-wrap');
+        if (!wrap) return;
         const key = cell.dataset.date;
-        cell.querySelectorAll('.cal-chip').forEach(c => c.remove());
+        wrap.querySelectorAll('.cal-chip').forEach(c => c.remove());
         const raw = colDef.file === 'oncall'
           ? ((oncallCalendar[key] || {})[colDef.field] || null)
           : ((leaveCalendar[key] || {})[colDef.field] || []);
         const ids = colDef.multi ? (raw || []) : (raw ? [raw] : []);
-        const inputEl = cell.querySelector('.cal-cell-input');
+        const inputEl = wrap.querySelector('.cal-cell-input');
         ids.forEach(id => {
           const chip = document.createElement('span');
           chip.className = 'cal-chip';
           chip.dataset.id = id; chip.dataset.date = key; chip.dataset.col = String(colIdx);
           chip.innerHTML = `${id}<span class="cal-chip-x">\u00d7</span>`;
-          cell.insertBefore(chip, inputEl);
+          wrap.insertBefore(chip, inputEl);
         });
       }
 
       function activateCalCell(cell) {
         if (!_calColDefs) return;
+        const wrap = cell.querySelector('.cal-cell-wrap');
+        if (!wrap) return;
         const colIdx = parseInt(cell.dataset.col, 10);
         const colDef = _calColDefs[colIdx];
         if (_calActiveInput) { _calActiveInput.remove(); _calActiveInput = null; }
         hideCalDropdown();
         const input = document.createElement('input');
         input.type = 'text'; input.className = 'cal-cell-input'; input.placeholder = '\u2026';
-        cell.appendChild(input);
+        wrap.appendChild(input);
         input.focus();
         _calActiveInput = input; _calActiveCell = cell; _calActiveColDef = colDef;
         showCalDropdown(input, colDef);
@@ -1148,12 +1156,12 @@
               ? ((oncallCalendar[key] || {})[col.field] || null)
               : ((leaveCalendar[key] || {})[col.field] || []);
             const ids = col.multi ? (raw || []) : (raw ? [raw] : []);
-            html += `<td class="cal-cell" data-date="${key}" data-col="${colIdx}">`;
+            html += `<td class="cal-cell" data-date="${key}" data-col="${colIdx}"><div class="cal-cell-wrap">`;
             ids.forEach(id => {
               html += `<span class="cal-chip" data-id="${id}" data-date="${key}" data-col="${colIdx}">`
                 + `${id}<span class="cal-chip-x">\u00d7</span></span>`;
             });
-            html += '</td>';
+            html += '</div></td>';
           });
           html += '</tr>';
         });
