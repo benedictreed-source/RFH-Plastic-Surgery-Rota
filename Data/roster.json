@@ -105,14 +105,9 @@
       "name": "Abdelkhalek Sallam",
       "phone": "7979971600",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": []
-    },
-    {
-      "id": "OS",
-      "name": "Odai Sayegh",
-      "phone": "7979971600",
-      "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "AM"
+      ]
     },
     {
       "id": "AL",
