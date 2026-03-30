@@ -556,7 +556,25 @@
       let people = null;
       let scheduleFromMd = null;
       const DSU1_DAYS = ['Monday', 'Wednesday', 'Friday'];
+      const SCHEDULE_SITE_CODES = ['RFH', 'MVH', 'WGH', 'CFH', 'UCLH', 'RNOH', 'GOSH', 'STA'];
       const FALLBACK_SCHEDULE = { listsByDay: {}, clinicsByDay: {} };
+
+      function normalizeScheduleLocation(loc) {
+        const s = String(loc || '').trim().toUpperCase();
+        if (SCHEDULE_SITE_CODES.includes(s)) return s;
+        return 'RFH';
+      }
+      function consultantTheatreLabel(consultantId, loc) {
+        return consultantId + ' Theatre ' + normalizeScheduleLocation(loc);
+      }
+      function consultantClinicLabel(consultantId, loc) {
+        return consultantId + ' Clinic ' + normalizeScheduleLocation(loc);
+      }
+      function isConsultantOwnListClinicLabel(label, consultantId) {
+        if (!label || !consultantId) return false;
+        if (label === consultantId + ' Theatre' || label === consultantId + ' Clinic') return true;
+        return label.startsWith(consultantId + ' Theatre ') || label.startsWith(consultantId + ' Clinic ');
+      }
       let pairings = null;
       let currentMonday = null;
       let oncallCalendar = {};
@@ -946,7 +964,11 @@
         const listEntries = dayLists.map(entry => {
           const reg = getRegForConsultantListOrClinicWithFallback(entry.consultantId, wardReg, oncallRegId, regsUsedByListClinic, leaveSet);
           if (reg) regsUsedByListClinic.add(reg);
-          return { consultantId: entry.consultantId, reg, wantsSho: true, sho: null };
+          return {
+            consultantId: entry.consultantId,
+            location: normalizeScheduleLocation(entry.location),
+            reg, wantsSho: true, sho: null
+          };
         });
         const dayClinics = (schedule && schedule.clinicsByDay && schedule.clinicsByDay[dayName]) || [];
         const clinicEntries = [];
@@ -967,7 +989,12 @@
               }
               clinicRegByConsultant[consultantId] = reg || null;
             }
-            clinicEntries.push({ consultantId, reg: clinicRegByConsultant[consultantId], half });
+            clinicEntries.push({
+              consultantId,
+              reg: clinicRegByConsultant[consultantId],
+              half,
+              location: normalizeScheduleLocation(c.location)
+            });
           });
         }
         var dsu2Reg, dsu2Sho;
@@ -1051,7 +1078,7 @@
         add(theatreEvents, dsu2?.label || 'DSU2', dsu2?.reg, dsu2?.sho, dsu2?.reg, dsu2?.sho, 'theatre');
         if (dsu1) add(theatreEvents, 'DSU1', dsu1.reg, dsu1.sho, dsu1.reg, dsu1.sho, 'theatre');
         if (listBlock?.lists?.length) {
-          listBlock.lists.forEach(e => add(theatreEvents, e.consultantId + ' Theatre', e.reg, e.sho || null, e.reg, e.sho || null, 'theatre'));
+          listBlock.lists.forEach(e => add(theatreEvents, consultantTheatreLabel(e.consultantId, e.location), e.reg, e.sho || null, e.reg, e.sho || null, 'theatre'));
         }
         add(clinicEvents, 'Trauma clinic', trauma?.amReg, trauma?.sho, trauma?.pmReg, trauma?.sho, 'clinic');
         if (clinicBlock?.clinics?.length) {
@@ -1060,17 +1087,33 @@
           clinicBlock.clinics.forEach(c => {
             const cid = c.consultantId;
             const half = c.half || 'am';
+            const loc = normalizeScheduleLocation(c.location);
             if (!clinicMerge[cid]) {
-              clinicMerge[cid] = { amReg: null, pmReg: null };
+              clinicMerge[cid] = { amReg: null, pmReg: null, amLoc: 'RFH', pmLoc: 'RFH' };
               clinicOrder.push(cid);
             }
-            if (half === 'am') clinicMerge[cid].amReg = c.reg;
-            else clinicMerge[cid].pmReg = c.reg;
+            if (half === 'am') {
+              clinicMerge[cid].amReg = c.reg;
+              clinicMerge[cid].amLoc = loc;
+            } else {
+              clinicMerge[cid].pmReg = c.reg;
+              clinicMerge[cid].pmLoc = loc;
+            }
           });
           clinicOrder.forEach(cid => {
             const m = clinicMerge[cid];
-            const label = cid + ' Clinic';
-            add(clinicEvents, label, m.amReg, null, m.pmReg, null, 'clinic');
+            const amLabel = consultantClinicLabel(cid, m.amLoc);
+            const pmLabel = consultantClinicLabel(cid, m.pmLoc);
+            clinicEvents.push({
+              label: amLabel,
+              amLabel,
+              pmLabel,
+              amReg: m.amReg || null,
+              amSho: null,
+              pmReg: m.pmReg || null,
+              pmSho: null,
+              type: 'clinic'
+            });
           });
         }
         return [...theatreEvents, ...clinicEvents];
@@ -1594,6 +1637,16 @@
           return h;
         }
 
+        function scheduleSiteSelect(selectedSite, cls, weekKey, day, idxName, idxVal) {
+          const v = normalizeScheduleLocation(selectedSite);
+          let h = '<select class="' + cls + '" data-week="' + weekKey + '" data-day="' + day + '" data-' + idxName + '="' + idxVal + '" style="width:76px;font-size:0.78rem;padding:0.15rem 0.25rem;">';
+          SCHEDULE_SITE_CODES.forEach(code => {
+            h += '<option value="' + code + '"' + (code === v ? ' selected' : '') + '>' + code + '</option>';
+          });
+          h += '</select>';
+          return h;
+        }
+
         function buildWeekTable(weekKey) {
           const week = scheduleFromMd[weekKey];
           if (!week) return '';
@@ -1606,8 +1659,9 @@
             const lists = (week.listsByDay && week.listsByDay[day]) || [];
             let cellHtml = '';
             lists.forEach((entry, li) => {
-              cellHtml += '<div style="display:flex; align-items:center; gap:0.35rem; margin-bottom:0.25rem;">';
+              cellHtml += '<div style="display:flex; align-items:center; gap:0.35rem; margin-bottom:0.25rem; flex-wrap:wrap;">';
               cellHtml += consultantSelect(entry.consultantId, 'sched-list-select" data-week="' + weekKey + '" data-day="' + day + '" data-li="' + li);
+              cellHtml += scheduleSiteSelect(entry.location, 'sched-list-site', weekKey, day, 'li', li);
               cellHtml += ' <button class="editor-btn danger sched-remove-list" data-week="' + weekKey + '" data-day="' + day + '" data-li="' + li + '" title="Remove">✕</button></div>';
             });
             h += '<tr><td style="font-weight:600; width:100px">' + day + '</td><td>' + cellHtml + '</td>';
@@ -1631,6 +1685,7 @@
               cellHtml += '<option value="am"' + (half === 'am' ? ' selected' : '') + '>AM</option>';
               cellHtml += '<option value="pm"' + (half === 'pm' ? ' selected' : '') + '>PM</option>';
               cellHtml += '</select>';
+              cellHtml += scheduleSiteSelect(entry.location, 'sched-clinic-site', weekKey, day, 'ci', ci);
               cellHtml += ' <button class="editor-btn danger sched-remove-clinic" data-week="' + weekKey + '" data-day="' + day + '" data-ci="' + ci + '" title="Remove">✕</button></div>';
             });
             h += '<tr><td style="font-weight:600; width:100px">' + day + '</td><td>' + cellHtml + '</td>';
@@ -1679,9 +1734,20 @@
               const wk = btn.dataset.week;
               const day = btn.dataset.day;
               if (!scheduleFromMd[wk].listsByDay[day]) scheduleFromMd[wk].listsByDay[day] = [];
-              scheduleFromMd[wk].listsByDay[day].push({ consultantId: '' });
+              scheduleFromMd[wk].listsByDay[day].push({ consultantId: '', location: 'RFH' });
               commitAndSave(wk + 'ListSaveInd');
               render();
+            });
+          });
+
+          container.querySelectorAll('.sched-list-site').forEach(sel => {
+            sel.addEventListener('change', () => {
+              const wk = sel.dataset.week;
+              const day = sel.dataset.day;
+              const li = Number(sel.dataset.li);
+              const entry = scheduleFromMd[wk].listsByDay[day][li];
+              entry.location = sel.value;
+              commitAndSave(wk + 'ListSaveInd');
             });
           });
 
@@ -1692,7 +1758,7 @@
               const ci = Number(sel.dataset.ci);
               const entry = scheduleFromMd[wk].clinicsByDay[day][ci];
               if (typeof entry === 'object' && entry) entry.consultantId = sel.value;
-              else scheduleFromMd[wk].clinicsByDay[day][ci] = { consultantId: sel.value, half: 'am' };
+              else scheduleFromMd[wk].clinicsByDay[day][ci] = { consultantId: sel.value, half: 'am', location: 'RFH' };
               commitAndSave(wk + 'ClinicSaveInd');
             });
           });
@@ -1704,6 +1770,18 @@
               const ci = Number(sel.dataset.ci);
               const entry = scheduleFromMd[wk].clinicsByDay[day][ci];
               if (typeof entry === 'object' && entry) entry.half = sel.value;
+              commitAndSave(wk + 'ClinicSaveInd');
+            });
+          });
+
+          container.querySelectorAll('.sched-clinic-site').forEach(sel => {
+            sel.addEventListener('change', () => {
+              const wk = sel.dataset.week;
+              const day = sel.dataset.day;
+              const ci = Number(sel.dataset.ci);
+              const entry = scheduleFromMd[wk].clinicsByDay[day][ci];
+              if (typeof entry === 'object' && entry) entry.location = sel.value;
+              else scheduleFromMd[wk].clinicsByDay[day][ci] = { consultantId: '', half: 'am', location: sel.value };
               commitAndSave(wk + 'ClinicSaveInd');
             });
           });
@@ -1724,7 +1802,7 @@
               const wk = btn.dataset.week;
               const day = btn.dataset.day;
               if (!scheduleFromMd[wk].clinicsByDay[day]) scheduleFromMd[wk].clinicsByDay[day] = [];
-              scheduleFromMd[wk].clinicsByDay[day].push({ consultantId: '', half: 'am' });
+              scheduleFromMd[wk].clinicsByDay[day].push({ consultantId: '', half: 'am', location: 'RFH' });
               commitAndSave(wk + 'ClinicSaveInd');
               render();
             });
@@ -2586,11 +2664,13 @@
         const sess = arr[mi];
 
         let consultantId, kind;
-        const fullMatch = text.match(/^([A-Za-z]{1,4})\s+(Theatre|Clinic)$/i);
+        let manualSite = 'RFH';
+        const fullMatch = text.match(/^([A-Za-z]{1,4})\s+(Theatre|Clinic)(?:\s+([A-Za-z]{2,5}))?$/i);
         const initialsOnly = text.match(/^[A-Za-z]{1,4}$/);
         if (fullMatch) {
           consultantId = fullMatch[1].toUpperCase();
           kind = fullMatch[2].toLowerCase();
+          if (fullMatch[3]) manualSite = normalizeScheduleLocation(fullMatch[3]);
         } else if (initialsOnly) {
           consultantId = text.toUpperCase();
           kind = sess.type === 'clinic' ? 'clinic' : 'theatre';
@@ -2675,9 +2755,10 @@
             });
             if (blockedByAdded) continue;
             // Find the base event that has this reg (skip events for the same consultant)
-            const ownLabels = [consultantId + ' Theatre', consultantId + ' Clinic'];
             for (const ev2 of baseEvents) {
-              if (ownLabels.includes(ev2.label)) continue;
+              if (isConsultantOwnListClinicLabel(ev2.label, consultantId)) continue;
+              if (isConsultantOwnListClinicLabel(ev2.amLabel || '', consultantId)) continue;
+              if (isConsultantOwnListClinicLabel(ev2.pmLabel || '', consultantId)) continue;
               const inAm = needsAm && ev2.amReg === r;
               const inPm = needsPm && ev2.pmReg === r;
               if (!inAm && !inPm) continue;
@@ -2697,9 +2778,11 @@
               const replacementAm = inAm ? findReplacement(usedAm) : null;
               if (replacementAm) usedAm.add(replacementAm);
               const replacementPm = inPm ? findReplacement(usedPm) : null;
+              const amL = ev2.amLabel || ev2.label;
+              const pmL = ev2.pmLabel || ev2.label;
               if (!manualEdits.regOverrides[dk]) manualEdits.regOverrides[dk] = {};
-              if (inAm) manualEdits.regOverrides[dk][ev2.label + '.amReg'] = replacementAm;
-              if (inPm) manualEdits.regOverrides[dk][ev2.label + '.pmReg'] = replacementPm;
+              if (inAm) manualEdits.regOverrides[dk][amL + '.amReg'] = replacementAm;
+              if (inPm) manualEdits.regOverrides[dk][pmL + '.pmReg'] = replacementPm;
               reg = r;
               break;
             }
@@ -2737,7 +2820,9 @@
           sho = availableSho.length ? availableSho[0] : null;
         }
 
-        sess.label = consultantId + ' ' + (kind === 'theatre' ? 'Theatre' : 'Clinic');
+        sess.label = kind === 'theatre'
+          ? consultantTheatreLabel(consultantId, manualSite)
+          : consultantClinicLabel(consultantId, manualSite);
         sess.type = kind === 'theatre' ? 'theatre' : 'clinic';
         if (kind === 'theatre') {
           sess.amReg = reg || null;
