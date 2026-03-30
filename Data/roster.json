@@ -188,18 +188,14 @@
       "name": "Ben Reed",
       "phone": "7979971609",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "SW"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "AE",
       "name": "Ali Esmaeli",
       "phone": "7979971610",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": [
-        "NT"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "AZ",
