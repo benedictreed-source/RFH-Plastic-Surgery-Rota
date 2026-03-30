@@ -144,6 +144,16 @@
           "sho": null,
           "manual": true,
           "locked": false
+        },
+        {
+          "type": "theatre",
+          "label": "NT Theatre",
+          "time": "all_day",
+          "reg": "LA",
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": false
         }
       ]
     },
@@ -633,6 +643,16 @@
           "pmSho": null,
           "type": "clinic",
           "half": "am",
+          "manual": true
+        },
+        {
+          "label": "NT Theatre",
+          "amReg": "LA",
+          "amSho": null,
+          "pmReg": "LA",
+          "pmSho": null,
+          "type": "theatre",
+          "half": "all_day",
           "manual": true
         }
       ],
