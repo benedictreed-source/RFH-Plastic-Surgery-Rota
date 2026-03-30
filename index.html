@@ -652,24 +652,26 @@
       }
 
       async function loadDataFromJSON() {
-        // Fetch directly from raw GitHub to bypass Pages CDN caching —
-        // API commits update raw.githubusercontent.com within seconds.
-        const rawBase = `https://raw.githubusercontent.com/${GITHUB_CONFIG.repo}/${GITHUB_CONFIG.branch}`;
+        // Use the GitHub Contents API (same endpoint as saves) — reads directly
+        // from git so it always returns the latest committed version with no CDN lag.
+        const apiBase = `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents`;
+        const apiHeaders = {
+          'Authorization': `token ${GITHUB_CONFIG.token}`,
+          'Accept': 'application/vnd.github.v3+json'
+        };
         const ts = Date.now();
-        const rawUrl = f => `${rawBase}/${f}?t=${ts}`;
-        const [rosterRes, scheduleRes, oncallRes, leaveRes] = await Promise.all([
-          fetch(rawUrl('Data/roster.json'),   { cache: 'no-store' }),
-          fetch(rawUrl('Data/schedule.json'), { cache: 'no-store' }),
-          fetch(rawUrl('Data/oncall.json'),   { cache: 'no-store' }),
-          fetch(rawUrl('Data/leave.json'),    { cache: 'no-store' })
-        ]);
-        if (!rosterRes.ok)   throw new Error('Could not load Data/roster.json');
-        if (!scheduleRes.ok) throw new Error('Could not load Data/schedule.json');
-        if (!oncallRes.ok)   throw new Error('Could not load Data/oncall.json');
-        if (!leaveRes.ok)    throw new Error('Could not load Data/leave.json');
+        async function fetchFile(path) {
+          const res = await fetch(`${apiBase}/${path}?ref=${GITHUB_CONFIG.branch}&t=${ts}`, { headers: apiHeaders, cache: 'no-store' });
+          if (!res.ok) throw new Error(`Could not load ${path} (${res.status})`);
+          const blob = await res.json();
+          return JSON.parse(decodeURIComponent(escape(atob(blob.content.replace(/\n/g, '')))));
+        }
 
         const [roster, schedule, oncall, leave] = await Promise.all([
-          rosterRes.json(), scheduleRes.json(), oncallRes.json(), leaveRes.json()
+          fetchFile('Data/roster.json'),
+          fetchFile('Data/schedule.json'),
+          fetchFile('Data/oncall.json'),
+          fetchFile('Data/leave.json')
         ]);
 
         // Build inverse pairingsMap: consultantId → [regIds]
@@ -1932,7 +1934,7 @@
       async function load() {
         try {
           // Prefer JSON data files; fall back to CSV if they don't exist yet
-          const probe = await fetch(`https://raw.githubusercontent.com/${GITHUB_CONFIG.repo}/${GITHUB_CONFIG.branch}/Data/roster.json`, { method: 'HEAD', cache: 'no-store' });
+          const probe = await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/Data/roster.json?ref=${GITHUB_CONFIG.branch}`, { method: 'HEAD', headers: { 'Authorization': `token ${GITHUB_CONFIG.token}` }, cache: 'no-store' });
           let data;
           if (probe.ok) {
             data = await loadDataFromJSON();
