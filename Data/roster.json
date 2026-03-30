@@ -132,7 +132,9 @@
       "name": "Mahaba Hamad",
       "phone": "7979971604",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "SG"
+      ]
     },
     {
       "id": "HP",
