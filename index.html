@@ -2103,20 +2103,42 @@
         const leaveSet = getLeaveSetForDate(dateObj);
         const ctx = getDayContext(dateObj);
 
+        const targetHalf = sess.half || 'all_day';
+        const needsAm = kind === 'theatre' || targetHalf !== 'pm';
+        const needsPm = kind === 'theatre' || targetHalf !== 'am';
+
         const regsUsed = new Set();
         const shosUsed = new Set();
+        const regsUsedAm = new Set();
+        const regsUsedPm = new Set();
+        function markRegUse(ev2, includeReg2) {
+          if (ev2.amReg) {
+            regsUsed.add(ev2.amReg);
+            regsUsedAm.add(ev2.amReg);
+          }
+          if (ev2.pmReg) {
+            regsUsed.add(ev2.pmReg);
+            regsUsedPm.add(ev2.pmReg);
+          }
+          if (includeReg2) {
+            if (ev2.amReg2) {
+              regsUsed.add(ev2.amReg2);
+              regsUsedAm.add(ev2.amReg2);
+            }
+            if (ev2.pmReg2) {
+              regsUsed.add(ev2.pmReg2);
+              regsUsedPm.add(ev2.pmReg2);
+            }
+          }
+        }
         baseEvents.forEach(ev2 => {
-          if (ev2.amReg) regsUsed.add(ev2.amReg);
-          if (ev2.pmReg) regsUsed.add(ev2.pmReg);
+          markRegUse(ev2, false);
           if (ev2.amSho) shosUsed.add(ev2.amSho);
           if (ev2.pmSho) shosUsed.add(ev2.pmSho);
         });
         (manualEdits.addedSessions[dk] || []).forEach((ev2, idx) => {
           if (idx === mi) return;
-          if (ev2.amReg) regsUsed.add(ev2.amReg);
-          if (ev2.pmReg) regsUsed.add(ev2.pmReg);
-          if (ev2.amReg2) regsUsed.add(ev2.amReg2);
-          if (ev2.pmReg2) regsUsed.add(ev2.pmReg2);
+          markRegUse(ev2, true);
           if (ev2.amSho) shosUsed.add(ev2.amSho);
           if (ev2.pmSho) shosUsed.add(ev2.pmSho);
         });
@@ -2127,7 +2149,14 @@
         // Pass 1: find a free paired reg
         for (let pi = 0; pi < pairedRegs.length; pi++) {
           const r = pairedRegs[pi];
-          if (r !== ctx.wardReg && !leaveSet.has(r) && !regsUsed.has(r)) {
+          const freeForAm = !needsAm || !regsUsedAm.has(r);
+          const freeForPm = !needsPm || !regsUsedPm.has(r);
+          if (
+            r !== ctx.wardReg &&
+            !leaveSet.has(r) &&
+            freeForAm &&
+            freeForPm
+          ) {
             reg = r;
             break;
           }
@@ -2149,18 +2178,28 @@
             const ownLabels = [consultantId + ' Theatre', consultantId + ' Clinic'];
             for (const ev2 of baseEvents) {
               if (ownLabels.includes(ev2.label)) continue;
-              const inAm = ev2.amReg === r;
-              const inPm = ev2.pmReg === r;
+              const inAm = needsAm && ev2.amReg === r;
+              const inPm = needsPm && ev2.pmReg === r;
               if (!inAm && !inPm) continue;
-              // Find a replacement for the slot(s) being vacated
-              const regsForReplacement = new Set(regsUsed);
-              regsForReplacement.delete(r);
-              const replacement = people.registrars.map(rr => rr.id).find(id =>
-                id !== ctx.wardReg && !leaveSet.has(id) && !regsForReplacement.has(id)
-              ) || null;
+              // Find replacement(s) for the specific half-day slot(s) being vacated.
+              const usedAm = new Set(regsUsedAm);
+              const usedPm = new Set(regsUsedPm);
+              if (inAm) usedAm.delete(r);
+              if (inPm) usedPm.delete(r);
+              function findReplacement(usedSet) {
+                return people.registrars.map(rr => rr.id).find(id =>
+                  id !== ctx.wardReg &&
+                  id !== ctx.oncallRegId &&
+                  !leaveSet.has(id) &&
+                  !usedSet.has(id)
+                ) || null;
+              }
+              const replacementAm = inAm ? findReplacement(usedAm) : null;
+              if (replacementAm) usedAm.add(replacementAm);
+              const replacementPm = inPm ? findReplacement(usedPm) : null;
               if (!manualEdits.regOverrides[dk]) manualEdits.regOverrides[dk] = {};
-              if (inAm) manualEdits.regOverrides[dk][ev2.label + '.amReg'] = replacement;
-              if (inPm) manualEdits.regOverrides[dk][ev2.label + '.pmReg'] = replacement;
+              if (inAm) manualEdits.regOverrides[dk][ev2.label + '.amReg'] = replacementAm;
+              if (inPm) manualEdits.regOverrides[dk][ev2.label + '.pmReg'] = replacementPm;
               reg = r;
               break;
             }
