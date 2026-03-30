@@ -247,7 +247,9 @@
       "name": "Nina Saeed",
       "phone": "7979971617",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "GOT"
+      ]
     }
   ],
   "shos": [
