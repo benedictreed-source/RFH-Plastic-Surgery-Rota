@@ -83,9 +83,9 @@
         },
         {
           "type": "clinic",
-          "label": "",
+          "label": "NT Clinic RFH",
           "time": "pm",
-          "reg": null,
+          "reg": "AE",
           "reg2": null,
           "sho": null,
           "manual": true,
@@ -463,10 +463,10 @@
     "2026-04-06": {
       "addedSessions": [
         {
-          "label": "",
+          "label": "NT Clinic RFH",
           "amReg": null,
           "amSho": null,
-          "pmReg": null,
+          "pmReg": "AE",
           "pmSho": null,
           "type": "clinic",
           "half": "pm",
