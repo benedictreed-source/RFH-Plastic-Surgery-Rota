@@ -192,54 +192,42 @@
       "name": "Ryan Federani",
       "phone": "7979971613",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "NN"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "MT",
       "name": "Mo Turki",
       "phone": "7979971614",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "YA"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "JC",
       "name": "Jonathan Charnock",
       "phone": "7979971615",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "CK"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "HS",
       "name": "Harsh Samarendra",
       "phone": "7979971616",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": [
-        "SAH"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "OH",
       "name": "Omar Hussain",
       "phone": "7979971617",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": [
-        "NJ"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "AB",
       "name": "Alex Bucknor",
       "phone": "7979971617",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "NT"
-      ]
+      "pairedConsultantIds": []
     }
   ],
   "shos": [
