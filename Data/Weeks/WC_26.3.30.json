@@ -194,6 +194,16 @@
           "sho": null,
           "manual": true,
           "locked": true
+        },
+        {
+          "type": "theatre",
+          "label": "Luton",
+          "time": "all_day",
+          "reg": "RF",
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": true
         }
       ]
     },
@@ -749,6 +759,17 @@
           "pmReg": null,
           "amReg2": null,
           "pmReg2": null,
+          "amSho": null,
+          "pmSho": null
+        },
+        {
+          "label": "Luton",
+          "type": "theatre",
+          "half": "all_day",
+          "manual": true,
+          "locked": true,
+          "amReg": "RF",
+          "pmReg": "RF",
           "amSho": null,
           "pmSho": null
         }
