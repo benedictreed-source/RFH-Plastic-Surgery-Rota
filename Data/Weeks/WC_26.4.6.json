@@ -80,6 +80,16 @@
           "time": "all_day",
           "reg": "SA",
           "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "",
+          "time": "pm",
+          "reg": null,
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": false
         }
       ]
     },
@@ -451,6 +461,18 @@
   ],
   "manualEdits": {
     "2026-04-06": {
+      "addedSessions": [
+        {
+          "label": "",
+          "amReg": null,
+          "amSho": null,
+          "pmReg": null,
+          "pmSho": null,
+          "type": "clinic",
+          "half": "pm",
+          "manual": true
+        }
+      ],
       "regOverrides": {
         "DSU2.amReg": "HC",
         "DSU1.amReg": "CW",
