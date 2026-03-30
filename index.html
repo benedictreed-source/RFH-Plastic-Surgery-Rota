@@ -575,6 +575,23 @@
         if (label === consultantId + ' Theatre' || label === consultantId + ' Clinic') return true;
         return label.startsWith(consultantId + ' Theatre ') || label.startsWith(consultantId + ' Clinic ');
       }
+
+      /** Alphabetical by name (then id) for consultant/registrar dropdowns. */
+      function sortConsultantsRegistrarsForDropdown(items) {
+        if (!items || !items.length) return [];
+        return items.slice().sort((a, b) => {
+          const cmp = (a.name || '').localeCompare(b.name || '', undefined, { sensitivity: 'base' });
+          if (cmp !== 0) return cmp;
+          return (a.id || '').localeCompare(b.id || '', undefined, { sensitivity: 'base' });
+        });
+      }
+
+      function gradeListForDropdown(colDefOrGrade) {
+        const g = typeof colDefOrGrade === 'string' ? colDefOrGrade : colDefOrGrade.grade;
+        const raw = people[g] || [];
+        if (g === 'consultants' || g === 'registrars') return sortConsultantsRegistrarsForDropdown(raw);
+        return raw;
+      }
       let pairings = null;
       let currentMonday = null;
       let oncallCalendar = {};
@@ -1192,7 +1209,7 @@
       function showCalDropdown(input, colDef) {
         if (!_calDropdown || !people) return;
         const typed = input.value.toUpperCase();
-        const gradeList = people[colDef.grade] || [];
+        const gradeList = gradeListForDropdown(colDef);
         const matches = gradeList.filter(p => !typed || p.id.toUpperCase().startsWith(typed));
         if (!matches.length) { hideCalDropdown(); return; }
         _calDropdown.innerHTML = matches.map(p =>
@@ -1270,7 +1287,7 @@
           } else if (ev.key === 'Enter') {
             ev.preventDefault();
             const typed = input.value.toUpperCase();
-            const gradeList = people[colDef.grade] || [];
+            const gradeList = gradeListForDropdown(colDef);
             const matches = gradeList.filter(p => typed && p.id.toUpperCase().startsWith(typed));
             if (matches.length === 1) {
               commitCalValue(cell.dataset.date, colDef, matches[0].id);
@@ -1480,9 +1497,8 @@
             });
             pairHtml += '<select class="add-pair-select" data-reg-idx="' + i + '" style="width:70px; font-size:0.78rem; padding:0.15rem 0.25rem;">';
             pairHtml += '<option value="">+ pair</option>';
-            people.consultants.forEach(c => {
-              if (!pairedCIds.includes(c.id)) pairHtml += '<option value="' + c.id + '">' + c.id + '</option>';
-            });
+            sortConsultantsRegistrarsForDropdown(people.consultants.filter(c => !pairedCIds.includes(c.id)))
+              .forEach(c => { pairHtml += '<option value="' + c.id + '">' + c.id + '</option>'; });
             pairHtml += '</select></div>';
             h += '<tr data-grade="registrars" data-idx="' + i + '">';
             h += '<td><input type="text" value="' + (r.id || '') + '" data-field="id"></td>';
@@ -1630,7 +1646,7 @@
         function consultantSelect(selectedId, cls) {
           let h = '<select class="' + cls + '">';
           h += '<option value="">—</option>';
-          people.consultants.forEach(c => {
+          sortConsultantsRegistrarsForDropdown(people.consultants).forEach(c => {
             h += '<option value="' + c.id + '"' + (c.id === selectedId ? ' selected' : '') + '>' + c.id + ' — ' + c.name + '</option>';
           });
           h += '</select>';
