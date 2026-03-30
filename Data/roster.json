@@ -241,6 +241,13 @@
       "pairedConsultantIds": [
         "NT"
       ]
+    },
+    {
+      "id": "NS",
+      "name": "",
+      "phone": "",
+      "level": "",
+      "pairedConsultantIds": []
     }
   ],
   "shos": [
