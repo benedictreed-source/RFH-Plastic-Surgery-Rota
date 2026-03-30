@@ -137,9 +137,9 @@
         },
         {
           "type": "clinic",
-          "label": "",
+          "label": "SW Clinic",
           "time": "am",
-          "reg": null,
+          "reg": "AZ",
           "reg2": null,
           "sho": null,
           "manual": true,
@@ -626,8 +626,8 @@
           "pmSho": null
         },
         {
-          "label": "",
-          "amReg": null,
+          "label": "SW Clinic",
+          "amReg": "AZ",
           "amSho": null,
           "pmReg": null,
           "pmSho": null,
