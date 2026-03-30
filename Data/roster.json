@@ -87,74 +87,56 @@
       "name": "Tiffany Oliver",
       "phone": "7979971598",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "MA"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "ZA",
       "name": "Zab Abdul",
       "phone": "7979971599",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": [
-        "PB"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "SA",
       "name": "Abdelkhalek Sallam",
       "phone": "7979971600",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": [
-        "SG"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "OS",
       "name": "Odai Sayegh",
       "phone": "7979971600",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "SG",
-        "GOT",
-        "WS"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "AL",
       "name": "Alice Lee",
       "phone": "7979971601",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": [
-        "SH"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "CW",
       "name": "Cat Wigley",
       "phone": "7979971602",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": [
-        "NK"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "LG",
       "name": "Lola Gwa",
       "phone": "7979971603",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": [
-        "AM"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "HC",
       "name": "Hannah Cook",
       "phone": "7979971603",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "AM"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "MHA",
