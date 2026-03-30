@@ -204,6 +204,16 @@
           "sho": null,
           "manual": true,
           "locked": true
+        },
+        {
+          "type": "theatre",
+          "label": "GA Skin",
+          "time": "all_day",
+          "reg": "HS",
+          "reg2": "HB",
+          "sho": null,
+          "manual": true,
+          "locked": true
         }
       ]
     },
@@ -759,6 +769,19 @@
           "pmReg": "AE",
           "amReg2": "HC",
           "pmReg2": "HC",
+          "amSho": null,
+          "pmSho": null
+        },
+        {
+          "label": "GA Skin",
+          "type": "theatre",
+          "half": "all_day",
+          "manual": true,
+          "locked": true,
+          "amReg": "HS",
+          "pmReg": "HS",
+          "amReg2": "HB",
+          "pmReg2": "HB",
           "amSho": null,
           "pmSho": null
         }
