@@ -80,16 +80,6 @@
           "time": "all_day",
           "reg": "SA",
           "sho": null
-        },
-        {
-          "type": "clinic",
-          "label": "NT Clinic RFH",
-          "time": "pm",
-          "reg": "BR",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": false
         }
       ]
     },
@@ -284,7 +274,7 @@
           "type": "clinic",
           "label": "NT Clinic RFH",
           "time": "all_day",
-          "reg": "BR",
+          "reg": "AE",
           "sho": null
         },
         {
@@ -324,21 +314,21 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "TO",
+          "reg": "ZA",
           "sho": "DE"
         },
         {
           "type": "theatre",
           "label": "DSU1",
           "time": "all_day",
-          "reg": "ZA",
+          "reg": "AL",
           "sho": "DS"
         },
         {
           "type": "theatre",
           "label": "SW Theatre RFH",
           "time": "all_day",
-          "reg": "AE",
+          "reg": "TO",
           "sho": "KR"
         },
         {
@@ -352,7 +342,7 @@
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "CW",
+          "reg": "LG",
           "sho": "BA"
         },
         {
@@ -373,7 +363,7 @@
           "type": "clinic",
           "label": "NT Clinic RFH",
           "time": "all_day",
-          "reg": "BR",
+          "reg": "AE",
           "sho": null
         }
       ]
@@ -461,18 +451,6 @@
   ],
   "manualEdits": {
     "2026-04-06": {
-      "addedSessions": [
-        {
-          "label": "NT Clinic RFH",
-          "amReg": null,
-          "amSho": null,
-          "pmReg": "BR",
-          "pmSho": null,
-          "type": "clinic",
-          "half": "pm",
-          "manual": true
-        }
-      ],
       "regOverrides": {
         "DSU2.amReg": "HC",
         "DSU1.amReg": "CW",
