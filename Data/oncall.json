@@ -2918,5 +2918,725 @@
     "oncallConsultant": null,
     "daySho": "SK",
     "nightSho": "KR"
+  },
+  "2027-01-01": {
+    "wardReg": "ZA",
+    "wardSho": "KR",
+    "oncallRegId": "AE",
+    "oncallConsultant": null,
+    "daySho": "OG",
+    "nightSho": "DE"
+  },
+  "2027-01-02": {
+    "wardReg": "AE",
+    "wardSho": "KR",
+    "oncallRegId": "AL",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "DS"
+  },
+  "2027-01-03": {
+    "wardReg": "AE",
+    "wardSho": "KR",
+    "oncallRegId": "AZ",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "DS"
+  },
+  "2027-01-04": {
+    "wardReg": "AE",
+    "wardSho": "KR",
+    "oncallRegId": "BR",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "DS"
+  },
+  "2027-01-05": {
+    "wardReg": "AE",
+    "wardSho": "LC",
+    "oncallRegId": "CW",
+    "oncallConsultant": null,
+    "daySho": "OG",
+    "nightSho": "DS"
+  },
+  "2027-01-06": {
+    "wardReg": "AE",
+    "wardSho": "LC",
+    "oncallRegId": "HB",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "DS"
+  },
+  "2027-01-07": {
+    "wardReg": "AE",
+    "wardSho": "LC",
+    "oncallRegId": "HC",
+    "oncallConsultant": null,
+    "daySho": "OG",
+    "nightSho": "DS"
+  },
+  "2027-01-08": {
+    "wardReg": "AE",
+    "wardSho": "LC",
+    "oncallRegId": "HP",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "DS"
+  },
+  "2027-01-09": {
+    "wardReg": "AL",
+    "wardSho": "LC",
+    "oncallRegId": "HS",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "KR"
+  },
+  "2027-01-10": {
+    "wardReg": "AL",
+    "wardSho": "LC",
+    "oncallRegId": "JC",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "KR"
+  },
+  "2027-01-11": {
+    "wardReg": "AL",
+    "wardSho": "LC",
+    "oncallRegId": "LA",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "KR"
+  },
+  "2027-01-12": {
+    "wardReg": "AL",
+    "wardSho": "OG",
+    "oncallRegId": "LG",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "KR"
+  },
+  "2027-01-13": {
+    "wardReg": "AL",
+    "wardSho": "OG",
+    "oncallRegId": "MHA",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "KR"
+  },
+  "2027-01-14": {
+    "wardReg": "AL",
+    "wardSho": "OG",
+    "oncallRegId": "MT",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "KR"
+  },
+  "2027-01-15": {
+    "wardReg": "AL",
+    "wardSho": "OG",
+    "oncallRegId": "RF",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "KR"
+  },
+  "2027-01-16": {
+    "wardReg": "AZ",
+    "wardSho": "OG",
+    "oncallRegId": "SA",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "LC"
+  },
+  "2027-01-17": {
+    "wardReg": "AZ",
+    "wardSho": "OG",
+    "oncallRegId": "TO",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "LC"
+  },
+  "2027-01-18": {
+    "wardReg": "AZ",
+    "wardSho": "OG",
+    "oncallRegId": "OH",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "LC"
+  },
+  "2027-01-19": {
+    "wardReg": "AZ",
+    "wardSho": "OO",
+    "oncallRegId": "OS",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "LC"
+  },
+  "2027-01-20": {
+    "wardReg": "AZ",
+    "wardSho": "OO",
+    "oncallRegId": "ZA",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "LC"
+  },
+  "2027-01-21": {
+    "wardReg": "AZ",
+    "wardSho": "OO",
+    "oncallRegId": "AE",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "LC"
+  },
+  "2027-01-22": {
+    "wardReg": "AZ",
+    "wardSho": "OO",
+    "oncallRegId": "AL",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "LC"
+  },
+  "2027-01-23": {
+    "wardReg": "BR",
+    "wardSho": "OO",
+    "oncallRegId": "AZ",
+    "oncallConsultant": null,
+    "daySho": "SS",
+    "nightSho": "OG"
+  },
+  "2027-01-24": {
+    "wardReg": "BR",
+    "wardSho": "OO",
+    "oncallRegId": "BR",
+    "oncallConsultant": null,
+    "daySho": "SS",
+    "nightSho": "OG"
+  },
+  "2027-01-25": {
+    "wardReg": "BR",
+    "wardSho": "OO",
+    "oncallRegId": "CW",
+    "oncallConsultant": null,
+    "daySho": "SS",
+    "nightSho": "OG"
+  },
+  "2027-01-26": {
+    "wardReg": "BR",
+    "wardSho": "SK",
+    "oncallRegId": "HB",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "OG"
+  },
+  "2027-01-27": {
+    "wardReg": "BR",
+    "wardSho": "SK",
+    "oncallRegId": "HC",
+    "oncallConsultant": null,
+    "daySho": "SS",
+    "nightSho": "OG"
+  },
+  "2027-01-28": {
+    "wardReg": "BR",
+    "wardSho": "SK",
+    "oncallRegId": "HP",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "OG"
+  },
+  "2027-01-29": {
+    "wardReg": "BR",
+    "wardSho": "SK",
+    "oncallRegId": "HS",
+    "oncallConsultant": null,
+    "daySho": "SS",
+    "nightSho": "OG"
+  },
+  "2027-01-30": {
+    "wardReg": "CW",
+    "wardSho": "SK",
+    "oncallRegId": "JC",
+    "oncallConsultant": null,
+    "daySho": "BA",
+    "nightSho": "OO"
+  },
+  "2027-01-31": {
+    "wardReg": "CW",
+    "wardSho": "SK",
+    "oncallRegId": "LA",
+    "oncallConsultant": null,
+    "daySho": "BA",
+    "nightSho": "OO"
+  },
+  "2027-02-01": {
+    "wardReg": "CW",
+    "wardSho": "SK",
+    "oncallRegId": "LG",
+    "oncallConsultant": null,
+    "daySho": "BA",
+    "nightSho": "OO"
+  },
+  "2027-02-02": {
+    "wardReg": "CW",
+    "wardSho": "SN",
+    "oncallRegId": "MHA",
+    "oncallConsultant": null,
+    "daySho": "SS",
+    "nightSho": "OO"
+  },
+  "2027-02-03": {
+    "wardReg": "CW",
+    "wardSho": "SN",
+    "oncallRegId": "MT",
+    "oncallConsultant": null,
+    "daySho": "BA",
+    "nightSho": "OO"
+  },
+  "2027-02-04": {
+    "wardReg": "CW",
+    "wardSho": "SN",
+    "oncallRegId": "RF",
+    "oncallConsultant": null,
+    "daySho": "SS",
+    "nightSho": "OO"
+  },
+  "2027-02-05": {
+    "wardReg": "CW",
+    "wardSho": "SN",
+    "oncallRegId": "SA",
+    "oncallConsultant": null,
+    "daySho": "BA",
+    "nightSho": "OO"
+  },
+  "2027-02-06": {
+    "wardReg": "HB",
+    "wardSho": "SN",
+    "oncallRegId": "TO",
+    "oncallConsultant": null,
+    "daySho": "DE",
+    "nightSho": "SK"
+  },
+  "2027-02-07": {
+    "wardReg": "HB",
+    "wardSho": "SN",
+    "oncallRegId": "OH",
+    "oncallConsultant": null,
+    "daySho": "DE",
+    "nightSho": "SK"
+  },
+  "2027-02-08": {
+    "wardReg": "HB",
+    "wardSho": "SN",
+    "oncallRegId": "OS",
+    "oncallConsultant": null,
+    "daySho": "DE",
+    "nightSho": "SK"
+  },
+  "2027-02-09": {
+    "wardReg": "HB",
+    "wardSho": "SS",
+    "oncallRegId": "ZA",
+    "oncallConsultant": null,
+    "daySho": "BA",
+    "nightSho": "SK"
+  },
+  "2027-02-10": {
+    "wardReg": "HB",
+    "wardSho": "SS",
+    "oncallRegId": "AE",
+    "oncallConsultant": null,
+    "daySho": "DE",
+    "nightSho": "SK"
+  },
+  "2027-02-11": {
+    "wardReg": "HB",
+    "wardSho": "SS",
+    "oncallRegId": "AL",
+    "oncallConsultant": null,
+    "daySho": "BA",
+    "nightSho": "SK"
+  },
+  "2027-02-12": {
+    "wardReg": "HB",
+    "wardSho": "SS",
+    "oncallRegId": "AZ",
+    "oncallConsultant": null,
+    "daySho": "DE",
+    "nightSho": "SK"
+  },
+  "2027-02-13": {
+    "wardReg": "HC",
+    "wardSho": "SS",
+    "oncallRegId": "BR",
+    "oncallConsultant": null,
+    "daySho": "DS",
+    "nightSho": "SN"
+  },
+  "2027-02-14": {
+    "wardReg": "HC",
+    "wardSho": "SS",
+    "oncallRegId": "CW",
+    "oncallConsultant": null,
+    "daySho": "DS",
+    "nightSho": "SN"
+  },
+  "2027-02-15": {
+    "wardReg": "HC",
+    "wardSho": "SS",
+    "oncallRegId": "HB",
+    "oncallConsultant": null,
+    "daySho": "DS",
+    "nightSho": "SN"
+  },
+  "2027-02-16": {
+    "wardReg": "HC",
+    "wardSho": "BA",
+    "oncallRegId": "HC",
+    "oncallConsultant": null,
+    "daySho": "DE",
+    "nightSho": "SN"
+  },
+  "2027-02-17": {
+    "wardReg": "HC",
+    "wardSho": "BA",
+    "oncallRegId": "HP",
+    "oncallConsultant": null,
+    "daySho": "DS",
+    "nightSho": "SN"
+  },
+  "2027-02-18": {
+    "wardReg": "HC",
+    "wardSho": "BA",
+    "oncallRegId": "HS",
+    "oncallConsultant": null,
+    "daySho": "DE",
+    "nightSho": "SN"
+  },
+  "2027-02-19": {
+    "wardReg": "HC",
+    "wardSho": "BA",
+    "oncallRegId": "JC",
+    "oncallConsultant": null,
+    "daySho": "DS",
+    "nightSho": "SN"
+  },
+  "2027-02-20": {
+    "wardReg": "HP",
+    "wardSho": "BA",
+    "oncallRegId": "LA",
+    "oncallConsultant": null,
+    "daySho": "KR",
+    "nightSho": "SS"
+  },
+  "2027-02-21": {
+    "wardReg": "HP",
+    "wardSho": "BA",
+    "oncallRegId": "LG",
+    "oncallConsultant": null,
+    "daySho": "KR",
+    "nightSho": "SS"
+  },
+  "2027-02-22": {
+    "wardReg": "HP",
+    "wardSho": "BA",
+    "oncallRegId": "MHA",
+    "oncallConsultant": null,
+    "daySho": "KR",
+    "nightSho": "SS"
+  },
+  "2027-02-23": {
+    "wardReg": "HP",
+    "wardSho": "DE",
+    "oncallRegId": "MT",
+    "oncallConsultant": null,
+    "daySho": "DS",
+    "nightSho": "SS"
+  },
+  "2027-02-24": {
+    "wardReg": "HP",
+    "wardSho": "DE",
+    "oncallRegId": "RF",
+    "oncallConsultant": null,
+    "daySho": "KR",
+    "nightSho": "SS"
+  },
+  "2027-02-25": {
+    "wardReg": "HP",
+    "wardSho": "DE",
+    "oncallRegId": "SA",
+    "oncallConsultant": null,
+    "daySho": "DS",
+    "nightSho": "SS"
+  },
+  "2027-02-26": {
+    "wardReg": "HP",
+    "wardSho": "DE",
+    "oncallRegId": "TO",
+    "oncallConsultant": null,
+    "daySho": "KR",
+    "nightSho": "SS"
+  },
+  "2027-02-27": {
+    "wardReg": "HS",
+    "wardSho": "DE",
+    "oncallRegId": "OH",
+    "oncallConsultant": null,
+    "daySho": "LC",
+    "nightSho": "BA"
+  },
+  "2027-02-28": {
+    "wardReg": "HS",
+    "wardSho": "DE",
+    "oncallRegId": "OS",
+    "oncallConsultant": null,
+    "daySho": "LC",
+    "nightSho": "BA"
+  },
+  "2027-03-01": {
+    "wardReg": "HS",
+    "wardSho": "DE",
+    "oncallRegId": "ZA",
+    "oncallConsultant": null,
+    "daySho": "LC",
+    "nightSho": "BA"
+  },
+  "2027-03-02": {
+    "wardReg": "HS",
+    "wardSho": "DS",
+    "oncallRegId": "AE",
+    "oncallConsultant": null,
+    "daySho": "KR",
+    "nightSho": "BA"
+  },
+  "2027-03-03": {
+    "wardReg": "HS",
+    "wardSho": "DS",
+    "oncallRegId": "AL",
+    "oncallConsultant": null,
+    "daySho": "LC",
+    "nightSho": "BA"
+  },
+  "2027-03-04": {
+    "wardReg": "HS",
+    "wardSho": "DS",
+    "oncallRegId": "AZ",
+    "oncallConsultant": null,
+    "daySho": "KR",
+    "nightSho": "BA"
+  },
+  "2027-03-05": {
+    "wardReg": "HS",
+    "wardSho": "DS",
+    "oncallRegId": "BR",
+    "oncallConsultant": null,
+    "daySho": "LC",
+    "nightSho": "BA"
+  },
+  "2027-03-06": {
+    "wardReg": "JC",
+    "wardSho": "DS",
+    "oncallRegId": "CW",
+    "oncallConsultant": null,
+    "daySho": "OG",
+    "nightSho": "DE"
+  },
+  "2027-03-07": {
+    "wardReg": "JC",
+    "wardSho": "DS",
+    "oncallRegId": "HB",
+    "oncallConsultant": null,
+    "daySho": "OG",
+    "nightSho": "DE"
+  },
+  "2027-03-08": {
+    "wardReg": "JC",
+    "wardSho": "DS",
+    "oncallRegId": "HC",
+    "oncallConsultant": null,
+    "daySho": "OG",
+    "nightSho": "DE"
+  },
+  "2027-03-09": {
+    "wardReg": "JC",
+    "wardSho": "KR",
+    "oncallRegId": "HP",
+    "oncallConsultant": null,
+    "daySho": "LC",
+    "nightSho": "DE"
+  },
+  "2027-03-10": {
+    "wardReg": "JC",
+    "wardSho": "KR",
+    "oncallRegId": "HS",
+    "oncallConsultant": null,
+    "daySho": "OG",
+    "nightSho": "DE"
+  },
+  "2027-03-11": {
+    "wardReg": "JC",
+    "wardSho": "KR",
+    "oncallRegId": "JC",
+    "oncallConsultant": null,
+    "daySho": "LC",
+    "nightSho": "DE"
+  },
+  "2027-03-12": {
+    "wardReg": "JC",
+    "wardSho": "KR",
+    "oncallRegId": "LA",
+    "oncallConsultant": null,
+    "daySho": "OG",
+    "nightSho": "DE"
+  },
+  "2027-03-13": {
+    "wardReg": "LA",
+    "wardSho": "KR",
+    "oncallRegId": "LG",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "DS"
+  },
+  "2027-03-14": {
+    "wardReg": "LA",
+    "wardSho": "KR",
+    "oncallRegId": "MHA",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "DS"
+  },
+  "2027-03-15": {
+    "wardReg": "LA",
+    "wardSho": "KR",
+    "oncallRegId": "MT",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "DS"
+  },
+  "2027-03-16": {
+    "wardReg": "ZA",
+    "wardSho": "ST",
+    "oncallRegId": "CW",
+    "oncallConsultant": null,
+    "daySho": "OG",
+    "nightSho": "DS"
+  },
+  "2027-03-17": {
+    "wardReg": "ZA",
+    "wardSho": "ST",
+    "oncallRegId": "RF",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "DS"
+  },
+  "2027-03-18": {
+    "wardReg": "ZA",
+    "wardSho": "ST",
+    "oncallRegId": "HC",
+    "oncallConsultant": null,
+    "daySho": "OG",
+    "nightSho": "DS"
+  },
+  "2027-03-19": {
+    "wardReg": "ZA",
+    "wardSho": "ST",
+    "oncallRegId": "OH",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "DS"
+  },
+  "2027-03-20": {
+    "wardReg": "HP",
+    "wardSho": "ST",
+    "oncallRegId": "ZA",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "KR"
+  },
+  "2027-03-21": {
+    "wardReg": "HP",
+    "wardSho": "ST",
+    "oncallRegId": "MT",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "KR"
+  },
+  "2027-03-22": {
+    "wardReg": "HP",
+    "wardSho": "ST",
+    "oncallRegId": "ZA",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "KR"
+  },
+  "2027-03-23": {
+    "wardReg": "LG",
+    "wardSho": "OG",
+    "oncallRegId": "AL",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "KR"
+  },
+  "2027-03-24": {
+    "wardReg": "LG",
+    "wardSho": "OG",
+    "oncallRegId": "AZ",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "KR"
+  },
+  "2027-03-25": {
+    "wardReg": "LG",
+    "wardSho": "OG",
+    "oncallRegId": "BR",
+    "oncallConsultant": null,
+    "daySho": "OO",
+    "nightSho": "KR"
+  },
+  "2027-03-26": {
+    "wardReg": "LG",
+    "wardSho": "OG",
+    "oncallRegId": "CW",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "KR"
+  },
+  "2027-03-27": {
+    "wardReg": "MHA",
+    "wardSho": "OG",
+    "oncallRegId": "HB",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "LC"
+  },
+  "2027-03-28": {
+    "wardReg": "MHA",
+    "wardSho": "OG",
+    "oncallRegId": "HC",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "LC"
+  },
+  "2027-03-29": {
+    "wardReg": "MHA",
+    "wardSho": "OG",
+    "oncallRegId": "HP",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "LC"
+  },
+  "2027-03-30": {
+    "wardReg": "MHA",
+    "wardSho": "OO",
+    "oncallRegId": "BR",
+    "oncallConsultant": null,
+    "daySho": "SK",
+    "nightSho": "LC"
+  },
+  "2027-03-31": {
+    "wardReg": "MHA",
+    "wardSho": "OO",
+    "oncallRegId": "JC",
+    "oncallConsultant": null,
+    "daySho": "SN",
+    "nightSho": "LC"
   }
 }
