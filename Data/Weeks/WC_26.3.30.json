@@ -124,36 +124,6 @@
           "sho": null,
           "manual": true,
           "locked": false
-        },
-        {
-          "type": "theatre",
-          "label": "GA Skin",
-          "time": "all_day",
-          "reg": null,
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": true
-        },
-        {
-          "type": "theatre",
-          "label": "Luton",
-          "time": "all_day",
-          "reg": "RF",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": true
-        },
-        {
-          "type": "theatre",
-          "label": "MVH/WGH",
-          "time": "all_day",
-          "reg": "MT",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": true
         }
       ]
     },
@@ -630,41 +600,6 @@
           "type": "clinic",
           "half": "pm",
           "manual": true
-        },
-        {
-          "label": "GA Skin",
-          "type": "theatre",
-          "half": "all_day",
-          "manual": true,
-          "locked": true,
-          "amReg": null,
-          "pmReg": null,
-          "amReg2": null,
-          "pmReg2": null,
-          "amSho": null,
-          "pmSho": null
-        },
-        {
-          "label": "Luton",
-          "type": "theatre",
-          "half": "all_day",
-          "manual": true,
-          "locked": true,
-          "amReg": "RF",
-          "pmReg": "RF",
-          "amSho": null,
-          "pmSho": null
-        },
-        {
-          "label": "MVH/WGH",
-          "type": "theatre",
-          "half": "all_day",
-          "manual": true,
-          "locked": true,
-          "amReg": "MT",
-          "pmReg": "MT",
-          "amSho": null,
-          "pmSho": null
         }
       ],
       "removedIndices": [
