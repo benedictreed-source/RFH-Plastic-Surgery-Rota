@@ -150,7 +150,9 @@
       "name": "Harry Burton",
       "phone": "7979971608",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "NJ"
+      ]
     },
     {
       "id": "BR",
