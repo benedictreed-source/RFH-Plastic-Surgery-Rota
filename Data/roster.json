@@ -114,7 +114,9 @@
       "name": "Alice Lee",
       "phone": "7979971601",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "NK"
+      ]
     },
     {
       "id": "CW",
