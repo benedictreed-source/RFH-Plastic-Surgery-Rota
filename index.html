@@ -985,6 +985,33 @@
         return [...theatreEvents, ...clinicEvents];
       }
 
+      /** Base sessions for a date as the rota actually shows: hide removed rows, apply regOverrides. */
+      function getEffectiveBaseEventsForDay(dateObj) {
+        const dk = dateKey(dateObj);
+        const events = buildDayEvents(dateObj);
+        const removed = manualEdits.removedIndices[dk] || new Set();
+        const filtered = events
+          .map((ev, idx) => ({ ev, idx }))
+          .filter(({ idx }) => !removed.has(idx))
+          .map(({ ev }) => ({ ...ev }));
+        const dayOverrides = manualEdits.regOverrides[dk] || {};
+        if (Object.keys(dayOverrides).length) {
+          filtered.forEach(ev => {
+            const amLbl = ev.amLabel || ev.label;
+            const pmLbl = ev.pmLabel || ev.label;
+            ['amReg', 'amSho', 'amReg2'].forEach(f => {
+              const key = amLbl + '.' + f;
+              if (key in dayOverrides) ev[f] = dayOverrides[key] || null;
+            });
+            ['pmReg', 'pmSho', 'pmReg2'].forEach(f => {
+              const key = pmLbl + '.' + f;
+              if (key in dayOverrides) ev[f] = dayOverrides[key] || null;
+            });
+          });
+        }
+        return filtered;
+      }
+
       function getLeaveAndOncall(date) {
         const key = dateKey(date);
         const fromMd = leaveCalendar[key];
@@ -2102,7 +2129,7 @@
         }
 
         const dateObj = parseDate(dk);
-        const baseEvents = buildDayEvents(dateObj);
+        const baseEvents = getEffectiveBaseEventsForDay(dateObj);
         const leaveSet = getLeaveSetForDate(dateObj);
         const ctx = getDayContext(dateObj);
 
@@ -2210,7 +2237,20 @@
           }
         }
 
-        // Pass 3: fallback to any available reg
+        // Pass 3: any reg free in the needed half (WithFallback used only full-day regsUsed and could skip on-call incorrectly)
+        if (!reg && people && people.registrars) {
+          for (let i = 0; i < people.registrars.length; i++) {
+            const r = people.registrars[i].id;
+            if (r === ctx.wardReg || leaveSet.has(r)) continue;
+            const okAm = !needsAm || !regsUsedAm.has(r);
+            const okPm = !needsPm || !regsUsedPm.has(r);
+            if (okAm && okPm) {
+              reg = r;
+              break;
+            }
+          }
+        }
+        // Pass 4: legacy full-day fallback
         if (!reg) {
           reg = getRegForConsultantListOrClinicWithFallback(
             consultantId, ctx.wardReg, ctx.oncallRegId, regsUsed, leaveSet
@@ -2389,7 +2429,7 @@
               const dateObj = parseDate(dk);
               const ctx = getDayContext(dateObj);
               const leaveSet = getLeaveSetForDate(dateObj);
-              const baseEvents = buildDayEvents(dateObj);
+              const baseEvents = getEffectiveBaseEventsForDay(dateObj);
               const existingAdded = manualEdits.addedSessions[dk] || [];
               const manualUsedR = new Set();
               const usedS = new Set();
