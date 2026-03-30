@@ -238,7 +238,9 @@
       "name": "Alex Bucknor",
       "phone": "7979971617",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "NT"
+      ]
     }
   ],
   "shos": [
