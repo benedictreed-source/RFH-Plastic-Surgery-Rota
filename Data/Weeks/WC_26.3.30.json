@@ -63,7 +63,7 @@
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "BR",
+          "reg": "AZ",
           "sho": "SK"
         },
         {
@@ -98,7 +98,7 @@
           "type": "clinic",
           "label": "NT Clinic",
           "time": "all_day",
-          "reg": "OS",
+          "reg": "BR",
           "sho": null
         },
         {
@@ -112,7 +112,7 @@
           "type": "clinic",
           "label": "WS Clinic",
           "time": "all_day",
-          "reg": "CW",
+          "reg": "OS",
           "sho": null
         },
         {
@@ -205,7 +205,7 @@
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "JC",
+          "reg": "CW",
           "sho": "SN"
         },
         {
@@ -300,7 +300,7 @@
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "LA",
+          "reg": "HB",
           "sho": "SK"
         },
         {
@@ -394,14 +394,14 @@
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "LG",
+          "reg": "OS",
           "sho": "SN"
         },
         {
           "type": "clinic",
           "label": "AM Clinic",
           "time": "all_day",
-          "reg": "HC",
+          "reg": "LG",
           "sho": null
         },
         {
@@ -454,14 +454,14 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "SA",
+          "reg": "TO",
           "sho": "BA"
         },
         {
           "type": "theatre",
           "label": "DSU1",
           "time": "all_day",
-          "reg": "OS",
+          "reg": "SA",
           "sho": "DE"
         },
         {
@@ -475,7 +475,7 @@
           "type": "theatre",
           "label": "DN Theatre",
           "time": "all_day",
-          "reg": "TO",
+          "reg": "MHA",
           "sho": "SK"
         },
         {
@@ -489,7 +489,7 @@
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "MHA",
+          "reg": "CW",
           "sho": "SS"
         },
         {
@@ -554,7 +554,7 @@
       "sessions": [
         {
           "type": "theatre",
-          "label": "DSU2",
+          "label": "Reg Trauma",
           "time": "all_day",
           "reg": "MT",
           "sho": null
@@ -593,7 +593,7 @@
       "sessions": [
         {
           "type": "theatre",
-          "label": "DSU2",
+          "label": "Reg Trauma",
           "time": "all_day",
           "reg": "RF",
           "sho": null
@@ -655,6 +655,9 @@
           "half": "all_day",
           "manual": true
         }
+      ],
+      "removedIndices": [
+        10
       ],
       "regOverrides": {
         "DSU2.amReg": "HC",
