@@ -188,7 +188,9 @@
       "name": "Ben Reed",
       "phone": "7979971609",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "SW"
+      ]
     },
     {
       "id": "AE",
