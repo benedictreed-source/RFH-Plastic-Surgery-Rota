@@ -805,7 +805,7 @@
         return { wardReg, wardSho, oncallRegId, daySho, nightSho, oncallConsultant };
       }
 
-      function getLeaveSetForDate(date) {
+      function getExplicitLeaveSetForDate(date) {
         const key = dateKey(date);
         const fromMd = leaveCalendar[key];
         if (fromMd) {
@@ -819,6 +819,22 @@
           if (all.length) return new Set(all);
         }
         return new Set();
+      }
+
+      /** Registrar who was on call the previous calendar day — they have the next day off (not in leave.json). */
+      function getPostOncallRestRegId(date) {
+        const prev = new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1);
+        const prevCtx = getDayContext(prev);
+        const id = prevCtx.oncallRegId;
+        if (!id || getExplicitLeaveSetForDate(prev).has(id)) return null;
+        return id;
+      }
+
+      function getLeaveSetForDate(date) {
+        const set = getExplicitLeaveSetForDate(date);
+        const postRest = getPostOncallRestRegId(date);
+        if (postRest) set.add(postRest);
+        return set;
       }
 
       function buildDayAssignments(date) {
@@ -1017,10 +1033,14 @@
         const fromMd = leaveCalendar[key];
         let leaveReg = '—';
         let leaveSho = '—';
+        const postRestReg = getPostOncallRestRegId(date);
+        const regParts = [];
+        if (fromMd && Array.isArray(fromMd.regs) && fromMd.regs.length) {
+          regParts.push(...fromMd.regs);
+        }
+        if (postRestReg && !regParts.includes(postRestReg)) regParts.push(postRestReg);
+        if (regParts.length) leaveReg = regParts.join(', ');
         if (fromMd) {
-          if (Array.isArray(fromMd.regs) && fromMd.regs.length) {
-            leaveReg = fromMd.regs.join(', ');
-          }
           if (Array.isArray(fromMd.shos) && fromMd.shos.length) {
             leaveSho = fromMd.shos.join(', ');
           }
