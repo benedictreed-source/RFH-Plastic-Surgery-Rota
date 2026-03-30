@@ -251,6 +251,13 @@
         "GOT",
         "WS"
       ]
+    },
+    {
+      "id": "DE",
+      "name": "Daniel Eaton",
+      "phone": "",
+      "level": "",
+      "pairedConsultantIds": []
     }
   ],
   "shos": [
