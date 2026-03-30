@@ -402,6 +402,69 @@
       background: var(--surface2);
       color: var(--accent);
     }
+
+    /* ── Roster & Schedule editor tabs ── */
+    .editor-section { margin-bottom: 2rem; }
+    .editor-section h2 {
+      font-size: 1rem; font-weight: 600; margin: 0 0 0.5rem; color: var(--text);
+    }
+    .editor-section p.hint {
+      font-size: 0.8125rem; color: var(--text-muted); margin: 0 0 0.75rem;
+    }
+    table.editor-table {
+      width: 100%; border-collapse: collapse; font-size: 0.875rem;
+      background: var(--surface); border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    table.editor-table th {
+      text-align: left; font-weight: 600; background: var(--surface2);
+      color: var(--text-muted); font-size: 0.8125rem; padding: 0.5rem 0.65rem;
+      border: 1px solid var(--border);
+    }
+    table.editor-table td {
+      border: 1px solid var(--border); padding: 0.4rem 0.65rem; vertical-align: middle;
+    }
+    table.editor-table tr:hover td { background: #f1f5f9; }
+    table.editor-table td input,
+    table.editor-table td select {
+      font-family: inherit; font-size: 0.85rem; border: 1px solid var(--border);
+      border-radius: 4px; padding: 0.25rem 0.4rem; width: 100%; box-sizing: border-box;
+      background: #fff; color: var(--text);
+    }
+    table.editor-table td input:focus,
+    table.editor-table td select:focus { outline: none; border-color: var(--accent); }
+    .editor-btn {
+      font-family: inherit; font-size: 0.78rem; font-weight: 500; cursor: pointer;
+      padding: 0.3rem 0.65rem; border-radius: 5px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text-muted); transition: all 0.12s;
+    }
+    .editor-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--surface2); }
+    .editor-btn.danger { color: #dc2626; }
+    .editor-btn.danger:hover { border-color: #dc2626; background: #fef2f2; }
+    .editor-btn.primary { border-color: var(--accent); color: var(--accent); }
+    .editor-btn.primary:hover { background: var(--accent); color: #fff; }
+    .editor-actions { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+    .save-indicator {
+      display: inline-block; font-size: 0.78rem; color: var(--text-muted);
+      margin-left: 0.75rem; opacity: 0; transition: opacity 0.3s;
+    }
+    .save-indicator.show { opacity: 1; }
+    .paired-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; align-items: center; }
+    .paired-tag {
+      display: inline-flex; align-items: center; gap: 0.2rem;
+      font-size: 0.78rem; padding: 0.15rem 0.45rem; border-radius: 4px;
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+    }
+    .paired-tag .remove-pair {
+      cursor: pointer; font-size: 0.7rem; color: var(--text-muted); margin-left: 0.15rem;
+    }
+    .paired-tag .remove-pair:hover { color: #dc2626; }
+    .schedule-half-badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      padding: 0.1rem 0.35rem; border-radius: 3px; margin-left: 0.25rem;
+    }
+    .schedule-half-badge.am { background: #dbeafe; color: #1e40af; }
+    .schedule-half-badge.pm { background: #fef3c7; color: #92400e; }
   </style>
 </head>
 <body>
@@ -427,6 +490,8 @@
           <button type="button" id="tabWeek" class="view-tab-button active">Week</button>
           <button type="button" id="tabMonth" class="view-tab-button">Month</button>
           <button type="button" id="tabCalendar" class="view-tab-button">Calendar</button>
+          <button type="button" id="tabRoster" class="view-tab-button">Roster</button>
+          <button type="button" id="tabSchedule" class="view-tab-button">Schedule</button>
         </div>
       </div>
     </header>
@@ -471,6 +536,8 @@
         </div>
       </div>
       <div id="calendarView" style="display:none; padding: 0.75rem 0;"></div>
+      <div id="rosterView" style="display:none; padding: 0.75rem 0;"></div>
+      <div id="scheduleView" style="display:none; padding: 0.75rem 0;"></div>
     </div>
   </div>
   <div id="contextMenu" class="context-menu"></div>
@@ -1319,35 +1386,384 @@
         monthBody.innerHTML = rows.join('');
       }
 
+      // ── Roster Editor ──────────────────────────────────────────────────
+
+      function renderRosterEditor() {
+        const container = document.getElementById('rosterView');
+        if (!container || !people) return;
+
+        function flashSave(el) {
+          el.classList.add('show');
+          clearTimeout(el._t);
+          el._t = setTimeout(() => el.classList.remove('show'), 2000);
+        }
+
+        function buildConsultantsTable() {
+          let h = '<div class="editor-section"><h2>Consultants</h2>';
+          h += '<p class="hint">Edit consultant initials and name. Changes auto-save.</p>';
+          h += '<table class="editor-table"><thead><tr><th style="width:80px">ID</th><th>Name</th><th style="width:60px"></th></tr></thead><tbody>';
+          people.consultants.forEach((c, i) => {
+            h += '<tr data-grade="consultants" data-idx="' + i + '">';
+            h += '<td><input type="text" value="' + (c.id || '') + '" data-field="id"></td>';
+            h += '<td><input type="text" value="' + (c.name || '') + '" data-field="name"></td>';
+            h += '<td style="text-align:center"><button class="editor-btn danger roster-remove" title="Remove">✕</button></td>';
+            h += '</tr>';
+          });
+          h += '</tbody></table>';
+          h += '<div class="editor-actions"><button class="editor-btn primary" id="addConsultant">+ Add consultant</button>';
+          h += '<span class="save-indicator" id="consSaveInd">Saved ✓</span></div></div>';
+          return h;
+        }
+
+        function buildRegistrarsTable() {
+          let h = '<div class="editor-section"><h2>Registrars (SpRs)</h2>';
+          h += '<p class="hint">Edit registrar details and consultant pairings. Changes auto-save.</p>';
+          h += '<table class="editor-table"><thead><tr><th style="width:60px">ID</th><th>Name</th><th style="width:110px">Phone</th><th style="width:140px">Level</th><th>Paired Consultants</th><th style="width:60px"></th></tr></thead><tbody>';
+          people.registrars.forEach((r, i) => {
+            const pairedCIds = Object.entries(pairings.pairings)
+              .filter(([, regs]) => regs.includes(r.id))
+              .map(([cId]) => cId);
+            let pairHtml = '<div class="paired-tags">';
+            pairedCIds.forEach(cId => {
+              pairHtml += '<span class="paired-tag">' + cId + '<span class="remove-pair" data-reg-idx="' + i + '" data-cid="' + cId + '">✕</span></span>';
+            });
+            pairHtml += '<select class="add-pair-select" data-reg-idx="' + i + '" style="width:70px; font-size:0.78rem; padding:0.15rem 0.25rem;">';
+            pairHtml += '<option value="">+ pair</option>';
+            people.consultants.forEach(c => {
+              if (!pairedCIds.includes(c.id)) pairHtml += '<option value="' + c.id + '">' + c.id + '</option>';
+            });
+            pairHtml += '</select></div>';
+            h += '<tr data-grade="registrars" data-idx="' + i + '">';
+            h += '<td><input type="text" value="' + (r.id || '') + '" data-field="id"></td>';
+            h += '<td><input type="text" value="' + (r.name || '') + '" data-field="name"></td>';
+            h += '<td><input type="text" value="' + (r.phone || '') + '" data-field="phone"></td>';
+            h += '<td><input type="text" value="' + (r.level || '') + '" data-field="level"></td>';
+            h += '<td>' + pairHtml + '</td>';
+            h += '<td style="text-align:center"><button class="editor-btn danger roster-remove" title="Remove">✕</button></td>';
+            h += '</tr>';
+          });
+          h += '</tbody></table>';
+          h += '<div class="editor-actions"><button class="editor-btn primary" id="addRegistrar">+ Add registrar</button>';
+          h += '<span class="save-indicator" id="regSaveInd">Saved ✓</span></div></div>';
+          return h;
+        }
+
+        function buildSHOsTable() {
+          let h = '<div class="editor-section"><h2>SHOs</h2>';
+          h += '<p class="hint">Edit SHO initials and name. Changes auto-save.</p>';
+          h += '<table class="editor-table"><thead><tr><th style="width:80px">ID</th><th>Name</th><th style="width:60px"></th></tr></thead><tbody>';
+          people.shos.forEach((s, i) => {
+            h += '<tr data-grade="shos" data-idx="' + i + '">';
+            h += '<td><input type="text" value="' + (s.id || '') + '" data-field="id"></td>';
+            h += '<td><input type="text" value="' + (s.name || '') + '" data-field="name"></td>';
+            h += '<td style="text-align:center"><button class="editor-btn danger roster-remove" title="Remove">✕</button></td>';
+            h += '</tr>';
+          });
+          h += '</tbody></table>';
+          h += '<div class="editor-actions"><button class="editor-btn primary" id="addSHO">+ Add SHO</button>';
+          h += '<span class="save-indicator" id="shoSaveInd">Saved ✓</span></div></div>';
+          return h;
+        }
+
+        function render() {
+          container.innerHTML = buildConsultantsTable() + buildRegistrarsTable() + buildSHOsTable();
+          wireEvents();
+        }
+
+        function commitAndSave(indicatorId) {
+          saveRosterToGitHub();
+          const ind = document.getElementById(indicatorId);
+          if (ind) flashSave(ind);
+        }
+
+        function wireEvents() {
+          container.querySelectorAll('table.editor-table input').forEach(inp => {
+            inp.addEventListener('change', () => {
+              const tr = inp.closest('tr');
+              const grade = tr.dataset.grade;
+              const idx = Number(tr.dataset.idx);
+              const field = inp.dataset.field;
+              const oldId = people[grade][idx].id;
+              people[grade][idx][field] = inp.value.trim();
+              if (field === 'id' && grade === 'registrars') {
+                Object.keys(pairings.pairings).forEach(cId => {
+                  const arr = pairings.pairings[cId];
+                  const pos = arr.indexOf(oldId);
+                  if (pos !== -1) arr[pos] = inp.value.trim();
+                });
+              }
+              const indMap = { consultants: 'consSaveInd', registrars: 'regSaveInd', shos: 'shoSaveInd' };
+              commitAndSave(indMap[grade]);
+            });
+          });
+
+          container.querySelectorAll('.roster-remove').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const tr = btn.closest('tr');
+              const grade = tr.dataset.grade;
+              const idx = Number(tr.dataset.idx);
+              const removed = people[grade][idx];
+              if (!confirm('Remove ' + (removed.id || 'this entry') + '?')) return;
+              if (grade === 'registrars') {
+                Object.keys(pairings.pairings).forEach(cId => {
+                  pairings.pairings[cId] = pairings.pairings[cId].filter(r => r !== removed.id);
+                });
+              }
+              people[grade].splice(idx, 1);
+              commitAndSave(grade === 'consultants' ? 'consSaveInd' : grade === 'registrars' ? 'regSaveInd' : 'shoSaveInd');
+              render();
+            });
+          });
+
+          const addCons = document.getElementById('addConsultant');
+          if (addCons) addCons.addEventListener('click', () => {
+            people.consultants.push({ id: '', name: '' });
+            pairings.pairings[''] = [];
+            render();
+          });
+          const addReg = document.getElementById('addRegistrar');
+          if (addReg) addReg.addEventListener('click', () => {
+            people.registrars.push({ id: '', name: '', phone: '', level: '' });
+            render();
+          });
+          const addSho = document.getElementById('addSHO');
+          if (addSho) addSho.addEventListener('click', () => {
+            people.shos.push({ id: '', name: '' });
+            render();
+          });
+
+          container.querySelectorAll('.remove-pair').forEach(x => {
+            x.addEventListener('click', () => {
+              const regIdx = Number(x.dataset.regIdx);
+              const cId = x.dataset.cid;
+              const regId = people.registrars[regIdx].id;
+              if (pairings.pairings[cId]) {
+                pairings.pairings[cId] = pairings.pairings[cId].filter(r => r !== regId);
+              }
+              commitAndSave('regSaveInd');
+              render();
+            });
+          });
+
+          container.querySelectorAll('.add-pair-select').forEach(sel => {
+            sel.addEventListener('change', () => {
+              const cId = sel.value;
+              if (!cId) return;
+              const regIdx = Number(sel.dataset.regIdx);
+              const regId = people.registrars[regIdx].id;
+              if (!pairings.pairings[cId]) pairings.pairings[cId] = [];
+              if (!pairings.pairings[cId].includes(regId)) pairings.pairings[cId].push(regId);
+              commitAndSave('regSaveInd');
+              render();
+            });
+          });
+        }
+
+        render();
+      }
+
+      // ── Schedule Editor ──────────────────────────────────────────────────
+
+      function renderScheduleEditor() {
+        const container = document.getElementById('scheduleView');
+        if (!container || !scheduleFromMd || !people) return;
+
+        const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+        function flashSave(el) {
+          el.classList.add('show');
+          clearTimeout(el._t);
+          el._t = setTimeout(() => el.classList.remove('show'), 2000);
+        }
+
+        function consultantSelect(selectedId, cls) {
+          let h = '<select class="' + cls + '">';
+          h += '<option value="">—</option>';
+          people.consultants.forEach(c => {
+            h += '<option value="' + c.id + '"' + (c.id === selectedId ? ' selected' : '') + '>' + c.id + ' — ' + c.name + '</option>';
+          });
+          h += '</select>';
+          return h;
+        }
+
+        function buildWeekTable(weekKey) {
+          const week = scheduleFromMd[weekKey];
+          if (!week) return '';
+          const label = weekKey === 'week1' ? 'Week 1' : 'Week 2';
+
+          let h = '<div class="editor-section"><h2>' + label + ' — Theatre Lists</h2>';
+          h += '<p class="hint">Consultant theatre lists by day of the week.</p>';
+          h += '<table class="editor-table"><thead><tr><th>Day</th><th>Consultant Lists</th><th></th></tr></thead><tbody>';
+          DAYS.forEach(day => {
+            const lists = (week.listsByDay && week.listsByDay[day]) || [];
+            let cellHtml = '';
+            lists.forEach((entry, li) => {
+              cellHtml += '<div style="display:flex; align-items:center; gap:0.35rem; margin-bottom:0.25rem;">';
+              cellHtml += consultantSelect(entry.consultantId, 'sched-list-select" data-week="' + weekKey + '" data-day="' + day + '" data-li="' + li);
+              cellHtml += ' <button class="editor-btn danger sched-remove-list" data-week="' + weekKey + '" data-day="' + day + '" data-li="' + li + '" title="Remove">✕</button></div>';
+            });
+            h += '<tr><td style="font-weight:600; width:100px">' + day + '</td><td>' + cellHtml + '</td>';
+            h += '<td style="width:80px"><button class="editor-btn primary sched-add-list" data-week="' + weekKey + '" data-day="' + day + '">+ List</button></td></tr>';
+          });
+          h += '</tbody></table>';
+          h += '<span class="save-indicator" id="' + weekKey + 'ListSaveInd">Saved ✓</span></div>';
+
+          h += '<div class="editor-section"><h2>' + label + ' — Clinics</h2>';
+          h += '<p class="hint">Consultant clinics with AM/PM designation.</p>';
+          h += '<table class="editor-table"><thead><tr><th>Day</th><th>Clinics</th><th></th></tr></thead><tbody>';
+          DAYS.forEach(day => {
+            const clinics = (week.clinicsByDay && week.clinicsByDay[day]) || [];
+            let cellHtml = '';
+            clinics.forEach((entry, ci) => {
+              const cId = (typeof entry === 'object' && entry) ? entry.consultantId : entry;
+              const half = (entry && entry.half) || 'am';
+              cellHtml += '<div style="display:flex; align-items:center; gap:0.35rem; margin-bottom:0.25rem;">';
+              cellHtml += consultantSelect(cId, 'sched-clinic-select" data-week="' + weekKey + '" data-day="' + day + '" data-ci="' + ci);
+              cellHtml += ' <select class="sched-half-select" data-week="' + weekKey + '" data-day="' + day + '" data-ci="' + ci + '" style="width:60px; font-size:0.78rem; padding:0.15rem 0.25rem;">';
+              cellHtml += '<option value="am"' + (half === 'am' ? ' selected' : '') + '>AM</option>';
+              cellHtml += '<option value="pm"' + (half === 'pm' ? ' selected' : '') + '>PM</option>';
+              cellHtml += '</select>';
+              cellHtml += ' <button class="editor-btn danger sched-remove-clinic" data-week="' + weekKey + '" data-day="' + day + '" data-ci="' + ci + '" title="Remove">✕</button></div>';
+            });
+            h += '<tr><td style="font-weight:600; width:100px">' + day + '</td><td>' + cellHtml + '</td>';
+            h += '<td style="width:80px"><button class="editor-btn primary sched-add-clinic" data-week="' + weekKey + '" data-day="' + day + '">+ Clinic</button></td></tr>';
+          });
+          h += '</tbody></table>';
+          h += '<span class="save-indicator" id="' + weekKey + 'ClinicSaveInd">Saved ✓</span></div>';
+          return h;
+        }
+
+        function render() {
+          container.innerHTML = buildWeekTable('week1') + buildWeekTable('week2');
+          wireEvents();
+        }
+
+        function commitAndSave(indicatorId) {
+          saveScheduleToGitHub();
+          const ind = document.getElementById(indicatorId);
+          if (ind) flashSave(ind);
+        }
+
+        function wireEvents() {
+          container.querySelectorAll('.sched-list-select').forEach(sel => {
+            sel.addEventListener('change', () => {
+              const wk = sel.dataset.week;
+              const day = sel.dataset.day;
+              const li = Number(sel.dataset.li);
+              scheduleFromMd[wk].listsByDay[day][li].consultantId = sel.value;
+              commitAndSave(wk + 'ListSaveInd');
+            });
+          });
+
+          container.querySelectorAll('.sched-remove-list').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const wk = btn.dataset.week;
+              const day = btn.dataset.day;
+              const li = Number(btn.dataset.li);
+              scheduleFromMd[wk].listsByDay[day].splice(li, 1);
+              commitAndSave(wk + 'ListSaveInd');
+              render();
+            });
+          });
+
+          container.querySelectorAll('.sched-add-list').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const wk = btn.dataset.week;
+              const day = btn.dataset.day;
+              if (!scheduleFromMd[wk].listsByDay[day]) scheduleFromMd[wk].listsByDay[day] = [];
+              scheduleFromMd[wk].listsByDay[day].push({ consultantId: '' });
+              commitAndSave(wk + 'ListSaveInd');
+              render();
+            });
+          });
+
+          container.querySelectorAll('.sched-clinic-select').forEach(sel => {
+            sel.addEventListener('change', () => {
+              const wk = sel.dataset.week;
+              const day = sel.dataset.day;
+              const ci = Number(sel.dataset.ci);
+              const entry = scheduleFromMd[wk].clinicsByDay[day][ci];
+              if (typeof entry === 'object' && entry) entry.consultantId = sel.value;
+              else scheduleFromMd[wk].clinicsByDay[day][ci] = { consultantId: sel.value, half: 'am' };
+              commitAndSave(wk + 'ClinicSaveInd');
+            });
+          });
+
+          container.querySelectorAll('.sched-half-select').forEach(sel => {
+            sel.addEventListener('change', () => {
+              const wk = sel.dataset.week;
+              const day = sel.dataset.day;
+              const ci = Number(sel.dataset.ci);
+              const entry = scheduleFromMd[wk].clinicsByDay[day][ci];
+              if (typeof entry === 'object' && entry) entry.half = sel.value;
+              commitAndSave(wk + 'ClinicSaveInd');
+            });
+          });
+
+          container.querySelectorAll('.sched-remove-clinic').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const wk = btn.dataset.week;
+              const day = btn.dataset.day;
+              const ci = Number(btn.dataset.ci);
+              scheduleFromMd[wk].clinicsByDay[day].splice(ci, 1);
+              commitAndSave(wk + 'ClinicSaveInd');
+              render();
+            });
+          });
+
+          container.querySelectorAll('.sched-add-clinic').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const wk = btn.dataset.week;
+              const day = btn.dataset.day;
+              if (!scheduleFromMd[wk].clinicsByDay[day]) scheduleFromMd[wk].clinicsByDay[day] = [];
+              scheduleFromMd[wk].clinicsByDay[day].push({ consultantId: '', half: 'am' });
+              commitAndSave(wk + 'ClinicSaveInd');
+              render();
+            });
+          });
+        }
+
+        render();
+      }
+
       function setActiveView(view) {
-        const weekView = document.getElementById('weekView');
-        const monthView = document.getElementById('monthView');
-        const calendarView = document.getElementById('calendarView');
-        const tabWeek = document.getElementById('tabWeek');
-        const tabMonth = document.getElementById('tabMonth');
-        const tabCalendar = document.getElementById('tabCalendar');
+        const views = {
+          week:     document.getElementById('weekView'),
+          month:    document.getElementById('monthView'),
+          calendar: document.getElementById('calendarView'),
+          roster:   document.getElementById('rosterView'),
+          schedule: document.getElementById('scheduleView')
+        };
+        const tabs = {
+          week:     document.getElementById('tabWeek'),
+          month:    document.getElementById('tabMonth'),
+          calendar: document.getElementById('tabCalendar'),
+          roster:   document.getElementById('tabRoster'),
+          schedule: document.getElementById('tabSchedule')
+        };
         const weekNav = document.getElementById('weekNav');
         const monthNav = document.getElementById('monthNav');
-        if (!weekView || !monthView) return;
-        // Reset all
-        weekView.style.display = 'none';
-        monthView.style.display = 'none';
-        if (calendarView) calendarView.style.display = 'none';
+        Object.values(views).forEach(v => { if (v) v.style.display = 'none'; });
+        Object.values(tabs).forEach(t => { if (t) t.classList.remove('active'); });
         if (weekNav) weekNav.style.visibility = 'hidden';
         if (monthNav) monthNav.style.display = 'none';
-        [tabWeek, tabMonth, tabCalendar].forEach(t => t && t.classList.remove('active'));
-        // Show selected
         if (view === 'month') {
-          monthView.style.display = 'block';
+          if (views.month) views.month.style.display = 'block';
           if (monthNav) monthNav.style.display = 'flex';
-          if (tabMonth) tabMonth.classList.add('active');
+          if (tabs.month) tabs.month.classList.add('active');
         } else if (view === 'calendar') {
-          if (calendarView) calendarView.style.display = 'block';
-          if (tabCalendar) tabCalendar.classList.add('active');
+          if (views.calendar) views.calendar.style.display = 'block';
+          if (tabs.calendar) tabs.calendar.classList.add('active');
+        } else if (view === 'roster') {
+          if (views.roster) views.roster.style.display = 'block';
+          if (tabs.roster) tabs.roster.classList.add('active');
+        } else if (view === 'schedule') {
+          if (views.schedule) views.schedule.style.display = 'block';
+          if (tabs.schedule) tabs.schedule.classList.add('active');
         } else {
-          weekView.style.display = 'block';
+          if (views.week) views.week.style.display = 'block';
           if (weekNav) weekNav.style.visibility = 'visible';
-          if (tabWeek) tabWeek.classList.add('active');
+          if (tabs.week) tabs.week.classList.add('active');
         }
       }
 
@@ -2085,10 +2501,19 @@
           if (tabCalendar) tabCalendar.addEventListener('click', () => {
             setActiveView('calendar');
             renderCalendarEditor();
-            // Scroll to today
             const calView = document.getElementById('calendarView');
             const todayCell = calView && calView.querySelector(`.cal-cell[data-date="${dateKey(new Date())}"]`);
             if (todayCell) todayCell.closest('tr').scrollIntoView({ block: 'center' });
+          });
+          const tabRoster = document.getElementById('tabRoster');
+          const tabSchedule = document.getElementById('tabSchedule');
+          if (tabRoster) tabRoster.addEventListener('click', () => {
+            setActiveView('roster');
+            renderRosterEditor();
+          });
+          if (tabSchedule) tabSchedule.addEventListener('click', () => {
+            setActiveView('schedule');
+            renderScheduleEditor();
           });
           setActiveView('week');
           setupContextMenu();
