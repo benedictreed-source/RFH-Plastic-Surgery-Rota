@@ -117,16 +117,6 @@
         },
         {
           "type": "clinic",
-          "label": "SW Clinic",
-          "time": "am",
-          "reg": "AZ",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": false
-        },
-        {
-          "type": "clinic",
           "label": "NT Clinic",
           "time": "pm",
           "reg": "RF",
@@ -591,16 +581,6 @@
   "manualEdits": {
     "2026-03-30": {
       "addedSessions": [
-        {
-          "label": "SW Clinic",
-          "amReg": "AZ",
-          "amSho": null,
-          "pmReg": null,
-          "pmSho": null,
-          "type": "clinic",
-          "half": "am",
-          "manual": true
-        },
         {
           "label": "NT Clinic",
           "amReg": null,
