@@ -211,7 +211,9 @@
       "name": "Jonathan Charnock",
       "phone": "7979971615",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "MA"
+      ]
     },
     {
       "id": "HS",
