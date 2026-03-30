@@ -229,7 +229,9 @@
       "name": "Omar Hussain",
       "phone": "7979971617",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "SH"
+      ]
     },
     {
       "id": "AB",
