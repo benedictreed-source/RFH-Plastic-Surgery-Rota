@@ -123,7 +123,9 @@
       "name": "Hannah Cook",
       "phone": "7979971603",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "NS"
+      ]
     },
     {
       "id": "MHA",
