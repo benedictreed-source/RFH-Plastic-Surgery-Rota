@@ -602,6 +602,11 @@
         "DSU2.pmReg": "HC",
         "DSU1.pmReg": "LG"
       }
+    },
+    "2026-04-03": {
+      "removedIndices": [
+        9
+      ]
     }
   }
 }
