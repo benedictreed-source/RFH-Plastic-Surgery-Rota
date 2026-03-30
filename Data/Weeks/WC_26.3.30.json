@@ -126,30 +126,10 @@
           "locked": true
         },
         {
-          "type": "theatre",
-          "label": "GA Skin",
-          "time": "all_day",
-          "reg": "ZA",
-          "reg2": "SA",
-          "sho": null,
-          "manual": true,
-          "locked": true
-        },
-        {
           "type": "clinic",
           "label": "SW Clinic",
           "time": "am",
           "reg": "AZ",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": false
-        },
-        {
-          "type": "theatre",
-          "label": "NT Theatre",
-          "time": "all_day",
-          "reg": "LA",
           "reg2": null,
           "sho": null,
           "manual": true,
@@ -164,26 +144,6 @@
           "sho": null,
           "manual": true,
           "locked": false
-        },
-        {
-          "type": "theatre",
-          "label": "GA Skin",
-          "time": "all_day",
-          "reg": "CW",
-          "reg2": "OS",
-          "sho": null,
-          "manual": true,
-          "locked": true
-        },
-        {
-          "type": "theatre",
-          "label": "Luton",
-          "time": "all_day",
-          "reg": "LG",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": true
         },
         {
           "type": "theatre",
@@ -693,19 +653,6 @@
           "pmSho": null
         },
         {
-          "label": "GA Skin",
-          "type": "theatre",
-          "half": "all_day",
-          "manual": true,
-          "locked": true,
-          "amReg": "ZA",
-          "pmReg": "ZA",
-          "amReg2": "SA",
-          "pmReg2": "SA",
-          "amSho": null,
-          "pmSho": null
-        },
-        {
           "label": "SW Clinic",
           "amReg": "AZ",
           "amSho": null,
@@ -713,16 +660,6 @@
           "pmSho": null,
           "type": "clinic",
           "half": "am",
-          "manual": true
-        },
-        {
-          "label": "NT Theatre",
-          "amReg": "LA",
-          "amSho": null,
-          "pmReg": "LA",
-          "pmSho": null,
-          "type": "theatre",
-          "half": "all_day",
           "manual": true
         },
         {
@@ -734,30 +671,6 @@
           "type": "clinic",
           "half": "pm",
           "manual": true
-        },
-        {
-          "label": "GA Skin",
-          "type": "theatre",
-          "half": "all_day",
-          "manual": true,
-          "locked": true,
-          "amReg": "CW",
-          "pmReg": "CW",
-          "amReg2": "OS",
-          "pmReg2": "OS",
-          "amSho": null,
-          "pmSho": null
-        },
-        {
-          "label": "Luton",
-          "type": "theatre",
-          "half": "all_day",
-          "manual": true,
-          "locked": true,
-          "amReg": "LG",
-          "pmReg": "LG",
-          "amSho": null,
-          "pmSho": null
         },
         {
           "label": "GA Skin",
