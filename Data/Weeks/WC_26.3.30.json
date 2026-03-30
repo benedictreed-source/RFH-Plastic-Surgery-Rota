@@ -496,6 +496,16 @@
           "time": "all_day",
           "reg": "AL",
           "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "",
+          "time": "pm",
+          "reg": null,
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": false
         }
       ]
     },
@@ -604,6 +614,18 @@
       }
     },
     "2026-04-03": {
+      "addedSessions": [
+        {
+          "label": "",
+          "amReg": null,
+          "amSho": null,
+          "pmReg": null,
+          "pmSho": null,
+          "type": "clinic",
+          "half": "pm",
+          "manual": true
+        }
+      ],
       "removedIndices": [
         9
       ]
