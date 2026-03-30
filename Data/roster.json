@@ -143,27 +143,21 @@
       "name": "Mahaba Hamad",
       "phone": "7979971604",
       "level": "GA1, Luton, MVH",
-      "pairedConsultantIds": [
-        "DN"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "HP",
       "name": "Harry Phillips",
       "phone": "7979971606",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "AP"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "HB",
       "name": "Harry Burton",
       "phone": "7979971608",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "NS"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "BR",
@@ -184,18 +178,14 @@
       "name": "Alexander Zargaran",
       "phone": "7979971611",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "AW"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "LA",
       "name": "Laura Awad",
       "phone": "7979971612",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": [
-        "IY"
-      ]
+      "pairedConsultantIds": []
     },
     {
       "id": "RF",
