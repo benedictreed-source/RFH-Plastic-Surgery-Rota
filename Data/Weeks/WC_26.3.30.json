@@ -184,6 +184,16 @@
           "sho": null,
           "manual": true,
           "locked": true
+        },
+        {
+          "type": "clinic",
+          "label": "",
+          "time": "am",
+          "reg": null,
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": false
         }
       ]
     },
@@ -718,6 +728,16 @@
           "pmReg": "LG",
           "amSho": null,
           "pmSho": null
+        },
+        {
+          "label": "",
+          "amReg": null,
+          "amSho": null,
+          "pmReg": null,
+          "pmSho": null,
+          "type": "clinic",
+          "half": "am",
+          "manual": true
         }
       ],
       "removedIndices": [
