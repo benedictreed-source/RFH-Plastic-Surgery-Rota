@@ -849,7 +849,7 @@
           return extraShos[nextShoIndex++];
         }
 
-        var regsUsedByListClinic = new Set([oncallRegId].filter(Boolean));
+        var regsUsedByListClinic = new Set();
         const schedule = getScheduleForDate(date);
         const dayLists = (schedule && schedule.listsByDay && schedule.listsByDay[dayName]) || [];
         const listEntries = dayLists.map(entry => {
@@ -880,7 +880,7 @@
           dsu2Reg = null;
           for (let i = 0; i < people.registrars.length; i++) {
             const r = people.registrars[i].id;
-            if (r !== wardReg && r !== oncallRegId && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
+            if (r !== wardReg && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
               dsu2Reg = r;
               break;
             }
@@ -891,7 +891,7 @@
         if (isDsu1Day) {
           for (let i = 0; i < people.registrars.length; i++) {
             const r = people.registrars[i].id;
-            if (r !== wardReg && r !== oncallRegId && r !== dsu2Reg && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
+            if (r !== wardReg && r !== dsu2Reg && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
               dsu1Reg = r;
               break;
             }
@@ -900,7 +900,7 @@
             let idx = people.registrars.findIndex(r => r.id === wardReg);
             for (let k = 0; k < 20; k++) {
               const r = people.registrars[(idx + 5 + k) % 20].id;
-              if (r !== oncallRegId && r !== dsu2Reg && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
+              if (r !== dsu2Reg && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
                 dsu1Reg = r;
                 break;
               }
@@ -913,11 +913,20 @@
         });
         const list = [];
         list.push({ name: 'Ward', reg: wardReg, sho: wardSho });
-        list.push({ name: 'DSU2', reg: dsu2Reg, sho: dsu2Sho });
+        list.push({ name: 'DSU2', label: isWeekend ? 'Reg Trauma' : 'DSU2', reg: dsu2Reg, sho: dsu2Sho });
         if (isWeekend) {
-          list.push({ name: 'Trauma clinic', reg: wardReg, sho: oncallShoId });
+          list.push({ name: 'Trauma clinic', amReg: wardReg, pmReg: wardReg, sho: oncallShoId });
         } else {
-          list.push({ name: 'Trauma clinic', reg: oncallRegId, sho: oncallShoId });
+          const oncallFreeForTrauma = oncallRegId && !leaveSet.has(oncallRegId)
+            && !regsUsedByListClinic.has(oncallRegId)
+            && oncallRegId !== dsu2Reg && oncallRegId !== dsu1Reg;
+          const traumaUsedSoFar = new Set([wardReg, dsu2Reg, dsu1Reg, ...regsUsedByListClinic].filter(Boolean));
+          const traumaPool = people.registrars.map(r => r.id)
+            .filter(id => !leaveSet.has(id) && !traumaUsedSoFar.has(id));
+          const traumaPmReg = oncallFreeForTrauma ? oncallRegId : (traumaPool[0] || null);
+          const traumaAmPool = traumaPool.filter(id => id !== traumaPmReg);
+          const traumaAmReg = traumaAmPool[0] || traumaPool[0] || traumaPmReg || null;
+          list.push({ name: 'Trauma clinic', amReg: traumaAmReg, pmReg: traumaPmReg, sho: oncallShoId });
         }
         if (dsu1Reg) list.push({ name: 'DSU1', reg: dsu1Reg, sho: dsu1Sho });
         list.push({ name: 'Consultant lists', lists: listEntries });
@@ -941,12 +950,12 @@
         const add = (arr, label, amReg, amSho, pmReg, pmSho, type) =>
           arr.push({ label, amReg: amReg || null, amSho: amSho || null, pmReg: pmReg || null, pmSho: pmSho || null, type: type || 'other' });
 
-        add(theatreEvents, 'DSU2', dsu2?.reg, dsu2?.sho, dsu2?.reg, dsu2?.sho, 'theatre');
+        add(theatreEvents, dsu2?.label || 'DSU2', dsu2?.reg, dsu2?.sho, dsu2?.reg, dsu2?.sho, 'theatre');
         if (dsu1) add(theatreEvents, 'DSU1', dsu1.reg, dsu1.sho, dsu1.reg, dsu1.sho, 'theatre');
         if (listBlock?.lists?.length) {
           listBlock.lists.forEach(e => add(theatreEvents, e.consultantId + ' Theatre', e.reg, e.sho || null, e.reg, e.sho || null, 'theatre'));
         }
-        add(clinicEvents, 'Trauma clinic', trauma?.reg, trauma?.sho, trauma?.reg, trauma?.sho, 'clinic');
+        add(clinicEvents, 'Trauma clinic', trauma?.amReg, trauma?.sho, trauma?.pmReg, trauma?.sho, 'clinic');
         if (clinicBlock?.clinics?.length) {
           const clinicMerge = {};
           const clinicOrder = [];
@@ -1797,7 +1806,7 @@
           const dow = date.getDay();
           const isWeekend = dow === 0 || dow === 6;
           const availableRegs = !isWeekend && people && people.registrars
-            ? people.registrars.map(r => r.id).filter(id => !leaveSet.has(id) && !usedRegs.has(id) && id !== dayCtx.wardReg && id !== dayCtx.oncallRegId)
+            ? people.registrars.map(r => r.id).filter(id => !leaveSet.has(id) && !usedRegs.has(id) && id !== dayCtx.wardReg)
             : [];
           const availableShos = !isWeekend && people && people.shos
             ? people.shos.map(s => s.id).filter(id => !leaveSet.has(id) && !usedShos.has(id) && id !== dayCtx.wardSho && id !== dayCtx.daySho && id !== dayCtx.nightSho)
