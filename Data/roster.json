@@ -141,7 +141,9 @@
       "name": "Harry Phillips",
       "phone": "7979971606",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "CK"
+      ]
     },
     {
       "id": "HB",
