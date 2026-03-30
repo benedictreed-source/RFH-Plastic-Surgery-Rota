@@ -193,7 +193,9 @@
       "name": "Ryan Federani",
       "phone": "7979971613",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "SH"
+      ]
     },
     {
       "id": "MT",
