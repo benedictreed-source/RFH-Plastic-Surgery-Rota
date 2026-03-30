@@ -257,7 +257,9 @@
       "name": "Daniel Eaton",
       "phone": "7979971617",
       "level": "GA2, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "YA"
+      ]
     }
   ],
   "shos": [
