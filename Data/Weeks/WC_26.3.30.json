@@ -154,6 +154,16 @@
           "sho": null,
           "manual": true,
           "locked": false
+        },
+        {
+          "type": "clinic",
+          "label": "",
+          "time": "pm",
+          "reg": null,
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": false
         }
       ]
     },
@@ -653,6 +663,16 @@
           "pmSho": null,
           "type": "theatre",
           "half": "all_day",
+          "manual": true
+        },
+        {
+          "label": "",
+          "amReg": null,
+          "amSho": null,
+          "pmReg": null,
+          "pmSho": null,
+          "type": "clinic",
+          "half": "pm",
           "manual": true
         }
       ],
