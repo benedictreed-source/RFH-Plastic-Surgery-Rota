@@ -652,11 +652,16 @@
       }
 
       async function loadDataFromJSON() {
+        // Fetch directly from raw GitHub to bypass Pages CDN caching —
+        // API commits update raw.githubusercontent.com within seconds.
+        const rawBase = `https://raw.githubusercontent.com/${GITHUB_CONFIG.repo}/${GITHUB_CONFIG.branch}`;
+        const ts = Date.now();
+        const rawUrl = f => `${rawBase}/${f}?t=${ts}`;
         const [rosterRes, scheduleRes, oncallRes, leaveRes] = await Promise.all([
-          fetch('Data/roster.json'),
-          fetch('Data/schedule.json'),
-          fetch('Data/oncall.json'),
-          fetch('Data/leave.json')
+          fetch(rawUrl('Data/roster.json'),   { cache: 'no-store' }),
+          fetch(rawUrl('Data/schedule.json'), { cache: 'no-store' }),
+          fetch(rawUrl('Data/oncall.json'),   { cache: 'no-store' }),
+          fetch(rawUrl('Data/leave.json'),    { cache: 'no-store' })
         ]);
         if (!rosterRes.ok)   throw new Error('Could not load Data/roster.json');
         if (!scheduleRes.ok) throw new Error('Could not load Data/schedule.json');
@@ -1927,7 +1932,7 @@
       async function load() {
         try {
           // Prefer JSON data files; fall back to CSV if they don't exist yet
-          const probe = await fetch('Data/roster.json', { method: 'HEAD' });
+          const probe = await fetch(`https://raw.githubusercontent.com/${GITHUB_CONFIG.repo}/${GITHUB_CONFIG.branch}/Data/roster.json`, { method: 'HEAD', cache: 'no-store' });
           let data;
           if (probe.ok) {
             data = await loadDataFromJSON();
