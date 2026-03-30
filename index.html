@@ -272,6 +272,106 @@
       border: 1px solid var(--conflict-border);
       background: var(--conflict-bg);
     }
+    /* ── Calendar Editor ─────────────────────────────── */
+    .cal-scroll {
+      overflow-x: auto;
+      max-height: calc(100vh - 130px);
+      overflow-y: auto;
+    }
+    .cal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+    }
+    .cal-table th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: var(--surface2);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding: 0.4rem 0.6rem;
+      border: 1px solid var(--border);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .cal-table td {
+      padding: 0.2rem 0.4rem;
+      border: 1px solid var(--border);
+      vertical-align: middle;
+      background: var(--surface);
+    }
+    .cal-th-date { text-align: right; min-width: 96px; }
+    .cal-date {
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+    .cal-weekend td { background: #fef2f2 !important; }
+    .cal-cell {
+      cursor: pointer;
+      min-height: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      align-items: center;
+      min-width: 58px;
+    }
+    .cal-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      cursor: default;
+      user-select: none;
+    }
+    .cal-chip-x {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      margin-left: 2px;
+      line-height: 1;
+    }
+    .cal-chip-x:hover { color: #dc2626; }
+    .cal-cell-input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.8rem;
+      width: 3.5rem;
+      color: var(--text);
+    }
+    #calDropdown {
+      position: fixed;
+      z-index: 9999;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.15);
+      max-height: 220px;
+      overflow-y: auto;
+      display: none;
+    }
+    .cal-drop-item {
+      padding: 0.3rem 0.65rem;
+      cursor: pointer;
+      font-size: 0.82rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .cal-drop-item:hover { background: var(--surface2); color: var(--accent); }
     .context-menu {
       position: fixed;
       z-index: 1000;
@@ -321,6 +421,7 @@
         <div class="view-tabs">
           <button type="button" id="tabWeek" class="view-tab-button active">Week</button>
           <button type="button" id="tabMonth" class="view-tab-button">Month</button>
+          <button type="button" id="tabCalendar" class="view-tab-button">Calendar</button>
         </div>
       </div>
     </header>
@@ -364,6 +465,7 @@
           </table>
         </div>
       </div>
+      <div id="calendarView" style="display:none; padding: 0.75rem 0;"></div>
     </div>
   </div>
   <div id="contextMenu" class="context-menu"></div>
@@ -387,6 +489,12 @@
       let currentMonday = null;
       let oncallCalendar = {};
       let leaveCalendar = {};
+      // Calendar editor state
+      let _calColDefs = null;
+      let _calDropdown = null;
+      let _calActiveInput = null;
+      let _calActiveCell = null;
+      let _calActiveColDef = null;
 
       function parseCSV(text) {
         const rows = [];
@@ -693,6 +801,7 @@
             return new Set(fromMd.ids);
           }
           const all = [];
+          if (Array.isArray(fromMd.consultants)) all.push(...fromMd.consultants);
           if (Array.isArray(fromMd.regs)) all.push(...fromMd.regs);
           if (Array.isArray(fromMd.shos)) all.push(...fromMd.shos);
           if (all.length) return new Set(all);
@@ -881,6 +990,199 @@
         };
       }
 
+      // ── Calendar Editor ──────────────────────────────────────────────────
+
+      function hideCalDropdown() {
+        if (_calDropdown) { _calDropdown.style.display = 'none'; _calDropdown.innerHTML = ''; }
+      }
+
+      function showCalDropdown(input, colDef) {
+        if (!_calDropdown || !people) return;
+        const typed = input.value.toUpperCase();
+        const gradeList = people[colDef.grade] || [];
+        const matches = gradeList.filter(p => !typed || p.id.toUpperCase().startsWith(typed));
+        if (!matches.length) { hideCalDropdown(); return; }
+        _calDropdown.innerHTML = matches.map(p =>
+          `<div class="cal-drop-item" data-id="${p.id}">${p.id} \u2014 ${p.name}</div>`
+        ).join('');
+        const rect = input.getBoundingClientRect();
+        _calDropdown.style.display = 'block';
+        _calDropdown.style.left = rect.left + 'px';
+        _calDropdown.style.top = (rect.bottom + 2) + 'px';
+        _calDropdown.style.minWidth = Math.max(160, rect.width) + 'px';
+      }
+
+      function commitCalValue(key, colDef, id) {
+        if (colDef.file === 'oncall') {
+          if (!oncallCalendar[key]) oncallCalendar[key] = {};
+          oncallCalendar[key][colDef.field] = id;
+          saveOncallToGitHub();
+        } else {
+          if (!leaveCalendar[key]) leaveCalendar[key] = { consultants: [], regs: [], shos: [], notes: '' };
+          if (!Array.isArray(leaveCalendar[key][colDef.field])) leaveCalendar[key][colDef.field] = [];
+          if (!leaveCalendar[key][colDef.field].includes(id)) leaveCalendar[key][colDef.field].push(id);
+          saveLeaveToGitHub();
+        }
+      }
+
+      function removeCalValue(key, colDef, id) {
+        if (colDef.file === 'oncall') {
+          if (oncallCalendar[key]) { oncallCalendar[key][colDef.field] = null; saveOncallToGitHub(); }
+        } else {
+          if (leaveCalendar[key] && Array.isArray(leaveCalendar[key][colDef.field])) {
+            leaveCalendar[key][colDef.field] = leaveCalendar[key][colDef.field].filter(i => i !== id);
+            saveLeaveToGitHub();
+          }
+        }
+      }
+
+      function refreshCalCell(cell, colIdx, colDef) {
+        const key = cell.dataset.date;
+        cell.querySelectorAll('.cal-chip').forEach(c => c.remove());
+        const raw = colDef.file === 'oncall'
+          ? ((oncallCalendar[key] || {})[colDef.field] || null)
+          : ((leaveCalendar[key] || {})[colDef.field] || []);
+        const ids = colDef.multi ? (raw || []) : (raw ? [raw] : []);
+        const inputEl = cell.querySelector('.cal-cell-input');
+        ids.forEach(id => {
+          const chip = document.createElement('span');
+          chip.className = 'cal-chip';
+          chip.dataset.id = id; chip.dataset.date = key; chip.dataset.col = String(colIdx);
+          chip.innerHTML = `${id}<span class="cal-chip-x">\u00d7</span>`;
+          cell.insertBefore(chip, inputEl);
+        });
+      }
+
+      function activateCalCell(cell) {
+        if (!_calColDefs) return;
+        const colIdx = parseInt(cell.dataset.col, 10);
+        const colDef = _calColDefs[colIdx];
+        if (_calActiveInput) { _calActiveInput.remove(); _calActiveInput = null; }
+        hideCalDropdown();
+        const input = document.createElement('input');
+        input.type = 'text'; input.className = 'cal-cell-input'; input.placeholder = '\u2026';
+        cell.appendChild(input);
+        input.focus();
+        _calActiveInput = input; _calActiveCell = cell; _calActiveColDef = colDef;
+        showCalDropdown(input, colDef);
+        input.addEventListener('input', () => showCalDropdown(input, colDef));
+        input.addEventListener('keydown', (ev) => {
+          if (ev.key === 'Escape') {
+            hideCalDropdown(); input.remove();
+            _calActiveInput = null; _calActiveCell = null; _calActiveColDef = null;
+          } else if (ev.key === 'Enter') {
+            ev.preventDefault();
+            const typed = input.value.toUpperCase();
+            const gradeList = people[colDef.grade] || [];
+            const matches = gradeList.filter(p => typed && p.id.toUpperCase().startsWith(typed));
+            if (matches.length === 1) {
+              commitCalValue(cell.dataset.date, colDef, matches[0].id);
+              refreshCalCell(cell, colIdx, colDef);
+              hideCalDropdown(); input.remove();
+              _calActiveInput = null; _calActiveCell = null; _calActiveColDef = null;
+            }
+          }
+        });
+        input.addEventListener('blur', () => {
+          setTimeout(() => {
+            if (_calActiveInput === input) {
+              hideCalDropdown(); input.remove();
+              _calActiveInput = null; _calActiveCell = null; _calActiveColDef = null;
+            }
+          }, 200);
+        });
+      }
+
+      function renderCalendarEditor() {
+        const container = document.getElementById('calendarView');
+        if (!container || !oncallCalendar || !leaveCalendar || !people) return;
+
+        _calColDefs = [
+          { label: 'On-call Consultant', file: 'oncall', field: 'oncallConsultant', grade: 'consultants', multi: false },
+          { label: 'On-call Registrar',  file: 'oncall', field: 'oncallRegId',      grade: 'registrars',  multi: false },
+          { label: 'On-call SHO',        file: 'oncall', field: 'daySho',           grade: 'shos',        multi: false },
+          { label: 'Night SHO',          file: 'oncall', field: 'nightSho',         grade: 'shos',        multi: false },
+          { label: 'Ward Registrar',     file: 'oncall', field: 'wardReg',          grade: 'registrars',  multi: false },
+          { label: 'Ward SHO',           file: 'oncall', field: 'wardSho',          grade: 'shos',        multi: false },
+          { label: 'Consultant Leave',   file: 'leave',  field: 'consultants',      grade: 'consultants', multi: true  },
+          { label: 'Registrar Leave',    file: 'leave',  field: 'regs',             grade: 'registrars',  multi: true  },
+          { label: 'SHO Leave',          file: 'leave',  field: 'shos',             grade: 'shos',        multi: true  },
+        ];
+
+        if (!_calDropdown) {
+          _calDropdown = document.createElement('div');
+          _calDropdown.id = 'calDropdown';
+          document.body.appendChild(_calDropdown);
+          _calDropdown.addEventListener('mousedown', (e) => {
+            const item = e.target.closest('.cal-drop-item');
+            if (!item || !_calActiveCell || !_calActiveColDef) return;
+            e.preventDefault();
+            const id = item.dataset.id;
+            const colIdx = parseInt(_calActiveCell.dataset.col, 10);
+            commitCalValue(_calActiveCell.dataset.date, _calActiveColDef, id);
+            refreshCalCell(_calActiveCell, colIdx, _calActiveColDef);
+            hideCalDropdown();
+            if (_calActiveInput) { _calActiveInput.remove(); _calActiveInput = null; }
+            _calActiveCell = null; _calActiveColDef = null;
+          });
+        }
+
+        const allDates = Object.keys(oncallCalendar).sort();
+        const DAY = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+        let html = '<div class="cal-scroll"><table class="cal-table"><thead><tr>'
+          + '<th class="cal-th-date">Date</th>';
+        _calColDefs.forEach(col => { html += `<th>${col.label}</th>`; });
+        html += '</tr></thead><tbody>';
+
+        allDates.forEach(key => {
+          const [y, mo, d] = key.split('-').map(Number);
+          const dow = new Date(y, mo - 1, d).getDay();
+          const isWeekend = dow === 0 || dow === 6;
+          const label = `${DAY[dow]}&nbsp;${String(d).padStart(2,'0')}&nbsp;${MON[mo-1]}`;
+          html += `<tr${isWeekend ? ' class="cal-weekend"' : ''}>`
+            + `<td class="cal-date">${label}</td>`;
+          _calColDefs.forEach((col, colIdx) => {
+            const raw = col.file === 'oncall'
+              ? ((oncallCalendar[key] || {})[col.field] || null)
+              : ((leaveCalendar[key] || {})[col.field] || []);
+            const ids = col.multi ? (raw || []) : (raw ? [raw] : []);
+            html += `<td class="cal-cell" data-date="${key}" data-col="${colIdx}">`;
+            ids.forEach(id => {
+              html += `<span class="cal-chip" data-id="${id}" data-date="${key}" data-col="${colIdx}">`
+                + `${id}<span class="cal-chip-x">\u00d7</span></span>`;
+            });
+            html += '</td>';
+          });
+          html += '</tr>';
+        });
+
+        html += '</tbody></table></div>';
+        container.innerHTML = html;
+
+        if (!container._calListenerAttached) {
+          container._calListenerAttached = true;
+          container.addEventListener('click', (e) => {
+            if (e.target.classList.contains('cal-chip-x')) {
+              const chip = e.target.closest('.cal-chip');
+              if (!chip) return;
+              e.stopPropagation();
+              const colIdx = parseInt(chip.dataset.col, 10);
+              removeCalValue(chip.dataset.date, _calColDefs[colIdx], chip.dataset.id);
+              const cell = chip.closest('.cal-cell');
+              if (cell) refreshCalCell(cell, colIdx, _calColDefs[colIdx]);
+              return;
+            }
+            const cell = e.target.closest('.cal-cell');
+            if (!cell || e.target.classList.contains('cal-cell-input')) return;
+            activateCalCell(cell);
+          });
+        }
+      }
+
+      // ────────────────────────────────────────────────────────────────────
+
       function renderMonth(year, monthIndex) {
         const monthBody = document.getElementById('monthBody');
         const monthLabel = document.getElementById('monthLabel');
@@ -933,25 +1235,32 @@
       function setActiveView(view) {
         const weekView = document.getElementById('weekView');
         const monthView = document.getElementById('monthView');
+        const calendarView = document.getElementById('calendarView');
         const tabWeek = document.getElementById('tabWeek');
         const tabMonth = document.getElementById('tabMonth');
+        const tabCalendar = document.getElementById('tabCalendar');
         const weekNav = document.getElementById('weekNav');
         const monthNav = document.getElementById('monthNav');
         if (!weekView || !monthView) return;
+        // Reset all
+        weekView.style.display = 'none';
+        monthView.style.display = 'none';
+        if (calendarView) calendarView.style.display = 'none';
+        if (weekNav) weekNav.style.visibility = 'hidden';
+        if (monthNav) monthNav.style.display = 'none';
+        [tabWeek, tabMonth, tabCalendar].forEach(t => t && t.classList.remove('active'));
+        // Show selected
         if (view === 'month') {
-          weekView.style.display = 'none';
           monthView.style.display = 'block';
-          if (weekNav) weekNav.style.visibility = 'hidden';
           if (monthNav) monthNav.style.display = 'flex';
-          if (tabWeek) tabWeek.classList.remove('active');
           if (tabMonth) tabMonth.classList.add('active');
+        } else if (view === 'calendar') {
+          if (calendarView) calendarView.style.display = 'block';
+          if (tabCalendar) tabCalendar.classList.add('active');
         } else {
           weekView.style.display = 'block';
-          monthView.style.display = 'none';
           if (weekNav) weekNav.style.visibility = 'visible';
-          if (monthNav) monthNav.style.display = 'none';
           if (tabWeek) tabWeek.classList.add('active');
-          if (tabMonth) tabMonth.classList.remove('active');
         }
       }
 
@@ -1671,8 +1980,13 @@
           }
           const tabWeek = document.getElementById('tabWeek');
           const tabMonth = document.getElementById('tabMonth');
+          const tabCalendar = document.getElementById('tabCalendar');
           if (tabWeek) tabWeek.addEventListener('click', () => setActiveView('week'));
           if (tabMonth) tabMonth.addEventListener('click', () => setActiveView('month'));
+          if (tabCalendar) tabCalendar.addEventListener('click', () => {
+            setActiveView('calendar');
+            renderCalendarEditor();
+          });
           setActiveView('week');
           setupContextMenu();
           setupDragAndDrop();
