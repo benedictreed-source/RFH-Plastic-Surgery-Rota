@@ -2106,12 +2106,8 @@
         const regsUsed = new Set();
         const shosUsed = new Set();
         baseEvents.forEach(ev2 => {
-          // Exclude Trauma clinic from regsUsed — it's a pool-based flexible assignment,
-          // so a paired reg can move out of it when their consultant gets a session.
-          if (ev2.label !== 'Trauma clinic') {
-            if (ev2.amReg) regsUsed.add(ev2.amReg);
-            if (ev2.pmReg) regsUsed.add(ev2.pmReg);
-          }
+          if (ev2.amReg) regsUsed.add(ev2.amReg);
+          if (ev2.pmReg) regsUsed.add(ev2.pmReg);
           if (ev2.amSho) shosUsed.add(ev2.amSho);
           if (ev2.pmSho) shosUsed.add(ev2.pmSho);
         });
@@ -2127,6 +2123,8 @@
 
         const pairedRegs = getRegsForConsultant(consultantId);
         let reg = null;
+
+        // Pass 1: find a free paired reg
         for (let pi = 0; pi < pairedRegs.length; pi++) {
           const r = pairedRegs[pi];
           if (r !== ctx.wardReg && !leaveSet.has(r) && !regsUsed.has(r)) {
@@ -2134,6 +2132,43 @@
             break;
           }
         }
+
+        // Pass 2: paired reg is assigned elsewhere — displace them to their consultant's
+        // session and write a regOverride to fill the slot they vacated.
+        if (!reg && people && people.registrars) {
+          for (let pi = 0; pi < pairedRegs.length; pi++) {
+            const r = pairedRegs[pi];
+            if (r === ctx.wardReg || leaveSet.has(r)) continue;
+            // Don't displace from another added session (those are already fixed)
+            const blockedByAdded = (manualEdits.addedSessions[dk] || []).some((ev2, idx2) => {
+              if (idx2 === mi) return false;
+              return ev2.amReg === r || ev2.pmReg === r || ev2.amReg2 === r || ev2.pmReg2 === r;
+            });
+            if (blockedByAdded) continue;
+            // Find the base event that has this reg (skip events for the same consultant)
+            const ownLabels = [consultantId + ' Theatre', consultantId + ' Clinic'];
+            for (const ev2 of baseEvents) {
+              if (ownLabels.includes(ev2.label)) continue;
+              const inAm = ev2.amReg === r;
+              const inPm = ev2.pmReg === r;
+              if (!inAm && !inPm) continue;
+              // Find a replacement for the slot(s) being vacated
+              const regsForReplacement = new Set(regsUsed);
+              regsForReplacement.delete(r);
+              const replacement = people.registrars.map(rr => rr.id).find(id =>
+                id !== ctx.wardReg && !leaveSet.has(id) && !regsForReplacement.has(id)
+              ) || null;
+              if (!manualEdits.regOverrides[dk]) manualEdits.regOverrides[dk] = {};
+              if (inAm) manualEdits.regOverrides[dk][ev2.label + '.amReg'] = replacement;
+              if (inPm) manualEdits.regOverrides[dk][ev2.label + '.pmReg'] = replacement;
+              reg = r;
+              break;
+            }
+            if (reg) break;
+          }
+        }
+
+        // Pass 3: fallback to any available reg
         if (!reg) {
           reg = getRegForConsultantListOrClinicWithFallback(
             consultantId, ctx.wardReg, ctx.oncallRegId, regsUsed, leaveSet
