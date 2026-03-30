@@ -1247,6 +1247,14 @@
         });
       }
 
+      /** Scroll only `.cal-scroll`, not the document (avoids `scrollIntoView` moving the whole page). */
+      function scrollCalScrollToCenterRow(scrollEl, rowEl) {
+        if (!scrollEl || !rowEl) return;
+        const s = scrollEl.getBoundingClientRect();
+        const r = rowEl.getBoundingClientRect();
+        scrollEl.scrollTop += (r.top + r.height / 2) - (s.top + s.height / 2);
+      }
+
       function renderCalendarEditor() {
         const container = document.getElementById('calendarView');
         if (!container || !oncallCalendar || !leaveCalendar || !people) return;
@@ -2502,8 +2510,12 @@
             setActiveView('calendar');
             renderCalendarEditor();
             const calView = document.getElementById('calendarView');
+            const scrollEl = calView && calView.querySelector('.cal-scroll');
             const todayCell = calView && calView.querySelector(`.cal-cell[data-date="${dateKey(new Date())}"]`);
-            if (todayCell) todayCell.closest('tr').scrollIntoView({ block: 'center' });
+            const row = todayCell && todayCell.closest('tr');
+            if (scrollEl && row) {
+              requestAnimationFrame(() => scrollCalScrollToCenterRow(scrollEl, row));
+            }
           });
           const tabRoster = document.getElementById('tabRoster');
           const tabSchedule = document.getElementById('tabSchedule');
