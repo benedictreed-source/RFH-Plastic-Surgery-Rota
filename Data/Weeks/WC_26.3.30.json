@@ -157,9 +157,9 @@
         },
         {
           "type": "clinic",
-          "label": "",
+          "label": "NT Clinic",
           "time": "pm",
-          "reg": null,
+          "reg": "RF",
           "reg2": null,
           "sho": null,
           "manual": true,
@@ -666,10 +666,10 @@
           "manual": true
         },
         {
-          "label": "",
+          "label": "NT Clinic",
           "amReg": null,
           "amSho": null,
-          "pmReg": null,
+          "pmReg": "RF",
           "pmSho": null,
           "type": "clinic",
           "half": "pm",
