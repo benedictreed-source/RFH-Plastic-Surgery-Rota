@@ -194,6 +194,16 @@
           "sho": null,
           "manual": true,
           "locked": false
+        },
+        {
+          "type": "theatre",
+          "label": "GA Skin",
+          "time": "all_day",
+          "reg": "AE",
+          "reg2": "HC",
+          "sho": null,
+          "manual": true,
+          "locked": true
         }
       ]
     },
@@ -738,6 +748,19 @@
           "type": "clinic",
           "half": "am",
           "manual": true
+        },
+        {
+          "label": "GA Skin",
+          "type": "theatre",
+          "half": "all_day",
+          "manual": true,
+          "locked": true,
+          "amReg": "AE",
+          "pmReg": "AE",
+          "amReg2": "HC",
+          "pmReg2": "HC",
+          "amSho": null,
+          "pmSho": null
         }
       ],
       "removedIndices": [
