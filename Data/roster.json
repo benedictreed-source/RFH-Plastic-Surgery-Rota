@@ -177,7 +177,9 @@
       "name": "Alexander Zargaran",
       "phone": "7979971611",
       "level": "GA2, Luton, MVH",
-      "pairedConsultantIds": []
+      "pairedConsultantIds": [
+        "PB"
+      ]
     },
     {
       "id": "LA",
