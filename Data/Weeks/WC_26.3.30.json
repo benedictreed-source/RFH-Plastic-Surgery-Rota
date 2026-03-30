@@ -29,95 +29,95 @@
           "label": "DSU2",
           "time": "all_day",
           "reg": "HC",
-          "sho": "BA"
+          "sho": "DH"
         },
         {
           "type": "theatre",
           "label": "DSU1",
           "time": "all_day",
           "reg": "LG",
-          "sho": "DE"
+          "sho": "SS"
         },
         {
           "type": "theatre",
           "label": "NS Theatre RFH",
           "time": "all_day",
-          "reg": "HB",
-          "sho": "DS"
+          "reg": "HC",
+          "sho": "OG"
         },
         {
           "type": "theatre",
           "label": "CK Theatre RFH",
           "time": "all_day",
-          "reg": "JC",
-          "sho": "OG"
+          "reg": "TO",
+          "sho": "HW"
         },
         {
           "type": "theatre",
           "label": "MA Theatre RFH",
           "time": "all_day",
-          "reg": "TO",
-          "sho": "SS"
+          "reg": "JC",
+          "sho": "ZN"
         },
         {
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "AZ",
+          "reg": "LA",
           "sho": "SK"
         },
         {
           "type": "clinic",
           "label": "SW Clinic RFH",
           "time": "all_day",
-          "reg": "AE",
+          "reg": "ZA",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "AP Clinic RFH",
           "time": "all_day",
-          "reg": "ZA",
+          "reg": "SA",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "SG Clinic RFH",
           "time": "all_day",
-          "reg": "SA",
+          "reg": "HB",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "YA Clinic RFH",
           "time": "all_day",
-          "reg": "MT",
+          "reg": "DE",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "NT Clinic RFH",
           "time": "all_day",
-          "reg": "BR",
+          "reg": "AB",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "SAH Clinic RFH",
           "time": "all_day",
-          "reg": "HS",
+          "reg": "RF",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "WS Clinic RFH",
           "time": "all_day",
-          "reg": "OS",
+          "reg": "NS",
           "sho": null
         },
         {
           "type": "clinic",
-          "label": "NT Clinic RFH",
+          "label": "NT Clinic",
           "time": "pm",
           "reg": "BR",
           "reg2": null,
@@ -154,67 +154,57 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "AL",
-          "sho": "BA"
+          "reg": "HC",
+          "sho": "DH"
         },
         {
           "type": "theatre",
           "label": "WS Theatre RFH",
           "time": "all_day",
-          "reg": "TO",
-          "sho": "DS"
+          "reg": "NS",
+          "sho": "SS"
         },
         {
           "type": "theatre",
           "label": "GOT Theatre RFH",
           "time": "all_day",
-          "reg": "ZA",
+          "reg": "TO",
           "sho": "OG"
         },
         {
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "CW",
+          "reg": "HP",
           "sho": "SN"
         },
         {
           "type": "clinic",
           "label": "AW Clinic RFH",
           "time": "all_day",
-          "reg": "AZ",
+          "reg": "ZA",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "IY Clinic RFH",
           "time": "all_day",
-          "reg": "LA",
+          "reg": "SA",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "DN Clinic RFH",
           "time": "all_day",
-          "reg": "SA",
+          "reg": "AL",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "NN Clinic RFH",
           "time": "all_day",
-          "reg": "RF",
+          "reg": "AE",
           "sho": null
-        },
-        {
-          "type": "clinic",
-          "label": "CK Clinic",
-          "time": "am",
-          "reg": "LG",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": false
         }
       ]
     },
@@ -245,63 +235,63 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "CW",
-          "sho": "BA"
+          "reg": "AL",
+          "sho": "DH"
         },
         {
           "type": "theatre",
           "label": "DSU1",
           "time": "all_day",
           "reg": "HC",
-          "sho": "DS"
+          "sho": "SS"
         },
         {
           "type": "theatre",
           "label": "NJ Theatre RFH",
           "time": "all_day",
-          "reg": "OH",
+          "reg": "HB",
           "sho": "OG"
         },
         {
           "type": "theatre",
           "label": "SH Theatre RFH",
           "time": "all_day",
-          "reg": "AL",
-          "sho": "SN"
+          "reg": "OH",
+          "sho": "HW"
         },
         {
           "type": "theatre",
           "label": "PB Theatre RFH",
           "time": "all_day",
-          "reg": "ZA",
-          "sho": "SS"
+          "reg": "AZ",
+          "sho": "ZN"
         },
         {
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "HB",
+          "reg": "BR",
           "sho": "SK"
         },
         {
           "type": "clinic",
           "label": "GOT Clinic RFH",
           "time": "all_day",
-          "reg": "OS",
+          "reg": "NS",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "SAH Clinic RFH",
           "time": "all_day",
-          "reg": "HS",
+          "reg": "RF",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "AM Clinic RFH",
           "time": "all_day",
-          "reg": "LG",
+          "reg": "SA",
           "sho": null
         },
         {
@@ -315,7 +305,7 @@
           "type": "clinic",
           "label": "CK Clinic RFH",
           "time": "all_day",
-          "reg": "SA",
+          "reg": "ZA",
           "sho": null
         }
       ]
@@ -346,63 +336,63 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "TO",
-          "sho": "BA"
+          "reg": "AL",
+          "sho": "DH"
         },
         {
           "type": "theatre",
           "label": "AW Theatre RFH",
           "time": "all_day",
-          "reg": "AZ",
-          "sho": "DE"
+          "reg": "HS",
+          "sho": "SS"
         },
         {
           "type": "theatre",
           "label": "SG Theatre RFH",
           "time": "all_day",
-          "reg": "SA",
-          "sho": "DS"
+          "reg": "TO",
+          "sho": "OG"
         },
         {
           "type": "theatre",
           "label": "NT Theatre RFH",
           "time": "all_day",
-          "reg": "BR",
-          "sho": "OG"
+          "reg": "AB",
+          "sho": "HW"
         },
         {
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "OS",
+          "reg": "HC",
           "sho": "SN"
         },
         {
           "type": "clinic",
           "label": "AM Clinic RFH",
           "time": "all_day",
-          "reg": "LG",
+          "reg": "SA",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "YA Clinic RFH",
           "time": "all_day",
-          "reg": "MT",
+          "reg": "DE",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "SH Clinic RFH",
           "time": "all_day",
-          "reg": "AL",
+          "reg": "OH",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "AP Clinic RFH",
           "time": "all_day",
-          "reg": "HP",
+          "reg": "ZA",
           "sho": null
         }
       ]
@@ -434,78 +424,88 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "TO",
-          "sho": "BA"
+          "reg": "AL",
+          "sho": "DH"
         },
         {
           "type": "theatre",
           "label": "DSU1",
           "time": "all_day",
-          "reg": "SA",
-          "sho": "DE"
+          "reg": "MHA",
+          "sho": "HW"
         },
         {
           "type": "theatre",
           "label": "AM Theatre RFH",
           "time": "all_day",
-          "reg": "HC",
-          "sho": "DS"
+          "reg": "SA",
+          "sho": "ZN"
         },
         {
           "type": "theatre",
           "label": "DN Theatre RFH",
           "time": "all_day",
-          "reg": "MHA",
-          "sho": "SK"
+          "reg": "BR",
+          "sho": "YM"
         },
         {
           "type": "theatre",
           "label": "AP Theatre RFH",
           "time": "all_day",
-          "reg": "HP",
-          "sho": "SN"
+          "reg": "TO",
+          "sho": "MP"
         },
         {
           "type": "clinic",
           "label": "Trauma clinic",
           "time": "all_day",
-          "reg": "CW",
+          "reg": "AE",
           "sho": "SS"
         },
         {
           "type": "clinic",
           "label": "NJ Clinic RFH",
           "time": "all_day",
-          "reg": "OH",
+          "reg": "HB",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "AW Clinic RFH",
           "time": "all_day",
-          "reg": "AZ",
+          "reg": "HS",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "NS Clinic RFH",
           "time": "all_day",
-          "reg": "HB",
+          "reg": "HC",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "NT Clinic RFH",
           "time": "all_day",
-          "reg": "BR",
+          "reg": "AB",
           "sho": null
         },
         {
           "type": "clinic",
           "label": "SH Clinic RFH",
           "time": "all_day",
-          "reg": "AL",
+          "reg": "OH",
           "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "NT Clinic",
+          "time": "am",
+          "reg": "BR",
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": false
         }
       ]
     },
@@ -592,7 +592,7 @@
     "2026-03-30": {
       "addedSessions": [
         {
-          "label": "NT Clinic RFH",
+          "label": "NT Clinic",
           "amReg": null,
           "amSho": null,
           "pmReg": "BR",
@@ -610,14 +610,18 @@
         "DSU2.amReg": "HC",
         "DSU1.amReg": "LG",
         "DSU2.pmReg": "HC",
-        "DSU1.pmReg": "LG"
+        "DSU1.pmReg": "LG",
+        "DSU2.amSho": "DH",
+        "DSU1.amSho": "SS",
+        "DSU2.pmSho": "DH",
+        "DSU1.pmSho": "SS"
       }
     },
-    "2026-03-31": {
+    "2026-04-03": {
       "addedSessions": [
         {
-          "label": "CK Clinic",
-          "amReg": "LG",
+          "label": "NT Clinic",
+          "amReg": "BR",
           "amSho": null,
           "pmReg": null,
           "pmSho": null,
@@ -625,6 +629,9 @@
           "half": "am",
           "manual": true
         }
+      ],
+      "removedIndices": [
+        9
       ]
     }
   }
