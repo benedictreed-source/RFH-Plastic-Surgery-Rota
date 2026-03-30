@@ -204,6 +204,16 @@
           "sho": null,
           "manual": true,
           "locked": true
+        },
+        {
+          "type": "theatre",
+          "label": "MVH/WGH",
+          "time": "all_day",
+          "reg": "MT",
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": true
         }
       ]
     },
@@ -770,6 +780,17 @@
           "locked": true,
           "amReg": "RF",
           "pmReg": "RF",
+          "amSho": null,
+          "pmSho": null
+        },
+        {
+          "label": "MVH/WGH",
+          "type": "theatre",
+          "half": "all_day",
+          "manual": true,
+          "locked": true,
+          "amReg": "MT",
+          "pmReg": "MT",
           "amSho": null,
           "pmSho": null
         }
