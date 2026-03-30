@@ -1996,10 +1996,18 @@
           const tabMonth = document.getElementById('tabMonth');
           const tabCalendar = document.getElementById('tabCalendar');
           if (tabWeek) tabWeek.addEventListener('click', () => { setActiveView('week'); if (currentMonday) renderWeek(currentMonday); });
-          if (tabMonth) tabMonth.addEventListener('click', () => setActiveView('month'));
+          if (tabMonth) tabMonth.addEventListener('click', () => {
+            setActiveView('month');
+            const ms = document.getElementById('monthSelect');
+            if (ms) renderMonth(2026, parseInt(ms.value, 10) || 0);
+          });
           if (tabCalendar) tabCalendar.addEventListener('click', () => {
             setActiveView('calendar');
             renderCalendarEditor();
+            // Scroll to today
+            const calView = document.getElementById('calendarView');
+            const todayCell = calView && calView.querySelector(`.cal-cell[data-date="${dateKey(new Date())}"]`);
+            if (todayCell) todayCell.closest('tr').scrollIntoView({ block: 'center' });
           });
           setActiveView('week');
           setupContextMenu();
