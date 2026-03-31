@@ -1,0 +1,99 @@
+name: Extend rota date range
+
+on:
+  schedule:
+    - cron: '0 6 1 * *'   # 06:00 UTC on the 1st of every month
+  workflow_dispatch:        # allow manual trigger from GitHub Actions UI
+
+jobs:
+  extend:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extend oncall.json and leave.json if needed
+        run: |
+          python3 - <<'EOF'
+          import json, datetime, sys
+
+          TODAY = datetime.date.today()
+          THRESHOLD_MONTHS = 6   # extend if fewer than this many months remain
+          TARGET_MONTHS    = 12  # extend out to this many months from today
+
+          def last_date(path):
+              with open(path) as f:
+                  d = json.load(f)
+              keys = sorted(d.keys())
+              return datetime.date.fromisoformat(keys[-1]) if keys else TODAY
+
+          def extend_oncall(path, from_date, to_date):
+              with open(path) as f:
+                  d = json.load(f)
+              added = 0
+              cur = from_date
+              while cur <= to_date:
+                  key = cur.isoformat()
+                  if key not in d:
+                      d[key] = {
+                          "wardReg": None, "wardSho": None,
+                          "oncallRegId": None, "oncallConsultant": None,
+                          "daySho": None, "nightSho": None
+                      }
+                      added += 1
+                  cur += datetime.timedelta(days=1)
+              with open(path, 'w') as f:
+                  json.dump(d, f, indent=2, sort_keys=True)
+              return added
+
+          def extend_leave(path, from_date, to_date):
+              with open(path) as f:
+                  d = json.load(f)
+              added = 0
+              cur = from_date
+              while cur <= to_date:
+                  key = cur.isoformat()
+                  if key not in d:
+                      d[key] = {"regs": [], "shos": [], "notes": ""}
+                      added += 1
+                  cur += datetime.timedelta(days=1)
+              with open(path, 'w') as f:
+                  json.dump(d, f, indent=2, sort_keys=True)
+              return added
+
+          # Calculate threshold and target dates
+          threshold = TODAY + datetime.timedelta(days=THRESHOLD_MONTHS * 30)
+          target    = TODAY + datetime.timedelta(days=TARGET_MONTHS    * 30)
+
+          oncall_last = last_date('Data/oncall.json')
+          leave_last  = last_date('Data/leave.json')
+
+          if oncall_last > threshold and leave_last > threshold:
+              print(f"Both files extend past {threshold} — no extension needed.")
+              sys.exit(0)
+
+          extend_from = max(oncall_last, leave_last) + datetime.timedelta(days=1)
+          print(f"Extending from {extend_from} to {target}")
+
+          n1 = extend_oncall('Data/oncall.json', extend_from, target)
+          n2 = extend_leave ('Data/leave.json',  extend_from, target)
+          print(f"Added {n1} dates to oncall.json, {n2} to leave.json")
+
+          # Signal to the next step that we made changes
+          with open('/tmp/extended', 'w') as f:
+              f.write(f"Extended to {target}")
+          EOF
+
+      - name: Commit and push if extended
+        run: |
+          if [ ! -f /tmp/extended ]; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Data/oncall.json Data/leave.json
+          git commit -m "Auto-extend oncall and leave dates to $(cat /tmp/extended | sed 's/Extended to //')"
+          git push
