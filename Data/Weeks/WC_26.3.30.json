@@ -40,24 +40,10 @@
         },
         {
           "type": "theatre",
-          "label": "NS Theatre RFH",
-          "time": "all_day",
-          "reg": "HC",
-          "sho": "OG"
-        },
-        {
-          "type": "theatre",
           "label": "CK Theatre RFH",
           "time": "all_day",
           "reg": "TO",
-          "sho": "HW"
-        },
-        {
-          "type": "theatre",
-          "label": "MA Theatre RFH",
-          "time": "all_day",
-          "reg": "JC",
-          "sho": "ZN"
+          "sho": "OG"
         },
         {
           "type": "clinic",
@@ -84,7 +70,7 @@
           "type": "clinic",
           "label": "SG Clinic RFH",
           "time": "all_day",
-          "reg": "HB",
+          "reg": "HC",
           "sho": null
         },
         {
@@ -112,8 +98,18 @@
           "type": "clinic",
           "label": "WS Clinic RFH",
           "time": "all_day",
-          "reg": "NS",
+          "reg": "HB",
           "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "",
+          "time": "pm",
+          "reg": null,
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": false
         }
       ]
     },
@@ -570,6 +566,18 @@
   ],
   "manualEdits": {
     "2026-03-30": {
+      "addedSessions": [
+        {
+          "label": "",
+          "amReg": null,
+          "amSho": null,
+          "pmReg": null,
+          "pmSho": null,
+          "type": "clinic",
+          "half": "pm",
+          "manual": true
+        }
+      ],
       "regOverrides": {
         "DSU2.pmReg": "SA"
       }
