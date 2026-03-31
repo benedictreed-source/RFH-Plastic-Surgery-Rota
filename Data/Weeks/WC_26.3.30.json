@@ -103,9 +103,9 @@
         },
         {
           "type": "clinic",
-          "label": "",
+          "label": "DN Clinic RFH",
           "time": "pm",
-          "reg": null,
+          "reg": "BR",
           "reg2": null,
           "sho": null,
           "manual": true,
@@ -568,10 +568,10 @@
     "2026-03-30": {
       "addedSessions": [
         {
-          "label": "",
+          "label": "DN Clinic RFH",
           "amReg": null,
           "amSho": null,
-          "pmReg": null,
+          "pmReg": "BR",
           "pmSho": null,
           "type": "clinic",
           "half": "pm",
