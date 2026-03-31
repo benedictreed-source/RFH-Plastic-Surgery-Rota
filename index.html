@@ -1538,7 +1538,6 @@
             pairHtml += '<select class="add-pair-select" data-reg-idx="' + i + '" title="Add consultant pair or set Academic / Clinical" aria-label="Pairing and placement" style="font-size:0.78rem; padding:0.15rem 0.25rem;">';
             pairHtml += '<option value="">+ pair</option>';
             pairHtml += '<option value="' + ROSTER_PAIR_ACADEMIC + '">Academic</option>';
-            pairHtml += '<option value="' + ROSTER_PAIR_CLINICAL + '">Clinical</option>';
             sortConsultantsRegistrarsForDropdown(people.consultants.filter(c => !pairedCIds.includes(c.id)))
               .forEach(c => { pairHtml += '<option value="' + c.id + '">' + c.id + '</option>'; });
             pairHtml += '</select></div>';
@@ -1662,14 +1661,6 @@
               if (val === ROSTER_PAIR_ACADEMIC) {
                 if (!people.registrars[regIdx].academic) {
                   people.registrars[regIdx].academic = true;
-                  commitAndSave('regSaveInd');
-                }
-                render();
-                return;
-              }
-              if (val === ROSTER_PAIR_CLINICAL) {
-                if (people.registrars[regIdx].academic) {
-                  delete people.registrars[regIdx].academic;
                   commitAndSave('regSaveInd');
                 }
                 render();
