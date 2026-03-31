@@ -479,10 +479,8 @@
     /* ── SHO Rota tab ─────────────────────────────── */
     .sho-scroll {
       overflow-x: auto;
-    }
-    .sho-scroll-y {
-      max-height: calc(100vh - 130px);
       overflow-y: auto;
+      max-height: calc(100vh - 130px);
     }
     .sho-table {
       border-collapse: collapse;
@@ -491,26 +489,28 @@
     }
     .sho-table thead th {
       position: sticky;
-      top: 0;
       z-index: 2;
       background: var(--surface2);
       border: 1px solid var(--border);
-      padding: 0.3rem 0.5rem;
+      padding: 0.25rem 0.5rem;
       text-align: center;
       white-space: nowrap;
       min-width: 72px;
     }
+    .sho-table thead tr:nth-child(1) th { top: 0; }
+    .sho-table thead tr:nth-child(2) th { top: var(--sho-row1-h, 28px); }
     .sho-table thead th.sho-th-date { min-width: 100px; text-align: left; z-index: 3; position: sticky; left: 0; }
-    .sho-slot-name input, .sho-slot-id input {
+    .sho-name-input, .sho-id-input {
       font-family: inherit; border: 1px solid transparent; border-radius: 3px;
       background: transparent; text-align: center; width: 100%; box-sizing: border-box;
       padding: 0.1rem 0.2rem; color: var(--text);
     }
-    .sho-slot-name input { font-size: 0.78rem; font-weight: 600; }
-    .sho-slot-id input { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
-    .sho-slot-name input:focus, .sho-slot-id input:focus {
+    .sho-name-input { font-size: 0.78rem; font-weight: 600; }
+    .sho-id-input { font-size: 0.72rem; color: var(--text-muted); }
+    .sho-name-input:focus, .sho-id-input:focus {
       outline: none; border-color: var(--accent); background: rgba(37,99,235,0.05);
     }
+    .sho-th-id { background: var(--surface); }
     .sho-table td {
       border: 1px solid var(--border);
       padding: 0.15rem 0.4rem;
@@ -2174,15 +2174,24 @@
           + '<span class="sho-legend-item"><span class="sho-legend-swatch" style="background:#f1f5f9;border-color:#e2e8f0"></span>Off</span>'
           + '</div></div>';
 
-        html += '<div class="sho-scroll-y"><div class="sho-scroll"><table class="sho-table"><thead><tr>';
-        html += '<th class="sho-th-date">Date</th>';
+        html += '<div class="sho-scroll"><table class="sho-table"><thead>';
+        // Row 1: names
+        html += '<tr><th class="sho-th-date"></th>';
         slots.forEach((id, i) => {
           html += '<th class="sho-th-slot" data-slot="' + i + '">'
-            + '<div class="sho-slot-name"><input type="text" class="sho-name-input" data-slot="' + i + '" value="' + (nameMap[id] || id) + '"></div>'
-            + '<div class="sho-slot-id"><input type="text" class="sho-id-input" data-slot="' + i + '" value="' + id + '"></div>'
+            + '<input type="text" class="sho-name-input" data-slot="' + i + '" value="' + (nameMap[id] || id) + '">'
             + '</th>';
         });
-        html += '</tr></thead><tbody>';
+        html += '</tr>';
+        // Row 2: initials
+        html += '<tr><th class="sho-th-date"></th>';
+        slots.forEach((id, i) => {
+          html += '<th class="sho-th-slot sho-th-id" data-slot="' + i + '">'
+            + '<input type="text" class="sho-id-input" data-slot="' + i + '" value="' + id + '">'
+            + '</th>';
+        });
+        html += '</tr>';
+        html += '</thead><tbody>';
 
         allDates.forEach(key => {
           const [y, mo, d] = key.split('-').map(Number);
@@ -2201,12 +2210,16 @@
           html += '</tr>';
         });
 
-        html += '</tbody></table></div></div>';
+        html += '</tbody></table></div>';
         container.innerHTML = html;
 
-        // Scroll to today
+        // Set second header row top offset dynamically
         requestAnimationFrame(() => {
-          const scrollEl = container.querySelector('.sho-scroll-y');
+          const scrollEl = container.querySelector('.sho-scroll');
+          const row1 = scrollEl && scrollEl.querySelector('thead tr:nth-child(1) th');
+          if (row1) scrollEl.style.setProperty('--sho-row1-h', row1.offsetHeight + 'px');
+
+          // Scroll to today
           const todayRow = container.querySelector('tr[data-today="1"]');
           if (scrollEl && todayRow) {
             const s = scrollEl.getBoundingClientRect();
