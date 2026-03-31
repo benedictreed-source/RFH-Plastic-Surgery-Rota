@@ -117,11 +117,11 @@
         },
         {
           "type": "theatre",
-          "label": "",
+          "label": "AW Theatre RFH",
           "time": "all_day",
-          "reg": null,
+          "reg": "HS",
           "reg2": null,
-          "sho": null,
+          "sho": "YM",
           "manual": true,
           "locked": false
         }
@@ -582,11 +582,11 @@
     "2026-03-30": {
       "addedSessions": [
         {
-          "label": "",
-          "amReg": null,
-          "amSho": null,
-          "pmReg": null,
-          "pmSho": null,
+          "label": "AW Theatre RFH",
+          "amReg": "HS",
+          "amSho": "YM",
+          "pmReg": "HS",
+          "pmSho": "YM",
           "type": "theatre",
           "half": "all_day",
           "manual": true
