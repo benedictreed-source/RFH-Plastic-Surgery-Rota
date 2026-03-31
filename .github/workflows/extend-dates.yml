@@ -29,6 +29,17 @@ jobs:
               keys = sorted(d.keys())
               return datetime.date.fromisoformat(keys[-1]) if keys else TODAY
 
+          # Load SHO cycle
+          with open('Data/sho_cycle.json') as f:
+              sho_cycle_data = json.load(f)
+          CYCLE_REF  = datetime.date.fromisoformat(sho_cycle_data['cycleRefDate'])
+          CYCLE_DAYS = sho_cycle_data['cycleDays']
+          SHO_CYCLE  = sho_cycle_data['cycle']
+
+          def sho_for_date(d):
+              offset = (d - CYCLE_REF).days % CYCLE_DAYS
+              return SHO_CYCLE[offset]
+
           def extend_oncall(path, from_date, to_date):
               with open(path) as f:
                   d = json.load(f)
@@ -37,10 +48,11 @@ jobs:
               while cur <= to_date:
                   key = cur.isoformat()
                   if key not in d:
+                      c = sho_for_date(cur)
                       d[key] = {
-                          "wardReg": None, "wardSho": None,
+                          "wardReg": None, "wardSho": c['wardSho'],
                           "oncallRegId": None, "oncallConsultant": None,
-                          "daySho": None, "nightSho": None
+                          "daySho": c['daySho'], "nightSho": c['nightSho']
                       }
                       added += 1
                   cur += datetime.timedelta(days=1)
@@ -56,7 +68,11 @@ jobs:
               while cur <= to_date:
                   key = cur.isoformat()
                   if key not in d:
-                      d[key] = {"regs": [], "shos": [], "exceptional": [], "notes": ""}
+                      c = sho_for_date(cur)
+                      d[key] = {
+                          "regs": [], "shos": c['postNightsShos'],
+                          "exceptional": [], "notes": ""
+                      }
                       added += 1
                   cur += datetime.timedelta(days=1)
               with open(path, 'w') as f:
@@ -81,7 +97,6 @@ jobs:
           n2 = extend_leave ('Data/leave.json',  extend_from, target)
           print(f"Added {n1} dates to oncall.json, {n2} to leave.json")
 
-          # Signal to the next step that we made changes
           with open('/tmp/extended', 'w') as f:
               f.write(f"Extended to {target}")
           EOF

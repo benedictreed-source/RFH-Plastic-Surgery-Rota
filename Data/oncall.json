@@ -1,3642 +1,3642 @@
 {
   "2026-01-01": {
-    "wardReg": "ZA",
-    "wardSho": "KR",
-    "oncallRegId": "AE",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "AE",
+    "wardReg": "ZA",
+    "wardSho": "OO"
   },
   "2026-01-02": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "AL",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "AL",
+    "wardReg": "AE",
+    "wardSho": "OO"
   },
   "2026-01-03": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "AZ",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "AZ",
+    "wardReg": "AE",
+    "wardSho": "OO"
   },
   "2026-01-04": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "BR",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "BR",
+    "wardReg": "AE",
+    "wardSho": "OO"
   },
   "2026-01-05": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "CW",
-    "oncallConsultant": null,
     "daySho": "OG",
-    "nightSho": "DS"
+    "nightSho": "DS",
+    "oncallConsultant": null,
+    "oncallRegId": "CW",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-01-06": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HB",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "HB",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-01-07": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HC",
+    "daySho": "LC",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DS"
+    "oncallRegId": "HC",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-01-08": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HP",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "HP",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-01-09": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "HS",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "HS",
+    "wardReg": "AL",
+    "wardSho": "ST"
   },
   "2026-01-10": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "JC",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "JC",
+    "wardReg": "AL",
+    "wardSho": "ST"
   },
   "2026-01-11": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "LA",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "LA",
+    "wardReg": "AL",
+    "wardSho": "ST"
   },
   "2026-01-12": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "LG",
+    "daySho": "DS",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "LG",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-01-13": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "MHA",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "MHA",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-01-14": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "MT",
+    "daySho": "SK",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "MT",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-01-15": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "RF",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "RF",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-01-16": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "SA",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "SA",
+    "wardReg": "AZ",
+    "wardSho": "DE"
   },
   "2026-01-17": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "TO",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "TO",
+    "wardReg": "AZ",
+    "wardSho": "DE"
   },
   "2026-01-18": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "OH",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "OH",
+    "wardReg": "AZ",
+    "wardSho": "DE"
   },
   "2026-01-19": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "OS",
+    "daySho": "SN",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "OS",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-01-20": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "ZA",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "ZA",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-01-21": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "AE",
+    "daySho": "OO",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "AE",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-01-22": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "AL",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "AL",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-01-23": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "AZ",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "AZ",
+    "wardReg": "BR",
+    "wardSho": "BA"
   },
   "2026-01-24": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "BR",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "BR",
+    "wardReg": "BR",
+    "wardSho": "BA"
   },
   "2026-01-25": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "CW",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "CW",
+    "wardReg": "BR",
+    "wardSho": "BA"
   },
   "2026-01-26": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HB",
+    "daySho": "LC",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "HB",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-01-27": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HC",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "HC",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-01-28": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HP",
+    "daySho": "ST",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "HP",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-01-29": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HS",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "HS",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-01-30": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "JC",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "JC",
+    "wardReg": "CW",
+    "wardSho": "KR"
   },
   "2026-01-31": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "LA",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "LA",
+    "wardReg": "CW",
+    "wardSho": "KR"
   },
   "2026-02-01": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "LG",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "LG",
+    "wardReg": "CW",
+    "wardSho": "KR"
   },
   "2026-02-02": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "MHA",
+    "daySho": "SK",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "MHA",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-02-03": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "MT",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "MT",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-02-04": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "RF",
+    "daySho": "DE",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "RF",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-02-05": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "SA",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "SA",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-02-06": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "TO",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "TO",
+    "wardReg": "HB",
+    "wardSho": "OG"
   },
   "2026-02-07": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "OH",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "OH",
+    "wardReg": "HB",
+    "wardSho": "OG"
   },
   "2026-02-08": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "OS",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "OS",
+    "wardReg": "HB",
+    "wardSho": "OG"
   },
   "2026-02-09": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "ZA",
+    "daySho": "OO",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "SK"
+    "oncallRegId": "ZA",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-02-10": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AE",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "AE",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-02-11": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AL",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "SK"
+    "nightSho": "ST",
+    "oncallConsultant": null,
+    "oncallRegId": "AL",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-02-12": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AZ",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "AZ",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-02-13": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "BR",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "BR",
+    "wardReg": "HC",
+    "wardSho": "DS"
   },
   "2026-02-14": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "CW",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "CW",
+    "wardReg": "HC",
+    "wardSho": "DS"
   },
   "2026-02-15": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "HB",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "HB",
+    "wardReg": "HC",
+    "wardSho": "DS"
   },
   "2026-02-16": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HC",
+    "daySho": "ST",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "HC",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-02-17": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HP",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "HP",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-02-18": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HS",
+    "daySho": "KR",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "HS",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-02-19": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "JC",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "JC",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-02-20": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "LA",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "LA",
+    "wardReg": "HP",
+    "wardSho": "SN"
   },
   "2026-02-21": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "LG",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "LG",
+    "wardReg": "HP",
+    "wardSho": "SN"
   },
   "2026-02-22": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "MHA",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "MHA",
+    "wardReg": "HP",
+    "wardSho": "SN"
   },
   "2026-02-23": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "MT",
+    "daySho": "DE",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "MT",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-02-24": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "RF",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "RF",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-02-25": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "SA",
+    "daySho": "OG",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "SA",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-02-26": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "TO",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "TO",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-02-27": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "OH",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "OH",
+    "wardReg": "HS",
+    "wardSho": "LC"
   },
   "2026-02-28": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "OS",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "OS",
+    "wardReg": "HS",
+    "wardSho": "LC"
   },
   "2026-03-01": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "ZA",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "ZA",
+    "wardReg": "HS",
+    "wardSho": "LC"
   },
   "2026-03-02": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AE",
+    "daySho": "BA",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "AE",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-03-03": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AL",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "AL",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-03-04": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AZ",
+    "daySho": "DS",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "AZ",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-03-05": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "BR",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "BR",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-03-06": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "CW",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "CW",
+    "wardReg": "JC",
+    "wardSho": "SK"
   },
   "2026-03-07": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "HB",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HB",
+    "wardReg": "JC",
+    "wardSho": "SK"
   },
   "2026-03-08": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "HC",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HC",
+    "wardReg": "JC",
+    "wardSho": "SK"
   },
   "2026-03-09": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "HP",
+    "daySho": "KR",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "HP",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-03-10": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "HS",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HS",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-03-11": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "JC",
+    "daySho": "SN",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "JC",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-03-12": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "LA",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "LA",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-03-13": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "LG",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "LG",
+    "wardReg": "LA",
+    "wardSho": "OO"
   },
   "2026-03-14": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "MHA",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "MHA",
+    "wardReg": "LA",
+    "wardSho": "OO"
   },
   "2026-03-15": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "MT",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "MT",
+    "wardReg": "LA",
+    "wardSho": "OO"
   },
   "2026-03-16": {
-    "wardReg": "ZA",
-    "wardSho": "ST",
-    "oncallRegId": "CW",
-    "oncallConsultant": null,
     "daySho": "OG",
-    "nightSho": "DS"
+    "nightSho": "DS",
+    "oncallConsultant": null,
+    "oncallRegId": "CW",
+    "wardReg": "ZA",
+    "wardSho": "ST"
   },
   "2026-03-17": {
-    "wardReg": "ZA",
-    "wardSho": "ST",
-    "oncallRegId": "RF",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "RF",
+    "wardReg": "ZA",
+    "wardSho": "ST"
   },
   "2026-03-18": {
-    "wardReg": "ZA",
-    "wardSho": "ST",
-    "oncallRegId": "HC",
+    "daySho": "LC",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DS"
+    "oncallRegId": "HC",
+    "wardReg": "ZA",
+    "wardSho": "ST"
   },
   "2026-03-19": {
-    "wardReg": "ZA",
-    "wardSho": "ST",
-    "oncallRegId": "OH",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "OH",
+    "wardReg": "ZA",
+    "wardSho": "ST"
   },
   "2026-03-20": {
-    "wardReg": "HP",
-    "wardSho": "ST",
-    "oncallRegId": "ZA",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "ZA",
+    "wardReg": "HP",
+    "wardSho": "ST"
   },
   "2026-03-21": {
-    "wardReg": "HP",
-    "wardSho": "ST",
-    "oncallRegId": "MT",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "MT",
+    "wardReg": "HP",
+    "wardSho": "ST"
   },
   "2026-03-22": {
-    "wardReg": "HP",
-    "wardSho": "ST",
-    "oncallRegId": "ZA",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "ZA",
+    "wardReg": "HP",
+    "wardSho": "ST"
   },
   "2026-03-23": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "AL",
+    "daySho": "DS",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "AL",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-03-24": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "AZ",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "AZ",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-03-25": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "BR",
+    "daySho": "SK",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "BR",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-03-26": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "CW",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "CW",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-03-27": {
-    "wardReg": "MHA",
-    "wardSho": "OG",
-    "oncallRegId": "HB",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "HB",
+    "wardReg": "MHA",
+    "wardSho": "DE"
   },
   "2026-03-28": {
-    "wardReg": "MHA",
-    "wardSho": "OG",
-    "oncallRegId": "HC",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "HC",
+    "wardReg": "MHA",
+    "wardSho": "DE"
   },
   "2026-03-29": {
-    "wardReg": "MHA",
-    "wardSho": "OG",
-    "oncallRegId": "HP",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "HP",
+    "wardReg": "MHA",
+    "wardSho": "DE"
   },
   "2026-03-30": {
-    "wardReg": "MHA",
-    "wardSho": "OO",
-    "oncallRegId": "BR",
+    "daySho": "SN",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "BR",
+    "wardReg": "MHA",
+    "wardSho": "BA"
   },
   "2026-03-31": {
-    "wardReg": "MHA",
-    "wardSho": "OO",
-    "oncallRegId": "JC",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "JC",
+    "wardReg": "MHA",
+    "wardSho": "BA"
   },
   "2026-04-01": {
-    "wardReg": "MHA",
-    "wardSho": "OO",
-    "oncallRegId": "LA",
+    "daySho": "OO",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "LA",
+    "wardReg": "MHA",
+    "wardSho": "BA"
   },
   "2026-04-02": {
-    "wardReg": "MHA",
-    "wardSho": "OO",
-    "oncallRegId": "LG",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "LG",
+    "wardReg": "MHA",
+    "wardSho": "BA"
   },
   "2026-04-03": {
-    "wardReg": "MT",
-    "wardSho": "OO",
-    "oncallRegId": "MHA",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "MHA",
+    "wardReg": "MT",
+    "wardSho": "BA"
   },
   "2026-04-04": {
-    "wardReg": "MT",
-    "wardSho": "OO",
-    "oncallRegId": "MT",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "MT",
+    "wardReg": "MT",
+    "wardSho": "BA"
   },
   "2026-04-05": {
-    "wardReg": "MT",
-    "wardSho": "OO",
-    "oncallRegId": "RF",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "RF",
+    "wardReg": "MT",
+    "wardSho": "BA"
   },
   "2026-04-06": {
-    "wardReg": "MT",
-    "wardSho": "SK",
-    "oncallRegId": "SA",
+    "daySho": "LC",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "SA",
+    "wardReg": "MT",
+    "wardSho": "KR"
   },
   "2026-04-07": {
-    "wardReg": "MT",
-    "wardSho": "SK",
-    "oncallRegId": "TO",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "TO",
+    "wardReg": "MT",
+    "wardSho": "KR"
   },
   "2026-04-08": {
-    "wardReg": "MT",
-    "wardSho": "SK",
-    "oncallRegId": "OH",
+    "daySho": "ST",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "OH",
+    "wardReg": "MT",
+    "wardSho": "KR"
   },
   "2026-04-09": {
-    "wardReg": "MT",
-    "wardSho": "SK",
-    "oncallRegId": "OS",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "OS",
+    "wardReg": "MT",
+    "wardSho": "KR"
   },
   "2026-04-10": {
-    "wardReg": "RF",
-    "wardSho": "SK",
-    "oncallRegId": "ZA",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "ZA",
+    "wardReg": "RF",
+    "wardSho": "KR"
   },
   "2026-04-11": {
-    "wardReg": "RF",
-    "wardSho": "SK",
-    "oncallRegId": "AE",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "AE",
+    "wardReg": "RF",
+    "wardSho": "KR"
   },
   "2026-04-12": {
-    "wardReg": "RF",
-    "wardSho": "SK",
-    "oncallRegId": "AL",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "AL",
+    "wardReg": "RF",
+    "wardSho": "KR"
   },
   "2026-04-13": {
-    "wardReg": "RF",
-    "wardSho": "SN",
-    "oncallRegId": "AZ",
+    "daySho": "SK",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "AZ",
+    "wardReg": "RF",
+    "wardSho": "OG"
   },
   "2026-04-14": {
-    "wardReg": "RF",
-    "wardSho": "SN",
-    "oncallRegId": "BR",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "BR",
+    "wardReg": "RF",
+    "wardSho": "OG"
   },
   "2026-04-15": {
-    "wardReg": "RF",
-    "wardSho": "SN",
-    "oncallRegId": "CW",
+    "daySho": "DE",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "CW",
+    "wardReg": "RF",
+    "wardSho": "OG"
   },
   "2026-04-16": {
-    "wardReg": "RF",
-    "wardSho": "SN",
-    "oncallRegId": "HB",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "HB",
+    "wardReg": "RF",
+    "wardSho": "OG"
   },
   "2026-04-17": {
-    "wardReg": "SA",
-    "wardSho": "SN",
-    "oncallRegId": "HC",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "HC",
+    "wardReg": "SA",
+    "wardSho": "OG"
   },
   "2026-04-18": {
-    "wardReg": "SA",
-    "wardSho": "SN",
-    "oncallRegId": "HP",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "HP",
+    "wardReg": "SA",
+    "wardSho": "OG"
   },
   "2026-04-19": {
-    "wardReg": "SA",
-    "wardSho": "SN",
-    "oncallRegId": "HS",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "HS",
+    "wardReg": "SA",
+    "wardSho": "OG"
   },
   "2026-04-20": {
-    "wardReg": "SA",
-    "wardSho": "SS",
-    "oncallRegId": "JC",
+    "daySho": "OO",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "SK"
+    "oncallRegId": "JC",
+    "wardReg": "SA",
+    "wardSho": "DS"
   },
   "2026-04-21": {
-    "wardReg": "SA",
-    "wardSho": "SS",
-    "oncallRegId": "LA",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "LA",
+    "wardReg": "SA",
+    "wardSho": "DS"
   },
   "2026-04-22": {
-    "wardReg": "SA",
-    "wardSho": "SS",
-    "oncallRegId": "LG",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "SK"
+    "nightSho": "ST",
+    "oncallConsultant": null,
+    "oncallRegId": "LG",
+    "wardReg": "SA",
+    "wardSho": "DS"
   },
   "2026-04-23": {
-    "wardReg": "SA",
-    "wardSho": "SS",
-    "oncallRegId": "MHA",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "MHA",
+    "wardReg": "SA",
+    "wardSho": "DS"
   },
   "2026-04-24": {
-    "wardReg": "TO",
-    "wardSho": "SS",
-    "oncallRegId": "MT",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "MT",
+    "wardReg": "TO",
+    "wardSho": "DS"
   },
   "2026-04-25": {
-    "wardReg": "TO",
-    "wardSho": "SS",
-    "oncallRegId": "RF",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "RF",
+    "wardReg": "TO",
+    "wardSho": "DS"
   },
   "2026-04-26": {
-    "wardReg": "TO",
-    "wardSho": "SS",
-    "oncallRegId": "SA",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "SA",
+    "wardReg": "TO",
+    "wardSho": "DS"
   },
   "2026-04-27": {
-    "wardReg": "TO",
-    "wardSho": "BA",
-    "oncallRegId": "TO",
+    "daySho": "ST",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "TO",
+    "wardReg": "TO",
+    "wardSho": "SN"
   },
   "2026-04-28": {
-    "wardReg": "TO",
-    "wardSho": "BA",
-    "oncallRegId": "OH",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "OH",
+    "wardReg": "TO",
+    "wardSho": "SN"
   },
   "2026-04-29": {
-    "wardReg": "TO",
-    "wardSho": "BA",
-    "oncallRegId": "OS",
+    "daySho": "KR",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "OS",
+    "wardReg": "TO",
+    "wardSho": "SN"
   },
   "2026-04-30": {
-    "wardReg": "TO",
-    "wardSho": "BA",
-    "oncallRegId": "ZA",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "ZA",
+    "wardReg": "TO",
+    "wardSho": "SN"
   },
   "2026-05-01": {
-    "wardReg": "OH",
-    "wardSho": "BA",
-    "oncallRegId": "AE",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "AE",
+    "wardReg": "OH",
+    "wardSho": "SN"
   },
   "2026-05-02": {
-    "wardReg": "OH",
-    "wardSho": "BA",
-    "oncallRegId": "AL",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "AL",
+    "wardReg": "OH",
+    "wardSho": "SN"
   },
   "2026-05-03": {
-    "wardReg": "OH",
-    "wardSho": "BA",
-    "oncallRegId": "AZ",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "AZ",
+    "wardReg": "OH",
+    "wardSho": "SN"
   },
   "2026-05-04": {
-    "wardReg": "OH",
-    "wardSho": "DE",
-    "oncallRegId": "BR",
+    "daySho": "DE",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "BR",
+    "wardReg": "OH",
+    "wardSho": "LC"
   },
   "2026-05-05": {
-    "wardReg": "OH",
-    "wardSho": "DE",
-    "oncallRegId": "CW",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "CW",
+    "wardReg": "OH",
+    "wardSho": "LC"
   },
   "2026-05-06": {
-    "wardReg": "OH",
-    "wardSho": "DE",
-    "oncallRegId": "HB",
+    "daySho": "OG",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "HB",
+    "wardReg": "OH",
+    "wardSho": "LC"
   },
   "2026-05-07": {
-    "wardReg": "OH",
-    "wardSho": "DE",
-    "oncallRegId": "HC",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "HC",
+    "wardReg": "OH",
+    "wardSho": "LC"
   },
   "2026-05-08": {
-    "wardReg": "OS",
-    "wardSho": "DE",
-    "oncallRegId": "HP",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "HP",
+    "wardReg": "OS",
+    "wardSho": "LC"
   },
   "2026-05-09": {
-    "wardReg": "OS",
-    "wardSho": "DE",
-    "oncallRegId": "HS",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "HS",
+    "wardReg": "OS",
+    "wardSho": "LC"
   },
   "2026-05-10": {
-    "wardReg": "OS",
-    "wardSho": "DE",
-    "oncallRegId": "JC",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "JC",
+    "wardReg": "OS",
+    "wardSho": "LC"
   },
   "2026-05-11": {
-    "wardReg": "OS",
-    "wardSho": "DS",
-    "oncallRegId": "LA",
+    "daySho": "BA",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "LA",
+    "wardReg": "OS",
+    "wardSho": "SK"
   },
   "2026-05-12": {
-    "wardReg": "OS",
-    "wardSho": "DS",
-    "oncallRegId": "LG",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "LG",
+    "wardReg": "OS",
+    "wardSho": "SK"
   },
   "2026-05-13": {
-    "wardReg": "OS",
-    "wardSho": "DS",
-    "oncallRegId": "MHA",
+    "daySho": "DS",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "MHA",
+    "wardReg": "OS",
+    "wardSho": "SK"
   },
   "2026-05-14": {
-    "wardReg": "OS",
-    "wardSho": "DS",
-    "oncallRegId": "MT",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "MT",
+    "wardReg": "OS",
+    "wardSho": "SK"
   },
   "2026-05-15": {
-    "wardReg": "ZA",
-    "wardSho": "DS",
-    "oncallRegId": "RF",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "RF",
+    "wardReg": "ZA",
+    "wardSho": "SK"
   },
   "2026-05-16": {
-    "wardReg": "ZA",
-    "wardSho": "DS",
-    "oncallRegId": "SA",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "SA",
+    "wardReg": "ZA",
+    "wardSho": "SK"
   },
   "2026-05-17": {
-    "wardReg": "ZA",
-    "wardSho": "DS",
-    "oncallRegId": "TO",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "TO",
+    "wardReg": "ZA",
+    "wardSho": "SK"
   },
   "2026-05-18": {
-    "wardReg": "ZA",
-    "wardSho": "KR",
-    "oncallRegId": "OH",
+    "daySho": "KR",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "OH",
+    "wardReg": "ZA",
+    "wardSho": "OO"
   },
   "2026-05-19": {
-    "wardReg": "ZA",
-    "wardSho": "KR",
-    "oncallRegId": "OS",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "OS",
+    "wardReg": "ZA",
+    "wardSho": "OO"
   },
   "2026-05-20": {
-    "wardReg": "ZA",
-    "wardSho": "KR",
-    "oncallRegId": "ZA",
+    "daySho": "SN",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "ZA",
+    "wardReg": "ZA",
+    "wardSho": "OO"
   },
   "2026-05-21": {
-    "wardReg": "ZA",
-    "wardSho": "KR",
-    "oncallRegId": "AE",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "AE",
+    "wardReg": "ZA",
+    "wardSho": "OO"
   },
   "2026-05-22": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "AL",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "AL",
+    "wardReg": "AE",
+    "wardSho": "OO"
   },
   "2026-05-23": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "AZ",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "AZ",
+    "wardReg": "AE",
+    "wardSho": "OO"
   },
   "2026-05-24": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "BR",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "BR",
+    "wardReg": "AE",
+    "wardSho": "OO"
   },
   "2026-05-25": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "CW",
-    "oncallConsultant": null,
     "daySho": "OG",
-    "nightSho": "DS"
+    "nightSho": "DS",
+    "oncallConsultant": null,
+    "oncallRegId": "CW",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-05-26": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HB",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "HB",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-05-27": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HC",
+    "daySho": "LC",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DS"
+    "oncallRegId": "HC",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-05-28": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HP",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "HP",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-05-29": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "HS",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "HS",
+    "wardReg": "AL",
+    "wardSho": "ST"
   },
   "2026-05-30": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "JC",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "JC",
+    "wardReg": "AL",
+    "wardSho": "ST"
   },
   "2026-05-31": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "LA",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "LA",
+    "wardReg": "AL",
+    "wardSho": "ST"
   },
   "2026-06-01": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "LG",
+    "daySho": "DS",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "LG",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-06-02": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "MHA",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "MHA",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-06-03": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "MT",
+    "daySho": "SK",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "MT",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-06-04": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "RF",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "RF",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-06-05": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "SA",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "SA",
+    "wardReg": "AZ",
+    "wardSho": "DE"
   },
   "2026-06-06": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "TO",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "TO",
+    "wardReg": "AZ",
+    "wardSho": "DE"
   },
   "2026-06-07": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "OH",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "OH",
+    "wardReg": "AZ",
+    "wardSho": "DE"
   },
   "2026-06-08": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "OS",
+    "daySho": "SN",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "OS",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-06-09": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "ZA",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "ZA",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-06-10": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "AE",
+    "daySho": "OO",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "AE",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-06-11": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "AL",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "AL",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-06-12": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "AZ",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "AZ",
+    "wardReg": "BR",
+    "wardSho": "BA"
   },
   "2026-06-13": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "BR",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "BR",
+    "wardReg": "BR",
+    "wardSho": "BA"
   },
   "2026-06-14": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "CW",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "CW",
+    "wardReg": "BR",
+    "wardSho": "BA"
   },
   "2026-06-15": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HB",
+    "daySho": "LC",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "HB",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-06-16": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HC",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "HC",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-06-17": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HP",
+    "daySho": "ST",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "HP",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-06-18": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HS",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "HS",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-06-19": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "JC",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "JC",
+    "wardReg": "CW",
+    "wardSho": "KR"
   },
   "2026-06-20": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "LA",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "LA",
+    "wardReg": "CW",
+    "wardSho": "KR"
   },
   "2026-06-21": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "LG",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "LG",
+    "wardReg": "CW",
+    "wardSho": "KR"
   },
   "2026-06-22": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "MHA",
+    "daySho": "SK",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "MHA",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-06-23": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "MT",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "MT",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-06-24": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "RF",
+    "daySho": "DE",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "RF",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-06-25": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "SA",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "SA",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-06-26": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "TO",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "TO",
+    "wardReg": "HB",
+    "wardSho": "OG"
   },
   "2026-06-27": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "OH",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "OH",
+    "wardReg": "HB",
+    "wardSho": "OG"
   },
   "2026-06-28": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "OS",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "OS",
+    "wardReg": "HB",
+    "wardSho": "OG"
   },
   "2026-06-29": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "ZA",
+    "daySho": "OO",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "SK"
+    "oncallRegId": "ZA",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-06-30": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AE",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "AE",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-07-01": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AL",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "SK"
+    "nightSho": "ST",
+    "oncallConsultant": null,
+    "oncallRegId": "AL",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-07-02": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AZ",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "AZ",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-07-03": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "BR",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "BR",
+    "wardReg": "HC",
+    "wardSho": "DS"
   },
   "2026-07-04": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "CW",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "CW",
+    "wardReg": "HC",
+    "wardSho": "DS"
   },
   "2026-07-05": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "HB",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "HB",
+    "wardReg": "HC",
+    "wardSho": "DS"
   },
   "2026-07-06": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HC",
+    "daySho": "ST",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "HC",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-07-07": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HP",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "HP",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-07-08": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HS",
+    "daySho": "KR",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "HS",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-07-09": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "JC",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "JC",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-07-10": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "LA",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "LA",
+    "wardReg": "HP",
+    "wardSho": "SN"
   },
   "2026-07-11": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "LG",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "LG",
+    "wardReg": "HP",
+    "wardSho": "SN"
   },
   "2026-07-12": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "MHA",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "MHA",
+    "wardReg": "HP",
+    "wardSho": "SN"
   },
   "2026-07-13": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "MT",
+    "daySho": "DE",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "MT",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-07-14": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "RF",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "RF",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-07-15": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "SA",
+    "daySho": "OG",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "SA",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-07-16": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "TO",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "TO",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-07-17": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "OH",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "OH",
+    "wardReg": "HS",
+    "wardSho": "LC"
   },
   "2026-07-18": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "OS",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "OS",
+    "wardReg": "HS",
+    "wardSho": "LC"
   },
   "2026-07-19": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "ZA",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "ZA",
+    "wardReg": "HS",
+    "wardSho": "LC"
   },
   "2026-07-20": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AE",
+    "daySho": "BA",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "AE",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-07-21": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AL",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "AL",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-07-22": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AZ",
+    "daySho": "DS",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "AZ",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-07-23": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "BR",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "BR",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-07-24": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "CW",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "CW",
+    "wardReg": "JC",
+    "wardSho": "SK"
   },
   "2026-07-25": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "HB",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HB",
+    "wardReg": "JC",
+    "wardSho": "SK"
   },
   "2026-07-26": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "HC",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HC",
+    "wardReg": "JC",
+    "wardSho": "SK"
   },
   "2026-07-27": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "HP",
+    "daySho": "KR",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "HP",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-07-28": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "HS",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HS",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-07-29": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "JC",
+    "daySho": "SN",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "JC",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-07-30": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "LA",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "LA",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-07-31": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "LG",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "LG",
+    "wardReg": "LA",
+    "wardSho": "OO"
   },
   "2026-08-01": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "MHA",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "MHA",
+    "wardReg": "LA",
+    "wardSho": "OO"
   },
   "2026-08-02": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "MT",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "MT",
+    "wardReg": "LA",
+    "wardSho": "OO"
   },
   "2026-08-03": {
-    "wardReg": "LA",
-    "wardSho": "LC",
-    "oncallRegId": "RF",
-    "oncallConsultant": null,
     "daySho": "OG",
-    "nightSho": "DS"
+    "nightSho": "DS",
+    "oncallConsultant": null,
+    "oncallRegId": "RF",
+    "wardReg": "LA",
+    "wardSho": "ST"
   },
   "2026-08-04": {
-    "wardReg": "LA",
-    "wardSho": "LC",
-    "oncallRegId": "SA",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "SA",
+    "wardReg": "LA",
+    "wardSho": "ST"
   },
   "2026-08-05": {
-    "wardReg": "LA",
-    "wardSho": "LC",
-    "oncallRegId": "TO",
+    "daySho": "LC",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DS"
+    "oncallRegId": "TO",
+    "wardReg": "LA",
+    "wardSho": "ST"
   },
   "2026-08-06": {
-    "wardReg": "LA",
-    "wardSho": "LC",
-    "oncallRegId": "OH",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "OH",
+    "wardReg": "LA",
+    "wardSho": "ST"
   },
   "2026-08-07": {
-    "wardReg": "LG",
-    "wardSho": "LC",
-    "oncallRegId": "OS",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "OS",
+    "wardReg": "LG",
+    "wardSho": "ST"
   },
   "2026-08-08": {
-    "wardReg": "LG",
-    "wardSho": "LC",
-    "oncallRegId": "ZA",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "ZA",
+    "wardReg": "LG",
+    "wardSho": "ST"
   },
   "2026-08-09": {
-    "wardReg": "LG",
-    "wardSho": "LC",
-    "oncallRegId": "AE",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "AE",
+    "wardReg": "LG",
+    "wardSho": "ST"
   },
   "2026-08-10": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "AL",
+    "daySho": "DS",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "AL",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-08-11": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "AZ",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "AZ",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-08-12": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "BR",
+    "daySho": "SK",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "BR",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-08-13": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "CW",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "CW",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-08-14": {
-    "wardReg": "MHA",
-    "wardSho": "OG",
-    "oncallRegId": "HB",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "HB",
+    "wardReg": "MHA",
+    "wardSho": "DE"
   },
   "2026-08-15": {
-    "wardReg": "MHA",
-    "wardSho": "OG",
-    "oncallRegId": "HC",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "HC",
+    "wardReg": "MHA",
+    "wardSho": "DE"
   },
   "2026-08-16": {
-    "wardReg": "MHA",
-    "wardSho": "OG",
-    "oncallRegId": "HP",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "HP",
+    "wardReg": "MHA",
+    "wardSho": "DE"
   },
   "2026-08-17": {
-    "wardReg": "MHA",
-    "wardSho": "OO",
-    "oncallRegId": "HS",
+    "daySho": "SN",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "HS",
+    "wardReg": "MHA",
+    "wardSho": "BA"
   },
   "2026-08-18": {
-    "wardReg": "MHA",
-    "wardSho": "OO",
-    "oncallRegId": "JC",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "JC",
+    "wardReg": "MHA",
+    "wardSho": "BA"
   },
   "2026-08-19": {
-    "wardReg": "MHA",
-    "wardSho": "OO",
-    "oncallRegId": "LA",
+    "daySho": "OO",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "LA",
+    "wardReg": "MHA",
+    "wardSho": "BA"
   },
   "2026-08-20": {
-    "wardReg": "MHA",
-    "wardSho": "OO",
-    "oncallRegId": "LG",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "LG",
+    "wardReg": "MHA",
+    "wardSho": "BA"
   },
   "2026-08-21": {
-    "wardReg": "MT",
-    "wardSho": "OO",
-    "oncallRegId": "MHA",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "MHA",
+    "wardReg": "MT",
+    "wardSho": "BA"
   },
   "2026-08-22": {
-    "wardReg": "MT",
-    "wardSho": "OO",
-    "oncallRegId": "MT",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "MT",
+    "wardReg": "MT",
+    "wardSho": "BA"
   },
   "2026-08-23": {
-    "wardReg": "MT",
-    "wardSho": "OO",
-    "oncallRegId": "RF",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "RF",
+    "wardReg": "MT",
+    "wardSho": "BA"
   },
   "2026-08-24": {
-    "wardReg": "MT",
-    "wardSho": "SK",
-    "oncallRegId": "SA",
+    "daySho": "LC",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "SA",
+    "wardReg": "MT",
+    "wardSho": "KR"
   },
   "2026-08-25": {
-    "wardReg": "MT",
-    "wardSho": "SK",
-    "oncallRegId": "TO",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "TO",
+    "wardReg": "MT",
+    "wardSho": "KR"
   },
   "2026-08-26": {
-    "wardReg": "MT",
-    "wardSho": "SK",
-    "oncallRegId": "OH",
+    "daySho": "ST",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "OH",
+    "wardReg": "MT",
+    "wardSho": "KR"
   },
   "2026-08-27": {
-    "wardReg": "MT",
-    "wardSho": "SK",
-    "oncallRegId": "OS",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "OS",
+    "wardReg": "MT",
+    "wardSho": "KR"
   },
   "2026-08-28": {
-    "wardReg": "RF",
-    "wardSho": "SK",
-    "oncallRegId": "ZA",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "ZA",
+    "wardReg": "RF",
+    "wardSho": "KR"
   },
   "2026-08-29": {
-    "wardReg": "RF",
-    "wardSho": "SK",
-    "oncallRegId": "AE",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "AE",
+    "wardReg": "RF",
+    "wardSho": "KR"
   },
   "2026-08-30": {
-    "wardReg": "RF",
-    "wardSho": "SK",
-    "oncallRegId": "AL",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "AL",
+    "wardReg": "RF",
+    "wardSho": "KR"
   },
   "2026-08-31": {
-    "wardReg": "RF",
-    "wardSho": "SN",
-    "oncallRegId": "AZ",
+    "daySho": "SK",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "AZ",
+    "wardReg": "RF",
+    "wardSho": "OG"
   },
   "2026-09-01": {
-    "wardReg": "RF",
-    "wardSho": "SN",
-    "oncallRegId": "BR",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "BR",
+    "wardReg": "RF",
+    "wardSho": "OG"
   },
   "2026-09-02": {
-    "wardReg": "RF",
-    "wardSho": "SN",
-    "oncallRegId": "CW",
+    "daySho": "DE",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "CW",
+    "wardReg": "RF",
+    "wardSho": "OG"
   },
   "2026-09-03": {
-    "wardReg": "RF",
-    "wardSho": "SN",
-    "oncallRegId": "HB",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "HB",
+    "wardReg": "RF",
+    "wardSho": "OG"
   },
   "2026-09-04": {
-    "wardReg": "SA",
-    "wardSho": "SN",
-    "oncallRegId": "HC",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "HC",
+    "wardReg": "SA",
+    "wardSho": "OG"
   },
   "2026-09-05": {
-    "wardReg": "SA",
-    "wardSho": "SN",
-    "oncallRegId": "HP",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "HP",
+    "wardReg": "SA",
+    "wardSho": "OG"
   },
   "2026-09-06": {
-    "wardReg": "SA",
-    "wardSho": "SN",
-    "oncallRegId": "HS",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "HS",
+    "wardReg": "SA",
+    "wardSho": "OG"
   },
   "2026-09-07": {
-    "wardReg": "SA",
-    "wardSho": "SS",
-    "oncallRegId": "JC",
+    "daySho": "OO",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "SK"
+    "oncallRegId": "JC",
+    "wardReg": "SA",
+    "wardSho": "DS"
   },
   "2026-09-08": {
-    "wardReg": "SA",
-    "wardSho": "SS",
-    "oncallRegId": "LA",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "LA",
+    "wardReg": "SA",
+    "wardSho": "DS"
   },
   "2026-09-09": {
-    "wardReg": "SA",
-    "wardSho": "SS",
-    "oncallRegId": "LG",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "SK"
+    "nightSho": "ST",
+    "oncallConsultant": null,
+    "oncallRegId": "LG",
+    "wardReg": "SA",
+    "wardSho": "DS"
   },
   "2026-09-10": {
-    "wardReg": "SA",
-    "wardSho": "SS",
-    "oncallRegId": "MHA",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "MHA",
+    "wardReg": "SA",
+    "wardSho": "DS"
   },
   "2026-09-11": {
-    "wardReg": "TO",
-    "wardSho": "SS",
-    "oncallRegId": "MT",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "MT",
+    "wardReg": "TO",
+    "wardSho": "DS"
   },
   "2026-09-12": {
-    "wardReg": "TO",
-    "wardSho": "SS",
-    "oncallRegId": "RF",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "RF",
+    "wardReg": "TO",
+    "wardSho": "DS"
   },
   "2026-09-13": {
-    "wardReg": "TO",
-    "wardSho": "SS",
-    "oncallRegId": "SA",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "SA",
+    "wardReg": "TO",
+    "wardSho": "DS"
   },
   "2026-09-14": {
-    "wardReg": "TO",
-    "wardSho": "BA",
-    "oncallRegId": "TO",
+    "daySho": "ST",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "TO",
+    "wardReg": "TO",
+    "wardSho": "SN"
   },
   "2026-09-15": {
-    "wardReg": "TO",
-    "wardSho": "BA",
-    "oncallRegId": "OH",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "OH",
+    "wardReg": "TO",
+    "wardSho": "SN"
   },
   "2026-09-16": {
-    "wardReg": "TO",
-    "wardSho": "BA",
-    "oncallRegId": "OS",
+    "daySho": "KR",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "OS",
+    "wardReg": "TO",
+    "wardSho": "SN"
   },
   "2026-09-17": {
-    "wardReg": "TO",
-    "wardSho": "BA",
-    "oncallRegId": "ZA",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "ZA",
+    "wardReg": "TO",
+    "wardSho": "SN"
   },
   "2026-09-18": {
-    "wardReg": "OH",
-    "wardSho": "BA",
-    "oncallRegId": "AE",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "AE",
+    "wardReg": "OH",
+    "wardSho": "SN"
   },
   "2026-09-19": {
-    "wardReg": "OH",
-    "wardSho": "BA",
-    "oncallRegId": "AL",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "AL",
+    "wardReg": "OH",
+    "wardSho": "SN"
   },
   "2026-09-20": {
-    "wardReg": "OH",
-    "wardSho": "BA",
-    "oncallRegId": "AZ",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "AZ",
+    "wardReg": "OH",
+    "wardSho": "SN"
   },
   "2026-09-21": {
-    "wardReg": "OH",
-    "wardSho": "DE",
-    "oncallRegId": "BR",
+    "daySho": "DE",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "BR",
+    "wardReg": "OH",
+    "wardSho": "LC"
   },
   "2026-09-22": {
-    "wardReg": "OH",
-    "wardSho": "DE",
-    "oncallRegId": "CW",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "CW",
+    "wardReg": "OH",
+    "wardSho": "LC"
   },
   "2026-09-23": {
-    "wardReg": "OH",
-    "wardSho": "DE",
-    "oncallRegId": "HB",
+    "daySho": "OG",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "HB",
+    "wardReg": "OH",
+    "wardSho": "LC"
   },
   "2026-09-24": {
-    "wardReg": "OH",
-    "wardSho": "DE",
-    "oncallRegId": "HC",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "HC",
+    "wardReg": "OH",
+    "wardSho": "LC"
   },
   "2026-09-25": {
-    "wardReg": "OS",
-    "wardSho": "DE",
-    "oncallRegId": "HP",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "HP",
+    "wardReg": "OS",
+    "wardSho": "LC"
   },
   "2026-09-26": {
-    "wardReg": "OS",
-    "wardSho": "DE",
-    "oncallRegId": "HS",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "HS",
+    "wardReg": "OS",
+    "wardSho": "LC"
   },
   "2026-09-27": {
-    "wardReg": "OS",
-    "wardSho": "DE",
-    "oncallRegId": "JC",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "JC",
+    "wardReg": "OS",
+    "wardSho": "LC"
   },
   "2026-09-28": {
-    "wardReg": "OS",
-    "wardSho": "DS",
-    "oncallRegId": "LA",
+    "daySho": "BA",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "LA",
+    "wardReg": "OS",
+    "wardSho": "SK"
   },
   "2026-09-29": {
-    "wardReg": "OS",
-    "wardSho": "DS",
-    "oncallRegId": "LG",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "LG",
+    "wardReg": "OS",
+    "wardSho": "SK"
   },
   "2026-09-30": {
-    "wardReg": "OS",
-    "wardSho": "DS",
-    "oncallRegId": "MHA",
+    "daySho": "DS",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "MHA",
+    "wardReg": "OS",
+    "wardSho": "SK"
   },
   "2026-10-01": {
-    "wardReg": "OS",
-    "wardSho": "DS",
-    "oncallRegId": "MT",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "MT",
+    "wardReg": "OS",
+    "wardSho": "SK"
   },
   "2026-10-02": {
-    "wardReg": "ZA",
-    "wardSho": "DS",
-    "oncallRegId": "RF",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "RF",
+    "wardReg": "ZA",
+    "wardSho": "SK"
   },
   "2026-10-03": {
-    "wardReg": "ZA",
-    "wardSho": "DS",
-    "oncallRegId": "SA",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "SA",
+    "wardReg": "ZA",
+    "wardSho": "SK"
   },
   "2026-10-04": {
-    "wardReg": "ZA",
-    "wardSho": "DS",
-    "oncallRegId": "TO",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "TO",
+    "wardReg": "ZA",
+    "wardSho": "SK"
   },
   "2026-10-05": {
-    "wardReg": "ZA",
-    "wardSho": "KR",
-    "oncallRegId": "OH",
+    "daySho": "KR",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "OH",
+    "wardReg": "ZA",
+    "wardSho": "OO"
   },
   "2026-10-06": {
-    "wardReg": "ZA",
-    "wardSho": "KR",
-    "oncallRegId": "OS",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "OS",
+    "wardReg": "ZA",
+    "wardSho": "OO"
   },
   "2026-10-07": {
-    "wardReg": "ZA",
-    "wardSho": "KR",
-    "oncallRegId": "ZA",
+    "daySho": "SN",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "ZA",
+    "wardReg": "ZA",
+    "wardSho": "OO"
   },
   "2026-10-08": {
-    "wardReg": "ZA",
-    "wardSho": "KR",
-    "oncallRegId": "AE",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "AE",
+    "wardReg": "ZA",
+    "wardSho": "OO"
   },
   "2026-10-09": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "AL",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "AL",
+    "wardReg": "AE",
+    "wardSho": "OO"
   },
   "2026-10-10": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "AZ",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "AZ",
+    "wardReg": "AE",
+    "wardSho": "OO"
   },
   "2026-10-11": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "BR",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "BR",
+    "wardReg": "AE",
+    "wardSho": "OO"
   },
   "2026-10-12": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "CW",
-    "oncallConsultant": null,
     "daySho": "OG",
-    "nightSho": "DS"
+    "nightSho": "DS",
+    "oncallConsultant": null,
+    "oncallRegId": "CW",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-10-13": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HB",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "HB",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-10-14": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HC",
+    "daySho": "LC",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DS"
+    "oncallRegId": "HC",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-10-15": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HP",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "HP",
+    "wardReg": "AE",
+    "wardSho": "ST"
   },
   "2026-10-16": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "HS",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "HS",
+    "wardReg": "AL",
+    "wardSho": "ST"
   },
   "2026-10-17": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "JC",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "JC",
+    "wardReg": "AL",
+    "wardSho": "ST"
   },
   "2026-10-18": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "LA",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "LA",
+    "wardReg": "AL",
+    "wardSho": "ST"
   },
   "2026-10-19": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "LG",
+    "daySho": "DS",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "LG",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-10-20": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "MHA",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "MHA",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-10-21": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "MT",
+    "daySho": "SK",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "MT",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-10-22": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "RF",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "RF",
+    "wardReg": "AL",
+    "wardSho": "DE"
   },
   "2026-10-23": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "SA",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "SA",
+    "wardReg": "AZ",
+    "wardSho": "DE"
   },
   "2026-10-24": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "TO",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "TO",
+    "wardReg": "AZ",
+    "wardSho": "DE"
   },
   "2026-10-25": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "OH",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "OH",
+    "wardReg": "AZ",
+    "wardSho": "DE"
   },
   "2026-10-26": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "OS",
+    "daySho": "SN",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "OS",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-10-27": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "ZA",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "ZA",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-10-28": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "AE",
+    "daySho": "OO",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "AE",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-10-29": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "AL",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "AL",
+    "wardReg": "AZ",
+    "wardSho": "BA"
   },
   "2026-10-30": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "AZ",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "AZ",
+    "wardReg": "BR",
+    "wardSho": "BA"
   },
   "2026-10-31": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "BR",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "BR",
+    "wardReg": "BR",
+    "wardSho": "BA"
   },
   "2026-11-01": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "CW",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "CW",
+    "wardReg": "BR",
+    "wardSho": "BA"
   },
   "2026-11-02": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HB",
+    "daySho": "LC",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "HB",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-11-03": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HC",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "HC",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-11-04": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HP",
+    "daySho": "ST",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "HP",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-11-05": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HS",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "HS",
+    "wardReg": "BR",
+    "wardSho": "KR"
   },
   "2026-11-06": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "JC",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "JC",
+    "wardReg": "CW",
+    "wardSho": "KR"
   },
   "2026-11-07": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "LA",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "LA",
+    "wardReg": "CW",
+    "wardSho": "KR"
   },
   "2026-11-08": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "LG",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "LG",
+    "wardReg": "CW",
+    "wardSho": "KR"
   },
   "2026-11-09": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "MHA",
+    "daySho": "SK",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "MHA",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-11-10": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "MT",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "MT",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-11-11": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "RF",
+    "daySho": "DE",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "RF",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-11-12": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "SA",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "SA",
+    "wardReg": "CW",
+    "wardSho": "OG"
   },
   "2026-11-13": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "TO",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "TO",
+    "wardReg": "HB",
+    "wardSho": "OG"
   },
   "2026-11-14": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "OH",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "OH",
+    "wardReg": "HB",
+    "wardSho": "OG"
   },
   "2026-11-15": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "OS",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "OS",
+    "wardReg": "HB",
+    "wardSho": "OG"
   },
   "2026-11-16": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "ZA",
+    "daySho": "OO",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "SK"
+    "oncallRegId": "ZA",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-11-17": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AE",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "AE",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-11-18": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AL",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "SK"
+    "nightSho": "ST",
+    "oncallConsultant": null,
+    "oncallRegId": "AL",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-11-19": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AZ",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "AZ",
+    "wardReg": "HB",
+    "wardSho": "DS"
   },
   "2026-11-20": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "BR",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "BR",
+    "wardReg": "HC",
+    "wardSho": "DS"
   },
   "2026-11-21": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "CW",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "CW",
+    "wardReg": "HC",
+    "wardSho": "DS"
   },
   "2026-11-22": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "HB",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "HB",
+    "wardReg": "HC",
+    "wardSho": "DS"
   },
   "2026-11-23": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HC",
+    "daySho": "ST",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "HC",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-11-24": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HP",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "HP",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-11-25": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HS",
+    "daySho": "KR",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "HS",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-11-26": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "JC",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "JC",
+    "wardReg": "HC",
+    "wardSho": "SN"
   },
   "2026-11-27": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "LA",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "LA",
+    "wardReg": "HP",
+    "wardSho": "SN"
   },
   "2026-11-28": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "LG",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "LG",
+    "wardReg": "HP",
+    "wardSho": "SN"
   },
   "2026-11-29": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "MHA",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OO",
+    "oncallConsultant": null,
+    "oncallRegId": "MHA",
+    "wardReg": "HP",
+    "wardSho": "SN"
   },
   "2026-11-30": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "MT",
+    "daySho": "DE",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "MT",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-12-01": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "RF",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "RF",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-12-02": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "SA",
+    "daySho": "OG",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "SA",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-12-03": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "TO",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "TO",
+    "wardReg": "HP",
+    "wardSho": "LC"
   },
   "2026-12-04": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "OH",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "OH",
+    "wardReg": "HS",
+    "wardSho": "LC"
   },
   "2026-12-05": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "OS",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "OS",
+    "wardReg": "HS",
+    "wardSho": "LC"
   },
   "2026-12-06": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "ZA",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "ZA",
+    "wardReg": "HS",
+    "wardSho": "LC"
   },
   "2026-12-07": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AE",
+    "daySho": "BA",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "AE",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-12-08": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AL",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "AL",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-12-09": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AZ",
+    "daySho": "DS",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "AZ",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-12-10": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "BR",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "BR",
+    "wardReg": "HS",
+    "wardSho": "SK"
   },
   "2026-12-11": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "CW",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "CW",
+    "wardReg": "JC",
+    "wardSho": "SK"
   },
   "2026-12-12": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "HB",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HB",
+    "wardReg": "JC",
+    "wardSho": "SK"
   },
   "2026-12-13": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "HC",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HC",
+    "wardReg": "JC",
+    "wardSho": "SK"
   },
   "2026-12-14": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "HP",
+    "daySho": "KR",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "HP",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-12-15": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "HS",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HS",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-12-16": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "JC",
+    "daySho": "SN",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "JC",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-12-17": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "LA",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "LA",
+    "wardReg": "JC",
+    "wardSho": "OO"
   },
   "2026-12-18": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "LG",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "LG",
+    "wardReg": "LA",
+    "wardSho": "OO"
   },
   "2026-12-19": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "MHA",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "MHA",
+    "wardReg": "LA",
+    "wardSho": "OO"
   },
   "2026-12-20": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "MT",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "MT",
+    "wardReg": "LA",
+    "wardSho": "OO"
   },
   "2026-12-21": {
-    "wardReg": "LA",
-    "wardSho": "LC",
-    "oncallRegId": "RF",
-    "oncallConsultant": null,
     "daySho": "OG",
-    "nightSho": "DS"
+    "nightSho": "DS",
+    "oncallConsultant": null,
+    "oncallRegId": "RF",
+    "wardReg": "LA",
+    "wardSho": "ST"
   },
   "2026-12-22": {
-    "wardReg": "LA",
-    "wardSho": "LC",
-    "oncallRegId": "SA",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "SA",
+    "wardReg": "LA",
+    "wardSho": "ST"
   },
   "2026-12-23": {
-    "wardReg": "LA",
-    "wardSho": "LC",
-    "oncallRegId": "TO",
+    "daySho": "LC",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DS"
+    "oncallRegId": "TO",
+    "wardReg": "LA",
+    "wardSho": "ST"
   },
   "2026-12-24": {
-    "wardReg": "LA",
-    "wardSho": "LC",
-    "oncallRegId": "OH",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "OH",
+    "wardReg": "LA",
+    "wardSho": "ST"
   },
   "2026-12-25": {
-    "wardReg": "LG",
-    "wardSho": "LC",
-    "oncallRegId": "OS",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "OS",
+    "wardReg": "LG",
+    "wardSho": "ST"
   },
   "2026-12-26": {
-    "wardReg": "LG",
-    "wardSho": "LC",
-    "oncallRegId": "ZA",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "ZA",
+    "wardReg": "LG",
+    "wardSho": "ST"
   },
   "2026-12-27": {
-    "wardReg": "LG",
-    "wardSho": "LC",
-    "oncallRegId": "AE",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "AE",
+    "wardReg": "LG",
+    "wardSho": "ST"
   },
   "2026-12-28": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "AL",
+    "daySho": "DS",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "AL",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-12-29": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "AZ",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "AZ",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-12-30": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "BR",
+    "daySho": "SK",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "BR",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2026-12-31": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "CW",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "CW",
+    "wardReg": "LG",
+    "wardSho": "DE"
   },
   "2027-01-01": {
-    "wardReg": "ZA",
-    "wardSho": "KR",
-    "oncallRegId": "AE",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "AE",
+    "wardReg": "ZA",
+    "wardSho": "DE"
   },
   "2027-01-02": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "AL",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "AL",
+    "wardReg": "AE",
+    "wardSho": "DE"
   },
   "2027-01-03": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "AZ",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "AZ",
+    "wardReg": "AE",
+    "wardSho": "DE"
   },
   "2027-01-04": {
-    "wardReg": "AE",
-    "wardSho": "KR",
-    "oncallRegId": "BR",
+    "daySho": "SN",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "BR",
+    "wardReg": "AE",
+    "wardSho": "BA"
   },
   "2027-01-05": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "CW",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DS"
+    "oncallRegId": "CW",
+    "wardReg": "AE",
+    "wardSho": "BA"
   },
   "2027-01-06": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HB",
-    "oncallConsultant": null,
     "daySho": "OO",
-    "nightSho": "DS"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "HB",
+    "wardReg": "AE",
+    "wardSho": "BA"
   },
   "2027-01-07": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HC",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DS"
+    "oncallRegId": "HC",
+    "wardReg": "AE",
+    "wardSho": "BA"
   },
   "2027-01-08": {
-    "wardReg": "AE",
-    "wardSho": "LC",
-    "oncallRegId": "HP",
-    "oncallConsultant": null,
     "daySho": "OO",
-    "nightSho": "DS"
+    "nightSho": "DS",
+    "oncallConsultant": null,
+    "oncallRegId": "HP",
+    "wardReg": "AE",
+    "wardSho": "BA"
   },
   "2027-01-09": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "HS",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "HS",
+    "wardReg": "AL",
+    "wardSho": "BA"
   },
   "2027-01-10": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "JC",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "JC",
+    "wardReg": "AL",
+    "wardSho": "BA"
   },
   "2027-01-11": {
-    "wardReg": "AL",
-    "wardSho": "LC",
-    "oncallRegId": "LA",
+    "daySho": "LC",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "LA",
+    "wardReg": "AL",
+    "wardSho": "KR"
   },
   "2027-01-12": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "LG",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "LG",
+    "wardReg": "AL",
+    "wardSho": "KR"
   },
   "2027-01-13": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "MHA",
+    "daySho": "ST",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "MHA",
+    "wardReg": "AL",
+    "wardSho": "KR"
   },
   "2027-01-14": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "MT",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "MT",
+    "wardReg": "AL",
+    "wardSho": "KR"
   },
   "2027-01-15": {
-    "wardReg": "AL",
-    "wardSho": "OG",
-    "oncallRegId": "RF",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "RF",
+    "wardReg": "AL",
+    "wardSho": "KR"
   },
   "2027-01-16": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "SA",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "SA",
+    "wardReg": "AZ",
+    "wardSho": "KR"
   },
   "2027-01-17": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "TO",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "TO",
+    "wardReg": "AZ",
+    "wardSho": "KR"
   },
   "2027-01-18": {
-    "wardReg": "AZ",
-    "wardSho": "OG",
-    "oncallRegId": "OH",
+    "daySho": "SK",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "OH",
+    "wardReg": "AZ",
+    "wardSho": "OG"
   },
   "2027-01-19": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "OS",
+    "daySho": "BA",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "OS",
+    "wardReg": "AZ",
+    "wardSho": "OG"
   },
   "2027-01-20": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "ZA",
+    "daySho": "DE",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "ZA",
+    "wardReg": "AZ",
+    "wardSho": "OG"
   },
   "2027-01-21": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "AE",
+    "daySho": "BA",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "AE",
+    "wardReg": "AZ",
+    "wardSho": "OG"
   },
   "2027-01-22": {
-    "wardReg": "AZ",
-    "wardSho": "OO",
-    "oncallRegId": "AL",
+    "daySho": "DE",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "AL",
+    "wardReg": "AZ",
+    "wardSho": "OG"
   },
   "2027-01-23": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "AZ",
+    "daySho": "DE",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "AZ",
+    "wardReg": "BR",
+    "wardSho": "OG"
   },
   "2027-01-24": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "BR",
+    "daySho": "DE",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "BR",
+    "wardReg": "BR",
+    "wardSho": "OG"
   },
   "2027-01-25": {
-    "wardReg": "BR",
-    "wardSho": "OO",
-    "oncallRegId": "CW",
+    "daySho": "OO",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "CW",
+    "wardReg": "BR",
+    "wardSho": "DS"
   },
   "2027-01-26": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HB",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "HB",
+    "wardReg": "BR",
+    "wardSho": "DS"
   },
   "2027-01-27": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HC",
+    "daySho": "BA",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "HC",
+    "wardReg": "BR",
+    "wardSho": "DS"
   },
   "2027-01-28": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HP",
+    "daySho": "KR",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "OG"
+    "oncallRegId": "HP",
+    "wardReg": "BR",
+    "wardSho": "DS"
   },
   "2027-01-29": {
-    "wardReg": "BR",
-    "wardSho": "SK",
-    "oncallRegId": "HS",
+    "daySho": "BA",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OG"
+    "oncallRegId": "HS",
+    "wardReg": "BR",
+    "wardSho": "DS"
   },
   "2027-01-30": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "JC",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "SK",
+    "oncallConsultant": null,
+    "oncallRegId": "JC",
+    "wardReg": "CW",
+    "wardSho": "DS"
   },
   "2027-01-31": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "LA",
-    "oncallConsultant": null,
     "daySho": "BA",
-    "nightSho": "OO"
+    "nightSho": "SK",
+    "oncallConsultant": null,
+    "oncallRegId": "LA",
+    "wardReg": "CW",
+    "wardSho": "DS"
   },
   "2027-02-01": {
-    "wardReg": "CW",
-    "wardSho": "SK",
-    "oncallRegId": "LG",
+    "daySho": "ST",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "LG",
+    "wardReg": "CW",
+    "wardSho": "SN"
   },
   "2027-02-02": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "MHA",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "MHA",
+    "wardReg": "CW",
+    "wardSho": "SN"
   },
   "2027-02-03": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "MT",
+    "daySho": "KR",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "MT",
+    "wardReg": "CW",
+    "wardSho": "SN"
   },
   "2027-02-04": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "RF",
+    "daySho": "OG",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "SS",
-    "nightSho": "OO"
+    "oncallRegId": "RF",
+    "wardReg": "CW",
+    "wardSho": "SN"
   },
   "2027-02-05": {
-    "wardReg": "CW",
-    "wardSho": "SN",
-    "oncallRegId": "SA",
+    "daySho": "KR",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "OO"
+    "oncallRegId": "SA",
+    "wardReg": "CW",
+    "wardSho": "SN"
   },
   "2027-02-06": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "TO",
+    "daySho": "KR",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "TO",
+    "wardReg": "HB",
+    "wardSho": "SN"
   },
   "2027-02-07": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "OH",
+    "daySho": "KR",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "OH",
+    "wardReg": "HB",
+    "wardSho": "SN"
   },
   "2027-02-08": {
-    "wardReg": "HB",
-    "wardSho": "SN",
-    "oncallRegId": "OS",
-    "oncallConsultant": null,
     "daySho": "DE",
-    "nightSho": "SK"
+    "nightSho": "BA",
+    "oncallConsultant": null,
+    "oncallRegId": "OS",
+    "wardReg": "HB",
+    "wardSho": "LC"
   },
   "2027-02-09": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "ZA",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "SK"
+    "oncallRegId": "ZA",
+    "wardReg": "HB",
+    "wardSho": "LC"
   },
   "2027-02-10": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AE",
+    "daySho": "OG",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "AE",
+    "wardReg": "HB",
+    "wardSho": "LC"
   },
   "2027-02-11": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AL",
+    "daySho": "DS",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "BA",
-    "nightSho": "SK"
+    "oncallRegId": "AL",
+    "wardReg": "HB",
+    "wardSho": "LC"
   },
   "2027-02-12": {
-    "wardReg": "HB",
-    "wardSho": "SS",
-    "oncallRegId": "AZ",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SK"
+    "oncallRegId": "AZ",
+    "wardReg": "HB",
+    "wardSho": "LC"
   },
   "2027-02-13": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "BR",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "BR",
+    "wardReg": "HC",
+    "wardSho": "LC"
   },
   "2027-02-14": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "CW",
+    "daySho": "OG",
+    "nightSho": "ST",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "CW",
+    "wardReg": "HC",
+    "wardSho": "LC"
   },
   "2027-02-15": {
-    "wardReg": "HC",
-    "wardSho": "SS",
-    "oncallRegId": "HB",
+    "daySho": "BA",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SN"
+    "oncallRegId": "HB",
+    "wardReg": "HC",
+    "wardSho": "SK"
   },
   "2027-02-16": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HC",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "HC",
+    "wardReg": "HC",
+    "wardSho": "SK"
   },
   "2027-02-17": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HP",
-    "oncallConsultant": null,
     "daySho": "DS",
-    "nightSho": "SN"
+    "nightSho": "KR",
+    "oncallConsultant": null,
+    "oncallRegId": "HP",
+    "wardReg": "HC",
+    "wardSho": "SK"
   },
   "2027-02-18": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "HS",
+    "daySho": "SN",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "DE",
-    "nightSho": "SN"
+    "oncallRegId": "HS",
+    "wardReg": "HC",
+    "wardSho": "SK"
   },
   "2027-02-19": {
-    "wardReg": "HC",
-    "wardSho": "BA",
-    "oncallRegId": "JC",
-    "oncallConsultant": null,
     "daySho": "DS",
-    "nightSho": "SN"
+    "nightSho": "DE",
+    "oncallConsultant": null,
+    "oncallRegId": "JC",
+    "wardReg": "HC",
+    "wardSho": "SK"
   },
   "2027-02-20": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "LA",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "LA",
+    "wardReg": "HP",
+    "wardSho": "SK"
   },
   "2027-02-21": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "LG",
+    "daySho": "DS",
+    "nightSho": "DE",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "LG",
+    "wardReg": "HP",
+    "wardSho": "SK"
   },
   "2027-02-22": {
-    "wardReg": "HP",
-    "wardSho": "BA",
-    "oncallRegId": "MHA",
-    "oncallConsultant": null,
     "daySho": "KR",
-    "nightSho": "SS"
+    "nightSho": "OG",
+    "oncallConsultant": null,
+    "oncallRegId": "MHA",
+    "wardReg": "HP",
+    "wardSho": "OO"
   },
   "2027-02-23": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "MT",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "MT",
+    "wardReg": "HP",
+    "wardSho": "OO"
   },
   "2027-02-24": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "RF",
+    "daySho": "SN",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "RF",
+    "wardReg": "HP",
+    "wardSho": "OO"
   },
   "2027-02-25": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "SA",
+    "daySho": "LC",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "DS",
-    "nightSho": "SS"
+    "oncallRegId": "SA",
+    "wardReg": "HP",
+    "wardSho": "OO"
   },
   "2027-02-26": {
-    "wardReg": "HP",
-    "wardSho": "DE",
-    "oncallRegId": "TO",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "SS"
+    "oncallRegId": "TO",
+    "wardReg": "HP",
+    "wardSho": "OO"
   },
   "2027-02-27": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "OH",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "OH",
+    "wardReg": "HS",
+    "wardSho": "OO"
   },
   "2027-02-28": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "OS",
+    "daySho": "SN",
+    "nightSho": "BA",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "OS",
+    "wardReg": "HS",
+    "wardSho": "OO"
   },
   "2027-03-01": {
-    "wardReg": "HS",
-    "wardSho": "DE",
-    "oncallRegId": "ZA",
+    "daySho": "OG",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "BA"
+    "oncallRegId": "ZA",
+    "wardReg": "HS",
+    "wardSho": "ST"
   },
   "2027-03-02": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AE",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "AE",
+    "wardReg": "HS",
+    "wardSho": "ST"
   },
   "2027-03-03": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AL",
-    "oncallConsultant": null,
     "daySho": "LC",
-    "nightSho": "BA"
+    "nightSho": "DS",
+    "oncallConsultant": null,
+    "oncallRegId": "AL",
+    "wardReg": "HS",
+    "wardSho": "ST"
   },
   "2027-03-04": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "AZ",
+    "daySho": "SK",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "KR",
-    "nightSho": "BA"
+    "oncallRegId": "AZ",
+    "wardReg": "HS",
+    "wardSho": "ST"
   },
   "2027-03-05": {
-    "wardReg": "HS",
-    "wardSho": "DS",
-    "oncallRegId": "BR",
-    "oncallConsultant": null,
     "daySho": "LC",
-    "nightSho": "BA"
+    "nightSho": "KR",
+    "oncallConsultant": null,
+    "oncallRegId": "BR",
+    "wardReg": "HS",
+    "wardSho": "ST"
   },
   "2027-03-06": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "CW",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "CW",
+    "wardReg": "JC",
+    "wardSho": "ST"
   },
   "2027-03-07": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "HB",
+    "daySho": "LC",
+    "nightSho": "KR",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HB",
+    "wardReg": "JC",
+    "wardSho": "ST"
   },
   "2027-03-08": {
-    "wardReg": "JC",
-    "wardSho": "DS",
-    "oncallRegId": "HC",
+    "daySho": "DS",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HC",
+    "wardReg": "JC",
+    "wardSho": "DE"
   },
   "2027-03-09": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "HP",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "HP",
+    "wardReg": "JC",
+    "wardSho": "DE"
   },
   "2027-03-10": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "HS",
+    "daySho": "SK",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "HS",
+    "wardReg": "JC",
+    "wardSho": "DE"
   },
   "2027-03-11": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "JC",
+    "daySho": "OO",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "LC",
-    "nightSho": "DE"
+    "oncallRegId": "JC",
+    "wardReg": "JC",
+    "wardSho": "DE"
   },
   "2027-03-12": {
-    "wardReg": "JC",
-    "wardSho": "KR",
-    "oncallRegId": "LA",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DE"
+    "oncallRegId": "LA",
+    "wardReg": "JC",
+    "wardSho": "DE"
   },
   "2027-03-13": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "LG",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "LG",
+    "wardReg": "LA",
+    "wardSho": "DE"
   },
   "2027-03-14": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "MHA",
+    "daySho": "SK",
+    "nightSho": "OG",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "MHA",
+    "wardReg": "LA",
+    "wardSho": "DE"
   },
   "2027-03-15": {
-    "wardReg": "LA",
-    "wardSho": "KR",
-    "oncallRegId": "MT",
+    "daySho": "SN",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "DS"
+    "oncallRegId": "MT",
+    "wardReg": "LA",
+    "wardSho": "BA"
   },
   "2027-03-16": {
-    "wardReg": "ZA",
-    "wardSho": "ST",
-    "oncallRegId": "CW",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DS"
+    "oncallRegId": "CW",
+    "wardReg": "ZA",
+    "wardSho": "BA"
   },
   "2027-03-17": {
-    "wardReg": "ZA",
-    "wardSho": "ST",
-    "oncallRegId": "RF",
-    "oncallConsultant": null,
     "daySho": "OO",
-    "nightSho": "DS"
+    "nightSho": "LC",
+    "oncallConsultant": null,
+    "oncallRegId": "RF",
+    "wardReg": "ZA",
+    "wardSho": "BA"
   },
   "2027-03-18": {
-    "wardReg": "ZA",
-    "wardSho": "ST",
-    "oncallRegId": "HC",
+    "daySho": "ST",
+    "nightSho": "LC",
     "oncallConsultant": null,
-    "daySho": "OG",
-    "nightSho": "DS"
+    "oncallRegId": "HC",
+    "wardReg": "ZA",
+    "wardSho": "BA"
   },
   "2027-03-19": {
-    "wardReg": "ZA",
-    "wardSho": "ST",
-    "oncallRegId": "OH",
-    "oncallConsultant": null,
     "daySho": "OO",
-    "nightSho": "DS"
+    "nightSho": "DS",
+    "oncallConsultant": null,
+    "oncallRegId": "OH",
+    "wardReg": "ZA",
+    "wardSho": "BA"
   },
   "2027-03-20": {
-    "wardReg": "HP",
-    "wardSho": "ST",
-    "oncallRegId": "ZA",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "ZA",
+    "wardReg": "HP",
+    "wardSho": "BA"
   },
   "2027-03-21": {
-    "wardReg": "HP",
-    "wardSho": "ST",
-    "oncallRegId": "MT",
+    "daySho": "OO",
+    "nightSho": "DS",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "MT",
+    "wardReg": "HP",
+    "wardSho": "BA"
   },
   "2027-03-22": {
-    "wardReg": "HP",
-    "wardSho": "ST",
-    "oncallRegId": "ZA",
+    "daySho": "LC",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "ZA",
+    "wardReg": "HP",
+    "wardSho": "KR"
   },
   "2027-03-23": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "AL",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "AL",
+    "wardReg": "LG",
+    "wardSho": "KR"
   },
   "2027-03-24": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "AZ",
+    "daySho": "ST",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "AZ",
+    "wardReg": "LG",
+    "wardSho": "KR"
   },
   "2027-03-25": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "BR",
+    "daySho": "DE",
+    "nightSho": "SK",
     "oncallConsultant": null,
-    "daySho": "OO",
-    "nightSho": "KR"
+    "oncallRegId": "BR",
+    "wardReg": "LG",
+    "wardSho": "KR"
   },
   "2027-03-26": {
-    "wardReg": "LG",
-    "wardSho": "OG",
-    "oncallRegId": "CW",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "KR"
+    "oncallRegId": "CW",
+    "wardReg": "LG",
+    "wardSho": "KR"
   },
   "2027-03-27": {
-    "wardReg": "MHA",
-    "wardSho": "OG",
-    "oncallRegId": "HB",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "HB",
+    "wardReg": "MHA",
+    "wardSho": "KR"
   },
   "2027-03-28": {
-    "wardReg": "MHA",
-    "wardSho": "OG",
-    "oncallRegId": "HC",
+    "daySho": "ST",
+    "nightSho": "SN",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "HC",
+    "wardReg": "MHA",
+    "wardSho": "KR"
   },
   "2027-03-29": {
-    "wardReg": "MHA",
-    "wardSho": "OG",
-    "oncallRegId": "HP",
+    "daySho": "SK",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "HP",
+    "wardReg": "MHA",
+    "wardSho": "OG"
   },
   "2027-03-30": {
-    "wardReg": "MHA",
-    "wardSho": "OO",
-    "oncallRegId": "BR",
+    "daySho": "BA",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SK",
-    "nightSho": "LC"
+    "oncallRegId": "BR",
+    "wardReg": "MHA",
+    "wardSho": "OG"
   },
   "2027-03-31": {
-    "wardReg": "MHA",
-    "wardSho": "OO",
-    "oncallRegId": "JC",
+    "daySho": "DE",
+    "nightSho": "OO",
     "oncallConsultant": null,
-    "daySho": "SN",
-    "nightSho": "LC"
+    "oncallRegId": "JC",
+    "wardReg": "MHA",
+    "wardSho": "OG"
   }
 }
