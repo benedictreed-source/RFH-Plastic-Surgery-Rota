@@ -114,16 +114,6 @@
           "time": "all_day",
           "reg": "NS",
           "sho": null
-        },
-        {
-          "type": "clinic",
-          "label": "DN Clinic RFH",
-          "time": "pm",
-          "reg": "BR",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": false
         }
       ]
     },
@@ -590,18 +580,6 @@
   ],
   "manualEdits": {
     "2026-03-30": {
-      "addedSessions": [
-        {
-          "label": "DN Clinic RFH",
-          "amReg": null,
-          "amSho": null,
-          "pmReg": "BR",
-          "pmSho": null,
-          "type": "clinic",
-          "half": "pm",
-          "manual": true
-        }
-      ],
       "removedIndices": [
         10,
         9
