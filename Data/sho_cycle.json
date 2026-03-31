@@ -1,5 +1,5 @@
 {
-  "description": "SHO 10-week rolling rota. slots[] maps position\u2192SHO id. cycle[] is 70 entries of 10 duties by slot position.",
+  "description": "SHO 10-week rolling rota. slots[] maps position→SHO id. cycle[] is 70 entries of 10 duties by slot position.",
   "cycleRefDate": "2026-01-05",
   "cycleDays": 70,
   "slots": [
