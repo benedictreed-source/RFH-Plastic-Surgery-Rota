@@ -479,6 +479,8 @@
     /* ── SHO Rota tab ─────────────────────────────── */
     .sho-scroll {
       overflow-x: auto;
+    }
+    .sho-scroll-y {
       max-height: calc(100vh - 130px);
       overflow-y: auto;
     }
@@ -2172,7 +2174,7 @@
           + '<span class="sho-legend-item"><span class="sho-legend-swatch" style="background:#f1f5f9;border-color:#e2e8f0"></span>Off</span>'
           + '</div></div>';
 
-        html += '<div class="sho-scroll"><table class="sho-table"><thead><tr>';
+        html += '<div class="sho-scroll-y"><div class="sho-scroll"><table class="sho-table"><thead><tr>';
         html += '<th class="sho-th-date">Date</th>';
         slots.forEach((id, i) => {
           html += '<th class="sho-th-slot" data-slot="' + i + '">'
@@ -2199,12 +2201,12 @@
           html += '</tr>';
         });
 
-        html += '</tbody></table></div>';
+        html += '</tbody></table></div></div>';
         container.innerHTML = html;
 
         // Scroll to today
         requestAnimationFrame(() => {
-          const scrollEl = container.querySelector('.sho-scroll');
+          const scrollEl = container.querySelector('.sho-scroll-y');
           const todayRow = container.querySelector('tr[data-today="1"]');
           if (scrollEl && todayRow) {
             const s = scrollEl.getBoundingClientRect();
