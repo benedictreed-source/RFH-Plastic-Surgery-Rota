@@ -56,7 +56,7 @@ jobs:
               while cur <= to_date:
                   key = cur.isoformat()
                   if key not in d:
-                      d[key] = {"regs": [], "shos": [], "notes": ""}
+                      d[key] = {"regs": [], "shos": [], "exceptional": [], "notes": ""}
                       added += 1
                   cur += datetime.timedelta(days=1)
               with open(path, 'w') as f:

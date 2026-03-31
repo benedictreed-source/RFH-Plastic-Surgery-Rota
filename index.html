@@ -1265,7 +1265,7 @@
           oncallCalendar[key][colDef.field] = id;
           saveOncallToGitHub();
         } else {
-          if (!leaveCalendar[key]) leaveCalendar[key] = { consultants: [], regs: [], shos: [], notes: '' };
+          if (!leaveCalendar[key]) leaveCalendar[key] = { consultants: [], regs: [], shos: [], exceptional: [], notes: '' };
           if (!Array.isArray(leaveCalendar[key][colDef.field])) leaveCalendar[key][colDef.field] = [];
           if (!leaveCalendar[key][colDef.field].includes(id)) leaveCalendar[key][colDef.field].push(id);
           saveLeaveToGitHub();
@@ -1366,6 +1366,7 @@
           { label: 'Consultant Leave',   file: 'leave',  field: 'consultants',      grade: 'consultants', multi: true  },
           { label: 'Registrar Leave',    file: 'leave',  field: 'regs',             grade: 'registrars',  multi: true  },
           { label: 'SHO Leave',          file: 'leave',  field: 'shos',             grade: 'shos',        multi: true  },
+          { label: 'Exceptional Leave',  file: 'leave',  field: 'exceptional',      grade: 'registrars',  multi: true  },
         ];
 
         if (!_calDropdown) {
