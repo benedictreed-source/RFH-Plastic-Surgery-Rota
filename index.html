@@ -449,7 +449,17 @@
       margin-left: 0.75rem; opacity: 0; transition: opacity 0.3s;
     }
     .save-indicator.show { opacity: 1; }
-    .paired-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; align-items: center; }
+    .paired-tags { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; align-items: center; }
+    table.editor-table td select.add-pair-select {
+      width: auto;
+      min-width: 6.5rem;
+      max-width: 100%;
+    }
+    .paired-tag.academic-role {
+      background: #e8eafd;
+      border-color: #818cf8;
+      color: #4338ca;
+    }
     .paired-tag {
       display: inline-flex; align-items: center; gap: 0.2rem;
       font-size: 0.78rem; padding: 0.15rem 0.45rem; border-radius: 4px;
@@ -556,6 +566,9 @@
       let people = null;
       let scheduleFromMd = null;
       const DSU1_DAYS = ['Monday', 'Wednesday', 'Friday'];
+      /** Sentinel option values in registrar row + pair dropdown (not consultant ids). */
+      const ROSTER_PAIR_ACADEMIC = '__roster_academic__';
+      const ROSTER_PAIR_CLINICAL = '__roster_clinical__';
       const SCHEDULE_SITE_CODES = ['RFH', 'MVH', 'WGH', 'CFH', 'UCLH', 'RNOH', 'GOSH', 'STA'];
       const FALLBACK_SCHEDULE = { listsByDay: {}, clinicsByDay: {} };
 
@@ -588,7 +601,10 @@
 
       function gradeListForDropdown(colDefOrGrade) {
         const g = typeof colDefOrGrade === 'string' ? colDefOrGrade : colDefOrGrade.grade;
-        const raw = people[g] || [];
+        let raw = people[g] || [];
+        if (typeof colDefOrGrade === 'object' && colDefOrGrade.file === 'oncall' && colDefOrGrade.field === 'wardReg') {
+          raw = raw.filter(p => !p.academic);
+        }
         if (g === 'consultants' || g === 'registrars') return sortConsultantsRegistrarsForDropdown(raw);
         return raw;
       }
@@ -869,6 +885,23 @@
         if (!pairings || !pairings.pairings) return [];
         return pairings.pairings[consultantId] || [];
       }
+
+      /** Roster flag: not on ward week or routine theatre/clinic work, but may hold on-call SpR shifts. */
+      function registrarIsAcademic(regId) {
+        if (!regId || !people || !people.registrars) return false;
+        const reg = people.registrars.find(r => r.id === regId);
+        return !!(reg && reg.academic);
+      }
+
+      /** For drag-drop: academic SpRs may only occupy Trauma / Reg Trauma rows when they are that day's on-call SpR. */
+      function academicSpROkForGridCell(dk, activityLabel, regId) {
+        if (!regId || !registrarIsAcademic(regId)) return true;
+        const ctx = getDayContext(parseDate(dk));
+        if (regId !== ctx.oncallRegId) return false;
+        const L = activityLabel || '';
+        return L === 'Reg Trauma' || L === 'Trauma clinic';
+      }
+
       function getRegForConsultant(consultantId) {
         const regs = getRegsForConsultant(consultantId);
         return regs.length ? regs[0] : null;
@@ -882,7 +915,7 @@
         const regs = getRegsForConsultant(consultantId);
         for (let i = 0; i < regs.length; i++) {
           const r = regs[i];
-          if (r !== wardReg && !usedSet.has(r) && !(leaveSet && leaveSet.has(r))) return r;
+          if (r !== wardReg && !usedSet.has(r) && !(leaveSet && leaveSet.has(r)) && !registrarIsAcademic(r)) return r;
         }
         return null;
       }
@@ -891,7 +924,7 @@
         if (preferred) return preferred;
         for (let i = 0; i < people.registrars.length; i++) {
           const r = people.registrars[i].id;
-          if (r !== wardReg && !usedSet.has(r) && !(leaveSet && leaveSet.has(r))) return r;
+          if (r !== wardReg && !usedSet.has(r) && !(leaveSet && leaveSet.has(r)) && !registrarIsAcademic(r)) return r;
         }
         return null;
       }
@@ -906,7 +939,8 @@
       function getDayContext(date) {
         const key = dateKey(date);
         const cal = oncallCalendar[key] || {};
-        const wardReg = cal.wardReg || null;
+        let wardReg = cal.wardReg || null;
+        if (wardReg && registrarIsAcademic(wardReg)) wardReg = null;
         const wardSho = cal.wardSho || null;
         const oncallRegId = cal.oncallRegId || null;
         const daySho = cal.daySho || null;
@@ -1022,7 +1056,7 @@
           dsu2Reg = null;
           for (let i = 0; i < people.registrars.length; i++) {
             const r = people.registrars[i].id;
-            if (r !== wardReg && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
+            if (r !== wardReg && !regsUsedByListClinic.has(r) && !leaveSet.has(r) && !registrarIsAcademic(r)) {
               dsu2Reg = r;
               break;
             }
@@ -1031,18 +1065,20 @@
         }
         var dsu1Reg = null, dsu1Sho = null;
         if (isDsu1Day) {
+          const nReg = people.registrars.length;
           for (let i = 0; i < people.registrars.length; i++) {
             const r = people.registrars[i].id;
-            if (r !== wardReg && r !== dsu2Reg && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
+            if (r !== wardReg && r !== dsu2Reg && !regsUsedByListClinic.has(r) && !leaveSet.has(r) && !registrarIsAcademic(r)) {
               dsu1Reg = r;
               break;
             }
           }
-          if (!dsu1Reg) {
+          if (!dsu1Reg && nReg) {
             let idx = people.registrars.findIndex(r => r.id === wardReg);
-            for (let k = 0; k < 20; k++) {
-              const r = people.registrars[(idx + 5 + k) % 20].id;
-              if (r !== dsu2Reg && !regsUsedByListClinic.has(r) && !leaveSet.has(r)) {
+            if (idx < 0) idx = 0;
+            for (let k = 0; k < nReg; k++) {
+              const r = people.registrars[(idx + 5 + k) % nReg].id;
+              if (r !== dsu2Reg && !regsUsedByListClinic.has(r) && !leaveSet.has(r) && !registrarIsAcademic(r)) {
                 dsu1Reg = r;
                 break;
               }
@@ -1064,7 +1100,7 @@
             && oncallRegId !== dsu2Reg && oncallRegId !== dsu1Reg;
           const traumaUsedSoFar = new Set([wardReg, dsu2Reg, dsu1Reg, ...regsUsedByListClinic].filter(Boolean));
           const traumaPool = people.registrars.map(r => r.id)
-            .filter(id => !leaveSet.has(id) && !traumaUsedSoFar.has(id));
+            .filter(id => !leaveSet.has(id) && !traumaUsedSoFar.has(id) && !registrarIsAcademic(id));
           const traumaPmReg = oncallFreeForTrauma ? oncallRegId : (traumaPool[0] || null);
           const traumaAmPool = traumaPool.filter(id => id !== traumaPmReg);
           const traumaAmReg = traumaAmPool[0] || traumaPool[0] || traumaPmReg || null;
@@ -1223,6 +1259,7 @@
       }
 
       function commitCalValue(key, colDef, id) {
+        if (colDef.file === 'oncall' && colDef.field === 'wardReg' && id && registrarIsAcademic(id)) return;
         if (colDef.file === 'oncall') {
           if (!oncallCalendar[key]) oncallCalendar[key] = {};
           oncallCalendar[key][colDef.field] = id;
@@ -1485,8 +1522,8 @@
 
         function buildRegistrarsTable() {
           let h = '<div class="editor-section"><h2>Registrars (SpRs)</h2>';
-          h += '<p class="hint">Edit registrar details and consultant pairings. Changes auto-save.</p>';
-          h += '<table class="editor-table"><thead><tr><th style="width:60px">ID</th><th>Name</th><th style="width:110px">Phone</th><th style="width:140px">Level</th><th>Paired Consultants</th><th style="width:60px"></th></tr></thead><tbody>';
+          h += '<p class="hint">Edit registrar details and pairings. The <strong>+ pair</strong> menu lists <strong>Academic</strong> / <strong>Clinical</strong> and all consultants — academic SpRs are on-call only (no routine or ward week).</p>';
+          h += '<table class="editor-table"><thead><tr><th style="width:60px">ID</th><th>Name</th><th style="width:110px">Phone</th><th style="width:140px">Level</th><th>Paired consultants</th><th style="width:60px"></th></tr></thead><tbody>';
           people.registrars.forEach((r, i) => {
             const pairedCIds = Object.entries(pairings.pairings)
               .filter(([, regs]) => regs.includes(r.id))
@@ -1495,8 +1532,13 @@
             pairedCIds.forEach(cId => {
               pairHtml += '<span class="paired-tag">' + cId + '<span class="remove-pair" data-reg-idx="' + i + '" data-cid="' + cId + '">✕</span></span>';
             });
-            pairHtml += '<select class="add-pair-select" data-reg-idx="' + i + '" style="width:70px; font-size:0.78rem; padding:0.15rem 0.25rem;">';
+            if (r.academic) {
+              pairHtml += '<span class="paired-tag academic-role" title="On-call SpR only; no routine lists, DSU, trauma pool, or ward week">Academic</span>';
+            }
+            pairHtml += '<select class="add-pair-select" data-reg-idx="' + i + '" title="Add consultant pair or set Academic / Clinical" aria-label="Pairing and placement" style="font-size:0.78rem; padding:0.15rem 0.25rem;">';
             pairHtml += '<option value="">+ pair</option>';
+            pairHtml += '<option value="' + ROSTER_PAIR_ACADEMIC + '">Academic</option>';
+            pairHtml += '<option value="' + ROSTER_PAIR_CLINICAL + '">Clinical</option>';
             sortConsultantsRegistrarsForDropdown(people.consultants.filter(c => !pairedCIds.includes(c.id)))
               .forEach(c => { pairHtml += '<option value="' + c.id + '">' + c.id + '</option>'; });
             pairHtml += '</select></div>';
@@ -1544,7 +1586,7 @@
         }
 
         function wireEvents() {
-          container.querySelectorAll('table.editor-table input').forEach(inp => {
+          container.querySelectorAll('table.editor-table input:not([type="checkbox"])').forEach(inp => {
             inp.addEventListener('change', () => {
               const tr = inp.closest('tr');
               const grade = tr.dataset.grade;
@@ -1614,10 +1656,27 @@
 
           container.querySelectorAll('.add-pair-select').forEach(sel => {
             sel.addEventListener('change', () => {
-              const cId = sel.value;
-              if (!cId) return;
+              const val = sel.value;
               const regIdx = Number(sel.dataset.regIdx);
               const regId = people.registrars[regIdx].id;
+              if (val === ROSTER_PAIR_ACADEMIC) {
+                if (!people.registrars[regIdx].academic) {
+                  people.registrars[regIdx].academic = true;
+                  commitAndSave('regSaveInd');
+                }
+                render();
+                return;
+              }
+              if (val === ROSTER_PAIR_CLINICAL) {
+                if (people.registrars[regIdx].academic) {
+                  delete people.registrars[regIdx].academic;
+                  commitAndSave('regSaveInd');
+                }
+                render();
+                return;
+              }
+              if (!val) return;
+              const cId = val;
               if (!pairings.pairings[cId]) pairings.pairings[cId] = [];
               if (!pairings.pairings[cId].includes(regId)) pairings.pairings[cId].push(regId);
               commitAndSave('regSaveInd');
@@ -2142,8 +2201,11 @@
           // Ward reg is excluded from normal theatre/clinic duties. On-call reg is not —
           // they appear on Trauma clinic PM, paired lists, etc.; marking them "unavailable"
           // here incorrectly stripped them from the grid during post-fix (see fixUsed below).
+          // Academic SpRs are unavailable for routine slots unless they are the on-call SpR that day.
           function regUnavailable(id) {
-            return dayLeaveSet.has(id) || id === dayCtx.wardReg;
+            if (!id) return false;
+            if (dayLeaveSet.has(id) || id === dayCtx.wardReg) return true;
+            return registrarIsAcademic(id) && id !== dayCtx.oncallRegId;
           }
           function shoUnavailable(id) {
             return dayLeaveSet.has(id) || id === dayCtx.wardSho || id === dayCtx.daySho || id === dayCtx.nightSho;
@@ -2221,7 +2283,7 @@
             function findSwapReg() {
               for (let ri = 0; ri < people.registrars.length; ri++) {
                 const r = people.registrars[ri].id;
-                if (!allUsed.has(r) && r !== swapCtx.wardReg && r !== swapCtx.oncallRegId && !swapLeave.has(r))
+                if (!allUsed.has(r) && r !== swapCtx.wardReg && r !== swapCtx.oncallRegId && !swapLeave.has(r) && !registrarIsAcademic(r))
                   return r;
               }
               return null;
@@ -2394,7 +2456,8 @@
               !leaveSet.has(id) &&
               !usedRegs.has(id) &&
               id !== dayCtx.wardReg &&
-              id !== postOncallRestSpR)
+              id !== postOncallRestSpR &&
+              !registrarIsAcademic(id))
             : [];
           const availableShos = !isWeekend && people && people.shos
             ? people.shos.map(s => s.id).filter(id => !leaveSet.has(id) && !usedShos.has(id) && id !== dayCtx.wardSho && id !== dayCtx.daySho && id !== dayCtx.nightSho)
@@ -2750,6 +2813,7 @@
           if (
             r !== ctx.wardReg &&
             !leaveSet.has(r) &&
+            !registrarIsAcademic(r) &&
             freeForAm &&
             freeForPm
           ) {
@@ -2763,7 +2827,7 @@
         if (!reg && people && people.registrars) {
           for (let pi = 0; pi < pairedRegs.length; pi++) {
             const r = pairedRegs[pi];
-            if (r === ctx.wardReg || leaveSet.has(r)) continue;
+            if (r === ctx.wardReg || leaveSet.has(r) || registrarIsAcademic(r)) continue;
             // Don't displace from another added session (those are already fixed)
             const blockedByAdded = (manualEdits.addedSessions[dk] || []).some((ev2, idx2) => {
               if (idx2 === mi) return false;
@@ -2788,6 +2852,7 @@
                   id !== ctx.wardReg &&
                   id !== ctx.oncallRegId &&
                   !leaveSet.has(id) &&
+                  !registrarIsAcademic(id) &&
                   !usedSet.has(id)
                 ) || null;
               }
@@ -2810,7 +2875,7 @@
         if (!reg && people && people.registrars) {
           for (let i = 0; i < people.registrars.length; i++) {
             const r = people.registrars[i].id;
-            if (r === ctx.wardReg || leaveSet.has(r)) continue;
+            if (r === ctx.wardReg || leaveSet.has(r) || registrarIsAcademic(r)) continue;
             const okAm = !needsAm || !regsUsedAm.has(r);
             const okPm = !needsPm || !regsUsedPm.has(r);
             if (okAm && okPm) {
@@ -3018,7 +3083,7 @@
               });
               const avail = people.registrars.filter(r =>
                 r.id !== ctx.wardReg && r.id !== ctx.oncallRegId &&
-                !leaveSet.has(r.id) && !manualUsedR.has(r.id)
+                !leaveSet.has(r.id) && !manualUsedR.has(r.id) && !r.academic
               );
 
               if (action === 'add-ga-skin') {
@@ -3175,6 +3240,10 @@
           if (srcIsReg !== tgtIsReg) return;
 
           var dk = dragSource.date;
+          if (srcIsReg) {
+            if (!academicSpROkForGridCell(dk, targetLabel, dragSource.value)) return;
+            if (targetValue && !academicSpROkForGridCell(dk, dragSource.label, targetValue)) return;
+          }
           if (!manualEdits.regOverrides[dk]) manualEdits.regOverrides[dk] = {};
           manualEdits.regOverrides[dk][dragSource.label + '.' + dragSource.field] = targetValue || null;
           manualEdits.regOverrides[dk][targetLabel + '.' + targetField] = dragSource.value;
