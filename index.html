@@ -475,6 +475,65 @@
     }
     .schedule-half-badge.am { background: #dbeafe; color: #1e40af; }
     .schedule-half-badge.pm { background: #fef3c7; color: #92400e; }
+
+    /* ── SHO Rota tab ─────────────────────────────── */
+    .sho-scroll {
+      overflow-x: auto;
+      max-height: calc(100vh - 130px);
+      overflow-y: auto;
+    }
+    .sho-table {
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      background: var(--surface);
+    }
+    .sho-table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.5rem;
+      text-align: center;
+      white-space: nowrap;
+      min-width: 72px;
+    }
+    .sho-table thead th.sho-th-date { min-width: 100px; text-align: left; z-index: 3; position: sticky; left: 0; }
+    .sho-slot-name input, .sho-slot-id input {
+      font-family: inherit; border: 1px solid transparent; border-radius: 3px;
+      background: transparent; text-align: center; width: 100%; box-sizing: border-box;
+      padding: 0.1rem 0.2rem; color: var(--text);
+    }
+    .sho-slot-name input { font-size: 0.78rem; font-weight: 600; }
+    .sho-slot-id input { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+    .sho-slot-name input:focus, .sho-slot-id input:focus {
+      outline: none; border-color: var(--accent); background: rgba(37,99,235,0.05);
+    }
+    .sho-table td {
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.4rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .sho-table td.sho-date-cell {
+      text-align: left; font-variant-numeric: tabular-nums;
+      color: var(--text-muted); font-size: 0.75rem;
+      background: var(--surface2);
+      position: sticky; left: 0;
+    }
+    .sho-table tr.sho-weekend td { background: #dbeafe !important; }
+    .sho-table tr.sho-weekend td.sho-date-cell { background: #c7d9f5 !important; }
+    .sho-table tr.sho-today td { outline: 2px solid var(--accent); outline-offset: -1px; }
+    td.sho-ward     { background: #dbeafe; color: #1e40af; font-weight: 600; }
+    td.sho-oncall   { background: #dcfce7; color: #166534; font-weight: 600; }
+    td.sho-night    { background: #1e293b; color: #e2e8f0; font-weight: 600; }
+    td.sho-postn    { background: #fef3c7; color: #92400e; }
+    td.sho-off      { background: #f1f5f9; color: #94a3b8; }
+    td.sho-standard { color: #cbd5e1; }
+    .sho-save-bar { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.82rem; color: var(--text-muted); }
+    .sho-legend { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .sho-legend-item { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; }
+    .sho-legend-swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--border); display: inline-block; }
   </style>
 </head>
 <body>
@@ -502,6 +561,7 @@
           <button type="button" id="tabCalendar" class="view-tab-button">Assignments</button>
           <button type="button" id="tabRoster" class="view-tab-button">Roster</button>
           <button type="button" id="tabSchedule" class="view-tab-button">Schedule</button>
+          <button type="button" id="tabSHO" class="view-tab-button">SHO Rota</button>
         </div>
       </div>
     </header>
@@ -548,6 +608,7 @@
       <div id="calendarView" style="display:none; padding: 0.75rem 0;"></div>
       <div id="rosterView" style="display:none; padding: 0.75rem 0;"></div>
       <div id="scheduleView" style="display:none; padding: 0.75rem 0;"></div>
+      <div id="shoView" style="display:none; padding: 0.75rem 0;"></div>
     </div>
   </div>
   <div id="contextMenu" class="context-menu"></div>
@@ -565,6 +626,7 @@
       ];
       let people = null;
       let scheduleFromMd = null;
+      let shoRota = null;
       const DSU1_DAYS = ['Monday', 'Wednesday', 'Friday'];
       /** Sentinel option values in registrar row + pair dropdown (not consultant ids). */
       const ROSTER_PAIR_ACADEMIC = '__roster_academic__';
@@ -785,11 +847,12 @@
           return JSON.parse(decodeURIComponent(escape(atob(blob.content.replace(/\n/g, '')))));
         }
 
-        const [roster, schedule, oncall, leave] = await Promise.all([
+        const [roster, schedule, oncall, leave, shoCycle] = await Promise.all([
           fetchFile('Data/roster.json'),
           fetchFile('Data/schedule.json'),
           fetchFile('Data/oncall.json'),
-          fetchFile('Data/leave.json')
+          fetchFile('Data/leave.json'),
+          fetchFile('Data/sho_cycle.json')
         ]);
 
         // Build inverse pairingsMap: consultantId → [regIds]
@@ -810,7 +873,8 @@
           pairingsData: { description: 'From roster.json', pairings: pairingsMap },
           schedule,
           oncall,
-          leave
+          leave,
+          shoCycle
         };
       }
 
@@ -1012,7 +1076,7 @@
         var regsUsedByListClinic = new Set();
         const schedule = getScheduleForDate(date);
         const dayLists = (schedule && schedule.listsByDay && schedule.listsByDay[dayName]) || [];
-        const listEntries = dayLists.map(entry => {
+        const listEntries = dayLists.filter(entry => !leaveSet.has(entry.consultantId)).map(entry => {
           const reg = getRegForConsultantListOrClinicWithFallback(entry.consultantId, wardReg, oncallRegId, regsUsedByListClinic, leaveSet);
           if (reg) regsUsedByListClinic.add(reg);
           return {
@@ -1027,6 +1091,7 @@
           const clinicRegByConsultant = {};
           dayClinics.forEach(c => {
             const consultantId = typeof c === 'object' && c && 'consultantId' in c ? c.consultantId : c;
+            if (leaveSet.has(consultantId)) return;
             const half = (c && c.half) ? c.half : 'am';
             if (!clinicRegByConsultant[consultantId]) {
               // Reuse the list reg for this consultant if already assigned today
@@ -1557,25 +1622,8 @@
           return h;
         }
 
-        function buildSHOsTable() {
-          let h = '<div class="editor-section"><h2>SHOs</h2>';
-          h += '<p class="hint">Edit SHO initials and name. Changes auto-save.</p>';
-          h += '<table class="editor-table"><thead><tr><th style="width:80px">ID</th><th>Name</th><th style="width:60px"></th></tr></thead><tbody>';
-          people.shos.forEach((s, i) => {
-            h += '<tr data-grade="shos" data-idx="' + i + '">';
-            h += '<td><input type="text" value="' + (s.id || '') + '" data-field="id"></td>';
-            h += '<td><input type="text" value="' + (s.name || '') + '" data-field="name"></td>';
-            h += '<td style="text-align:center"><button class="editor-btn danger roster-remove" title="Remove">✕</button></td>';
-            h += '</tr>';
-          });
-          h += '</tbody></table>';
-          h += '<div class="editor-actions"><button class="editor-btn primary" id="addSHO">+ Add SHO</button>';
-          h += '<span class="save-indicator" id="shoSaveInd">Saved ✓</span></div></div>';
-          return h;
-        }
-
         function render() {
-          container.innerHTML = buildConsultantsTable() + buildRegistrarsTable() + buildSHOsTable();
+          container.innerHTML = buildConsultantsTable() + buildRegistrarsTable();
           wireEvents();
         }
 
@@ -1601,8 +1649,8 @@
                   if (pos !== -1) arr[pos] = inp.value.trim();
                 });
               }
-              const indMap = { consultants: 'consSaveInd', registrars: 'regSaveInd', shos: 'shoSaveInd' };
-              commitAndSave(indMap[grade]);
+              const indMap = { consultants: 'consSaveInd', registrars: 'regSaveInd' };
+              commitAndSave(indMap[grade] || 'consSaveInd');
             });
           });
 
@@ -1619,7 +1667,7 @@
                 });
               }
               people[grade].splice(idx, 1);
-              commitAndSave(grade === 'consultants' ? 'consSaveInd' : grade === 'registrars' ? 'regSaveInd' : 'shoSaveInd');
+              commitAndSave(grade === 'consultants' ? 'consSaveInd' : 'regSaveInd');
               render();
             });
           });
@@ -1633,11 +1681,6 @@
           const addReg = document.getElementById('addRegistrar');
           if (addReg) addReg.addEventListener('click', () => {
             people.registrars.push({ id: '', name: '', phone: '', level: '' });
-            render();
-          });
-          const addSho = document.getElementById('addSHO');
-          if (addSho) addSho.addEventListener('click', () => {
-            people.shos.push({ id: '', name: '' });
             render();
           });
 
@@ -1885,14 +1928,16 @@
           month:    document.getElementById('monthView'),
           calendar: document.getElementById('calendarView'),
           roster:   document.getElementById('rosterView'),
-          schedule: document.getElementById('scheduleView')
+          schedule: document.getElementById('scheduleView'),
+          sho:      document.getElementById('shoView')
         };
         const tabs = {
           week:     document.getElementById('tabWeek'),
           month:    document.getElementById('tabMonth'),
           calendar: document.getElementById('tabCalendar'),
           roster:   document.getElementById('tabRoster'),
-          schedule: document.getElementById('tabSchedule')
+          schedule: document.getElementById('tabSchedule'),
+          sho:      document.getElementById('tabSHO')
         };
         const weekNav = document.getElementById('weekNav');
         const monthNav = document.getElementById('monthNav');
@@ -1913,6 +1958,9 @@
         } else if (view === 'schedule') {
           if (views.schedule) views.schedule.style.display = 'block';
           if (tabs.schedule) tabs.schedule.classList.add('active');
+        } else if (view === 'sho') {
+          if (views.sho) views.sho.style.display = 'block';
+          if (tabs.sho) tabs.sho.classList.add('active');
         } else {
           if (views.week) views.week.style.display = 'block';
           if (weekNav) weekNav.style.visibility = 'visible';
@@ -2070,6 +2118,163 @@
         saveLeaveToGitHub._timer = setTimeout(() => {
           saveFileToGitHub('Data/leave.json', leaveCalendar, 'Update leave calendar');
         }, 1500);
+      }
+
+      function saveSHORotaToGitHub() {
+        clearTimeout(saveSHORotaToGitHub._timer);
+        saveSHORotaToGitHub._timer = setTimeout(() => {
+          saveFileToGitHub('Data/sho_cycle.json', shoRota, 'Update SHO rota slots');
+        }, 1500);
+      }
+
+      // ── SHO Rota Editor ──────────────────────────────────────────────────
+
+      function renderSHOEditor() {
+        const container = document.getElementById('shoView');
+        if (!container || !shoRota || !people) return;
+
+        const slots = shoRota.slots;
+        const cycle = shoRota.cycle;
+        const [ry, rm, rd] = shoRota.cycleRefDate.split('-').map(Number);
+
+        function cycleOffset(dateKey) {
+          const [y, m, d] = dateKey.split('-').map(Number);
+          const ms = Date.UTC(y, m - 1, d) - Date.UTC(ry, rm - 1, rd);
+          const days = Math.round(ms / 86400000);
+          return ((days % 70) + 70) % 70;
+        }
+
+        const nameMap = {};
+        (people.shos || []).forEach(s => { nameMap[s.id] = s.name || s.id; });
+
+        const DUTY = {
+          'ward':        { label: 'Ward',    cls: 'sho-ward'   },
+          'on-call':     { label: 'On-call', cls: 'sho-oncall' },
+          'night':       { label: 'Night',   cls: 'sho-night'  },
+          'post-nights': { label: 'Post-N',  cls: 'sho-postn'  },
+          'off':         { label: 'Off',     cls: 'sho-off'    },
+          'standard':    { label: '·',       cls: 'sho-standard' },
+        };
+
+        const todayKey = dateKey(new Date());
+        const allDates = Object.keys(oncallCalendar).sort();
+        const DAY = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+        let html = '<div class="sho-save-bar">'
+          + '<span style="font-weight:600; font-size:0.9rem;">SHO Rota</span>'
+          + '<span style="color:var(--text-muted); font-size:0.8rem;">Edit names or initials to reassign a slot. Changes auto-save.</span>'
+          + '<span class="save-indicator" id="shoRotaSaveInd">Saved ✓</span>'
+          + '<div class="sho-legend">'
+          + '<span class="sho-legend-item"><span class="sho-legend-swatch" style="background:#dbeafe;border-color:#93c5fd"></span>Ward</span>'
+          + '<span class="sho-legend-item"><span class="sho-legend-swatch" style="background:#dcfce7;border-color:#86efac"></span>On-call</span>'
+          + '<span class="sho-legend-item"><span class="sho-legend-swatch" style="background:#1e293b;border-color:#475569"></span>Night</span>'
+          + '<span class="sho-legend-item"><span class="sho-legend-swatch" style="background:#fef3c7;border-color:#fde68a"></span>Post-nights</span>'
+          + '<span class="sho-legend-item"><span class="sho-legend-swatch" style="background:#f1f5f9;border-color:#e2e8f0"></span>Off</span>'
+          + '</div></div>';
+
+        html += '<div class="sho-scroll"><table class="sho-table"><thead><tr>';
+        html += '<th class="sho-th-date">Date</th>';
+        slots.forEach((id, i) => {
+          html += '<th class="sho-th-slot" data-slot="' + i + '">'
+            + '<div class="sho-slot-name"><input type="text" class="sho-name-input" data-slot="' + i + '" value="' + (nameMap[id] || id) + '"></div>'
+            + '<div class="sho-slot-id"><input type="text" class="sho-id-input" data-slot="' + i + '" value="' + id + '"></div>'
+            + '</th>';
+        });
+        html += '</tr></thead><tbody>';
+
+        allDates.forEach(key => {
+          const [y, mo, d] = key.split('-').map(Number);
+          const dow = new Date(y, mo - 1, d).getDay();
+          const isWeekend = dow === 0 || dow === 6;
+          const label = DAY[dow] + '&nbsp;' + String(d).padStart(2, '0') + '&nbsp;' + MON[mo - 1];
+          const duties = cycle[cycleOffset(key)] || [];
+          const isToday = key === todayKey;
+
+          html += '<tr' + (isWeekend ? ' class="sho-weekend"' : (isToday ? ' class="sho-today"' : '')) + '>';
+          html += '<td class="sho-date-cell">' + label + '</td>';
+          duties.forEach(duty => {
+            const cfg = DUTY[duty] || { label: '', cls: '' };
+            html += '<td class="sho-duty-cell ' + cfg.cls + '">' + cfg.label + '</td>';
+          });
+          html += '</tr>';
+        });
+
+        html += '</tbody></table></div>';
+        container.innerHTML = html;
+
+        // Scroll to today
+        requestAnimationFrame(() => {
+          const scrollEl = container.querySelector('.sho-scroll');
+          const todayRow = container.querySelector('tr.sho-today');
+          if (scrollEl && todayRow) {
+            const s = scrollEl.getBoundingClientRect();
+            const r = todayRow.getBoundingClientRect();
+            scrollEl.scrollTop += (r.top + r.height / 2) - (s.top + s.height / 2);
+          }
+        });
+
+        function flashSHOSave() {
+          const ind = document.getElementById('shoRotaSaveInd');
+          if (!ind) return;
+          ind.classList.add('show');
+          clearTimeout(ind._t);
+          ind._t = setTimeout(() => ind.classList.remove('show'), 2000);
+        }
+
+        function commitSlotChange(slotIdx, newId, newName) {
+          const oldId = shoRota.slots[slotIdx];
+          const idChanged = oldId !== newId && newId.trim();
+          const effectiveNewId = newId.trim() || oldId;
+          const effectiveNewName = newName.trim() || effectiveNewId;
+
+          // Update slot assignment
+          shoRota.slots[slotIdx] = effectiveNewId;
+
+          // Update people.shos
+          const shoIdx = people.shos.findIndex(s => s.id === oldId);
+          if (shoIdx !== -1) {
+            people.shos[shoIdx] = { ...people.shos[shoIdx], id: effectiveNewId, name: effectiveNewName };
+          } else {
+            people.shos.push({ id: effectiveNewId, name: effectiveNewName });
+          }
+
+          if (idChanged) {
+            // Replace old id with new id in oncall and leave from today onwards
+            const today = dateKey(new Date());
+            Object.keys(oncallCalendar).forEach(dk => {
+              if (dk < today) return;
+              const e = oncallCalendar[dk];
+              if (e.wardSho  === oldId) e.wardSho  = effectiveNewId;
+              if (e.daySho   === oldId) e.daySho   = effectiveNewId;
+              if (e.nightSho === oldId) e.nightSho = effectiveNewId;
+            });
+            Object.keys(leaveCalendar).forEach(dk => {
+              if (dk < today) return;
+              const e = leaveCalendar[dk];
+              if (Array.isArray(e.shos)) {
+                e.shos = e.shos.map(s => s === oldId ? effectiveNewId : s);
+              }
+            });
+            saveOncallToGitHub();
+            saveLeaveToGitHub();
+          }
+
+          saveSHORotaToGitHub();
+          saveRosterToGitHub();
+          flashSHOSave();
+        }
+
+        container.querySelectorAll('.sho-name-input, .sho-id-input').forEach(inp => {
+          inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); inp.blur(); } });
+          inp.addEventListener('blur', () => {
+            const slotIdx = Number(inp.dataset.slot);
+            const th = container.querySelector('.sho-th-slot[data-slot="' + slotIdx + '"]');
+            const nameInput = th.querySelector('.sho-name-input');
+            const idInput = th.querySelector('.sho-id-input');
+            commitSlotChange(slotIdx, idInput.value, nameInput.value);
+          });
+        });
       }
 
       function saveWeekJSON(monday) {
@@ -2600,6 +2805,7 @@
           scheduleFromMd = data.schedule;
           oncallCalendar = data.oncall;
           leaveCalendar = data.leave;
+          shoRota = data.shoCycle;
           // Expose migration helper to browser console
           window._migrateCSVtoJSON = migrateCSVtoJSON;
           if (new URLSearchParams(location.search).has('migrate')) {
@@ -2675,6 +2881,11 @@
           if (tabSchedule) tabSchedule.addEventListener('click', () => {
             setActiveView('schedule');
             renderScheduleEditor();
+          });
+          const tabSHO = document.getElementById('tabSHO');
+          if (tabSHO) tabSHO.addEventListener('click', () => {
+            setActiveView('sho');
+            renderSHOEditor();
           });
           setActiveView('week');
           setupContextMenu();

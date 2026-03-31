@@ -29,16 +29,23 @@ jobs:
               keys = sorted(d.keys())
               return datetime.date.fromisoformat(keys[-1]) if keys else TODAY
 
-          # Load SHO cycle
+          # Load SHO cycle (slot-indexed format)
           with open('Data/sho_cycle.json') as f:
               sho_cycle_data = json.load(f)
           CYCLE_REF  = datetime.date.fromisoformat(sho_cycle_data['cycleRefDate'])
           CYCLE_DAYS = sho_cycle_data['cycleDays']
+          SHO_SLOTS  = sho_cycle_data['slots']
           SHO_CYCLE  = sho_cycle_data['cycle']
 
           def sho_for_date(d):
-              offset = (d - CYCLE_REF).days % CYCLE_DAYS
-              return SHO_CYCLE[offset]
+              days = (d - CYCLE_REF).days
+              offset = ((days % CYCLE_DAYS) + CYCLE_DAYS) % CYCLE_DAYS
+              duties = SHO_CYCLE[offset]
+              ward   = next((SHO_SLOTS[i] for i, duty in enumerate(duties) if duty == 'ward'), None)
+              oncall = next((SHO_SLOTS[i] for i, duty in enumerate(duties) if duty == 'on-call'), None)
+              night  = next((SHO_SLOTS[i] for i, duty in enumerate(duties) if duty == 'night'), None)
+              postn  = [SHO_SLOTS[i] for i, duty in enumerate(duties) if duty == 'post-nights']
+              return {'wardSho': ward, 'daySho': oncall, 'nightSho': night, 'postNightsShos': postn}
 
           def extend_oncall(path, from_date, to_date):
               with open(path) as f:

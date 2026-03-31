@@ -1,8 +1,8 @@
 {
-  "description": "SHO 10-week rolling rota cycle. cycleRefDate is day 0.",
+  "description": "SHO 10-week rolling rota. slots[] maps position\u2192SHO id. cycle[] is 70 entries of 10 duties by slot position.",
   "cycleRefDate": "2026-01-05",
   "cycleDays": 70,
-  "shos": [
+  "slots": [
     "BA",
     "DE",
     "ST",
@@ -15,445 +15,845 @@
     "KR"
   ],
   "cycle": [
-    {
-      "wardSho": "ST",
-      "daySho": "OG",
-      "nightSho": "DS",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "ST",
-      "daySho": "SK",
-      "nightSho": "DS",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "ST",
-      "daySho": "LC",
-      "nightSho": "DS",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "ST",
-      "daySho": "SK",
-      "nightSho": "DS",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "ST",
-      "daySho": "LC",
-      "nightSho": "KR",
-      "postNightsShos": [
-        "DS"
-      ]
-    },
-    {
-      "wardSho": "ST",
-      "daySho": "LC",
-      "nightSho": "KR",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "ST",
-      "daySho": "LC",
-      "nightSho": "KR",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DE",
-      "daySho": "DS",
-      "nightSho": "SN",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DE",
-      "daySho": "OO",
-      "nightSho": "SN",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DE",
-      "daySho": "SK",
-      "nightSho": "SN",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DE",
-      "daySho": "OO",
-      "nightSho": "SN",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DE",
-      "daySho": "SK",
-      "nightSho": "OG",
-      "postNightsShos": [
-        "SN"
-      ]
-    },
-    {
-      "wardSho": "DE",
-      "daySho": "SK",
-      "nightSho": "OG",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DE",
-      "daySho": "SK",
-      "nightSho": "OG",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "BA",
-      "daySho": "SN",
-      "nightSho": "LC",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "BA",
-      "daySho": "ST",
-      "nightSho": "LC",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "BA",
-      "daySho": "OO",
-      "nightSho": "LC",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "BA",
-      "daySho": "ST",
-      "nightSho": "LC",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "BA",
-      "daySho": "OO",
-      "nightSho": "DS",
-      "postNightsShos": [
-        "LC"
-      ]
-    },
-    {
-      "wardSho": "BA",
-      "daySho": "OO",
-      "nightSho": "DS",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "BA",
-      "daySho": "OO",
-      "nightSho": "DS",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "KR",
-      "daySho": "LC",
-      "nightSho": "SK",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "KR",
-      "daySho": "DE",
-      "nightSho": "SK",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "KR",
-      "daySho": "ST",
-      "nightSho": "SK",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "KR",
-      "daySho": "DE",
-      "nightSho": "SK",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "KR",
-      "daySho": "ST",
-      "nightSho": "SN",
-      "postNightsShos": [
-        "SK"
-      ]
-    },
-    {
-      "wardSho": "KR",
-      "daySho": "ST",
-      "nightSho": "SN",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "KR",
-      "daySho": "ST",
-      "nightSho": "SN",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OG",
-      "daySho": "SK",
-      "nightSho": "OO",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OG",
-      "daySho": "BA",
-      "nightSho": "OO",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OG",
-      "daySho": "DE",
-      "nightSho": "OO",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OG",
-      "daySho": "BA",
-      "nightSho": "OO",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OG",
-      "daySho": "DE",
-      "nightSho": "LC",
-      "postNightsShos": [
-        "OO"
-      ]
-    },
-    {
-      "wardSho": "OG",
-      "daySho": "DE",
-      "nightSho": "LC",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OG",
-      "daySho": "DE",
-      "nightSho": "LC",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DS",
-      "daySho": "OO",
-      "nightSho": "ST",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DS",
-      "daySho": "KR",
-      "nightSho": "ST",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DS",
-      "daySho": "BA",
-      "nightSho": "ST",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DS",
-      "daySho": "KR",
-      "nightSho": "ST",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DS",
-      "daySho": "BA",
-      "nightSho": "SK",
-      "postNightsShos": [
-        "ST"
-      ]
-    },
-    {
-      "wardSho": "DS",
-      "daySho": "BA",
-      "nightSho": "SK",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "DS",
-      "daySho": "BA",
-      "nightSho": "SK",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SN",
-      "daySho": "ST",
-      "nightSho": "DE",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SN",
-      "daySho": "OG",
-      "nightSho": "DE",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SN",
-      "daySho": "KR",
-      "nightSho": "DE",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SN",
-      "daySho": "OG",
-      "nightSho": "DE",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SN",
-      "daySho": "KR",
-      "nightSho": "OO",
-      "postNightsShos": [
-        "DE"
-      ]
-    },
-    {
-      "wardSho": "SN",
-      "daySho": "KR",
-      "nightSho": "OO",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SN",
-      "daySho": "KR",
-      "nightSho": "OO",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "LC",
-      "daySho": "DE",
-      "nightSho": "BA",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "LC",
-      "daySho": "DS",
-      "nightSho": "BA",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "LC",
-      "daySho": "OG",
-      "nightSho": "BA",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "LC",
-      "daySho": "DS",
-      "nightSho": "BA",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "LC",
-      "daySho": "OG",
-      "nightSho": "ST",
-      "postNightsShos": [
-        "BA"
-      ]
-    },
-    {
-      "wardSho": "LC",
-      "daySho": "OG",
-      "nightSho": "ST",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "LC",
-      "daySho": "OG",
-      "nightSho": "ST",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SK",
-      "daySho": "BA",
-      "nightSho": "KR",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SK",
-      "daySho": "SN",
-      "nightSho": "KR",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SK",
-      "daySho": "DS",
-      "nightSho": "KR",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SK",
-      "daySho": "SN",
-      "nightSho": "KR",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SK",
-      "daySho": "DS",
-      "nightSho": "DE",
-      "postNightsShos": [
-        "KR"
-      ]
-    },
-    {
-      "wardSho": "SK",
-      "daySho": "DS",
-      "nightSho": "DE",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "SK",
-      "daySho": "DS",
-      "nightSho": "DE",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OO",
-      "daySho": "KR",
-      "nightSho": "OG",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OO",
-      "daySho": "LC",
-      "nightSho": "OG",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OO",
-      "daySho": "SN",
-      "nightSho": "OG",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OO",
-      "daySho": "LC",
-      "nightSho": "OG",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OO",
-      "daySho": "SN",
-      "nightSho": "BA",
-      "postNightsShos": [
-        "OG"
-      ]
-    },
-    {
-      "wardSho": "OO",
-      "daySho": "SN",
-      "nightSho": "BA",
-      "postNightsShos": []
-    },
-    {
-      "wardSho": "OO",
-      "daySho": "SN",
-      "nightSho": "BA",
-      "postNightsShos": []
-    }
+    [
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "standard",
+      "standard",
+      "off",
+      "night",
+      "on-call",
+      "standard"
+    ],
+    [
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "on-call",
+      "standard",
+      "off",
+      "night",
+      "standard",
+      "standard"
+    ],
+    [
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "off",
+      "on-call",
+      "standard",
+      "night",
+      "standard",
+      "off"
+    ],
+    [
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "on-call",
+      "off",
+      "standard",
+      "night",
+      "off",
+      "standard"
+    ],
+    [
+      "off",
+      "off",
+      "ward",
+      "standard",
+      "standard",
+      "on-call",
+      "standard",
+      "post-nights",
+      "standard",
+      "night"
+    ],
+    [
+      null,
+      null,
+      "ward",
+      null,
+      null,
+      "on-call",
+      null,
+      null,
+      null,
+      "night"
+    ],
+    [
+      null,
+      null,
+      "ward",
+      null,
+      null,
+      "on-call",
+      null,
+      null,
+      null,
+      "night"
+    ],
+    [
+      "standard",
+      "ward",
+      "off",
+      "standard",
+      "standard",
+      "off",
+      "night",
+      "on-call",
+      "standard",
+      "off"
+    ],
+    [
+      "standard",
+      "ward",
+      "off",
+      "on-call",
+      "standard",
+      "off",
+      "night",
+      "standard",
+      "standard",
+      "off"
+    ],
+    [
+      "standard",
+      "ward",
+      "standard",
+      "off",
+      "on-call",
+      "standard",
+      "night",
+      "standard",
+      "off",
+      "off"
+    ],
+    [
+      "standard",
+      "ward",
+      "standard",
+      "on-call",
+      "off",
+      "standard",
+      "night",
+      "off",
+      "standard",
+      "off"
+    ],
+    [
+      "off",
+      "ward",
+      "standard",
+      "standard",
+      "on-call",
+      "standard",
+      "post-nights",
+      "standard",
+      "night",
+      "off"
+    ],
+    [
+      null,
+      "ward",
+      null,
+      null,
+      "on-call",
+      null,
+      null,
+      null,
+      "night",
+      null
+    ],
+    [
+      null,
+      "ward",
+      null,
+      null,
+      "on-call",
+      null,
+      null,
+      null,
+      "night",
+      null
+    ],
+    [
+      "ward",
+      "off",
+      "standard",
+      "standard",
+      "off",
+      "night",
+      "on-call",
+      "standard",
+      "off",
+      "standard"
+    ],
+    [
+      "ward",
+      "off",
+      "on-call",
+      "standard",
+      "off",
+      "night",
+      "standard",
+      "standard",
+      "off",
+      "standard"
+    ],
+    [
+      "ward",
+      "standard",
+      "off",
+      "on-call",
+      "standard",
+      "night",
+      "standard",
+      "off",
+      "off",
+      "standard"
+    ],
+    [
+      "ward",
+      "standard",
+      "on-call",
+      "off",
+      "standard",
+      "night",
+      "off",
+      "standard",
+      "off",
+      "standard"
+    ],
+    [
+      "ward",
+      "standard",
+      "standard",
+      "on-call",
+      "standard",
+      "post-nights",
+      "standard",
+      "night",
+      "off",
+      "off"
+    ],
+    [
+      "ward",
+      null,
+      null,
+      "on-call",
+      null,
+      null,
+      null,
+      "night",
+      null,
+      null
+    ],
+    [
+      "ward",
+      null,
+      null,
+      "on-call",
+      null,
+      null,
+      null,
+      "night",
+      null,
+      null
+    ],
+    [
+      "off",
+      "standard",
+      "standard",
+      "off",
+      "night",
+      "on-call",
+      "standard",
+      "off",
+      "standard",
+      "ward"
+    ],
+    [
+      "off",
+      "on-call",
+      "standard",
+      "off",
+      "night",
+      "standard",
+      "standard",
+      "off",
+      "standard",
+      "ward"
+    ],
+    [
+      "standard",
+      "off",
+      "on-call",
+      "standard",
+      "night",
+      "standard",
+      "off",
+      "off",
+      "standard",
+      "ward"
+    ],
+    [
+      "standard",
+      "on-call",
+      "off",
+      "standard",
+      "night",
+      "off",
+      "standard",
+      "off",
+      "standard",
+      "ward"
+    ],
+    [
+      "standard",
+      "standard",
+      "on-call",
+      "standard",
+      "post-nights",
+      "standard",
+      "night",
+      "off",
+      "off",
+      "ward"
+    ],
+    [
+      null,
+      null,
+      "on-call",
+      null,
+      null,
+      null,
+      "night",
+      null,
+      null,
+      "ward"
+    ],
+    [
+      null,
+      null,
+      "on-call",
+      null,
+      null,
+      null,
+      "night",
+      null,
+      null,
+      "ward"
+    ],
+    [
+      "standard",
+      "standard",
+      "off",
+      "night",
+      "on-call",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off"
+    ],
+    [
+      "on-call",
+      "standard",
+      "off",
+      "night",
+      "standard",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off"
+    ],
+    [
+      "off",
+      "on-call",
+      "standard",
+      "night",
+      "standard",
+      "off",
+      "off",
+      "standard",
+      "ward",
+      "standard"
+    ],
+    [
+      "on-call",
+      "off",
+      "standard",
+      "night",
+      "off",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "standard"
+    ],
+    [
+      "standard",
+      "on-call",
+      "standard",
+      "post-nights",
+      "standard",
+      "night",
+      "off",
+      "off",
+      "ward",
+      "standard"
+    ],
+    [
+      null,
+      "on-call",
+      null,
+      null,
+      null,
+      "night",
+      null,
+      null,
+      "ward",
+      null
+    ],
+    [
+      null,
+      "on-call",
+      null,
+      null,
+      null,
+      "night",
+      null,
+      null,
+      "ward",
+      null
+    ],
+    [
+      "standard",
+      "off",
+      "night",
+      "on-call",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "standard"
+    ],
+    [
+      "standard",
+      "off",
+      "night",
+      "standard",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "on-call"
+    ],
+    [
+      "on-call",
+      "standard",
+      "night",
+      "standard",
+      "off",
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "off"
+    ],
+    [
+      "off",
+      "standard",
+      "night",
+      "off",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "on-call"
+    ],
+    [
+      "on-call",
+      "standard",
+      "post-nights",
+      "standard",
+      "night",
+      "off",
+      "off",
+      "ward",
+      "standard",
+      "standard"
+    ],
+    [
+      "on-call",
+      null,
+      null,
+      null,
+      "night",
+      null,
+      null,
+      "ward",
+      null,
+      null
+    ],
+    [
+      "on-call",
+      null,
+      null,
+      null,
+      "night",
+      null,
+      null,
+      "ward",
+      null,
+      null
+    ],
+    [
+      "off",
+      "night",
+      "on-call",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "standard",
+      "standard"
+    ],
+    [
+      "off",
+      "night",
+      "standard",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "on-call",
+      "standard"
+    ],
+    [
+      "standard",
+      "night",
+      "standard",
+      "off",
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "off",
+      "on-call"
+    ],
+    [
+      "standard",
+      "night",
+      "off",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "on-call",
+      "off"
+    ],
+    [
+      "standard",
+      "post-nights",
+      "standard",
+      "night",
+      "off",
+      "off",
+      "ward",
+      "standard",
+      "standard",
+      "on-call"
+    ],
+    [
+      null,
+      null,
+      null,
+      "night",
+      null,
+      null,
+      "ward",
+      null,
+      null,
+      "on-call"
+    ],
+    [
+      null,
+      null,
+      null,
+      "night",
+      null,
+      null,
+      "ward",
+      null,
+      null,
+      "on-call"
+    ],
+    [
+      "night",
+      "on-call",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "standard",
+      "standard",
+      "off"
+    ],
+    [
+      "night",
+      "standard",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "on-call",
+      "standard",
+      "off"
+    ],
+    [
+      "night",
+      "standard",
+      "off",
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "off",
+      "on-call",
+      "standard"
+    ],
+    [
+      "night",
+      "off",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "on-call",
+      "off",
+      "standard"
+    ],
+    [
+      "post-nights",
+      "standard",
+      "night",
+      "off",
+      "off",
+      "ward",
+      "standard",
+      "standard",
+      "on-call",
+      "standard"
+    ],
+    [
+      null,
+      null,
+      "night",
+      null,
+      null,
+      "ward",
+      null,
+      null,
+      "on-call",
+      null
+    ],
+    [
+      null,
+      null,
+      "night",
+      null,
+      null,
+      "ward",
+      null,
+      null,
+      "on-call",
+      null
+    ],
+    [
+      "on-call",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "standard",
+      "standard",
+      "off",
+      "night"
+    ],
+    [
+      "standard",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "on-call",
+      "standard",
+      "off",
+      "night"
+    ],
+    [
+      "standard",
+      "off",
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "off",
+      "on-call",
+      "standard",
+      "night"
+    ],
+    [
+      "off",
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "on-call",
+      "off",
+      "standard",
+      "night"
+    ],
+    [
+      "standard",
+      "night",
+      "off",
+      "off",
+      "ward",
+      "standard",
+      "standard",
+      "on-call",
+      "standard",
+      "post-nights"
+    ],
+    [
+      null,
+      "night",
+      null,
+      null,
+      "ward",
+      null,
+      null,
+      "on-call",
+      null,
+      null
+    ],
+    [
+      null,
+      "night",
+      null,
+      null,
+      "ward",
+      null,
+      null,
+      "on-call",
+      null,
+      null
+    ],
+    [
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "standard",
+      "standard",
+      "off",
+      "night",
+      "on-call"
+    ],
+    [
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "off",
+      "on-call",
+      "standard",
+      "off",
+      "night",
+      "standard"
+    ],
+    [
+      "off",
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "off",
+      "on-call",
+      "standard",
+      "night",
+      "standard"
+    ],
+    [
+      "standard",
+      "off",
+      "standard",
+      "ward",
+      "standard",
+      "on-call",
+      "off",
+      "standard",
+      "night",
+      "off"
+    ],
+    [
+      "night",
+      "off",
+      "off",
+      "ward",
+      "standard",
+      "standard",
+      "on-call",
+      "standard",
+      "post-nights",
+      "standard"
+    ],
+    [
+      "night",
+      null,
+      null,
+      "ward",
+      null,
+      null,
+      "on-call",
+      null,
+      null,
+      null
+    ],
+    [
+      "night",
+      null,
+      null,
+      "ward",
+      null,
+      null,
+      "on-call",
+      null,
+      null,
+      null
+    ]
   ]
 }
