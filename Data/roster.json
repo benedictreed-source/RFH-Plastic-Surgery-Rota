@@ -87,6 +87,7 @@
       "name": "Tiffany Oliver",
       "phone": "7979971598",
       "level": "GA2, Luton, MVH",
+      "academic": true,
       "pairedConsultantIds": [
         "SW"
       ]
