@@ -521,14 +521,14 @@
       background: var(--surface2);
       position: sticky; left: 0;
     }
-    .sho-table tr.sho-weekend td { background: #dbeafe !important; }
+    .sho-table tr.sho-weekend td { background: #dbeafe; }
     .sho-table tr.sho-weekend td.sho-date-cell { background: #c7d9f5 !important; }
     .sho-table tr.sho-today td { outline: 2px solid var(--accent); outline-offset: -1px; }
-    td.sho-ward     { background: #dbeafe; color: #1e40af; font-weight: 600; }
-    td.sho-oncall   { background: #dcfce7; color: #166534; font-weight: 600; }
-    td.sho-night    { background: #1e293b; color: #e2e8f0; font-weight: 600; }
-    td.sho-postn    { background: #fef3c7; color: #92400e; }
-    td.sho-off      { background: #f1f5f9; color: #94a3b8; }
+    td.sho-ward     { background: #dbeafe !important; color: #1e40af; font-weight: 600; }
+    td.sho-oncall   { background: #dcfce7 !important; color: #166534; font-weight: 600; }
+    td.sho-night    { background: #1e293b !important; color: #e2e8f0; font-weight: 600; }
+    td.sho-postn    { background: #f1f5f9 !important; color: #94a3b8; }
+    td.sho-off      { background: #f1f5f9 !important; color: #94a3b8; }
     td.sho-standard { color: #cbd5e1; }
     .sho-save-bar { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.82rem; color: var(--text-muted); }
     .sho-legend { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -2151,9 +2151,9 @@
           'ward':        { label: 'Ward',    cls: 'sho-ward'   },
           'on-call':     { label: 'On-call', cls: 'sho-oncall' },
           'night':       { label: 'Night',   cls: 'sho-night'  },
-          'post-nights': { label: 'Post-N',  cls: 'sho-postn'  },
+          'post-nights': { label: 'Off',      cls: 'sho-off'    },
           'off':         { label: 'Off',     cls: 'sho-off'    },
-          'standard':    { label: '·',       cls: 'sho-standard' },
+          'standard':    { label: 'NWD',     cls: 'sho-standard' },
         };
 
         const todayKey = dateKey(new Date());
@@ -2186,7 +2186,7 @@
         allDates.forEach(key => {
           const [y, mo, d] = key.split('-').map(Number);
           const dow = new Date(y, mo - 1, d).getDay();
-          const isWeekend = dow === 0 || dow === 6;
+          const isWeekend = dow === 0 || dow === 5 || dow === 6;
           const label = DAY[dow] + '&nbsp;' + String(d).padStart(2, '0') + '&nbsp;' + MON[mo - 1];
           const duties = cycle[cycleOffset(key)] || [];
           const isToday = key === todayKey;
