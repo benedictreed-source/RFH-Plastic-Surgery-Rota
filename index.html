@@ -2186,7 +2186,7 @@
         allDates.forEach(key => {
           const [y, mo, d] = key.split('-').map(Number);
           const dow = new Date(y, mo - 1, d).getDay();
-          const isWeekend = dow === 0 || dow === 5 || dow === 6;
+          const isWeekend = dow === 0 || dow === 6;
           const label = DAY[dow] + '&nbsp;' + String(d).padStart(2, '0') + '&nbsp;' + MON[mo - 1];
           const duties = cycle[cycleOffset(key)] || [];
           const isToday = key === todayKey;
