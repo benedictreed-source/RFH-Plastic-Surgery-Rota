@@ -479,8 +479,16 @@
     /* ── SHO Rota tab ─────────────────────────────── */
     .sho-scroll {
       overflow-x: auto;
-      overflow-y: auto;
-      max-height: calc(100vh - 130px);
+      overflow-y: clip; /* clip avoids creating a vertical scroll context, so window scrolls */
+    }
+    .sho-save-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--surface);
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid var(--border);
     }
     .sho-table {
       border-collapse: collapse;
@@ -497,8 +505,8 @@
       white-space: nowrap;
       min-width: 72px;
     }
-    .sho-table thead tr:nth-child(1) th { top: 0; }
-    .sho-table thead tr:nth-child(2) th { top: var(--sho-row1-h, 28px); }
+    .sho-table thead tr:nth-child(1) th { top: var(--sho-top1, 0px); }
+    .sho-table thead tr:nth-child(2) th { top: var(--sho-top2, 32px); }
     .sho-table thead th.sho-th-date { min-width: 100px; text-align: left; z-index: 3; position: sticky; left: 0; }
     .sho-name-input, .sho-id-input {
       font-family: inherit; border: 1px solid transparent; border-radius: 3px;
@@ -2213,18 +2221,19 @@
         html += '</tbody></table></div>';
         container.innerHTML = html;
 
-        // Set second header row top offset dynamically
+        // Set sticky top offsets dynamically based on save-bar + row heights
         requestAnimationFrame(() => {
-          const scrollEl = container.querySelector('.sho-scroll');
-          const row1 = scrollEl && scrollEl.querySelector('thead tr:nth-child(1) th');
-          if (row1) scrollEl.style.setProperty('--sho-row1-h', row1.offsetHeight + 'px');
+          const saveBar = container.querySelector('.sho-save-bar');
+          const row1th  = container.querySelector('thead tr:nth-child(1) th');
+          const sbH = saveBar ? saveBar.offsetHeight : 0;
+          const r1H = row1th  ? row1th.offsetHeight  : 0;
+          container.style.setProperty('--sho-top1', sbH + 'px');
+          container.style.setProperty('--sho-top2', (sbH + r1H) + 'px');
 
           // Scroll to today
           const todayRow = container.querySelector('tr[data-today="1"]');
-          if (scrollEl && todayRow) {
-            const s = scrollEl.getBoundingClientRect();
-            const r = todayRow.getBoundingClientRect();
-            scrollEl.scrollTop += (r.top + r.height / 2) - (s.top + s.height / 2);
+          if (todayRow) {
+            todayRow.scrollIntoView({ block: 'center', behavior: 'smooth' });
           }
         });
 
