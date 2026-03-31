@@ -117,7 +117,7 @@
         },
         {
           "type": "clinic",
-          "label": "NT Clinic",
+          "label": "DN Clinic RFH",
           "time": "pm",
           "reg": "BR",
           "reg2": null,
@@ -205,6 +205,16 @@
           "time": "all_day",
           "reg": "AE",
           "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "CK Clinic",
+          "time": "am",
+          "reg": "LG",
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": false
         }
       ]
     },
@@ -496,16 +506,6 @@
           "time": "all_day",
           "reg": "OH",
           "sho": null
-        },
-        {
-          "type": "clinic",
-          "label": "NT Clinic",
-          "time": "am",
-          "reg": "BR",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": false
         }
       ]
     },
@@ -592,7 +592,7 @@
     "2026-03-30": {
       "addedSessions": [
         {
-          "label": "NT Clinic",
+          "label": "DN Clinic RFH",
           "amReg": null,
           "amSho": null,
           "pmReg": "BR",
@@ -610,18 +610,14 @@
         "DSU2.amReg": "HC",
         "DSU1.amReg": "LG",
         "DSU2.pmReg": "HC",
-        "DSU1.pmReg": "LG",
-        "DSU2.amSho": "DH",
-        "DSU1.amSho": "SS",
-        "DSU2.pmSho": "DH",
-        "DSU1.pmSho": "SS"
+        "DSU1.pmReg": "LG"
       }
     },
-    "2026-04-03": {
+    "2026-03-31": {
       "addedSessions": [
         {
-          "label": "NT Clinic",
-          "amReg": "BR",
+          "label": "CK Clinic",
+          "amReg": "LG",
           "amSho": null,
           "pmReg": null,
           "pmSho": null,
@@ -629,9 +625,6 @@
           "half": "am",
           "manual": true
         }
-      ],
-      "removedIndices": [
-        9
       ]
     }
   }
