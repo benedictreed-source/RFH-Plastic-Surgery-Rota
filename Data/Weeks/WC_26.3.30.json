@@ -28,14 +28,14 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "HC",
+          "reg": "BR",
           "sho": "DH"
         },
         {
           "type": "theatre",
           "label": "DSU1",
           "time": "all_day",
-          "reg": "LG",
+          "reg": "AE",
           "sho": "SS"
         },
         {
@@ -114,6 +114,16 @@
           "time": "all_day",
           "reg": "NS",
           "sho": null
+        },
+        {
+          "type": "clinic",
+          "label": "",
+          "time": "pm",
+          "reg": null,
+          "reg2": null,
+          "sho": null,
+          "manual": true,
+          "locked": false
         }
       ]
     },
@@ -195,16 +205,6 @@
           "time": "all_day",
           "reg": "AE",
           "sho": null
-        },
-        {
-          "type": "clinic",
-          "label": "CK Clinic",
-          "time": "am",
-          "reg": "LG",
-          "reg2": null,
-          "sho": null,
-          "manual": true,
-          "locked": false
         }
       ]
     },
@@ -580,27 +580,15 @@
   ],
   "manualEdits": {
     "2026-03-30": {
-      "removedIndices": [
-        10,
-        9
-      ],
-      "regOverrides": {
-        "DSU2.amReg": "HC",
-        "DSU1.amReg": "LG",
-        "DSU2.pmReg": "HC",
-        "DSU1.pmReg": "LG"
-      }
-    },
-    "2026-03-31": {
       "addedSessions": [
         {
-          "label": "CK Clinic",
-          "amReg": "LG",
+          "label": "",
+          "amReg": null,
           "amSho": null,
           "pmReg": null,
           "pmSho": null,
           "type": "clinic",
-          "half": "am",
+          "half": "pm",
           "manual": true
         }
       ]
