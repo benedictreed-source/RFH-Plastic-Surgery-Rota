@@ -1061,8 +1061,9 @@
         if (leaveSet.has(nightSho)) nightSho = null;
         const isDsu1Day = DSU1_DAYS.includes(dayName);
 
+        const activeShoIds = new Set(shoRota ? shoRota.slots : (people.shos || []).map(s => s.id));
         var extraShos = (people.shos || []).map(s => s.id).filter(id =>
-          !leaveSet.has(id) && id !== wardSho && id !== oncallShoId && id !== nightSho
+          activeShoIds.has(id) && !leaveSet.has(id) && id !== wardSho && id !== oncallShoId && id !== nightSho
         );
         var nextShoIndex = 0;
         function takeExtraSho() {
@@ -2667,8 +2668,9 @@
               id !== postOncallRestSpR &&
               !registrarIsAcademic(id))
             : [];
+          const activeShoSlots = new Set(shoRota ? shoRota.slots : (people.shos || []).map(s => s.id));
           const availableShos = !isWeekend && people && people.shos
-            ? people.shos.map(s => s.id).filter(id => !leaveSet.has(id) && !usedShos.has(id) && id !== dayCtx.wardSho && id !== dayCtx.daySho && id !== dayCtx.nightSho)
+            ? people.shos.map(s => s.id).filter(id => activeShoSlots.has(id) && !leaveSet.has(id) && !usedShos.has(id) && id !== dayCtx.wardSho && id !== dayCtx.daySho && id !== dayCtx.nightSho)
             : [];
 
           let activityHtml = '<table class="inner-activities"><thead><tr>';
