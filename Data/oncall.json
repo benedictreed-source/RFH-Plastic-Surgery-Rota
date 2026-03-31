@@ -768,7 +768,7 @@
     "wardSho": "KR"
   },
   "2026-04-07": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "TO",
@@ -784,7 +784,7 @@
     "wardSho": "KR"
   },
   "2026-04-09": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "OS",
@@ -832,7 +832,7 @@
     "wardSho": "OG"
   },
   "2026-04-15": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "OO",
     "oncallConsultant": null,
     "oncallRegId": "CW",
@@ -848,7 +848,7 @@
     "wardSho": "OG"
   },
   "2026-04-17": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "HC",
@@ -856,7 +856,7 @@
     "wardSho": "OG"
   },
   "2026-04-18": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "HP",
@@ -864,7 +864,7 @@
     "wardSho": "OG"
   },
   "2026-04-19": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "HS",
@@ -929,7 +929,7 @@
   },
   "2026-04-27": {
     "daySho": "ST",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "TO",
     "wardReg": "TO",
@@ -937,7 +937,7 @@
   },
   "2026-04-28": {
     "daySho": "OG",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "OH",
     "wardReg": "TO",
@@ -945,7 +945,7 @@
   },
   "2026-04-29": {
     "daySho": "KR",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "OS",
     "wardReg": "TO",
@@ -953,7 +953,7 @@
   },
   "2026-04-30": {
     "daySho": "OG",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "ZA",
     "wardReg": "TO",
@@ -984,7 +984,7 @@
     "wardSho": "SN"
   },
   "2026-05-04": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "BA",
     "oncallConsultant": null,
     "oncallRegId": "BR",
@@ -1073,7 +1073,7 @@
   },
   "2026-05-15": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "RF",
     "wardReg": "ZA",
@@ -1081,7 +1081,7 @@
   },
   "2026-05-16": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "SA",
     "wardReg": "ZA",
@@ -1089,7 +1089,7 @@
   },
   "2026-05-17": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "TO",
     "wardReg": "ZA",
@@ -1213,7 +1213,7 @@
     "oncallConsultant": null,
     "oncallRegId": "LG",
     "wardReg": "AL",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-06-02": {
     "daySho": "OO",
@@ -1221,7 +1221,7 @@
     "oncallConsultant": null,
     "oncallRegId": "MHA",
     "wardReg": "AL",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-06-03": {
     "daySho": "SK",
@@ -1229,7 +1229,7 @@
     "oncallConsultant": null,
     "oncallRegId": "MT",
     "wardReg": "AL",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-06-04": {
     "daySho": "OO",
@@ -1237,7 +1237,7 @@
     "oncallConsultant": null,
     "oncallRegId": "RF",
     "wardReg": "AL",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-06-05": {
     "daySho": "SK",
@@ -1245,7 +1245,7 @@
     "oncallConsultant": null,
     "oncallRegId": "SA",
     "wardReg": "AZ",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-06-06": {
     "daySho": "SK",
@@ -1253,7 +1253,7 @@
     "oncallConsultant": null,
     "oncallRegId": "TO",
     "wardReg": "AZ",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-06-07": {
     "daySho": "SK",
@@ -1261,7 +1261,7 @@
     "oncallConsultant": null,
     "oncallRegId": "OH",
     "wardReg": "AZ",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-06-08": {
     "daySho": "SN",
@@ -1328,7 +1328,7 @@
     "wardSho": "KR"
   },
   "2026-06-16": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "HC",
@@ -1344,7 +1344,7 @@
     "wardSho": "KR"
   },
   "2026-06-18": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "HS",
@@ -1392,7 +1392,7 @@
     "wardSho": "OG"
   },
   "2026-06-24": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "OO",
     "oncallConsultant": null,
     "oncallRegId": "RF",
@@ -1408,7 +1408,7 @@
     "wardSho": "OG"
   },
   "2026-06-26": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "TO",
@@ -1416,7 +1416,7 @@
     "wardSho": "OG"
   },
   "2026-06-27": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "OH",
@@ -1424,7 +1424,7 @@
     "wardSho": "OG"
   },
   "2026-06-28": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "OS",
@@ -1489,7 +1489,7 @@
   },
   "2026-07-06": {
     "daySho": "ST",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "HC",
     "wardReg": "HC",
@@ -1497,7 +1497,7 @@
   },
   "2026-07-07": {
     "daySho": "OG",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "HP",
     "wardReg": "HC",
@@ -1505,7 +1505,7 @@
   },
   "2026-07-08": {
     "daySho": "KR",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "HS",
     "wardReg": "HC",
@@ -1513,7 +1513,7 @@
   },
   "2026-07-09": {
     "daySho": "OG",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "JC",
     "wardReg": "HC",
@@ -1544,7 +1544,7 @@
     "wardSho": "SN"
   },
   "2026-07-13": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "BA",
     "oncallConsultant": null,
     "oncallRegId": "MT",
@@ -1633,7 +1633,7 @@
   },
   "2026-07-24": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "CW",
     "wardReg": "JC",
@@ -1641,7 +1641,7 @@
   },
   "2026-07-25": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "HB",
     "wardReg": "JC",
@@ -1649,7 +1649,7 @@
   },
   "2026-07-26": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "HC",
     "wardReg": "JC",
@@ -1773,7 +1773,7 @@
     "oncallConsultant": null,
     "oncallRegId": "AL",
     "wardReg": "LG",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-08-11": {
     "daySho": "OO",
@@ -1781,7 +1781,7 @@
     "oncallConsultant": null,
     "oncallRegId": "AZ",
     "wardReg": "LG",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-08-12": {
     "daySho": "SK",
@@ -1789,7 +1789,7 @@
     "oncallConsultant": null,
     "oncallRegId": "BR",
     "wardReg": "LG",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-08-13": {
     "daySho": "OO",
@@ -1797,7 +1797,7 @@
     "oncallConsultant": null,
     "oncallRegId": "CW",
     "wardReg": "LG",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-08-14": {
     "daySho": "SK",
@@ -1805,7 +1805,7 @@
     "oncallConsultant": null,
     "oncallRegId": "HB",
     "wardReg": "MHA",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-08-15": {
     "daySho": "SK",
@@ -1813,7 +1813,7 @@
     "oncallConsultant": null,
     "oncallRegId": "HC",
     "wardReg": "MHA",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-08-16": {
     "daySho": "SK",
@@ -1821,7 +1821,7 @@
     "oncallConsultant": null,
     "oncallRegId": "HP",
     "wardReg": "MHA",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-08-17": {
     "daySho": "SN",
@@ -1888,7 +1888,7 @@
     "wardSho": "KR"
   },
   "2026-08-25": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "TO",
@@ -1904,7 +1904,7 @@
     "wardSho": "KR"
   },
   "2026-08-27": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "OS",
@@ -1952,7 +1952,7 @@
     "wardSho": "OG"
   },
   "2026-09-02": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "OO",
     "oncallConsultant": null,
     "oncallRegId": "CW",
@@ -1968,7 +1968,7 @@
     "wardSho": "OG"
   },
   "2026-09-04": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "HC",
@@ -1976,7 +1976,7 @@
     "wardSho": "OG"
   },
   "2026-09-05": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "HP",
@@ -1984,7 +1984,7 @@
     "wardSho": "OG"
   },
   "2026-09-06": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "HS",
@@ -2049,7 +2049,7 @@
   },
   "2026-09-14": {
     "daySho": "ST",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "TO",
     "wardReg": "TO",
@@ -2057,7 +2057,7 @@
   },
   "2026-09-15": {
     "daySho": "OG",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "OH",
     "wardReg": "TO",
@@ -2065,7 +2065,7 @@
   },
   "2026-09-16": {
     "daySho": "KR",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "OS",
     "wardReg": "TO",
@@ -2073,7 +2073,7 @@
   },
   "2026-09-17": {
     "daySho": "OG",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "ZA",
     "wardReg": "TO",
@@ -2104,7 +2104,7 @@
     "wardSho": "SN"
   },
   "2026-09-21": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "BA",
     "oncallConsultant": null,
     "oncallRegId": "BR",
@@ -2193,7 +2193,7 @@
   },
   "2026-10-02": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "RF",
     "wardReg": "ZA",
@@ -2201,7 +2201,7 @@
   },
   "2026-10-03": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "SA",
     "wardReg": "ZA",
@@ -2209,7 +2209,7 @@
   },
   "2026-10-04": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "TO",
     "wardReg": "ZA",
@@ -2333,7 +2333,7 @@
     "oncallConsultant": null,
     "oncallRegId": "LG",
     "wardReg": "AL",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-10-20": {
     "daySho": "OO",
@@ -2341,7 +2341,7 @@
     "oncallConsultant": null,
     "oncallRegId": "MHA",
     "wardReg": "AL",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-10-21": {
     "daySho": "SK",
@@ -2349,7 +2349,7 @@
     "oncallConsultant": null,
     "oncallRegId": "MT",
     "wardReg": "AL",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-10-22": {
     "daySho": "OO",
@@ -2357,7 +2357,7 @@
     "oncallConsultant": null,
     "oncallRegId": "RF",
     "wardReg": "AL",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-10-23": {
     "daySho": "SK",
@@ -2365,7 +2365,7 @@
     "oncallConsultant": null,
     "oncallRegId": "SA",
     "wardReg": "AZ",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-10-24": {
     "daySho": "SK",
@@ -2373,7 +2373,7 @@
     "oncallConsultant": null,
     "oncallRegId": "TO",
     "wardReg": "AZ",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-10-25": {
     "daySho": "SK",
@@ -2381,7 +2381,7 @@
     "oncallConsultant": null,
     "oncallRegId": "OH",
     "wardReg": "AZ",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-10-26": {
     "daySho": "SN",
@@ -2448,7 +2448,7 @@
     "wardSho": "KR"
   },
   "2026-11-03": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "HC",
@@ -2464,7 +2464,7 @@
     "wardSho": "KR"
   },
   "2026-11-05": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "HS",
@@ -2512,7 +2512,7 @@
     "wardSho": "OG"
   },
   "2026-11-11": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "OO",
     "oncallConsultant": null,
     "oncallRegId": "RF",
@@ -2528,7 +2528,7 @@
     "wardSho": "OG"
   },
   "2026-11-13": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "TO",
@@ -2536,7 +2536,7 @@
     "wardSho": "OG"
   },
   "2026-11-14": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "OH",
@@ -2544,7 +2544,7 @@
     "wardSho": "OG"
   },
   "2026-11-15": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "OS",
@@ -2609,7 +2609,7 @@
   },
   "2026-11-23": {
     "daySho": "ST",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "HC",
     "wardReg": "HC",
@@ -2617,7 +2617,7 @@
   },
   "2026-11-24": {
     "daySho": "OG",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "HP",
     "wardReg": "HC",
@@ -2625,7 +2625,7 @@
   },
   "2026-11-25": {
     "daySho": "KR",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "HS",
     "wardReg": "HC",
@@ -2633,7 +2633,7 @@
   },
   "2026-11-26": {
     "daySho": "OG",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "JC",
     "wardReg": "HC",
@@ -2664,7 +2664,7 @@
     "wardSho": "SN"
   },
   "2026-11-30": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "BA",
     "oncallConsultant": null,
     "oncallRegId": "MT",
@@ -2753,7 +2753,7 @@
   },
   "2026-12-11": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "CW",
     "wardReg": "JC",
@@ -2761,7 +2761,7 @@
   },
   "2026-12-12": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "HB",
     "wardReg": "JC",
@@ -2769,7 +2769,7 @@
   },
   "2026-12-13": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "HC",
     "wardReg": "JC",
@@ -2893,7 +2893,7 @@
     "oncallConsultant": null,
     "oncallRegId": "AL",
     "wardReg": "LG",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-12-29": {
     "daySho": "OO",
@@ -2901,7 +2901,7 @@
     "oncallConsultant": null,
     "oncallRegId": "AZ",
     "wardReg": "LG",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-12-30": {
     "daySho": "SK",
@@ -2909,7 +2909,7 @@
     "oncallConsultant": null,
     "oncallRegId": "BR",
     "wardReg": "LG",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2026-12-31": {
     "daySho": "OO",
@@ -2917,7 +2917,7 @@
     "oncallConsultant": null,
     "oncallRegId": "CW",
     "wardReg": "LG",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-01-01": {
     "daySho": "SK",
@@ -2925,7 +2925,7 @@
     "oncallConsultant": null,
     "oncallRegId": "AE",
     "wardReg": "ZA",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-01-02": {
     "daySho": "SK",
@@ -2933,7 +2933,7 @@
     "oncallConsultant": null,
     "oncallRegId": "AL",
     "wardReg": "AE",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-01-03": {
     "daySho": "SK",
@@ -2941,7 +2941,7 @@
     "oncallConsultant": null,
     "oncallRegId": "AZ",
     "wardReg": "AE",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-01-04": {
     "daySho": "SN",
@@ -3008,7 +3008,7 @@
     "wardSho": "KR"
   },
   "2027-01-12": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "LG",
@@ -3024,7 +3024,7 @@
     "wardSho": "KR"
   },
   "2027-01-14": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "MT",
@@ -3072,7 +3072,7 @@
     "wardSho": "OG"
   },
   "2027-01-20": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "OO",
     "oncallConsultant": null,
     "oncallRegId": "ZA",
@@ -3088,7 +3088,7 @@
     "wardSho": "OG"
   },
   "2027-01-22": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "AL",
@@ -3096,7 +3096,7 @@
     "wardSho": "OG"
   },
   "2027-01-23": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "AZ",
@@ -3104,7 +3104,7 @@
     "wardSho": "OG"
   },
   "2027-01-24": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "LC",
     "oncallConsultant": null,
     "oncallRegId": "BR",
@@ -3169,7 +3169,7 @@
   },
   "2027-02-01": {
     "daySho": "ST",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "LG",
     "wardReg": "CW",
@@ -3177,7 +3177,7 @@
   },
   "2027-02-02": {
     "daySho": "OG",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "MHA",
     "wardReg": "CW",
@@ -3185,7 +3185,7 @@
   },
   "2027-02-03": {
     "daySho": "KR",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "MT",
     "wardReg": "CW",
@@ -3193,7 +3193,7 @@
   },
   "2027-02-04": {
     "daySho": "OG",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "RF",
     "wardReg": "CW",
@@ -3224,7 +3224,7 @@
     "wardSho": "SN"
   },
   "2027-02-08": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "BA",
     "oncallConsultant": null,
     "oncallRegId": "OS",
@@ -3313,7 +3313,7 @@
   },
   "2027-02-19": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "JC",
     "wardReg": "HC",
@@ -3321,7 +3321,7 @@
   },
   "2027-02-20": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "LA",
     "wardReg": "HP",
@@ -3329,7 +3329,7 @@
   },
   "2027-02-21": {
     "daySho": "DS",
-    "nightSho": "DE",
+    "nightSho": "SS",
     "oncallConsultant": null,
     "oncallRegId": "LG",
     "wardReg": "HP",
@@ -3453,7 +3453,7 @@
     "oncallConsultant": null,
     "oncallRegId": "HC",
     "wardReg": "JC",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-03-09": {
     "daySho": "OO",
@@ -3461,7 +3461,7 @@
     "oncallConsultant": null,
     "oncallRegId": "HP",
     "wardReg": "JC",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-03-10": {
     "daySho": "SK",
@@ -3469,7 +3469,7 @@
     "oncallConsultant": null,
     "oncallRegId": "HS",
     "wardReg": "JC",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-03-11": {
     "daySho": "OO",
@@ -3477,7 +3477,7 @@
     "oncallConsultant": null,
     "oncallRegId": "JC",
     "wardReg": "JC",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-03-12": {
     "daySho": "SK",
@@ -3485,7 +3485,7 @@
     "oncallConsultant": null,
     "oncallRegId": "LA",
     "wardReg": "JC",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-03-13": {
     "daySho": "SK",
@@ -3493,7 +3493,7 @@
     "oncallConsultant": null,
     "oncallRegId": "LG",
     "wardReg": "LA",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-03-14": {
     "daySho": "SK",
@@ -3501,7 +3501,7 @@
     "oncallConsultant": null,
     "oncallRegId": "MHA",
     "wardReg": "LA",
-    "wardSho": "DE"
+    "wardSho": "SS"
   },
   "2027-03-15": {
     "daySho": "SN",
@@ -3568,7 +3568,7 @@
     "wardSho": "KR"
   },
   "2027-03-23": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "AL",
@@ -3584,7 +3584,7 @@
     "wardSho": "KR"
   },
   "2027-03-25": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "SK",
     "oncallConsultant": null,
     "oncallRegId": "BR",
@@ -3632,7 +3632,7 @@
     "wardSho": "OG"
   },
   "2027-03-31": {
-    "daySho": "DE",
+    "daySho": "SS",
     "nightSho": "OO",
     "oncallConsultant": null,
     "oncallRegId": "JC",
