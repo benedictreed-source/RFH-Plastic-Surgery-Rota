@@ -28,7 +28,7 @@
           "type": "theatre",
           "label": "DSU2",
           "time": "all_day",
-          "reg": "BR",
+          "reg": "SA",
           "sho": "DH"
         },
         {
@@ -117,9 +117,9 @@
         },
         {
           "type": "clinic",
-          "label": "",
+          "label": "DN Clinic RFH",
           "time": "pm",
-          "reg": null,
+          "reg": "BR",
           "reg2": null,
           "sho": null,
           "manual": true,
@@ -582,16 +582,19 @@
     "2026-03-30": {
       "addedSessions": [
         {
-          "label": "",
+          "label": "DN Clinic RFH",
           "amReg": null,
           "amSho": null,
-          "pmReg": null,
+          "pmReg": "BR",
           "pmSho": null,
           "type": "clinic",
           "half": "pm",
           "manual": true
         }
-      ]
+      ],
+      "regOverrides": {
+        "DSU2.pmReg": "SA"
+      }
     }
   }
 }
