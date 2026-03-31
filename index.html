@@ -523,7 +523,6 @@
     }
     .sho-table tr.sho-weekend td { background: #dbeafe; }
     .sho-table tr.sho-weekend td.sho-date-cell { background: #c7d9f5 !important; }
-    .sho-table tr.sho-today td { outline: 2px solid var(--accent); outline-offset: -1px; }
     td.sho-ward     { background: #dbeafe !important; color: #1e40af; font-weight: 600; }
     td.sho-oncall   { background: #dcfce7 !important; color: #166534; font-weight: 600; }
     td.sho-night    { background: #1e293b !important; color: #e2e8f0; font-weight: 600; }
@@ -2191,7 +2190,7 @@
           const duties = cycle[cycleOffset(key)] || [];
           const isToday = key === todayKey;
 
-          html += '<tr' + (isWeekend ? ' class="sho-weekend"' : (isToday ? ' class="sho-today"' : '')) + '>';
+          html += '<tr' + (isWeekend ? ' class="sho-weekend"' : '') + (isToday ? ' data-today="1"' : '') + '>';
           html += '<td class="sho-date-cell">' + label + '</td>';
           duties.forEach(duty => {
             const cfg = DUTY[duty] || { label: '', cls: '' };
@@ -2206,7 +2205,7 @@
         // Scroll to today
         requestAnimationFrame(() => {
           const scrollEl = container.querySelector('.sho-scroll');
-          const todayRow = container.querySelector('tr.sho-today');
+          const todayRow = container.querySelector('tr[data-today="1"]');
           if (scrollEl && todayRow) {
             const s = scrollEl.getBoundingClientRect();
             const r = todayRow.getBoundingClientRect();
