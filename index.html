@@ -477,37 +477,30 @@
     .schedule-half-badge.pm { background: #fef3c7; color: #92400e; }
 
     /* ── SHO Rota tab ─────────────────────────────── */
-    .sho-scroll {
-      overflow-x: auto;
-      overflow-y: clip; /* clip avoids creating a vertical scroll context, so window scrolls */
-    }
     .sho-save-bar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: var(--surface);
-      padding-top: 0.25rem;
-      padding-bottom: 0.25rem;
-      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 20;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.35rem 0; margin-bottom: 0;
+      font-size: 0.82rem; color: var(--text-muted);
     }
+    .sho-header-wrap {
+      position: sticky; top: var(--sho-savebar-h, 46px); z-index: 10;
+      border-bottom: 2px solid var(--border);
+    }
+    .sho-header-scroll { overflow-x: hidden; }
+    .sho-scroll { overflow-x: auto; }
     .sho-table {
-      border-collapse: collapse;
-      font-size: 0.78rem;
-      background: var(--surface);
+      border-collapse: collapse; font-size: 0.78rem;
+      background: var(--surface); table-layout: fixed;
     }
-    .sho-table thead th {
-      position: sticky;
-      z-index: 2;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      padding: 0.25rem 0.5rem;
-      text-align: center;
-      white-space: nowrap;
-      min-width: 72px;
+    .sho-hdr-table th {
+      background: var(--surface2); border: 1px solid var(--border);
+      padding: 0.25rem 0.5rem; text-align: center; white-space: nowrap;
+      width: 90px;
     }
-    .sho-table thead tr:nth-child(1) th { top: var(--sho-top1, 0px); }
-    .sho-table thead tr:nth-child(2) th { top: var(--sho-top2, 32px); }
-    .sho-table thead th.sho-th-date { min-width: 100px; text-align: left; z-index: 3; position: sticky; left: 0; }
+    .sho-hdr-table th.sho-th-date { width: 108px; text-align: left; }
+    .sho-hdr-table tr:nth-child(2) th { background: var(--surface); }
     .sho-name-input, .sho-id-input {
       font-family: inherit; border: 1px solid transparent; border-radius: 3px;
       background: transparent; text-align: center; width: 100%; box-sizing: border-box;
@@ -518,28 +511,23 @@
     .sho-name-input:focus, .sho-id-input:focus {
       outline: none; border-color: var(--accent); background: rgba(37,99,235,0.05);
     }
-    .sho-th-id { background: var(--surface); }
-    .sho-table td {
-      border: 1px solid var(--border);
-      padding: 0.15rem 0.4rem;
-      text-align: center;
-      white-space: nowrap;
+    .sho-body-table td {
+      border: 1px solid var(--border); padding: 0.15rem 0.4rem;
+      text-align: center; white-space: nowrap; width: 90px;
     }
-    .sho-table td.sho-date-cell {
-      text-align: left; font-variant-numeric: tabular-nums;
-      color: var(--text-muted); font-size: 0.75rem;
-      background: var(--surface2);
+    .sho-body-table td.sho-date-cell {
+      text-align: left; font-variant-numeric: tabular-nums; width: 108px;
+      color: var(--text-muted); font-size: 0.75rem; background: var(--surface2);
       position: sticky; left: 0;
     }
-    .sho-table tr.sho-weekend td { background: #f1f5f9; }
-    .sho-table tr.sho-weekend td.sho-date-cell { background: #e2e8f0 !important; }
+    .sho-body-table tr.sho-weekend td { background: #f1f5f9; }
+    .sho-body-table tr.sho-weekend td.sho-date-cell { background: #e2e8f0 !important; }
     td.sho-ward     { background: #dbeafe !important; color: #1e40af; font-weight: 600; }
     td.sho-oncall   { background: #ede9fe !important; color: #5b21b6; font-weight: 600; }
     td.sho-night    { background: #bfdbfe !important; color: #1e3a5f; font-weight: 600; }
     td.sho-postn    { background: #dcfce7 !important; color: #166534; }
     td.sho-off      { background: #dcfce7 !important; color: #166534; }
     td.sho-standard { background: #fff3e0 !important; color: #b45309; }
-    .sho-save-bar { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; font-size: 0.82rem; color: var(--text-muted); }
     .sho-legend { display: flex; gap: 1rem; flex-wrap: wrap; }
     .sho-legend-item { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; }
     .sho-legend-swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--border); display: inline-block; }
@@ -2182,25 +2170,25 @@
           + '<span class="sho-legend-item"><span class="sho-legend-swatch" style="background:#f1f5f9;border-color:#e2e8f0"></span>Off</span>'
           + '</div></div>';
 
-        html += '<div class="sho-scroll"><table class="sho-table"><thead>';
-        // Row 1: names
+        // ── Sticky header (separate table, scroll-synced) ──
+        html += '<div class="sho-header-wrap"><div class="sho-header-scroll" id="shoHdrScroll">';
+        html += '<table class="sho-table sho-hdr-table"><thead>';
         html += '<tr><th class="sho-th-date"></th>';
         slots.forEach((id, i) => {
           html += '<th class="sho-th-slot" data-slot="' + i + '">'
             + '<input type="text" class="sho-name-input" data-slot="' + i + '" value="' + (nameMap[id] || id) + '">'
             + '</th>';
         });
-        html += '</tr>';
-        // Row 2: initials
-        html += '<tr><th class="sho-th-date"></th>';
+        html += '</tr><tr><th class="sho-th-date"></th>';
         slots.forEach((id, i) => {
-          html += '<th class="sho-th-slot sho-th-id" data-slot="' + i + '">'
+          html += '<th class="sho-th-slot" data-slot="' + i + '">'
             + '<input type="text" class="sho-id-input" data-slot="' + i + '" value="' + id + '">'
             + '</th>';
         });
-        html += '</tr>';
-        html += '</thead><tbody>';
+        html += '</tr></thead></table></div></div>';
 
+        // ── Scrollable body ──
+        html += '<div class="sho-scroll" id="shoBodyScroll"><table class="sho-table sho-body-table"><tbody>';
         allDates.forEach(key => {
           const [y, mo, d] = key.split('-').map(Number);
           const dow = new Date(y, mo - 1, d).getDay();
@@ -2217,24 +2205,24 @@
           });
           html += '</tr>';
         });
-
         html += '</tbody></table></div>';
         container.innerHTML = html;
 
-        // Set sticky top offsets dynamically based on save-bar + row heights
         requestAnimationFrame(() => {
+          // Set header-wrap top = save-bar height
           const saveBar = container.querySelector('.sho-save-bar');
-          const row1th  = container.querySelector('thead tr:nth-child(1) th');
-          const sbH = saveBar ? saveBar.offsetHeight : 0;
-          const r1H = row1th  ? row1th.offsetHeight  : 0;
-          container.style.setProperty('--sho-top1', sbH + 'px');
-          container.style.setProperty('--sho-top2', (sbH + r1H) + 'px');
+          if (saveBar) container.style.setProperty('--sho-savebar-h', saveBar.offsetHeight + 'px');
+
+          // Sync horizontal scroll: body → header
+          const bodyScroll = document.getElementById('shoBodyScroll');
+          const hdrScroll  = document.getElementById('shoHdrScroll');
+          if (bodyScroll && hdrScroll) {
+            bodyScroll.addEventListener('scroll', () => { hdrScroll.scrollLeft = bodyScroll.scrollLeft; });
+          }
 
           // Scroll to today
           const todayRow = container.querySelector('tr[data-today="1"]');
-          if (todayRow) {
-            todayRow.scrollIntoView({ block: 'center', behavior: 'smooth' });
-          }
+          if (todayRow) todayRow.scrollIntoView({ block: 'center', behavior: 'smooth' });
         });
 
         function flashSHOSave() {
